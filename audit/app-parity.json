@@ -1,0 +1,4223 @@
+{
+  "schemaVersion": 1,
+  "version": "1.0.0",
+  "generatedOn": "2026-07-26",
+  "source": {
+    "adBlock": "现有插件/AdBlock.module",
+    "legacyInventory": "audit/legacy-inventory.json",
+    "currentConfig": "config/apps.mjs"
+  },
+  "legacyModules": {
+    "moduleCount": 11,
+    "items": [
+      {
+        "file": "4in1.module",
+        "targetApps": [
+          "Safari/浏览器",
+          "Google 搜索"
+        ],
+        "functions": [
+          "把“模块、插件、重写、sg、覆写”等特定 Google 搜索重定向到 yfamilys.com 的客户端配置索引"
+        ],
+        "specialFeatures": [
+          "第三方模块索引快捷跳转"
+        ],
+        "currentValidity": "语法主体可解析，但它不是去广告功能，且会改写用户主动搜索并把查询导航到第三方站点。",
+        "conflictRisk": "中：可能违背用户搜索意图；依赖不受本仓库控制的 yfamilys.com。",
+        "migrationDecision": "保留为明确标注的可选便利模块，不并入默认去广告核心。"
+      },
+      {
+        "file": "AdBlock.module",
+        "targetApps": [
+          "21财经",
+          "4gTV",
+          "58同城",
+          "淘宝",
+          "闲鱼",
+          "飞猪",
+          "淘票票",
+          "高德地图",
+          "优酷",
+          "AcFun",
+          "字节系",
+          "百度网盘",
+          "百度贴吧",
+          "百度地图",
+          "爱奇艺",
+          "哔哩哔哩",
+          "贝壳",
+          "中国移动",
+          "中国联通",
+          "天翼云盘",
+          "CSDN",
+          "携程",
+          "得物",
+          "豆瓣",
+          "斗鱼",
+          "饿了么",
+          "京东",
+          "Keep",
+          "网易云音乐",
+          "拼多多",
+          "微博",
+          "腾讯视频",
+          "微信",
+          "喜马拉雅",
+          "小红书",
+          "YouTube",
+          "知乎",
+          "以及源文件注释列出的其他 App"
+        ],
+        "functions": [
+          "通过 URL Rewrite 拦截开屏、横幅、信息流、推广配置、广告素材和部分遥测接口"
+        ],
+        "specialFeatures": [
+          "部分应用的更新提示、活动入口、推荐位和营销弹窗精简"
+        ],
+        "currentValidity": "纯 Rewrite 聚合规则；仍有可用的精确接口，但大量端点来自旧版 App，缺少更新时间和逐条验证证据。",
+        "conflictRisk": "高：同域规则多、拒绝响应类型混杂，部分规则可能命中正常配置、搜索或内容资源。",
+        "migrationDecision": "作为规则语料保留；只把可解释、精确且低误伤的匹配器并入稳定模块，其余进入兼容层或隔离。"
+      },
+      {
+        "file": "adultraplus.module",
+        "targetApps": [
+          "高德地图",
+          "网易云音乐",
+          "滴滴",
+          "LINE",
+          "京东",
+          "淘宝",
+          "闲鱼",
+          "知乎",
+          "微博",
+          "小红书",
+          "百度网盘",
+          "百度贴吧",
+          "Keep",
+          "喜马拉雅",
+          "顺丰",
+          "什么值得买",
+          "酷安",
+          "彩云天气",
+          "番茄/字节广告 SDK",
+          "以及模块中数百个接口覆盖的其他 App"
+        ],
+        "functions": [
+          "大规模启动页、信息流、弹窗、活动页、热词、广告 SDK、素材和遥测拦截",
+          "380 个响应脚本入口对 JSON、HTML 或 Protobuf 响应进行过滤"
+        ],
+        "specialFeatures": [
+          "部分 App UI 精简、搜索词净化、微信外链处理、去更新提示、去活动入口、去推荐和皮肤入口"
+        ],
+        "currentValidity": "混合有效。聚合文件标注自动维护于 2025-07，但包含 118 个不同远程脚本 URL、未固定分支、已删除上游文件和若干疑似拼接错误。",
+        "conflictRisk": "极高：2,098 条 Rewrite、380 个脚本入口和超大 MITM 列表；同接口多处理器、宽泛域名/IP、重复语义和第三方动态依赖并存。",
+        "migrationDecision": "禁止原样作为默认模块；结构化拆分、去重、修正语法并固定或本地化依赖，保留无法安全迁移的原文件用于回溯。"
+      },
+      {
+        "file": "bili-region.module",
+        "targetApps": [
+          "哔哩哔哩"
+        ],
+        "functions": [
+          "港澳台番剧自动换区",
+          "显示豆瓣评分"
+        ],
+        "specialFeatures": [
+          "地区自动选择",
+          "评分展示"
+        ],
+        "currentValidity": "依赖 NobyDa 的远程脚本；上游仓库仍存在，但该特定脚本需按当前接口再次核验。",
+        "conflictRisk": "中：会改写播放/番剧响应，代理不可用时可能影响播放；与纯去广告目标无直接关系。",
+        "migrationDecision": "保留为独立可选功能模块，固定经过审查的上游版本，不和广告核心共享处理入口。"
+      },
+      {
+        "file": "fanqie.module",
+        "targetApps": [
+          "番茄小说",
+          "部分字节系广告 SDK"
+        ],
+        "functions": [
+          "广告 SDK、素材、预加载、追踪和 PCDN 请求拦截"
+        ],
+        "specialFeatures": [
+          "PCDN 与部分遥测拦截"
+        ],
+        "currentValidity": "部分穿山甲广告端点仍有意义，但源文件含 Shadowrocket 不支持或含义不明确的通配 DOMAIN 写法。",
+        "conflictRisk": "极高：整域阻断 bytedance.com、byteorge.com、i.snssdk.com 等会误伤登录、配置、正文、同步或安全接口；静态 IP 已可能漂移。",
+        "migrationDecision": "以精确广告 SDK/素材端点替换；移除共享业务域、宽泛关键词和未经复核的静态 IP 封禁。"
+      },
+      {
+        "file": "gddt.module",
+        "targetApps": [
+          "高德地图"
+        ],
+        "functions": [
+          "首页、开屏、消息盒子、DSP 推荐、热词和归因广告处理"
+        ],
+        "specialFeatures": [
+          "首页和搜索 UI 精简"
+        ],
+        "currentValidity": "五个脚本入口把请求匹配器错误写成了第一个 script-path 参数，原文件不能按预期执行。",
+        "conflictRisk": "高：整站 MITM；直接拒绝天气接口会破坏正常天气功能。",
+        "migrationDecision": "修复为 pattern=，采用当前受维护脚本或本地处理器；不阻断正常天气和导航接口。"
+      },
+      {
+        "file": "wechatad.module",
+        "targetApps": [
+          "微信"
+        ],
+        "functions": [
+          "过滤微信公众号文章广告接口"
+        ],
+        "specialFeatures": [
+          "公众号阅读页精简"
+        ],
+        "currentValidity": "接口和远程脚本均为旧实现，需要针对当前 JSON/HTML 结构做失败开放处理。",
+        "conflictRisk": "低到中：匹配范围较窄，但错误返回结构可能导致公众号文章广告区或页面加载异常。",
+        "migrationDecision": "改为本仓库内的窄接口、幂等、解析失败返回原文处理器。"
+      },
+      {
+        "file": "weibolitead.module",
+        "targetApps": [
+          "微博轻享版/原国际版"
+        ],
+        "functions": [
+          "开屏、推荐流、关注流、趋势页和搜索推广处理"
+        ],
+        "specialFeatures": [
+          "搜索建议与趋势页精简"
+        ],
+        "currentValidity": "包含 ^ttps? 拼写错误；脚本来自第三方仓库旧路径，MITM 通配表达过宽。",
+        "conflictRisk": "高：错误匹配不生效；宽泛 *api.weibo* 可能截获无关微博账号或消息接口。",
+        "migrationDecision": "修正协议匹配，按明确 API 主机拆分，并使用本地响应过滤器。"
+      },
+      {
+        "file": "YouTubeAd.sgmodule",
+        "targetApps": [
+          "YouTube"
+        ],
+        "functions": [
+          "响应内广告节点过滤",
+          "广告统计请求拦截"
+        ],
+        "specialFeatures": [
+          "画中画",
+          "后台播放",
+          "歌词/字幕翻译选项",
+          "可选 UI 按钮精简"
+        ],
+        "currentValidity": "Maasea/sgmodule 在 2026-07 仍有针对广告判断的更新，但本地文件保留了未展开的模板变量，不能直接作为普通 Shadowrocket 模块稳定导入。",
+        "conflictRisk": "高：阻断全部 googlevideo/youtubei UDP 会影响 QUIC 和播放回退；服务端拼接广告无法保证完全移除。",
+        "migrationDecision": "采用近期维护版本并固定提交；去除未展开模板，保留失败开放和明确限制，不宣称 100% 屏蔽。"
+      },
+      {
+        "file": "ZhihuBlock.sgmodule",
+        "targetApps": [
+          "知乎"
+        ],
+        "functions": [
+          "开屏、首页信息流、热榜、搜索、回答/文章推荐、商业卡片和部分弹窗过滤"
+        ],
+        "specialFeatures": [
+          "首页与回答页 UI 精简",
+          "部分商业通知和运营入口隐藏"
+        ],
+        "currentValidity": "主要依赖同一个未固定版本的 zheye.min.js；部分 API 仍存在，但静态 IP、旧版本号和拦截通知计数等规则风险较高。",
+        "conflictRisk": "极高：拦截通知计数、配置、评论或完整问题响应可能误伤正常功能；MITM 包含 IP 和过宽主机。",
+        "migrationDecision": "保留明确广告字段与精确商业接口；移除通知、评论、账号和宽泛内容接口的直接拒绝。"
+      },
+      {
+        "file": "ZhihuOpt.sgmodule",
+        "targetApps": [
+          "知乎网页",
+          "Safari/浏览器"
+        ],
+        "functions": [
+          "知乎链接直达",
+          "移动页/桌面页 UA 显示优化"
+        ],
+        "specialFeatures": [
+          "去中转链接",
+          "网页布局优化"
+        ],
+        "currentValidity": "规则简单且可解释；UA 伪装可能随知乎页面策略变化。",
+        "conflictRisk": "中：修改全站 UA 可能影响登录、验证码或桌面/移动布局选择。",
+        "migrationDecision": "保留为独立可选便利模块；链接直达与 UA 优化分开，便于单独关闭。"
+      }
+    ]
+  },
+  "adBlock": {
+    "summary": {
+      "groupCount": 161,
+      "groupsWithRules": 158,
+      "coveredGroups": 11,
+      "riskIsolatedGroups": 20
+    },
+    "groups": [
+      {
+        "name": "21st Century Business Herald",
+        "sourceLine": 22,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 24,
+            "value": "^https?:\\/\\/api\\.21jingji\\.com\\/ad\\/ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "4gTV",
+        "sourceLine": 26,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 28,
+            "value": "^https?:\\/\\/service\\.4gtv\\.tv\\/4gtv\\/Data\\/(GetAD|ADLog) - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "58",
+        "sourceLine": 30,
+        "ruleCount": 5,
+        "disposition": "shared-cdn-risk",
+        "label": "不直接迁移：共享 CDN/媒体特征",
+        "components": [],
+        "note": "依赖共享 CDN、媒体文件名或尺寸特征，不能可靠区分正常内容。",
+        "rules": [
+          {
+            "sourceLine": 32,
+            "value": "^https?:\\/\\/app\\.58\\.com\\/api\\/home\\/(advertising|appadv)\\/ - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 34,
+            "value": "^https?:\\/\\/app\\.58\\.com\\/api\\/home\\/invite\\/popupAdv - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 36,
+            "value": "^https?:\\/\\/app\\.58\\.com\\/api\\/log\\/ - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 38,
+            "value": "^https?:\\/\\/pic\\d\\.ajkimg\\.com\\/mat\\/\\w+\\?imageMogr\\d\\/format\\/jpg\\/thumbnail\\/\\d{3}x\\d{4}$ - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 40,
+            "value": "^https?:\\/\\/\\w+\\.58cdn\\.com\\.cn\\/brandads\\/ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "Taobao",
+        "sourceLine": 48,
+        "ruleCount": 2,
+        "disposition": "partial",
+        "label": "部分安全迁移",
+        "components": [
+          {
+            "id": "taobao-tmall",
+            "name": "淘宝 / 天猫",
+            "path": "components/taobao-tmall.sgmodule",
+            "enabledByDefault": true
+          }
+        ],
+        "note": "保留精确开屏/广告服务；不采用共享 CDN 图片尺寸猜测。",
+        "rules": [
+          {
+            "sourceLine": 50,
+            "value": "^https?:\\/\\/(gw|heic)\\.alicdn\\.com\\/\\w{2}s\\/.+\\.jpg_(9\\d{2}|\\d{4}) - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 52,
+            "value": "^https?:\\/\\/(gw|heic)\\.alicdn\\.com\\/imgextra\\/.+\\d{4}-\\d{4}\\.jpg_(9\\d{2}|\\d{4}) - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "Xianyu",
+        "sourceLine": 54,
+        "ruleCount": 1,
+        "disposition": "replaced",
+        "label": "已本地化替代",
+        "components": [
+          {
+            "id": "xianyu",
+            "name": "闲鱼",
+            "path": "components/xianyu.sgmodule",
+            "enabledByDefault": true
+          },
+          {
+            "id": "xianyu-ui",
+            "name": "闲鱼可选 UI 精简",
+            "path": "extras/xianyu-ui.sgmodule",
+            "enabledByDefault": false
+          }
+        ],
+        "note": "开屏和显式商业卡默认处理；非广告 UI 精简单独可选。",
+        "rules": [
+          {
+            "sourceLine": 56,
+            "value": "^https?:\\/\\/acs\\.m\\.taobao\\.com\\/gw\\/mtop\\.taobao\\.idle\\.home\\.welcome\\/ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "Fliggy",
+        "sourceLine": 58,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 60,
+            "value": "^https?:\\/\\/acs\\.m\\.taobao\\.com\\/gw\\/mtop\\.trip\\.activity\\.querytmsresources\\/ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "Taopiaopiao",
+        "sourceLine": 62,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 64,
+            "value": "^https?:\\/\\/acs\\.m\\.taobao\\.com\\/gw\\/mtop\\.film\\.mtopadvertiseapi\\.queryadvertise\\/ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "AMap",
+        "sourceLine": 66,
+        "ruleCount": 1,
+        "disposition": "partial",
+        "label": "部分安全迁移",
+        "components": [
+          {
+            "id": "amap",
+            "name": "高德地图",
+            "path": "components/amap.sgmodule",
+            "enabledByDefault": true
+          }
+        ],
+        "note": "保留开屏和商业接口；旧天气误拦截与整站匹配不迁移。",
+        "rules": [
+          {
+            "sourceLine": 68,
+            "value": "^https?:\\/\\/m\\d\\.amap\\.com\\/ws\\/valueadded\\/alimama\\/splash_screen\\/ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "YOUKU",
+        "sourceLine": 70,
+        "ruleCount": 2,
+        "disposition": "unsafe",
+        "label": "不直接迁移：误伤风险",
+        "components": [],
+        "note": "按视频 URL 参数猜测广告，可能误伤正片或播放回退。",
+        "rules": [
+          {
+            "sourceLine": 72,
+            "value": "^https?:\\/\\/[\\w-.]+\\.ott\\.cibntv\\.net\\/[\\w\\/-]+.mp4\\?sid= - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 74,
+            "value": "^https?:\\/\\/[\\w-.]+\\.ott\\.cibntv\\.net\\/[\\w\\/-]+.mp4\\?ccode=02010101 - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "AcFun",
+        "sourceLine": 78,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 80,
+            "value": "^https?:\\/\\/api-new\\.app\\.acfun\\.cn\\/rest\\/app\\/flash\\/screen\\/ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "AiMeiJu",
+        "sourceLine": 82,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 84,
+            "value": "^https?:\\/\\/api\\.bjxkhc\\.com\\/index\\.php\\/app\\/ios\\/ads\\/ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "ByteDance",
+        "sourceLine": 90,
+        "ruleCount": 5,
+        "disposition": "partial",
+        "label": "部分安全迁移",
+        "components": [
+          {
+            "id": "douyin",
+            "name": "抖音",
+            "path": "components/douyin.sgmodule",
+            "enabledByDefault": true
+          },
+          {
+            "id": "fanqie",
+            "name": "番茄小说",
+            "path": "components/fanqie.sgmodule",
+            "enabledByDefault": true
+          }
+        ],
+        "note": "改为穿山甲/Gromore 精确广告端点；IP 与共享业务整域不迁移。",
+        "rules": [
+          {
+            "sourceLine": 92,
+            "value": "^https?:\\/\\/[\\w-]+\\.(amemv|musical|snssdk|tiktokv)\\.(com|ly)\\/(api|motor)\\/ad\\/ - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 94,
+            "value": "^https?:\\/\\/[\\w-]+\\.snssdk\\.com\\/.+_ad\\/ - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 96,
+            "value": "^https?:\\/\\/[\\w-]+\\.snssdk\\.com\\/motor\\/operation\\/activity\\/display\\/config\\/V2\\/ - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 98,
+            "value": "^https?:\\/\\/((25[0-5]|2[0-4]\\d|1\\d{2}|[1-9]?\\d)\\.){3}(25[0-5]|2[0-4]\\d|1\\d{2}|[1-9]?\\d)\\/img\\/ad\\.union\\.api\\/ - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 100,
+            "value": "^https?:\\/\\/dsp\\.toutiao\\.com\\/api\\/xunfei\\/ads\\/ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "Baidu NetDisk",
+        "sourceLine": 104,
+        "ruleCount": 3,
+        "disposition": "partial",
+        "label": "部分安全迁移",
+        "components": [
+          {
+            "id": "baidu-netdisk",
+            "name": "百度网盘",
+            "path": "components/baidu-netdisk.sgmodule",
+            "enabledByDefault": true
+          }
+        ],
+        "note": "保留广告、活动入口和明确广告素材；不修改会员、下载或播放。",
+        "rules": [
+          {
+            "sourceLine": 106,
+            "value": "^https?:\\/\\/pan\\.baidu\\.com\\/rest\\/\\d\\.\\d\\/pcs\\/adx - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 108,
+            "value": "^https?:\\/\\/pan\\.baidu\\.com\\/act\\/api\\/activityentry - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 110,
+            "value": "^https?:\\/\\/issuecdn\\.baidupcs\\.com\\/issue\\/netdisk\\/guanggao - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "Baidu Tieba",
+        "sourceLine": 112,
+        "ruleCount": 5,
+        "disposition": "ip-risk",
+        "label": "不直接迁移：IP 漂移风险",
+        "components": [],
+        "note": "至少一条规则直接匹配 IP；地址会漂移且缺少归属证明。",
+        "rules": [
+          {
+            "sourceLine": 114,
+            "value": "^https?:\\/\\/c\\.tieba\\.baidu\\.com\\/c\\/s\\/splashSchedule - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 116,
+            "value": "^https?:\\/\\/c\\.tieba\\.baidu\\.com\\/c\\/f\\/forum\\/getAdInfo - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 118,
+            "value": "^https?:\\/\\/c\\.tieba\\.baidu\\.com\\/\\w+\\/\\w+\\/(sync|newRnSync|mlog) - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 120,
+            "value": "^https?:\\/\\/((25[0-5]|2[0-4]\\d|1\\d{2}|[1-9]?\\d)\\.){3}(25[0-5]|2[0-4]\\d|1\\d{2}|[1-9]?\\d)\\/\\w+\\/\\w+\\/(sync|newRnSync|mlog) - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 122,
+            "value": "^https?:\\/\\/((25[0-5]|2[0-4]\\d|1\\d{2}|[1-9]?\\d)\\.){3}(25[0-5]|2[0-4]\\d|1\\d{2}|[1-9]?\\d)\\/c\\/s\\/splashSchedule - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "Baidu Map",
+        "sourceLine": 124,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 126,
+            "value": "^https?:\\/\\/newclient\\.map\\.baidu\\.com\\/client\\/phpui2\\/\\?qt=ads - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "Baidu InputMethod",
+        "sourceLine": 128,
+        "ruleCount": 2,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 130,
+            "value": "^https?:\\/\\/mime\\.baidu\\.com\\/v\\d\\/IosStart\\/getStartInfo$ - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 132,
+            "value": "^https?:\\/\\/mime\\.baidu\\.com\\/v\\d\\/activity\\/advertisement - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "iQIYI",
+        "sourceLine": 134,
+        "ruleCount": 6,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 136,
+            "value": "^https?:\\/\\/iface\\.iqiyi\\.com\\/api\\/getNewAdInfo - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 138,
+            "value": "^https?:\\/\\/act\\.vip\\.iqiyi\\.com\\/interact\\/api\\/show\\.do - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 140,
+            "value": "^https?:\\/\\/act\\.vip\\.iqiyi\\.com\\/interact\\/api\\/v\\d\\/show - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 142,
+            "value": "^https?:\\/\\/intl\\.iqiyi\\.com\\/ad_external\\/ - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 144,
+            "value": "^https?:\\/\\/intl\\.iqiyi\\.com\\/video\\/advertise - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 146,
+            "value": "^https?:\\/\\/u\\d\\.iqiyipic\\.com\\/image\\/[\\w\\/]+\\/oad_ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "bilibili",
+        "sourceLine": 150,
+        "ruleCount": 2,
+        "disposition": "replaced",
+        "label": "已本地化替代",
+        "components": [
+          {
+            "id": "bilibili",
+            "name": "哔哩哔哩",
+            "path": "components/bilibili.sgmodule",
+            "enabledByDefault": true
+          }
+        ],
+        "note": "保留开屏、推荐流、直播/动态显式广告；不修改会员或播放地址。",
+        "rules": [
+          {
+            "sourceLine": 152,
+            "value": "^https?:\\/\\/app\\.bilibili\\.com\\/x\\/v\\d\\/splash\\/ - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 154,
+            "value": "^https?:\\/\\/manga\\.bilibili\\.com\\/twirp\\/comic\\.v\\d\\.Comic\\/Flash - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "BeiTaiKitchen",
+        "sourceLine": 156,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 158,
+            "value": "^https?:\\/\\/channel\\.beitaichufang\\.com\\/channel\\/api\\/v\\d\\/promote\\/ios\\/start\\/page - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "BiShiJie",
+        "sourceLine": 160,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 162,
+            "value": "^https?:\\/\\/iapi\\.bishijie\\.com\\/actopen\\/v\\d\\/advertising\\/ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "Beike",
+        "sourceLine": 164,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 166,
+            "value": "^https?:\\/\\/app\\.api\\.ke\\.com\\/config\\/config\\/bootpage - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "boohee",
+        "sourceLine": 168,
+        "ruleCount": 1,
+        "disposition": "ip-risk",
+        "label": "不直接迁移：IP 漂移风险",
+        "components": [],
+        "note": "至少一条规则直接匹配 IP；地址会漂移且缺少归属证明。",
+        "rules": [
+          {
+            "sourceLine": 170,
+            "value": "^https?:\\/\\/((25[0-5]|2[0-4]\\d|1\\d{2}|[1-9]?\\d)\\.){3}(25[0-5]|2[0-4]\\d|1\\d{2}|[1-9]?\\d)\\/api\\/v\\d\\/app_square\\/start_up_with_ad$ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "bodivis",
+        "sourceLine": 172,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 174,
+            "value": "^https?:\\/\\/www\\.bodivis\\.com\\.cn\\/app\\/splashAdvertise - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "BabyHealth",
+        "sourceLine": 176,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 178,
+            "value": "^https?:\\/\\/yxyapi\\d\\.drcuiyutao\\.com\\/yxy-api-gateway\\/api\\/json\\/advert\\/ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "ChinaMobile",
+        "sourceLine": 184,
+        "ruleCount": 2,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 186,
+            "value": "^https?:\\/\\/clientaccess\\.10086\\.cn\\/biz-orange\\/DN\\/init\\/startInit - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 188,
+            "value": "^https?:\\/\\/wap\\.js\\.10086\\.cn\\/jsmccClient\\/cd\\/market_content\\/api\\/v\\d\\/market_content\\.page\\.query - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "ChinaUnicom",
+        "sourceLine": 192,
+        "ruleCount": 2,
+        "disposition": "normal-feature-risk",
+        "label": "不直接迁移：正常功能风险",
+        "components": [],
+        "note": "规则可能阻断账号、通知、更新或必要配置，不符合稳定版安全边界。",
+        "rules": [
+          {
+            "sourceLine": 194,
+            "value": "^https?:\\/\\/m\\.client\\.10010\\.com\\/mobileService\\/customer\\/accountListData\\.htm - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 196,
+            "value": "^https?:\\/\\/m\\.client\\.10010\\.com\\/uniAdmsInterface\\/getWelcomeAd - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "Cloud189",
+        "sourceLine": 200,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 202,
+            "value": "^https?:\\/\\/cloud\\.189\\.cn\\/include\\/splash\\/ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "YueMeTV",
+        "sourceLine": 204,
+        "ruleCount": 1,
+        "disposition": "ip-risk",
+        "label": "不直接迁移：IP 漂移风险",
+        "components": [],
+        "note": "至少一条规则直接匹配 IP；地址会漂移且缺少归属证明。",
+        "rules": [
+          {
+            "sourceLine": 206,
+            "value": "^https?:\\/\\/((25[0-5]|2[0-4]\\d|1\\d{2}|[1-9]?\\d)\\.){3}(25[0-5]|2[0-4]\\d|1\\d{2}|[1-9]?\\d):\\d+/xygj-config-api\\/queryData - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "CNTV",
+        "sourceLine": 210,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 212,
+            "value": "^https?:\\/\\/www\\.cntv\\.cn\\/nettv\\/adp\\/ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "Chelaile",
+        "sourceLine": 214,
+        "ruleCount": 3,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 216,
+            "value": "^https?:\\/\\/api\\.chelaile\\.net\\.cn\\/adpub\\/ - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 218,
+            "value": "^https?:\\/\\/api\\.chelaile\\.net\\.cn\\/goocity\\/advert\\/ - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 220,
+            "value": "^https?:\\/\\/web\\.chelaile\\.net\\.cn\\/api\\/adpub\\/ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "Caocao",
+        "sourceLine": 222,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 224,
+            "value": "^https?:\\/\\/cap\\.caocaokeji\\.cn\\/advert-bss\\/ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "CaijingNet",
+        "sourceLine": 226,
+        "ruleCount": 2,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 228,
+            "value": "^https?:\\/\\/api\\.caijingmobile\\.com\\/(ad|advert)\\/ - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 230,
+            "value": "^https?:\\/\\/m\\.caijing\\.com\\.cn\\/startup_ad_ios\\.html$ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "CSDN",
+        "sourceLine": 232,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 234,
+            "value": "^https?:\\/\\/gw\\.csdn\\.net\\/cms-app\\/v\\d+\\/home_page\\/open_advertisement - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "Ctrip",
+        "sourceLine": 236,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 238,
+            "value": "^https?:\\/\\/m\\.ctrip\\.com\\/restapi\\/soa2\\/\\d+\\/json\\/getAdsList - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "DU",
+        "sourceLine": 244,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 246,
+            "value": "^https?:\\/\\/app\\.poizon\\.com\\/api\\/v\\d\\/app\\/advertisement\\/ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "douban",
+        "sourceLine": 248,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 250,
+            "value": "^https?:\\/\\/api\\.douban\\.com\\/v\\d\\/app_ads\\/ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "DouYuZhiBo",
+        "sourceLine": 252,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 254,
+            "value": "^https?:\\/\\/rtbapi\\.douyucdn\\.cn\\/japi\\/sign\\/app\\/getinfo - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "Dangdang",
+        "sourceLine": 256,
+        "ruleCount": 2,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 258,
+            "value": "^https?:\\/\\/mapi\\.dangdang\\.com\\/index\\.php\\?action=init - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 260,
+            "value": "^https?:\\/\\/e\\.dangdang\\.com\\/media\\/api\\d\\.go\\?action=getDeviceStartPage - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "Daoyu",
+        "sourceLine": 262,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 264,
+            "value": "^https?:\\/\\/daoyu\\.sdo\\.com\\/api\\/userCommon\\/getAppStartAd - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "Dida",
+        "sourceLine": 266,
+        "ruleCount": 2,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 268,
+            "value": "^https?:\\/\\/capis(-slb)?\\.didapinche\\.com\\/ad\\/ - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 270,
+            "value": "^https?:\\/\\/www\\.didapinche\\.com\\/app\\/adstat\\/ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "Dianshijia",
+        "sourceLine": 272,
+        "ruleCount": 2,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 274,
+            "value": "^https?:\\/\\/api\\.gaoqingdianshi\\.com\\/api\\/v\\d\\/ad\\/ - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 276,
+            "value": "^https?:\\/\\/cdn\\.dianshihome\\.com\\/static\\/ad\\/ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "DDpai",
+        "sourceLine": 278,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 280,
+            "value": "^https?:\\/\\/app\\.ddpai\\.com\\/d\\/api\\/v\\d\\/config\\/get\\/bootscreen - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "DingDongMaiCai",
+        "sourceLine": 282,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 284,
+            "value": "^https?:\\/\\/maicai\\.api\\.ddxq\\.mobi\\/advert\\/ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "eLong",
+        "sourceLine": 290,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 292,
+            "value": "^https?:\\/\\/mobileapi-v6\\.elong\\.com\\/adgateway\\/ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "eDaijia",
+        "sourceLine": 294,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 296,
+            "value": "^https?:\\/\\/pic\\.edaijia\\.cn\\/adsplash\\/ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "eleme",
+        "sourceLine": 298,
+        "ruleCount": 4,
+        "disposition": "unsafe",
+        "label": "不直接迁移：误伤风险",
+        "components": [],
+        "note": "仅按共享 CDN 图片尺寸/视频文件名判断，无法证明素材一定是广告。",
+        "rules": [
+          {
+            "sourceLine": 300,
+            "value": "^https?:\\/\\/cube\\.elemecdn\\.com\\/[\\w\\/]+\\.jpeg\\?x-oss-process=image\\/resize,m_fill,w_\\d{3},h_\\d{4}\\/format,webp\\/ - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 302,
+            "value": "^https?:\\/\\/cube\\.elemecdn\\.com\\/[\\w\\/]+\\.jpeg\\?x-oss-process=image\\/resize,m_fill,w_1\\d{3},h_2\\d{3}\\/format,webp\\/ - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 304,
+            "value": "^https?:\\/\\/cube\\.elemecdn\\.com\\/[\\w\\/]+\\.jpeg\\?x-oss-process=image\\/resize,m_fill,w_6\\d{2},h_8\\d{2}\\/format,webp\\/ - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 306,
+            "value": "^https?:\\/\\/cube\\.elemecdn\\.com\\/\\w\\/\\w{2}\\/\\w+mp4\\.mp4\\? - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "ezviz ViedoGo",
+        "sourceLine": 308,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 310,
+            "value": "^https?:\\/\\/i\\.ys7\\.com\\/api\\/ads - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "Foodie",
+        "sourceLine": 316,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 318,
+            "value": "^https?:\\/\\/foodie-api\\.yiruikecorp\\.com\\/v\\d\\/(banner|notice)\\/overview - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "FOTOABLE",
+        "sourceLine": 320,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 322,
+            "value": "^https?:\\/\\/cdn\\.api\\.fotoable\\.com\\/Advertise\\/ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "FlyerTea",
+        "sourceLine": 324,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 326,
+            "value": "^https?:\\/\\/www\\.flyertea\\.com\\/source\\/plugin\\/mobile\\/mobile\\.php\\?module=advis - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "FengWatch",
+        "sourceLine": 328,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 330,
+            "value": "^https?:\\/\\/dsa-mfp\\.fengshows\\.cn\\/mfp\\/mfpMultipleDelivery\\.do\\?[a-z0-9&=]+adunitid - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "feng",
+        "sourceLine": 332,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 334,
+            "value": "^https?:\\/\\/api\\.feng\\.com\\/v\\d\\/advertisement\\/.*Claunch - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "FaceBeauty",
+        "sourceLine": 336,
+        "ruleCount": 2,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 338,
+            "value": "^https?:\\/\\/api-release\\.wuta-cam\\.com\\/ad_tree - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 340,
+            "value": "^https?:\\/\\/res-release\\.wuta-cam\\.com\\/json\\/ads_component_cache\\.json - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "Google",
+        "sourceLine": 346,
+        "ruleCount": 3,
+        "disposition": "replaced",
+        "label": "已本地化替代",
+        "components": [
+          {
+            "id": "youtube",
+            "name": "YouTube / YouTube Music",
+            "path": "components/youtube.sgmodule",
+            "enabledByDefault": true
+          }
+        ],
+        "note": "由固定 Maasea 快照的安全补丁替代旧纯 Rewrite；不封禁 QUIC/播放 CDN。",
+        "rules": [
+          {
+            "sourceLine": 350,
+            "value": "^https?:\\/\\/(www|s)\\.youtube\\.com\\/api\\/stats\\/ads - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 352,
+            "value": "^https?:\\/\\/(www|s)\\.youtube\\.com\\/(pagead|ptracking) - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 354,
+            "value": "^https?:\\/\\/\\s.youtube.com/api/stats/qoe?.*adformat= - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "Gofun",
+        "sourceLine": 356,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 358,
+            "value": "^https?:\\/\\/gateway\\.shouqiev\\.com(:8443)?\\/fsda\\/app\\/bootImage\\.json - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "Guotai Junan Securities",
+        "sourceLine": 360,
+        "ruleCount": 1,
+        "disposition": "unsafe",
+        "label": "不直接迁移：误伤风险",
+        "components": [],
+        "note": "按证券 App CDN 中任意 jpg 路径阻断，范围不具备广告专属性。",
+        "rules": [
+          {
+            "sourceLine": 362,
+            "value": "^https?:\\/\\/dl\\.app\\.gtja\\.com\\/dzswem\\/kvController\\/[\\w\\/]+\\.jpg$ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "HangZhou CityzenCard",
+        "sourceLine": 368,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 370,
+            "value": "^https?:\\/\\/smkmp\\.96225.com\\/smkcenter\\/ad/ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "Huomao",
+        "sourceLine": 372,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 374,
+            "value": "^https?:\\/\\/api\\.huomao\\.com\\/channels\\/loginAd - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "HanjuTV",
+        "sourceLine": 376,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 378,
+            "value": "^https?:\\/\\/api\\.hanju\\.koudaibaobao\\.com\\/api\\/carp\\/kp\\? - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "Huya",
+        "sourceLine": 380,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 382,
+            "value": "^https?:\\/\\/business\\.msstatic\\.com\\/advertiser\\/ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "iFLY Input",
+        "sourceLine": 388,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 390,
+            "value": "^https?:\\/\\/imeclient\\.openspeech\\.cn\\/adservice\\/ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "Intsig CamScaner",
+        "sourceLine": 392,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 394,
+            "value": "^https?:\\/\\/api\\.intsig\\.net\\/user\\/cs\\/operating\\/app\\/get_startpic\\/ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "iReader",
+        "sourceLine": 396,
+        "ruleCount": 3,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 398,
+            "value": "^https?:\\/\\/ih2\\.ireader\\.com\\/zyapi\\/bookstore\\/ad\\/ - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 400,
+            "value": "^https?:\\/\\/ih2\\.ireader\\.com\\/zyapi\\/self\\/screen\\/ad - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 402,
+            "value": "^https?:\\/\\/ih2\\.ireader\\.com\\/zycl\\/api\\/ad\\/ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "inanning",
+        "sourceLine": 404,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 406,
+            "value": "^https?:\\/\\/nnapp\\.cloudbae\\.cn:\\d+\\/mc\\/api\\/advert/ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "iFreeTime",
+        "sourceLine": 408,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 410,
+            "value": "^https?:\\/\\/api\\.applovefrom\\.com\\/api\\/v\\d\\/splash\\/ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "iCleaner",
+        "sourceLine": 412,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 414,
+            "value": "^https?:\\/\\/ib-soft\\.net\\/icleaner\\/txt\\/ad_priority\\.txt$ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "Inoreader",
+        "sourceLine": 416,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 418,
+            "value": "^https?:\\/\\/www\\.inoreader\\.com\\/adv\\/ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "i4",
+        "sourceLine": 420,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 422,
+            "value": "^https?:\\/\\/list-app-m\\.i4\\.cn\\/getopfstadinfo\\.xhtml - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "iFreeTimebook",
+        "sourceLine": 424,
+        "ruleCount": 2,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 426,
+            "value": "^https?:\\/\\/jxd524\\.github\\.io\\/iFreeTime\\/xid32uxaoecnfv2\\/ - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 428,
+            "value": "^https?:\\/\\/icc\\.one\\/iFreeTime\\/xid32uxaoecnfv2\\/ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "IKOSPro",
+        "sourceLine": 430,
+        "ruleCount": 2,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 432,
+            "value": "^https?:\\/\\/tracker-download\\.oss-cn-beijing\\.aliyuncs\\.com\\/SIMPlus\\/ad_ - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 434,
+            "value": "^https?:\\/\\/tracker-download\\.oss-cn-beijing\\.aliyuncs\\.com\\/SIMPlus\\/AD\\/ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "JD",
+        "sourceLine": 440,
+        "ruleCount": 4,
+        "disposition": "partial",
+        "label": "部分安全迁移",
+        "components": [
+          {
+            "id": "jd",
+            "name": "京东",
+            "path": "components/jd.sgmodule",
+            "enabledByDefault": true
+          }
+        ],
+        "note": "启动与显式广告字段由本地处理器持续过滤；保留订单、支付和物流。",
+        "rules": [
+          {
+            "sourceLine": 442,
+            "value": "^https?:\\/\\/api\\.m\\.jd.com\\/client\\.action\\?functionId=start - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 444,
+            "value": "^https?:\\/\\/api\\.m\\.jd.com\\/client\\.action\\?functionId=queryMaterialAdverts - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 446,
+            "value": "^https?:\\/\\/(bdsp-x|dsp-x)\\.jd\\.com\\/adx\\/ - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 448,
+            "value": "^https?:\\/\\/img\\d+\\.360buyimg\\.com\\/jddjadvertise\\/ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "JiaXiaoeDianTong",
+        "sourceLine": 450,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 452,
+            "value": "^https?:\\/\\/api\\.jxedt\\.com\\/ad\\/ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "JiaKaoBaoDian",
+        "sourceLine": 456,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 458,
+            "value": "^https?:\\/\\/\\w+\\.kakamobi\\.cn\\/api\\/open\\/v\\d\\/advert-sdk\\/ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "Jinse",
+        "sourceLine": 460,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 462,
+            "value": "^https?:\\/\\/app-api\\.jinse\\.com\\/v\\d\\/ad\\/ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "Kingsoft",
+        "sourceLine": 468,
+        "ruleCount": 5,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 470,
+            "value": "^https?:\\/\\/ios\\.wps\\.cn\\/ad-statistics-service - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 472,
+            "value": "^https?:\\/\\/\\w+\\.kingsoft-office-service\\.com\\/ad - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 474,
+            "value": "^https?:\\/\\/dict-mobile\\.iciba\\.com\\/interface\\/index\\.php\\?[\\w=&]*(c=ad|collectFeedsAdShowCount|KSFeedsAdCardViewController) - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 476,
+            "value": "^https?:\\/\\/service\\.iciba\\.com\\/popo\\/open\\/screens\\/v\\d\\?adjson - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 478,
+            "value": "^https?:\\/\\/mobile-pic\\.cache\\.iciba\\.com\\/feeds_ad\\/ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "Keep",
+        "sourceLine": 480,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 482,
+            "value": "^https?:\\/\\/api\\.gotokeep\\.com\\/ads - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "Kuaikan Comics",
+        "sourceLine": 484,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 486,
+            "value": "^https?:\\/\\/api\\.kkmh\\.com\\/v\\d+\\/(ad|advertisement)\\/ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "KOOWO",
+        "sourceLine": 488,
+        "ruleCount": 3,
+        "disposition": "ip-risk",
+        "label": "不直接迁移：IP 漂移风险",
+        "components": [],
+        "note": "至少一条规则直接匹配 IP；地址会漂移且缺少归属证明。",
+        "rules": [
+          {
+            "sourceLine": 490,
+            "value": "^https?:\\/\\/((25[0-5]|2[0-4]\\d|1\\d{2}|[1-9]?\\d)\\.){3}(25[0-5]|2[0-4]\\d|1\\d{2}|[1-9]?\\d)\\/MobileAdServer\\/ - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 492,
+            "value": "^https?:\\/\\/((25[0-5]|2[0-4]\\d|1\\d{2}|[1-9]?\\d)\\.){3}(25[0-5]|2[0-4]\\d|1\\d{2}|[1-9]?\\d)\\/EcomResourceServer/AdPlayPage/adinfo - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 494,
+            "value": "^https?:\\/\\/((25[0-5]|2[0-4]\\d|1\\d{2}|[1-9]?\\d)\\.){3}(25[0-5]|2[0-4]\\d|1\\d{2}|[1-9]?\\d)\\/g\\.real\\?aid=text_ad - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "LaiFeng",
+        "sourceLine": 500,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 502,
+            "value": "^https?:\\/\\/api\\.laifeng\\.com\\/v\\d\\/start\\/ads - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "Lenovo",
+        "sourceLine": 504,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 506,
+            "value": "^https?:\\/\\/api\\.club\\.lenovo\\.cn\\/common\\/open_ad - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "MI",
+        "sourceLine": 512,
+        "ruleCount": 5,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 514,
+            "value": "^https?:\\/\\/api\\.m\\.mi\\.com\\/v\\d\\/app\\/start - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 516,
+            "value": "^https?:\\/\\/api\\.jr\\.mi\\.com\\/v\\d\\/adv\\/ - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 518,
+            "value": "^https?:\\/\\/api\\.jr\\.mi\\.com\\/jr\\/api\\/playScreen - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 520,
+            "value": "^https?:\\/\\/(api-mifit|api-mifit-\\w+)\\.huami\\.com\\/discovery\\/mi\\/discovery\\/\\w+_ad\\? - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 522,
+            "value": "^https?:\\/\\/home\\.mi\\.com\\/cgi-op\\/api\\/v\\d\\/recommendation\\/banner - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "MogoRenter",
+        "sourceLine": 524,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 526,
+            "value": "^https?:\\/\\/api\\.mgzf\\.com\\/renter-operation\\/home\\/startHomePage - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "MojiWeather",
+        "sourceLine": 528,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 530,
+            "value": "^https?:\\/\\/cdn\\.moji\\.com\\/(adoss|adlink)\\/ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "ManHuaRen",
+        "sourceLine": 532,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 534,
+            "value": "^https?:\\/\\/mangaapi\\.manhuaren\\.com\\/v\\d\\/public\\/getStartPageAds - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "Meituan-Dianping",
+        "sourceLine": 536,
+        "ruleCount": 5,
+        "disposition": "unsafe",
+        "label": "不直接迁移：误伤风险",
+        "components": [],
+        "note": "旧规则大多按共享 CDN 目录或图片尺寸判断；仅在找到精确业务接口后迁移。",
+        "rules": [
+          {
+            "sourceLine": 538,
+            "value": "^https?:\\/\\/img\\.meituan\\.net\\/(adunion|display|dpmobile|midas)\\/\\w+\\.(gif|jpg|jpg\\.webp)$ - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 540,
+            "value": "^https?:\\/\\/(s3plus|flowplus)\\.meituan\\.net\\/v\\d\\/\\w+\\/linglong\\/\\w+\\.(gif|jpg|mp4) - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 542,
+            "value": "^https?:\\/\\/p\\d\\.meituan\\.net\\/(bizad|wmbanner)\\/\\w+\\.jpg - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 544,
+            "value": "^https?:\\/\\/p\\d\\.meituan\\.net\\/movie\\/\\w+\\.jpg\\?may_covertWebp - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 546,
+            "value": "^https?:\\/\\/wmapi\\.meituan\\.com\\/api\\/v\\d\\/startpicture - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "mwee",
+        "sourceLine": 548,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 550,
+            "value": "^https?:\\/\\/capi.mwee.cn/app-api/V\\d+/app/(ad|getstartad) - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "MiaoPai",
+        "sourceLine": 552,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 554,
+            "value": "^https?:\\/\\/b-api\\.ins\\.miaopai\\.com\\/\\d\\/ad/ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "Mafengwo",
+        "sourceLine": 556,
+        "ruleCount": 2,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 558,
+            "value": "^https?:\\/\\/mapi\\.mafengwo\\.cn\\/ad\\/ - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 560,
+            "value": "^https?:\\/\\/mapi\\.mafengwo\\.cn\\/travelguide\\/ad\\/ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "MixC",
+        "sourceLine": 562,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 564,
+            "value": "^https?:\\/\\/app\\.mixcapp\\.com\\/mixc\\/api\\/v\\d\\/ad - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "NetEase MailMaster",
+        "sourceLine": 572,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 574,
+            "value": "^https?:\\/\\/appconf\\.mail\\.163\\.com\\/mmad\\/ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "NetEase News",
+        "sourceLine": 576,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 578,
+            "value": "^https?:\\/\\/c\\.m\\.163\\.com\\/nc\\/gl\\/ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "NetEase MoneyKeeper",
+        "sourceLine": 580,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 582,
+            "value": "^https?:\\/\\/client\\.mail\\.163\\.com\\/apptrack\\/confinfo\\/searchMultiAds - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "NetEase CloudMusic",
+        "sourceLine": 584,
+        "ruleCount": 2,
+        "disposition": "ip-risk",
+        "label": "不直接迁移：IP 漂移风险",
+        "components": [],
+        "note": "至少一条规则直接匹配 IP；地址会漂移且缺少归属证明。",
+        "rules": [
+          {
+            "sourceLine": 586,
+            "value": "^https?:\\/\\/((25[0-5]|2[0-4]\\d|1\\d{2}|[1-9]?\\d)\\.){3}(25[0-5]|2[0-4]\\d|1\\d{2}|[1-9]?\\d)\\/eapi\\/ad\\/ - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 588,
+            "value": "^https?:\\/\\/interface(\\d)?.music.163.com\\/eapi\\/ad\\/ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "NetEase Kaola",
+        "sourceLine": 590,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 592,
+            "value": "^https?:\\/\\/sp\\.kaola\\.com\\/api\\/openad - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "NetEase You",
+        "sourceLine": 594,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 596,
+            "value": "^https?:\\/\\/support\\.you\\.163\\.com\\/xhr\\/boot\\/getBootMedia\\.json - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "NetEase SnailRead",
+        "sourceLine": 598,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 600,
+            "value": "^https?:\\/\\/p\\.du\\.163\\.com\\/ad\\/ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "NationalGeographic",
+        "sourceLine": 604,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 606,
+            "value": "^https?:\\/\\/dili\\.bdatu\\.com\\/jiekou\\/ad\\/ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "NationalGeographicChina",
+        "sourceLine": 608,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 610,
+            "value": "^https?:\\/\\/wap\\.ngchina\\.cn\\/news\\/adverts\\/ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "NIU",
+        "sourceLine": 612,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 614,
+            "value": "^https?:\\/\\/app-api\\.niu\\.com\\/v\\d\\/advertisement\\/ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "Naver TV",
+        "sourceLine": 616,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 618,
+            "value": "^https?:\\/\\/gfp\\.veta\\.naver\\.com\\/adcall\\? - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "Oray",
+        "sourceLine": 624,
+        "ruleCount": 2,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 626,
+            "value": "^https?:\\/\\/slapi\\.oray\\.net\\/client\\/ad - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 628,
+            "value": "^https?:\\/\\/slapi\\.oray\\.net\\/adver - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "PiaoGen",
+        "sourceLine": 634,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 636,
+            "value": "^https?:\\/\\/pss\\.txffp\\.com\\/piaogen\\/images\\/launchScreen/ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "Pinduoduo",
+        "sourceLine": 638,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 640,
+            "value": "^https?:\\/\\/api\\.(pinduoduo|yangkeduo)\\.com\\/api\\/cappuccino\\/splash - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "PeanutWiFi",
+        "sourceLine": 642,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 644,
+            "value": "^https?:\\/\\/cmsapi\\.wifi8\\.com\\/v\\d\\/(emptyAd|adNew)\\/ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "PConline",
+        "sourceLine": 646,
+        "ruleCount": 5,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 648,
+            "value": "^https?:\\/\\/agent-count\\.pconline\\.com\\.cn\\/counter\\/adAnalyse\\/ - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 650,
+            "value": "^https?:\\/\\/mrobot\\.pconline\\.com\\.cn\\/v\\d\\/ad2p - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 652,
+            "value": "^https?:\\/\\/mrobot\\.pconline\\.com\\.cn\\/s\\/onlineinfo\\/ad\\/ - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 654,
+            "value": "^https?:\\/\\/mrobot\\.pcauto\\.com\\.cn\\/v\\d\\/ad2p - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 656,
+            "value": "^https?:\\/\\/mrobot\\.pcauto\\.com\\.cn\\/xsp\\/s\\/auto\\/info\\/preload\\.xsp - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "QYER",
+        "sourceLine": 662,
+        "ruleCount": 3,
+        "disposition": "normal-feature-risk",
+        "label": "不直接迁移：正常功能风险",
+        "components": [],
+        "note": "规则可能阻断账号、通知、更新或必要配置，不符合稳定版安全边界。",
+        "rules": [
+          {
+            "sourceLine": 664,
+            "value": "^https?:\\/\\/open\\.qyer\\.com\\/qyer\\/startpage\\/ - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 666,
+            "value": "^https?:\\/\\/open\\.qyer\\.com\\/qyer\\/config\\/get - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 668,
+            "value": "^https?:\\/\\/media\\.qyer\\.com\\/ad\\/ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "Qinbaobao",
+        "sourceLine": 670,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 672,
+            "value": "^https?:\\/\\/api\\.qbb6\\.com\\/ad\\/ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "QDReader",
+        "sourceLine": 674,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 676,
+            "value": "^https?:\\/\\/mage\\.if\\.qidian\\.com\\/argus\\/api\\/v\\d\\/client\\/getsplashscreen - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "RRtv",
+        "sourceLine": 682,
+        "ruleCount": 3,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 684,
+            "value": "^https?:\\/\\/msspjh\\.emarbox\\.com\\/getAdConfig - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 686,
+            "value": "^https?:\\/\\/api\\.videozhishi\\.com\\/api\\/getAdvertising - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 688,
+            "value": "^https?:\\/\\/api\\.rr\\.tv\\/ad\\/ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "RELX",
+        "sourceLine": 690,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 692,
+            "value": "^https?:\\/\\/app\\.relxtech\\.com\\/dianziyan-api\\/api\\/screen\\/advert\\/random - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "Weibo",
+        "sourceLine": 700,
+        "ruleCount": 3,
+        "disposition": "replaced",
+        "label": "已本地化替代",
+        "components": [
+          {
+            "id": "weibo",
+            "name": "微博 / 微博轻享版",
+            "path": "components/weibo.sgmodule",
+            "enabledByDefault": true
+          }
+        ],
+        "note": "修复旧协议拼写并改用本地、窄主机、失败开放的 JSON 过滤。",
+        "rules": [
+          {
+            "sourceLine": 702,
+            "value": "^https?:\\/\\/sdkapp\\.uve\\.weibo\\.com\\/interface\\/sdk\\/(actionad|sdkad)\\.php - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 704,
+            "value": "^https?:\\/\\/wbapp\\.uve\\.weibo\\.com\\/wbapplua\\/wbpullad\\.lua - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 706,
+            "value": "^https?:\\/\\/weibointl\\.api\\.weibo\\.cn\\/portal\\.php\\?a=get_coopen_ads - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "tianqitong",
+        "sourceLine": 708,
+        "ruleCount": 3,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 710,
+            "value": "^https?:\\/\\/tqt\\.weibo\\.cn\\/overall\\/redirect\\.php\\?r=(tqt_sdkad|tqtad) - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 712,
+            "value": "^https?:\\/\\/tqt\\.weibo\\.cn\\/[\\w=?&%.-]+advert\\.index - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 714,
+            "value": "^https?:\\/\\/tqt\\.weibo\\.cn\\/api\\/advert\\/ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "SOHU",
+        "sourceLine": 718,
+        "ruleCount": 4,
+        "disposition": "normal-feature-risk",
+        "label": "不直接迁移：正常功能风险",
+        "components": [],
+        "note": "规则可能阻断账号、通知、更新或必要配置，不符合稳定版安全边界。",
+        "rules": [
+          {
+            "sourceLine": 720,
+            "value": "^https?:\\/\\/api\\.k\\.sohu\\.com\\/api\\/news\\/adsense - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 722,
+            "value": "^https?:\\/\\/pic\\.k\\.sohu\\.com\\/img\\d\\/wb\\/tj\\/ - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 724,
+            "value": "^https?:\\/\\/s1\\.api\\.tv\\.itc\\.cn\\/v\\d\\/mobile\\/control\\/switch\\.json - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 726,
+            "value": "^https?:\\/\\/(api|api-bk\\d+)\\.tv\\.sohu\\.com\\/agg\\/api\\/app\\/config\\/bootstrap - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "SMZDM",
+        "sourceLine": 728,
+        "ruleCount": 3,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 730,
+            "value": "^https?:\\/\\/api\\.smzdm\\.com\\/v\\d\\/util\\/loading - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 732,
+            "value": "^https?:\\/\\/app-api\\.smzdm\\.com\\/util\\/loading - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 734,
+            "value": "^https?:\\/\\/s\\d\\.zdmimg\\.com\\/www\\/api\\/v\\d\\/api\\/thirdAd\\.php - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "SCore",
+        "sourceLine": 736,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 738,
+            "value": "^https?:\\/\\/api\\.qiuduoduo\\.cn\\/guideimage - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "Shihuo",
+        "sourceLine": 740,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 742,
+            "value": "^https?:\\/\\/www\\.shihuo\\.cn\\/app\\d\\/saveAppInfo - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "Shouqiyueche",
+        "sourceLine": 744,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 746,
+            "value": "^https?:\\/\\/gw-passenger\\.01zhuanche\\.com\\/gw-passenger\\/zhuanche-passengerController\\/notk\\/passenger\\/recommendADs - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "Suning",
+        "sourceLine": 748,
+        "ruleCount": 2,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 750,
+            "value": "^https?:\\/\\/image\\.suning\\.cn\\/uimg\\/ma\\/ad\\/ - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 752,
+            "value": "^https?:\\/\\/mpcs\\.suning\\.com\\/mpcs\\/dm\\/getDmInfo - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "SOGO",
+        "sourceLine": 754,
+        "ruleCount": 0,
+        "disposition": "no-active-rule",
+        "label": "无可执行规则",
+        "components": [],
+        "note": "原分组只有注释，没有可执行规则。",
+        "rules": []
+      },
+      {
+        "name": "SF Express",
+        "sourceLine": 758,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 760,
+            "value": "^https?:\\/\\/ccsp-egmas\\.sf-express\\.com\\/cx-app-base\\/base\\/app\\/ad\\/ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "SF HiveConsumer",
+        "sourceLine": 762,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 764,
+            "value": "^https?:\\/\\/consumer\\.fcbox\\.com\\/v\\d\\/ad\\/ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "SuperFriday",
+        "sourceLine": 766,
+        "ruleCount": 1,
+        "disposition": "ip-risk",
+        "label": "不直接迁移：IP 漂移风险",
+        "components": [],
+        "note": "至少一条规则直接匹配 IP；地址会漂移且缺少归属证明。",
+        "rules": [
+          {
+            "sourceLine": 768,
+            "value": "^https?:\\/\\/((25[0-5]|2[0-4]\\d|1\\d{2}|[1-9]?\\d)\\.){3}(25[0-5]|2[0-4]\\d|1\\d{2}|[1-9]?\\d)(:\\d+)?\\/V\\d\\/splash\\/getSplashV\\d\\.action$ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "Snail Sleep",
+        "sourceLine": 770,
+        "ruleCount": 2,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 772,
+            "value": "^https?:\\/\\/snailsleep\\.net\\/snail\\/v\\d\\/screen\\/qn\\/get\\? - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 774,
+            "value": "^https?:\\/\\/snailsleep\\.net\\/snail\\/v\\d\\/adTask\\/ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "FUTU",
+        "sourceLine": 782,
+        "ruleCount": 2,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 784,
+            "value": "^https?:\\/\\/api\\.futunn\\.com\\/v\\d\\/ad\\/ - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 786,
+            "value": "^https?:\\/\\/api\\d\\.futunn\\.com\\/ad\\/ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "Tencent Game",
+        "sourceLine": 788,
+        "ruleCount": 2,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 790,
+            "value": "^https?:\\/\\/ssl\\.kohsocialapp\\.qq\\.com:\\d+\\/game\\/buttons - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 792,
+            "value": "^https?:\\/\\/qt\\.qq\\.com\\/lua\\/mengyou\\/get_splash_screen_info - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "Tencent Map",
+        "sourceLine": 794,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 796,
+            "value": "^https?:\\/\\/4gimg\\.map\\.qq\\.com\\/mwaSplash\\/ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "Tencent Video",
+        "sourceLine": 798,
+        "ruleCount": 5,
+        "disposition": "unsafe",
+        "label": "不直接迁移：误伤风险",
+        "components": [],
+        "note": "旧规则按视频 CDN 文件名/IP 猜测广告，可能破坏播放。",
+        "rules": [
+          {
+            "sourceLine": 800,
+            "value": "^https?:\\/\\/vv\\.video\\.qq\\.com\\/getvmind\\? - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 802,
+            "value": "^https?:\\/\\/((25[0-5]|2[0-4]\\d|1\\d{2}|[1-9]?\\d)\\.){3}(25[0-5]|2[0-4]\\d|1\\d{2}|[1-9]?\\d)\\/[a-z.]+\\.tc\\.qq\\.com\\/[\\w\\W]+p20\\d\\.1\\.mp4\\? - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 804,
+            "value": "^https?:\\/\\/((25[0-5]|2[0-4]\\d|1\\d{2}|[1-9]?\\d)\\.){3}(25[0-5]|2[0-4]\\d|1\\d{2}|[1-9]?\\d)\\/[a-z.]+\\.tc\\.qq\\.com\\/[\\w\\W]+=v3004 - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 806,
+            "value": "^https?:\\/\\/video\\.dispatch\\.tc\\.qq\\.com\\/\\w+\\.p20\\d\\.1\\.mp4 - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 808,
+            "value": "^https?:\\/\\/((25[0-5]|2[0-4]\\d|1\\d{2}|[1-9]?\\d)\\.){3}(25[0-5]|2[0-4]\\d|1\\d{2}|[1-9]?\\d)\\/[a-z.]+\\.tc\\.qq\\.com\\/[\\w\\W]+_p20\\d_ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "Tencent News",
+        "sourceLine": 810,
+        "ruleCount": 1,
+        "disposition": "partial",
+        "label": "部分安全迁移",
+        "components": [
+          {
+            "id": "qq",
+            "name": "QQ / 腾讯系广告",
+            "path": "components/qq.sgmodule",
+            "enabledByDefault": true
+          }
+        ],
+        "note": "保留明确开屏/GDT 广告；不拒绝正常远程配置。",
+        "rules": [
+          {
+            "sourceLine": 812,
+            "value": "^https?:\\/\\/r\\.inews\\.qq\\.com\\/(adsBlacklist|getFullScreenPic|getQQNewsRemoteConfig) - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "Tencent Sports",
+        "sourceLine": 814,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 816,
+            "value": "^https?:\\/\\/news\\.ssp\\.qq\\.com\\/app - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "Tencent Music",
+        "sourceLine": 818,
+        "ruleCount": 2,
+        "disposition": "ip-risk",
+        "label": "不直接迁移：IP 漂移风险",
+        "components": [],
+        "note": "至少一条规则直接匹配 IP；地址会漂移且缺少归属证明。",
+        "rules": [
+          {
+            "sourceLine": 820,
+            "value": "^https?:\\/\\/y\\.gtimg\\.cn\\/music\\/common\\/upload\\/t_splash_info\\/ - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 822,
+            "value": "^https?:\\/\\/((25[0-5]|2[0-4]\\d|1\\d{2}|[1-9]?\\d)\\.){3}(25[0-5]|2[0-4]\\d|1\\d{2}|[1-9]?\\d)\\/music\\/common\\/upload\\/t_splash_info\\/ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "Tencent WeChat",
+        "sourceLine": 824,
+        "ruleCount": 0,
+        "disposition": "no-active-rule",
+        "label": "无可执行规则",
+        "components": [],
+        "note": "原分组只有注释，没有可执行规则。",
+        "rules": []
+      },
+      {
+        "name": "TuNiu",
+        "sourceLine": 830,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 832,
+            "value": "^https?:\\/\\/m\\.tuniu\\.com\\/api\\/operation\\/splash\\/ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "TVBCLive",
+        "sourceLine": 834,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 836,
+            "value": "^https?:\\/\\/mob\\.mddcloud\\.com\\.cn\\/api\\/(ad|advert)\\/ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "UCar",
+        "sourceLine": 842,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 844,
+            "value": "^https?:\\/\\/img\\d+\\.10101111cdn\\.com\\/adpos\\/ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "Umeng",
+        "sourceLine": 846,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 848,
+            "value": "^https:\\/\\/msg\\.umengcloud\\.com\\/admsg\\/ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "Umetrip",
+        "sourceLine": 850,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 852,
+            "value": "^https:\\/\\/img\\.umetrip\\.com\\/fs\\/advert/ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "VUE",
+        "sourceLine": 858,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 860,
+            "value": "^https?:\\/\\/api\\.vuevideo\\.net\\/api\\/v\\d\\/ad\\/ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "VariFlight",
+        "sourceLine": 862,
+        "ruleCount": 3,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 864,
+            "value": "^https?:\\/\\/app\\.variflight\\.com\\/ad\\/ - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 866,
+            "value": "^https?:\\/\\/app\\.variflight\\.com\\/v\\d\\/advert\\/ - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 868,
+            "value": "^https?:\\/\\/api\\.cdmcaac\\.com\\/ad\\/ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "VISTOPIA",
+        "sourceLine": 870,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 872,
+            "value": "^https?:\\/\\/api\\.vistopia\\.com\\.cn\\/api\\/v\\d\\/home\\/advertisement - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "WeDoctor",
+        "sourceLine": 878,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 880,
+            "value": "^https?:\\/\\/app\\.wy\\.guahao\\.com\\/json\\/white\\/dayquestion\\/getpopad - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "Weico",
+        "sourceLine": 882,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 884,
+            "value": "^https?:\\/\\/overseas\\.weico\\.cc/portal\\.php\\?a=get_coopen_ads - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "Weidian",
+        "sourceLine": 886,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 888,
+            "value": "^https?:\\/\\/thor\\.weidian\\.com\\/ares\\/home\\.splash\\/ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "WaitWaitPay",
+        "sourceLine": 890,
+        "ruleCount": 0,
+        "disposition": "no-active-rule",
+        "label": "无可执行规则",
+        "components": [],
+        "note": "原分组只有注释，没有可执行规则。",
+        "rules": []
+      },
+      {
+        "name": "WallStCN",
+        "sourceLine": 894,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 896,
+            "value": "^https?:\\/\\/api\\.wallstcn\\.com\\/apiv\\d\\/advertising\\/ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "Xiachufang",
+        "sourceLine": 902,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 904,
+            "value": "^https?:\\/\\/api\\.xiachufang\\.com\\/v\\d\\/ad/ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "XiaoChaoBrain",
+        "sourceLine": 906,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 908,
+            "value": "^https?:\\/\\/api\\.psy-1\\.com\\/cosleep\\/startup - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "Xunyou Game Booster",
+        "sourceLine": 910,
+        "ruleCount": 2,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 912,
+            "value": "^https?:\\/\\/portal-xunyou\\.qingcdn\\.com\\/api\\/v\\d\\/ios\\/configs\\/(splash_ad|ad_urls) - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 914,
+            "value": "^https?:\\/\\/portal-xunyou\\.qingcdn\\.com\\/api\\/v\\d\\/ios\\/ads\\/ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "Ximalaya FM",
+        "sourceLine": 916,
+        "ruleCount": 2,
+        "disposition": "ip-risk",
+        "label": "不直接迁移：IP 漂移风险",
+        "components": [],
+        "note": "至少一条规则直接匹配 IP；地址会漂移且缺少归属证明。",
+        "rules": [
+          {
+            "sourceLine": 918,
+            "value": "^https?:\\/\\/((25[0-5]|2[0-4]\\d|1\\d{2}|[1-9]?\\d)\\.){3}(25[0-5]|2[0-4]\\d|1\\d{2}|[1-9]?\\d)\\/api\\/v\\d\\/adRealTime - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 920,
+            "value": "^https?:\\/\\/((25[0-5]|2[0-4]\\d|1\\d{2}|[1-9]?\\d)\\.){3}(25[0-5]|2[0-4]\\d|1\\d{2}|[1-9]?\\d)\\/(outadservice|ting\\/preload)\\/ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "Xueqiu",
+        "sourceLine": 922,
+        "ruleCount": 4,
+        "disposition": "ip-risk",
+        "label": "不直接迁移：IP 漂移风险",
+        "components": [],
+        "note": "至少一条规则直接匹配 IP；地址会漂移且缺少归属证明。",
+        "rules": [
+          {
+            "sourceLine": 924,
+            "value": "^https?:\\/\\/((25[0-5]|2[0-4]\\d|1\\d{2}|[1-9]?\\d)\\.){3}(25[0-5]|2[0-4]\\d|1\\d{2}|[1-9]?\\d)\\/promotion\\/(display_cache|display_ad|feed_display|search_ad) - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 926,
+            "value": "^https?:\\/\\/(api|promo)\\.xueqiu\\.com\\/promotion\\/(display_cache|display_ad|feed_display|search_ad) - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 928,
+            "value": "^https?:\\/\\/((25[0-5]|2[0-4]\\d|1\\d{2}|[1-9]?\\d)\\.){3}(25[0-5]|2[0-4]\\d|1\\d{2}|[1-9]?\\d)\\/brand\\/search\\/v1\\.json - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 930,
+            "value": "^https?:\\/\\/api\\.xueqiu\\.com\\/brand\\/search\\/v1\\.json - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "Xiaohongshu",
+        "sourceLine": 932,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 934,
+            "value": "^https?:\\/\\/www\\.xiaohongshu\\.com\\/api\\/sns\\/v\\d\\/system_service\\/splash_config - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "Youtube++",
+        "sourceLine": 940,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 942,
+            "value": "^https?:\\/\\/api\\.catch\\.gift\\/api\\/v\\d\\/pagead\\/ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "YinxiangNote",
+        "sourceLine": 944,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 946,
+            "value": "^https?:\\/\\/app\\.yinxiang\\.com\\/ads\\/ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "YUNMAI",
+        "sourceLine": 948,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 950,
+            "value": "^https?:\\/\\/restapi\\.iyunmai\\.com\\/api\\/ios\\/ad\\/ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "YXLiveVideo",
+        "sourceLine": 952,
+        "ruleCount": 2,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 954,
+            "value": "^https?:\\/\\/api\\.yizhibo\\.com\\/common\\/api\\/api_pz$ - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 956,
+            "value": "^https?:\\/\\/api\\.yizhibo\\.com\\/common\\/api\\/pz$ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "Zhihu",
+        "sourceLine": 962,
+        "ruleCount": 6,
+        "disposition": "partial",
+        "label": "部分安全迁移",
+        "components": [
+          {
+            "id": "zhihu",
+            "name": "知乎",
+            "path": "components/zhihu.sgmodule",
+            "enabledByDefault": true
+          },
+          {
+            "id": "zhihu-link-direct",
+            "name": "知乎链接直达",
+            "path": "extras/zhihu-link-direct.sgmodule",
+            "enabledByDefault": false
+          }
+        ],
+        "note": "保留商业字段与链接直达；通知、评论、账号和整响应拒绝不迁移。",
+        "rules": [
+          {
+            "sourceLine": 964,
+            "value": "^https?:\\/\\/api\\.zhihu\\.com\\/commercial_api\\/ - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 966,
+            "value": "^https?:\\/\\/api\\.zhihu\\.com\\/fringe\\/ad - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 968,
+            "value": "^https?:\\/\\/api\\.zhihu\\.com\\/ad - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 970,
+            "value": "^https?:\\/\\/api\\.zhihu\\.com\\/appview\\/api\\/v\\d\\/answers\\/\\d+\\/recommendations - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 972,
+            "value": "^https?:\\/\\/api\\.zhihu\\.com\\/\\w+\\/\\d+\\/comments\\/featured-comment-ad - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 974,
+            "value": "^https?:\\/\\/www\\.zhihu\\.com\\/api\\/v\\d\\/answers/\\d+/recommendations - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "zhibo8",
+        "sourceLine": 976,
+        "ruleCount": 2,
+        "disposition": "unsafe",
+        "label": "不直接迁移：误伤风险",
+        "components": [],
+        "note": "活动配置不是广告专用接口，另一路径只匹配漂移 IP。",
+        "rules": [
+          {
+            "sourceLine": 978,
+            "value": "^https?:\\/\\/a\\.qiumibao\\.com\\/activities\\/config\\.php - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 980,
+            "value": "^https?:\\/\\/((25[0-5]|2[0-4]\\d|1\\d{2}|[1-9]?\\d)\\.){3}(25[0-5]|2[0-4]\\d|1\\d{2}|[1-9]?\\d):\\d+\\/allOne\\.php\\?ad_name - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "zhuishushenqi",
+        "sourceLine": 982,
+        "ruleCount": 5,
+        "disposition": "partial-archive",
+        "label": "部分可迁移，其余留档",
+        "components": [],
+        "note": "广告/开屏接口可迁移；通知、书架同步和 App Store 更新检查不得阻断。",
+        "rules": [
+          {
+            "sourceLine": 984,
+            "value": "^https?:\\/\\/(api|b)\\.zhuishushenqi\\.com\\/advert - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 986,
+            "value": "^https?:\\/\\/api\\.zhuishushenqi\\.com\\/splashes\\/ios - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 988,
+            "value": "^https?:\\/\\/api\\.zhuishushenqi\\.com\\/notification\\/shelfMessage - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 990,
+            "value": "^https?:\\/\\/api\\.zhuishushenqi\\.com\\/user\\/bookshelf-updated - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 992,
+            "value": "^https?:\\/\\/itunes\\.apple\\.com\\/lookup\\?id=575826903 - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "Zuoyebang",
+        "sourceLine": 994,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 996,
+            "value": "^https?:\\/\\/www\\.zybang\\.com\\/adx\\/ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "ZUIYOU",
+        "sourceLine": 998,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 1000,
+            "value": "^https?:\\/\\/api\\.izuiyou\\.com\\/ad\\/ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "Zhan",
+        "sourceLine": 1002,
+        "ruleCount": 1,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 1004,
+            "value": "^https?:\\/\\/tiku\\.zhan\\.com\\/Common\\/newAd\\/ - reject",
+            "action": "reject"
+          }
+        ]
+      },
+      {
+        "name": "Zhangyue",
+        "sourceLine": 1006,
+        "ruleCount": 2,
+        "disposition": "needs-evidence",
+        "label": "留档：缺少近期接口证据",
+        "components": [],
+        "note": "保留在原始文件供追溯；未找到足够证据证明当前接口仍有效且可低误伤拒绝。",
+        "rules": [
+          {
+            "sourceLine": 1008,
+            "value": "^https?:\\/\\/webboot\\.zhangyue\\.com\\/zycl\\/api\\/ad\\/ - reject",
+            "action": "reject"
+          },
+          {
+            "sourceLine": 1010,
+            "value": "^https?:\\/\\/saad\\.ms\\.zhangyue\\.net\\/ad - reject",
+            "action": "reject"
+          }
+        ]
+      }
+    ]
+  },
+  "remoteScripts": {
+    "summary": {
+      "uniqueCount": 123,
+      "localPartialReplacements": 17,
+      "executedLegacyUrls": 0
+    },
+    "items": [
+      {
+        "url": "https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js",
+        "disposition": "local-partial-replacement",
+        "components": [
+          "zhihu"
+        ],
+        "note": "同类广告功能已由本仓库窄接口、本地、失败开放处理器替代；未照搬脚本中的权益/UI 扩展。"
+      },
+      {
+        "url": "https://gist.githubusercontent.com/ddgksf2013/4f53b7c6083678df25fecc8ff68b52c4/raw/netease.adblock.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://gist.githubusercontent.com/ddgksf2013/f43026707830c7818ee3ba624e383c8d/raw/baiduCloud.adblock.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://github.com/ddgksf2013/Scripts/raw/master/amap.js",
+        "disposition": "local-partial-replacement",
+        "components": [
+          "amap"
+        ],
+        "note": "同类广告功能已由本仓库窄接口、本地、失败开放处理器替代；未照搬脚本中的权益/UI 扩展。"
+      },
+      {
+        "url": "https://github.com/ddgksf2013/Scripts/raw/master/coolapk.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://github.com/ddgksf2013/Scripts/raw/master/pixivAds.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://github.com/ddgksf2013/Scripts/raw/master/rrtv_json.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://github.com/fmz200/wool_scripts/raw/main/Scripts/xianyu/xianyu_ads.js",
+        "disposition": "local-partial-replacement",
+        "components": [
+          "xianyu"
+        ],
+        "note": "同类广告功能已由本仓库窄接口、本地、失败开放处理器替代；未照搬脚本中的权益/UI 扩展。"
+      },
+      {
+        "url": "https://github.com/fmz200/wool_scripts/raw/main/Scripts/xiaohongshu/xiaohongshu.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/app2smile/rules/master/js/adsense.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/app2smile/rules/master/js/baidumap.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/app2smile/rules/master/js/qidian.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/app2smile/rules/master/js/qq-news.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/app2smile/rules/master/js/tieba-json.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/app2smile/rules/master/js/tieba-proto.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/app2smile/rules/master/js/vgtime.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/ddgksf2013/MoYu/refs/heads/master/suishouji.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/ddgksf2013/Scripts/master/baishitv.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/ddgksf2013/Scripts/master/pupumarket.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/ddgksf2013/Scripts/master/quark.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/ddgksf2013/Scripts/master/weixin110.js",
+        "disposition": "local-partial-replacement",
+        "components": [
+          "wechat"
+        ],
+        "note": "同类广告功能已由本仓库窄接口、本地、失败开放处理器替代；未照搬脚本中的权益/UI 扩展。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/12306.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/123pan.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/555Ad.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/ahfs.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/amap.js",
+        "disposition": "local-partial-replacement",
+        "components": [
+          "amap"
+        ],
+        "note": "同类广告功能已由本仓库窄接口、本地、失败开放处理器替代；未照搬脚本中的权益/UI 扩展。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/amdc.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/applet.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/bing.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/cainiao_json.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/caixinads.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/caiyun_json.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/coolapk.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/dict.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/fly.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/iqiyi_open_ads.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/ithome.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/jd_json.js",
+        "disposition": "local-partial-replacement",
+        "components": [
+          "jd"
+        ],
+        "note": "同类广告功能已由本仓库窄接口、本地、失败开放处理器替代；未照搬脚本中的权益/UI 扩展。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/keepStyle.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/qidian.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/redbook_json.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/shunfeng_json.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/smzdm_json.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/startup.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/stay.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/v2ex.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/weibo_json.js",
+        "disposition": "local-partial-replacement",
+        "components": [
+          "weibo"
+        ],
+        "note": "同类广告功能已由本仓库窄接口、本地、失败开放处理器替代；未照搬脚本中的权益/UI 扩展。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/weibo_search_info.json",
+        "disposition": "local-partial-replacement",
+        "components": [
+          "weibo"
+        ],
+        "note": "同类广告功能已由本仓库窄接口、本地、失败开放处理器替代；未照搬脚本中的权益/UI 扩展。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/weibo_search_topic.json",
+        "disposition": "local-partial-replacement",
+        "components": [
+          "weibo"
+        ],
+        "note": "同类广告功能已由本仓库窄接口、本地、失败开放处理器替代；未照搬脚本中的权益/UI 扩展。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/ximalaya_json.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/zhangshanggongjiao.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/zhihu_openads.js",
+        "disposition": "local-partial-replacement",
+        "components": [
+          "zhihu"
+        ],
+        "note": "同类广告功能已由本仓库窄接口、本地、失败开放处理器替代；未照搬脚本中的权益/UI 扩展。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/deezertidal/private/master/js-backup/Script/weibo_json.js",
+        "disposition": "local-partial-replacement",
+        "components": [
+          "weibo"
+        ],
+        "note": "同类广告功能已由本仓库窄接口、本地、失败开放处理器替代；未照搬脚本中的权益/UI 扩展。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/scripts/Flightradar24.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/51card.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/555Ad.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/adrive/adrive.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/baidumap.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/blued.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/bohe/bohe_ads.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/cainiao/cainiao.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/caixin/caixinAd.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/cmschina/cmschina.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/cnftp.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/coolapk.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/dianyinglieshou.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/didi/didiAds.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/fenbi.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/fly.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/huifutianxia_ads.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/ithome/ithome.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/jingdong/jingdong.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/jingxiAd.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/keep.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/kuwo/kuwo.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/lawson.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/lvtusuishenting/ltsst-ad.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/maimai/maimai_ads.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/meiyou/meiyou_ads.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/myBlockAds.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/picc/picc_ads.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/PupuSplashAds.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/quark.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/QuDa.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/reddit.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/rrtv_json.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/smzdm/smzdm_ads.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/smzdm/Smzdm.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/soda.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/soul/soul_ads.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/umetrip/umetrip_ads.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/xiaotucc.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/xmly_json.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/youdao/dict-youdao-ad.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/yx.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/zhangshanggongjiao.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/zhihu/zhihu.js",
+        "disposition": "local-partial-replacement",
+        "components": [
+          "zhihu"
+        ],
+        "note": "同类广告功能已由本仓库窄接口、本地、失败开放处理器替代；未照搬脚本中的权益/UI 扩展。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/zhuanzhuan/zhuanzhuan.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/fmz200/wool_scripts/refs/heads/main/Scripts/miguvideo/miguvideo_ads.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/Keywos/rule/main/script/wy/js/wyres.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/kokoryh/Script/master/js/12306.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Youtube/youtube.response.js",
+        "disposition": "local-partial-replacement",
+        "components": [
+          "youtube"
+        ],
+        "note": "同类广告功能已由本仓库窄接口、本地、失败开放处理器替代；未照搬脚本中的权益/UI 扩展。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/NobyDa/Script/master/Bahamut/BahamutAnimeAds.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/NobyDa/Script/master/QuantumultX/File/Wechat.js",
+        "disposition": "local-partial-replacement",
+        "components": [
+          "wechat"
+        ],
+        "note": "同类广告功能已由本仓库窄接口、本地、失败开放处理器替代；未照搬脚本中的权益/UI 扩展。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/NobyDa/Script/master/QuantumultX/File/xjsp.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/Bili_Auto_Regions.js",
+        "disposition": "local-partial-replacement",
+        "components": [
+          "bilibili"
+        ],
+        "note": "同类广告功能已由本仓库窄接口、本地、失败开放处理器替代；未照搬脚本中的权益/UI 扩展。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/Sliverkiss/QuantumultX/main/AdBlock/xmApp/wnbz.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/Sliverkiss/QuantumultX/main/AdBlock/xmApp/xmApp.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/ZenmoFeiShi/Qx/main/Smzdm.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/51job.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/alicdn.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/ccblife.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/ddxq.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/dianping.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/flyert.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/foliday.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/freshippo.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/mafengwo.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/mdb.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/qmai.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/wechatApplet.js",
+        "disposition": "local-partial-replacement",
+        "components": [
+          "wechat"
+        ],
+        "note": "同类广告功能已由本仓库窄接口、本地、失败开放处理器替代；未照搬脚本中的权益/UI 扩展。"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/zZPiglet/Task/master/asset/UnblockURLinWeChat.js",
+        "disposition": "local-partial-replacement",
+        "components": [
+          "wechat"
+        ],
+        "note": "同类广告功能已由本仓库窄接口、本地、失败开放处理器替代；未照搬脚本中的权益/UI 扩展。"
+      },
+      {
+        "url": "https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/FAWVW.js",
+        "disposition": "not-executed",
+        "components": [],
+        "note": "不进入发布执行路径：原引用未固定或用途混杂，且未完成许可证、接口与误伤验证。"
+      }
+    ]
+  }
+}
