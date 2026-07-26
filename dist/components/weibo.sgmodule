@@ -1,0 +1,26 @@
+#!name=BlockAd · 微博 / 微博轻享版
+#!desc=开屏、推荐/关注/趋势信息流显式推广；不修改会员图标、账号、私信或支付字段。
+#!author=STERILITZIA02
+#!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
+#!version=1.0.0
+#!updated=2026-07-26
+#!category=去广告
+
+# GENERATED FILE — 请修改 config/apps.mjs 后重新构建。
+# source-ref=main
+
+[Rule]
+DOMAIN,ad.weibo.com,REJECT
+DOMAIN,adimg.uve.weibo.com,REJECT
+DOMAIN,adstrategy.biz.weibo.com,REJECT
+DOMAIN,bootpreload.uve.weibo.com,REJECT
+
+[URL Rewrite]
+# 微博开屏
+^https:\/\/wbapp\.mobile\.sina\.cn\/wbapplua\/wbpullad\.lua(?:\?|$) - reject-dict
+
+[Script]
+微博_推荐关注趋势推广 = type=http-response,pattern=^https:\/\/(?:m?api\.weibo\.(?:cn|com)\/\d+\/(?:cardlist|searchall|page|groups\/timeline|statuses\/(?:(?:unread_)?friends(?:\/|_)timeline|unread_hot_timeline|video_mixtimeline)|video\/(?:community_tab|tiny_stream_video_list)|search\/(?:finder|container_timeline|container_discover)|comments\/build_comments)|weibointl\.api\.weibo\.(?:cn|com)\/portal\.php)(?:\?|$),requires-body=1,max-size=2097152,timeout=5,script-path=https://raw.githubusercontent.com/STERILITZIA02/Blockad-sr-my/main/dist/scripts/blockad-router.js
+
+[MITM]
+hostname = %APPEND% api.weibo.cn, mapi.weibo.cn, api.weibo.com, mapi.weibo.com, weibointl.api.weibo.cn, weibointl.api.weibo.com, wbapp.mobile.sina.cn

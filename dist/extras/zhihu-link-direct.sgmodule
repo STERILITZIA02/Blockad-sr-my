@@ -1,0 +1,17 @@
+#!name=BlockAd · 知乎链接直达
+#!desc=保留 ZhihuOpt 的去中转便利功能；独立启用，不修改 User-Agent。
+#!author=STERILITZIA02
+#!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
+#!version=1.0.0
+#!updated=2026-07-26
+#!category=去广告
+
+# GENERATED FILE — 请修改 config/apps.mjs 后重新构建。
+# source-ref=main
+
+[URL Rewrite]
+# 知乎 link.zhihu.com 去中转
+^https:\/\/link\.zhihu\.com\/\?target=(?:https?)?(?:%3A|:)?(?:\/\/|%2F%2F)?(.*) http://$1 302
+
+[MITM]
+hostname = %APPEND% link.zhihu.com

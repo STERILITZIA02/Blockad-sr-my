@@ -1,0 +1,492 @@
+{
+  "upstream": {
+    "repository": "TG-Twilight/AWAvenue-Ads-Rule",
+    "commit": "d77f249050b440989cc9a640eabdb18573dc7c90",
+    "sha256": "7a85b45b3e087d257c7eee2316f34013fadd353d716204444d98a231034236c9",
+    "ruleCount": 903
+  },
+  "excludedCount": 120,
+  "outputRuleCount": 783,
+  "exclusions": [
+    {
+      "rule": "DOMAIN,abtest-ch.snssdk.com",
+      "reason": "AB 配置并非广告请求，阻断可能破坏功能开关"
+    },
+    {
+      "rule": "DOMAIN,aegis.qq.com",
+      "reason": "腾讯安全/风控域名"
+    },
+    {
+      "rule": "DOMAIN,ali-p2p-v2.pull.yximgs.com",
+      "reason": "视频 P2P 拉流，默认不牺牲播放稳定性"
+    },
+    {
+      "rule": "DOMAIN,amdcopen.m.taobao.com",
+      "reason": "阿里网络调度"
+    },
+    {
+      "rule": "DOMAIN,api.installer.xiaomi.com",
+      "reason": "应用安装/更新服务"
+    },
+    {
+      "rule": "DOMAIN,api.statsig.com",
+      "reason": "远程功能配置，不能等同广告"
+    },
+    {
+      "rule": "DOMAIN,api5-normal-quic-lf.ixigua.com",
+      "reason": "西瓜视频正常业务 API"
+    },
+    {
+      "rule": "DOMAIN,appcfg.v.qq.com",
+      "reason": "腾讯视频应用配置"
+    },
+    {
+      "rule": "DOMAIN,aspect-upush.umeng.com",
+      "reason": "推送服务，必须保护通知"
+    },
+    {
+      "rule": "DOMAIN,baichuan-sdk.alicdn.com",
+      "reason": "阿里百川通用 SDK"
+    },
+    {
+      "rule": "DOMAIN,baichuan-sdk.taobao.com",
+      "reason": "阿里百川通用 SDK"
+    },
+    {
+      "rule": "DOMAIN,browsercfg-drcn.cloud.dbankcloud.cn",
+      "reason": "浏览器配置服务"
+    },
+    {
+      "rule": "DOMAIN,cdn-plugin-sync-upgrade-juui.hismarttv.com",
+      "reason": "插件升级服务"
+    },
+    {
+      "rule": "DOMAIN,chat1.jd.com",
+      "reason": "京东聊天/客服"
+    },
+    {
+      "rule": "DOMAIN,chiq-cloud.com",
+      "reason": "设备云服务"
+    },
+    {
+      "rule": "DOMAIN,config.chsmarttv.com",
+      "reason": "智能电视基础配置"
+    },
+    {
+      "rule": "DOMAIN,download.changhong.upgrade2.huan.tv",
+      "reason": "设备更新下载"
+    },
+    {
+      "rule": "DOMAIN,downloadxml.changhong.upgrade2.huan.tv",
+      "reason": "设备更新清单"
+    },
+    {
+      "rule": "DOMAIN,feed-image.baidu.com",
+      "reason": "百度正常内容图片"
+    },
+    {
+      "rule": "DOMAIN,game.loveota.com",
+      "reason": "OTA 更新服务"
+    },
+    {
+      "rule": "DOMAIN,getui.cn",
+      "reason": "推送服务，必须保护通知"
+    },
+    {
+      "rule": "DOMAIN,grs.dbankcloud.com",
+      "reason": "华为服务发现"
+    },
+    {
+      "rule": "DOMAIN,grs.hicloud.com",
+      "reason": "华为服务发现"
+    },
+    {
+      "rule": "DOMAIN,gvideo.qpic.cn",
+      "reason": "腾讯通用视频资源"
+    },
+    {
+      "rule": "DOMAIN,httpdns.bcelive.com",
+      "reason": "直播 HTTPDNS"
+    },
+    {
+      "rule": "DOMAIN,httpdns.ocloud.oppomobile.com",
+      "reason": "OPPO HTTPDNS"
+    },
+    {
+      "rule": "DOMAIN,hw-p2p-pull.video-voip.com",
+      "reason": "视频 P2P 拉流"
+    },
+    {
+      "rule": "DOMAIN,hw-p2p.pull.yximgs.com",
+      "reason": "视频 P2P 拉流"
+    },
+    {
+      "rule": "DOMAIN,hwpub-s01-drcn.cloud.dbankcloud.cn",
+      "reason": "华为推送服务"
+    },
+    {
+      "rule": "DOMAIN,hybrid.miniapp.taobao.com",
+      "reason": "淘宝小程序业务"
+    },
+    {
+      "rule": "DOMAIN,images.pinduoduo.com",
+      "reason": "拼多多正常商品图片"
+    },
+    {
+      "rule": "DOMAIN,img2.360buyimg.com",
+      "reason": "京东正常商品图片"
+    },
+    {
+      "rule": "DOMAIN,ixav-cse.avlyun.com",
+      "reason": "安全扫描服务"
+    },
+    {
+      "rule": "DOMAIN,janapi.jd.com",
+      "reason": "用途不充分明确的京东 API"
+    },
+    {
+      "rule": "DOMAIN,jiguang.cn",
+      "reason": "推送服务，必须保护通知"
+    },
+    {
+      "rule": "DOMAIN,jpush.cn",
+      "reason": "推送服务，必须保护通知"
+    },
+    {
+      "rule": "DOMAIN,jpush.html5.qq.com",
+      "reason": "推送服务，必须保护通知"
+    },
+    {
+      "rule": "DOMAIN,jpush.io",
+      "reason": "推送服务，必须保护通知"
+    },
+    {
+      "rule": "DOMAIN,kepler.jd.com",
+      "reason": "京东链接/开放能力"
+    },
+    {
+      "rule": "DOMAIN,ks-p2p-v2.pull.yximgs.com",
+      "reason": "视频 P2P 拉流"
+    },
+    {
+      "rule": "DOMAIN,ks-p2p.pull.yximgs.com",
+      "reason": "视频 P2P 拉流"
+    },
+    {
+      "rule": "DOMAIN,ks.pull.yximgs.com",
+      "reason": "快手正常拉流"
+    },
+    {
+      "rule": "DOMAIN,liveats-vod.video.ptqy.gitv.tv",
+      "reason": "视频播放资源"
+    },
+    {
+      "rule": "DOMAIN,livep.l.aiseet.atianqi.com",
+      "reason": "腾讯视频播放资源"
+    },
+    {
+      "rule": "DOMAIN,lives.l.aiseet.atianqi.com",
+      "reason": "腾讯视频播放资源"
+    },
+    {
+      "rule": "DOMAIN,lives.l.ott.video.qq.com",
+      "reason": "腾讯视频直播资源"
+    },
+    {
+      "rule": "DOMAIN,livewebbs2pcdn.msstatic.com",
+      "reason": "直播 PCDN，默认保护播放"
+    },
+    {
+      "rule": "DOMAIN,logupdate.avlyun.sec.miui.com",
+      "reason": "安全更新日志"
+    },
+    {
+      "rule": "DOMAIN,luimg.baidu.com",
+      "reason": "百度正常图片资源"
+    },
+    {
+      "rule": "DOMAIN,mapi.m.jd.com",
+      "reason": "京东主业务 API，禁止整域拦截"
+    },
+    {
+      "rule": "DOMAIN,mazu.m.qq.com",
+      "reason": "腾讯移动基础配置"
+    },
+    {
+      "rule": "DOMAIN,metrics.icloud.com",
+      "reason": "Apple 核心域名，默认不做整域拦截"
+    },
+    {
+      "rule": "DOMAIN,mini-prog-drm.vodplayvideo.net",
+      "reason": "DRM 播放服务"
+    },
+    {
+      "rule": "DOMAIN,miav-cse.avlyun.com",
+      "reason": "安全扫描服务"
+    },
+    {
+      "rule": "DOMAIN,miui-fxcse.avlyun.com",
+      "reason": "安全扫描服务"
+    },
+    {
+      "rule": "DOMAIN,monsetting.toutiao.com",
+      "reason": "监控配置，不作为广告接口处理"
+    },
+    {
+      "rule": "DOMAIN,mssdk.volces.com",
+      "reason": "移动安全 SDK"
+    },
+    {
+      "rule": "DOMAIN,mssdk.zijieapi.com",
+      "reason": "移动安全 SDK"
+    },
+    {
+      "rule": "DOMAIN,newvoice.chiq5.smart-tv.cn",
+      "reason": "语音助手业务"
+    },
+    {
+      "rule": "DOMAIN,notify.sec.miui.com",
+      "reason": "系统安全通知"
+    },
+    {
+      "rule": "DOMAIN,open.snssdk.com",
+      "reason": "字节开放平台 API"
+    },
+    {
+      "rule": "DOMAIN,p2pchunk-table.douyucdn.cn",
+      "reason": "斗鱼 P2P 播放"
+    },
+    {
+      "rule": "DOMAIN,p2plive-ali.douyucdn.cn",
+      "reason": "斗鱼 P2P 播放"
+    },
+    {
+      "rule": "DOMAIN,p2pupdate.gamedl.qq.com",
+      "reason": "游戏 P2P 更新"
+    },
+    {
+      "rule": "DOMAIN,p2pupgrade.gamedl.qq.com",
+      "reason": "游戏 P2P 更新"
+    },
+    {
+      "rule": "DOMAIN,pay.sboot.cn",
+      "reason": "支付域名"
+    },
+    {
+      "rule": "DOMAIN,pms.mb.qq.com",
+      "reason": "腾讯移动基础配置"
+    },
+    {
+      "rule": "DOMAIN,policy.video.ptqy.gitv.tv",
+      "reason": "视频播放策略"
+    },
+    {
+      "rule": "DOMAIN,qn-cdnfile1pcdn.msstatic.com",
+      "reason": "直播 PCDN，默认保护播放"
+    },
+    {
+      "rule": "DOMAIN,safebrowsing.urlsec.gg.com",
+      "reason": "安全浏览服务"
+    },
+    {
+      "rule": "DOMAIN,sdkauth.hpplay.cn",
+      "reason": "SDK 认证"
+    },
+    {
+      "rule": "DOMAIN,sdkconfig.video.qq.com",
+      "reason": "腾讯视频 SDK 配置"
+    },
+    {
+      "rule": "DOMAIN,search.ixigua.com",
+      "reason": "西瓜视频正常搜索"
+    },
+    {
+      "rule": "DOMAIN,search3-search.ixigua.com",
+      "reason": "西瓜视频正常搜索"
+    },
+    {
+      "rule": "DOMAIN,search5-search-hl.ixigua.com",
+      "reason": "西瓜视频正常搜索"
+    },
+    {
+      "rule": "DOMAIN,search5-search.ixigua.com",
+      "reason": "西瓜视频正常搜索"
+    },
+    {
+      "rule": "DOMAIN,service.changhong.upgrade2.huan.tv",
+      "reason": "设备更新服务"
+    },
+    {
+      "rule": "DOMAIN,slb-p2p.vcloud.ks-live.com",
+      "reason": "直播 P2P 拉流"
+    },
+    {
+      "rule": "DOMAIN,static-s.iqiyi.com",
+      "reason": "爱奇艺通用静态资源"
+    },
+    {
+      "rule": "DOMAIN,statsigapi.net",
+      "reason": "远程功能配置，不能等同广告"
+    },
+    {
+      "rule": "DOMAIN,stun.hitv.com",
+      "reason": "网络连通性服务"
+    },
+    {
+      "rule": "DOMAIN,sv-video.play.aiseet.atianqi.com",
+      "reason": "腾讯视频播放资源"
+    },
+    {
+      "rule": "DOMAIN,tmfmazu-wangka.m.qq.com",
+      "reason": "腾讯移动基础配置"
+    },
+    {
+      "rule": "DOMAIN,tmfmazu.m.qq.com",
+      "reason": "腾讯移动基础配置"
+    },
+    {
+      "rule": "DOMAIN,tmfsdk.m.qq.com",
+      "reason": "腾讯移动安全 SDK"
+    },
+    {
+      "rule": "DOMAIN,tmfsdktcpv4.m.qq.com",
+      "reason": "腾讯移动安全 SDK"
+    },
+    {
+      "rule": "DOMAIN,tnc0-bjlgy.zijieapi.com",
+      "reason": "字节网络调优配置"
+    },
+    {
+      "rule": "DOMAIN,tnc3-aliec1.toutiaoapi.com",
+      "reason": "字节网络调优配置"
+    },
+    {
+      "rule": "DOMAIN,tnc3-aliec2.bytedance.com",
+      "reason": "字节网络调优配置"
+    },
+    {
+      "rule": "DOMAIN,tnc3-aliec2.snssdk.com",
+      "reason": "字节网络调优配置"
+    },
+    {
+      "rule": "DOMAIN,tnc3-aliec2.toutiaoapi.com",
+      "reason": "字节网络调优配置"
+    },
+    {
+      "rule": "DOMAIN,tnc3-alisc1.bytedance.com",
+      "reason": "字节网络调优配置"
+    },
+    {
+      "rule": "DOMAIN,tnc3-alisc1.snssdk.com",
+      "reason": "字节网络调优配置"
+    },
+    {
+      "rule": "DOMAIN,tnc3-alisc1.toutiaoapi.com",
+      "reason": "字节网络调优配置"
+    },
+    {
+      "rule": "DOMAIN,tnc3-bjlgy.bytedance.com",
+      "reason": "字节网络调优配置"
+    },
+    {
+      "rule": "DOMAIN,tnc3-bjlgy.snssdk.com",
+      "reason": "字节网络调优配置"
+    },
+    {
+      "rule": "DOMAIN,tnc3-bjlgy.toutiaoapi.com",
+      "reason": "字节网络调优配置"
+    },
+    {
+      "rule": "DOMAIN,tvuser-ch.cedock.com",
+      "reason": "电视用户/认证服务"
+    },
+    {
+      "rule": "DOMAIN,tx-kmpaudio.pull.yximgs.com",
+      "reason": "快手音频拉流"
+    },
+    {
+      "rule": "DOMAIN,tx-p2p-pull.live-voip.com",
+      "reason": "视频 P2P 拉流"
+    },
+    {
+      "rule": "DOMAIN,tx-p2p-v2.pull.yximgs.com",
+      "reason": "视频 P2P 拉流"
+    },
+    {
+      "rule": "DOMAIN,tz.sec.xiaomi.com",
+      "reason": "小米安全服务"
+    },
+    {
+      "rule": "DOMAIN,update.avlyun.sec.miui.com",
+      "reason": "小米安全更新"
+    },
+    {
+      "rule": "DOMAIN,update.lejiao.tv",
+      "reason": "电视更新服务"
+    },
+    {
+      "rule": "DOMAIN,upgrade-update.hismarttv.com",
+      "reason": "设备更新服务"
+    },
+    {
+      "rule": "DOMAIN,video.dispatch.tc.qq.com",
+      "reason": "腾讯视频调度"
+    },
+    {
+      "rule": "DOMAIN,video.market.xiaomi.com",
+      "reason": "应用市场视频资源"
+    },
+    {
+      "rule": "DOMAIN,vipauth.hpplay.cn",
+      "reason": "会员认证"
+    },
+    {
+      "rule": "DOMAIN,vipgslb.hpplay.cn",
+      "reason": "会员服务调度"
+    },
+    {
+      "rule": "DOMAIN,virusinfo-cloudscan-cn.heytapmobi.com",
+      "reason": "云安全扫描"
+    },
+    {
+      "rule": "DOMAIN,vlive.qqvideo.tc.qq.com",
+      "reason": "腾讯视频直播资源"
+    },
+    {
+      "rule": "DOMAIN,weather-community-drcn.weather.dbankcloud.cn",
+      "reason": "正常天气内容"
+    },
+    {
+      "rule": "DOMAIN,ws.sj.qq.com",
+      "reason": "腾讯应用更新/商店服务"
+    },
+    {
+      "rule": "DOMAIN,wxa.wxs.qq.com",
+      "reason": "微信小程序资源"
+    },
+    {
+      "rule": "DOMAIN,wxaintpcos.wxqcloud.qq.com.cn",
+      "reason": "微信小程序资源"
+    },
+    {
+      "rule": "DOMAIN,wximg.wxs.qq.com",
+      "reason": "微信小程序图片"
+    },
+    {
+      "rule": "DOMAIN,wxsmw.wxs.qq.com",
+      "reason": "微信小程序资源"
+    },
+    {
+      "rule": "DOMAIN-SUFFIX,data.hicloud.com",
+      "reason": "华为云共享数据域，不做整域拦截"
+    },
+    {
+      "rule": "DOMAIN-SUFFIX,log.aliyuncs.com",
+      "reason": "阿里云共享日志域，不做整域拦截"
+    },
+    {
+      "rule": "DOMAIN-KEYWORD,-normal.zijieapi.com",
+      "reason": "关键词范围过宽，可能命中字节正常 API"
+    }
+  ]
+}
