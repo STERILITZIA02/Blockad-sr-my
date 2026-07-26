@@ -1,0 +1,17 @@
+#!name=BlockAd · AcFun
+#!desc=启动闪屏接口；不拦截视频、弹幕或账号。
+#!author=STERILITZIA02
+#!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
+#!version=1.1.1
+#!updated=2026-07-26
+#!category=去广告
+
+# GENERATED FILE — 请修改 config/apps.mjs / config/legacy-apps.mjs 后重新构建。
+# source-ref=v1.1.1
+
+[URL Rewrite]
+# 启动闪屏
+^https:\/\/api-new\.app\.acfun\.cn\/rest\/app\/flash\/screen(?:\/|\?|$) - reject-dict
+
+[MITM]
+hostname = %APPEND% api-new.app.acfun.cn

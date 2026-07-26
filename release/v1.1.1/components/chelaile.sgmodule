@@ -1,0 +1,24 @@
+#!name=BlockAd · 车来了
+#!desc=adpub/advert、启动推广和城市通知中的显式广告；保留公交到站、定位和正常通知。
+#!author=STERILITZIA02
+#!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
+#!version=1.1.1
+#!updated=2026-07-26
+#!category=去广告
+
+# GENERATED FILE — 请修改 config/apps.mjs / config/legacy-apps.mjs 后重新构建。
+# source-ref=v1.1.1
+
+[URL Rewrite]
+# 广告投放
+^https:\/\/api\.chelaile\.net\.cn\/(?:adpub|goocity\/advert)(?:\/|\?|$) - reject-dict
+# 网页广告投放
+^https:\/\/web\.chelaile\.net\.cn\/api\/adpub(?:\/|\?|$) - reject-dict
+# 启动跳过广告配置
+^https:\/\/app\.ibuscloud\.com\/v\d+\/app\/getSkipAdvert(?:\?|$) - reject-dict
+
+[Script]
+车来了_城市通知内显式广告 = type=http-response,pattern=^https:\/\/app\.ibuscloud\.com\/v\d+\/notice\/getNoticeWithAdvByCity(?:\?|$),requires-body=1,max-size=1048576,timeout=5,script-path=https://raw.githubusercontent.com/STERILITZIA02/Blockad-sr-my/v1.1.1/release/v1.1.1/scripts/blockad-router.js
+
+[MITM]
+hostname = %APPEND% api.chelaile.net.cn, web.chelaile.net.cn, app.ibuscloud.com

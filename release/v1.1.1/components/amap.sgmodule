@@ -1,0 +1,31 @@
+#!name=BlockAd · 高德地图
+#!desc=开屏、首页/搜索/消息中的显式商业内容；保留天气、导航、路线和定位。
+#!author=STERILITZIA02
+#!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
+#!version=1.1.1
+#!updated=2026-07-26
+#!category=去广告
+
+# GENERATED FILE — 请修改 config/apps.mjs / config/legacy-apps.mjs 后重新构建。
+# source-ref=v1.1.1
+
+[Rule]
+DOMAIN,optimus-ads.amap.com,REJECT
+
+[URL Rewrite]
+# 高德开屏
+^https:\/\/m\d+\.amap\.com\/ws\/valueadded\/alimama\/splash_screen(?:\?|$) - reject-dict
+# 广告归因上报
+^https:\/\/m\d+\.amap\.com\/ws\/asa\/ads_attribution(?:\?|$) - reject-200
+# 当前实时开屏广告
+^https:\/\/amap-aos-info-nogw\.amap\.com\/ws\/aos\/alimama\/splash_screen_rt(?:\?|$) - reject-dict
+# 启动 DSP 广告初始化
+^https:\/\/m\d+\.amap\.com\/ws\/shield\/dsp\/app\/startup\/init(?:\?|$) - reject-dict
+# 场景商业推荐
+^https:\/\/m\d+\.amap\.com\/ws\/shield\/scene\/recommend(?:\?|$) - reject-dict
+
+[Script]
+高德_首页搜索消息显式广告 = type=http-response,pattern=^https:\/\/m\d+\.amap\.com\/ws\/(?:faas\/amap-navigation\/main-page|msgbox\/pull|shield\/(?:dsp\/profile\/index\/nodefaas|search\/new_hotword))(?:\?|$),requires-body=1,max-size=2097152,timeout=5,script-path=https://raw.githubusercontent.com/STERILITZIA02/Blockad-sr-my/v1.1.1/release/v1.1.1/scripts/blockad-router.js
+
+[MITM]
+hostname = %APPEND% m1.amap.com, m2.amap.com, m3.amap.com, m4.amap.com, m5.amap.com, m6.amap.com, m7.amap.com, m8.amap.com, m9.amap.com, m10.amap.com, amap-aos-info-nogw.amap.com

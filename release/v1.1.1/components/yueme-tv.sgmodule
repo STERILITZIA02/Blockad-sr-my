@@ -1,0 +1,16 @@
+#!name=BlockAd · 悦Me TV
+#!desc=当前域名上的启动配置只删除强广告标记；不再匹配漂移 IP 或整响应拒绝。
+#!author=STERILITZIA02
+#!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
+#!version=1.1.1
+#!updated=2026-07-26
+#!category=去广告
+
+# GENERATED FILE — 请修改 config/apps.mjs / config/legacy-apps.mjs 后重新构建。
+# source-ref=v1.1.1
+
+[Script]
+悦MeTV_启动显式广告 = type=http-response,pattern=^https:\/\/zjh5api\.189smarthome\.com:\d+\/xygj-config-api\/queryData(?:\?|$),requires-body=1,max-size=2097152,timeout=5,script-path=https://raw.githubusercontent.com/STERILITZIA02/Blockad-sr-my/v1.1.1/release/v1.1.1/scripts/blockad-router.js
+
+[MITM]
+hostname = %APPEND% zjh5api.189smarthome.com

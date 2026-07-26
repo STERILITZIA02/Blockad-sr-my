@@ -1,0 +1,19 @@
+#!name=BlockAd · iFreeTime
+#!desc=splash 与爱阅书香固定广告入口；不匹配媒体、书库或用户数据。
+#!author=STERILITZIA02
+#!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
+#!version=1.1.1
+#!updated=2026-07-26
+#!category=去广告
+
+# GENERATED FILE — 请修改 config/apps.mjs / config/legacy-apps.mjs 后重新构建。
+# source-ref=v1.1.1
+
+[URL Rewrite]
+# 开屏接口
+^https:\/\/api\.applovefrom\.com\/api\/v\d+\/splash(?:\/|\?|$) - reject-dict
+# 爱阅书香广告入口
+^https:\/\/icc\.one\/iFreeTime\/xid32uxaoecnfv2(?:\/|\?|$) - reject-dict
+
+[MITM]
+hostname = %APPEND% api.applovefrom.com, icc.one

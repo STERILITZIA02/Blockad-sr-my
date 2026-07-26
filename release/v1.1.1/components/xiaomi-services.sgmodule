@@ -1,0 +1,21 @@
+#!name=BlockAd · 小米服务 / 米家 / 小米金融
+#!desc=adv、playScreen 与明确 _ad 接口；不拒绝 App 启动初始化或设备控制。
+#!author=STERILITZIA02
+#!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
+#!version=1.1.1
+#!updated=2026-07-26
+#!category=去广告
+
+# GENERATED FILE — 请修改 config/apps.mjs / config/legacy-apps.mjs 后重新构建。
+# source-ref=v1.1.1
+
+[URL Rewrite]
+# 小米金融广告
+^https:\/\/api\.jr\.mi\.com\/v\d+\/adv(?:\/|\?|$) - reject-dict
+# 小米金融开屏
+^https:\/\/api\.jr\.mi\.com\/jr\/api\/playScreen(?:\?|$) - reject-dict
+# 小米运动明确广告
+^https:\/\/api-mifit(?:-[^/.]+)?\.huami\.com\/discovery\/mi\/discovery\/[^/?#]+_ad(?:\?|$) - reject-dict
+
+[MITM]
+hostname = %APPEND% api.jr.mi.com, api-mifit.huami.com, *.huami.com

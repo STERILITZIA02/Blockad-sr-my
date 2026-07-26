@@ -1,0 +1,17 @@
+#!name=BlockAd · Naver TV
+#!desc=广告调用接口；不匹配视频地址。
+#!author=STERILITZIA02
+#!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
+#!version=1.1.1
+#!updated=2026-07-26
+#!category=去广告
+
+# GENERATED FILE — 请修改 config/apps.mjs / config/legacy-apps.mjs 后重新构建。
+# source-ref=v1.1.1
+
+[URL Rewrite]
+# 广告调用
+^https:\/\/gfp\.veta\.naver\.com\/adcall(?:\?|$) - reject-dict
+
+[MITM]
+hostname = %APPEND% gfp.veta.naver.com
