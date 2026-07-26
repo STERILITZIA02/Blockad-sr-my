@@ -1,0 +1,28 @@
+#!name=BlockAd · 小红书
+#!desc=开屏、广告资源、广告素材域与混合信息流中的强标记广告；保留笔记、评论和账号。
+#!author=STERILITZIA02
+#!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
+#!version=1.1.0
+#!updated=2026-07-26
+#!category=去广告
+
+# GENERATED FILE — 请修改 config/apps.mjs / config/legacy-apps.mjs 后重新构建。
+# source-ref=main
+
+[Rule]
+DOMAIN,ads-img-qc.xhscdn.com,REJECT
+DOMAIN,ads-video-al.xhscdn.com,REJECT
+DOMAIN,ads-video-qc.xhscdn.com,REJECT
+DOMAIN,t-ads.xiaohongshu.com,REJECT
+
+[URL Rewrite]
+# 广告资源
+^https:\/\/www\.xiaohongshu\.com\/api\/sns\/v\d+\/ads\/resource(?:\?|$) - reject-dict
+# 营销弹窗
+^https:\/\/www\.xiaohongshu\.com\/api\/marketing\/box\/trigger(?:\?|$) - reject-dict
+
+[Script]
+小红书_开屏和信息流显式广告 = type=http-response,pattern=^https:\/\/(?:edith|rec|www|so)\.xiaohongshu\.com\/api\/sns\/(?:v\d+\/system_service\/(?:splash_config|config)|v\d+\/(?:homefeed|search\/(?:notes|banner_list|hot_list)|note\/widgets))(?:\?|$),requires-body=1,max-size=2097152,timeout=5,script-path=https://raw.githubusercontent.com/STERILITZIA02/Blockad-sr-my/main/dist/scripts/blockad-router.js
+
+[MITM]
+hostname = %APPEND% www.xiaohongshu.com, edith.xiaohongshu.com, rec.xiaohongshu.com, so.xiaohongshu.com

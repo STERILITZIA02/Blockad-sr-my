@@ -1,0 +1,19 @@
+#!name=BlockAd · 菜鸟
+#!desc=ads.mshow/flyad 广告专用 MTop 接口；保留物流、取件、寄件和账号。
+#!author=STERILITZIA02
+#!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
+#!version=1.1.0
+#!updated=2026-07-26
+#!category=去广告
+
+# GENERATED FILE — 请修改 config/apps.mjs / config/legacy-apps.mjs 后重新构建。
+# source-ref=main
+
+[URL Rewrite]
+# 广告展示
+^https:\/\/(?:guide-acs\.m\.taobao|[^/]+\.cainiao)\.com\/gw\/mtop\.cainiao\.guoguo\.nbnetflow\.ads\.mshow(?:\.cn)?(?:\/|\?|$) - reject-dict
+# 飞行广告
+^https:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.cainiao\.adx\.flyad\.getad(?:\/|\?|$) - reject-dict
+
+[MITM]
+hostname = %APPEND% guide-acs.m.taobao.com, *.cainiao.com

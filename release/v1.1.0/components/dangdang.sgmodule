@@ -1,0 +1,17 @@
+#!name=BlockAd · 当当
+#!desc=设备启动页；不拒绝混合初始化接口。
+#!author=STERILITZIA02
+#!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
+#!version=1.1.0
+#!updated=2026-07-26
+#!category=去广告
+
+# GENERATED FILE — 请修改 config/apps.mjs / config/legacy-apps.mjs 后重新构建。
+# source-ref=v1.1.0
+
+[URL Rewrite]
+# 设备启动页
+^https:\/\/e\.dangdang\.com\/media\/api\d*\.go\?(?=[^#]*\baction=getDeviceStartPage(?:&|$)) - reject-dict
+
+[MITM]
+hostname = %APPEND% e.dangdang.com

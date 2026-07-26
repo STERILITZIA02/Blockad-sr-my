@@ -1,0 +1,17 @@
+#!name=BlockAd · GoFun 出行
+#!desc=bootImage 启动图；保留租车、订单和支付。
+#!author=STERILITZIA02
+#!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
+#!version=1.1.0
+#!updated=2026-07-26
+#!category=去广告
+
+# GENERATED FILE — 请修改 config/apps.mjs / config/legacy-apps.mjs 后重新构建。
+# source-ref=v1.1.0
+
+[URL Rewrite]
+# 启动图
+^https:\/\/gateway\.shouqiev\.com(?::8443)?\/fsda\/app\/bootImage\.json(?:\?|$) - reject-dict
+
+[MITM]
+hostname = %APPEND% gateway.shouqiev.com

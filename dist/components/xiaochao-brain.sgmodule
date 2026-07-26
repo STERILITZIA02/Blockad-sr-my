@@ -1,0 +1,16 @@
+#!name=BlockAd · 小潮脑 / 小睡眠
+#!desc=startup 响应中只删除强广告标记；保留睡眠内容。
+#!author=STERILITZIA02
+#!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
+#!version=1.1.0
+#!updated=2026-07-26
+#!category=去广告
+
+# GENERATED FILE — 请修改 config/apps.mjs / config/legacy-apps.mjs 后重新构建。
+# source-ref=main
+
+[Script]
+小潮脑_启动显式广告 = type=http-response,pattern=^https:\/\/api\.psy-1\.com\/cosleep\/startup(?:\?|$),requires-body=1,max-size=2097152,timeout=5,script-path=https://raw.githubusercontent.com/STERILITZIA02/Blockad-sr-my/main/dist/scripts/blockad-router.js
+
+[MITM]
+hostname = %APPEND% api.psy-1.com

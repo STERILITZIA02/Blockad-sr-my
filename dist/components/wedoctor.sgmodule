@@ -1,0 +1,17 @@
+#!name=BlockAd · 微医
+#!desc=getpopad 专用弹窗；保留挂号、问诊和账号。
+#!author=STERILITZIA02
+#!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
+#!version=1.1.0
+#!updated=2026-07-26
+#!category=去广告
+
+# GENERATED FILE — 请修改 config/apps.mjs / config/legacy-apps.mjs 后重新构建。
+# source-ref=main
+
+[URL Rewrite]
+# 广告弹窗
+^https:\/\/app\.wy\.guahao\.com\/json\/white\/dayquestion\/getpopad(?:\?|$) - reject-dict
+
+[MITM]
+hostname = %APPEND% app.wy.guahao.com

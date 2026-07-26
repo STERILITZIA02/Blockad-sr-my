@@ -1,0 +1,17 @@
+#!name=BlockAd · 淘票票
+#!desc=广告专用 MTop 接口；保留电影、影院、订单和支付。
+#!author=STERILITZIA02
+#!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
+#!version=1.1.0
+#!updated=2026-07-26
+#!category=去广告
+
+# GENERATED FILE — 请修改 config/apps.mjs / config/legacy-apps.mjs 后重新构建。
+# source-ref=main
+
+[URL Rewrite]
+# 广告查询
+^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.film\.mtopadvertiseapi\.(?:queryadvertise|queryloadingbanner)(?:\/|$) - reject-dict
+
+[MITM]
+hostname = %APPEND% acs.m.taobao.com

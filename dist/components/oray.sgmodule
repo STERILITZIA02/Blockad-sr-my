@@ -1,0 +1,19 @@
+#!name=BlockAd · 向日葵 / Oray
+#!desc=ad/adver、iOS 启动和推广素材专用 API；保留远程控制、设备、更新和账号。
+#!author=STERILITZIA02
+#!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
+#!version=1.1.0
+#!updated=2026-07-26
+#!category=去广告
+
+# GENERATED FILE — 请修改 config/apps.mjs / config/legacy-apps.mjs 后重新构建。
+# source-ref=main
+
+[URL Rewrite]
+# 广告接口
+^https:\/\/slapi\.oray\.net\/(?:client\/ad|adver)(?:\/|\?|$) - reject-dict
+# iOS 启动与推广素材
+^https:\/\/client-api-v2\.oray\.com\/materials\/(?:SUNLOGIN_CLIENT_IOS_PROMOTION|SLCC_IOS_STARTUP)(?:\?|$) - reject-dict
+
+[MITM]
+hostname = %APPEND% slapi.oray.net, client-api-v2.oray.com

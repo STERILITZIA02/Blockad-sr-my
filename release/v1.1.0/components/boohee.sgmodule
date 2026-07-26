@@ -1,0 +1,22 @@
+#!name=BlockAd · 薄荷健康
+#!desc=当前弹窗/推广横幅与混合首页中的强广告标记；保留健康记录、设备和账号。
+#!author=STERILITZIA02
+#!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
+#!version=1.1.0
+#!updated=2026-07-26
+#!category=去广告
+
+# GENERATED FILE — 请修改 config/apps.mjs / config/legacy-apps.mjs 后重新构建。
+# source-ref=v1.1.0
+
+[URL Rewrite]
+# 设备页推广横幅
+^https:\/\/api\.boohee\.com\/meta-interface\/v1\/index\/sensor-banners(?:\?|$) - reject-dict
+# 营销弹窗配置
+^https:\/\/bohe\.sfo-tx-shanghai-01\.saas\.sensorsdata\.cn\/api\/v2\/sfo\/user_popup_configs(?:\?|$) - reject-dict
+
+[Script]
+薄荷健康_首页显式广告 = type=http-response,pattern=^https:\/\/api\.boohee\.com\/meta-interface\/(?:v2\/index|v1\/index\/plaza)(?:\?|$),requires-body=1,max-size=2097152,timeout=5,script-path=https://raw.githubusercontent.com/STERILITZIA02/Blockad-sr-my/v1.1.0/release/v1.1.0/scripts/blockad-router.js
+
+[MITM]
+hostname = %APPEND% api.boohee.com, bohe.sfo-tx-shanghai-01.saas.sensorsdata.cn

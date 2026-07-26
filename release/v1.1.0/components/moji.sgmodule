@@ -1,0 +1,17 @@
+#!name=BlockAd · 墨迹天气
+#!desc=adoss/adlink 专用素材目录；保留天气、预警和定位。
+#!author=STERILITZIA02
+#!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
+#!version=1.1.0
+#!updated=2026-07-26
+#!category=去广告
+
+# GENERATED FILE — 请修改 config/apps.mjs / config/legacy-apps.mjs 后重新构建。
+# source-ref=v1.1.0
+
+[URL Rewrite]
+# 广告素材
+^https:\/\/cdn\.moji\.com\/(?:adoss|adlink)(?:\/|$) - reject-img
+
+[MITM]
+hostname = %APPEND% cdn.moji.com

@@ -1,0 +1,17 @@
+#!name=BlockAd · 搜狗输入法
+#!desc=iOS 启动推广页；保留输入、词库、账号和更新。
+#!author=STERILITZIA02
+#!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
+#!version=1.1.0
+#!updated=2026-07-26
+#!category=去广告
+
+# GENERATED FILE — 请修改 config/apps.mjs / config/legacy-apps.mjs 后重新构建。
+# source-ref=v1.1.0
+
+[URL Rewrite]
+# iOS 启动推广页
+^https:\/\/ios\.sogou\.com\/[^/]+\/sogou_input_[^/]+\/[^/]+\/index\.html(?:\?|$) - reject-200
+
+[MITM]
+hostname = %APPEND% ios.sogou.com

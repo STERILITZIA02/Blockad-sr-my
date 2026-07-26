@@ -1,0 +1,20 @@
+#!name=BlockAd · 华住会
+#!desc=酒店广告接口与弹窗通知中的显式广告；保留预订、订单、会员、更新和正常服务通知。
+#!author=STERILITZIA02
+#!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
+#!version=1.1.0
+#!updated=2026-07-26
+#!category=去广告
+
+# GENERATED FILE — 请修改 config/apps.mjs / config/legacy-apps.mjs 后重新构建。
+# source-ref=main
+
+[URL Rewrite]
+# 酒店广告接口
+^https:\/\/hweb-manager\.huazhu\.com\/hotels\/ad(?:\/|\?|$) - reject-dict
+
+[Script]
+华住会_弹窗内显式广告 = type=http-response,pattern=^https:\/\/hweb-manager\.huazhu\.com\/notice\/getAppPopupNotifyAlert(?:\?|$),requires-body=1,max-size=1048576,timeout=5,script-path=https://raw.githubusercontent.com/STERILITZIA02/Blockad-sr-my/main/dist/scripts/blockad-router.js
+
+[MITM]
+hostname = %APPEND% hweb-manager.huazhu.com

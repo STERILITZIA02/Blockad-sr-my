@@ -1,0 +1,17 @@
+#!name=BlockAd · 4gTV
+#!desc=广告拉取与广告日志；不匹配播放清单或媒体地址。
+#!author=STERILITZIA02
+#!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
+#!version=1.1.0
+#!updated=2026-07-26
+#!category=去广告
+
+# GENERATED FILE — 请修改 config/apps.mjs / config/legacy-apps.mjs 后重新构建。
+# source-ref=v1.1.0
+
+[URL Rewrite]
+# 广告拉取/日志
+^https:\/\/service\.4gtv\.tv\/4gtv\/Data\/(?:GetAD|ADLog)(?:\/|\?|$) - reject-dict
+
+[MITM]
+hostname = %APPEND% service.4gtv.tv

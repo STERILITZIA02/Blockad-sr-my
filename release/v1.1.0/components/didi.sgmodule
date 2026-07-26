@@ -1,0 +1,16 @@
+#!name=BlockAd · 滴滴出行
+#!desc=首页/feed/activity/营销通知混合响应中只删除强广告标记对象；保留叫车、行程、安全通知、支付和账号。
+#!author=STERILITZIA02
+#!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
+#!version=1.1.0
+#!updated=2026-07-26
+#!category=去广告
+
+# GENERATED FILE — 请修改 config/apps.mjs / config/legacy-apps.mjs 后重新构建。
+# source-ref=v1.1.0
+
+[Script]
+滴滴_显式广告 = type=http-response,pattern=^https:\/\/(?:ct\.xiaojukeji\.com\/agent\/v3\/feeds|res\.xiaojukeji\.com\/resapi\/activity\/(?:xpget|mget|get(?:Ruled|Preload|PasMultiNotices))|conf\.diditaxi\.com\.cn\/(?:homepage\/v\d+\/other\/fast|dynamic\/conf))(?:\?|$),requires-body=1,max-size=2097152,timeout=5,script-path=https://raw.githubusercontent.com/STERILITZIA02/Blockad-sr-my/v1.1.0/release/v1.1.0/scripts/blockad-router.js
+
+[MITM]
+hostname = %APPEND% ct.xiaojukeji.com, res.xiaojukeji.com, conf.diditaxi.com.cn

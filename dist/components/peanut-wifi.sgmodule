@@ -1,0 +1,17 @@
+#!name=BlockAd · 花生地铁 WiFi
+#!desc=emptyAd/adNew 专用接口；保留联网认证。
+#!author=STERILITZIA02
+#!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
+#!version=1.1.0
+#!updated=2026-07-26
+#!category=去广告
+
+# GENERATED FILE — 请修改 config/apps.mjs / config/legacy-apps.mjs 后重新构建。
+# source-ref=main
+
+[URL Rewrite]
+# 广告接口
+^https:\/\/cmsapi\.wifi8\.com\/v\d+\/(?:emptyAd|adNew)(?:\/|\?|$) - reject-dict
+
+[MITM]
+hostname = %APPEND% cmsapi.wifi8.com
