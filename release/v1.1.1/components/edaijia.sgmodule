@@ -1,0 +1,17 @@
+#!name=BlockAd · e代驾
+#!desc=adsplash 素材；保留叫车、行程和支付。
+#!author=STERILITZIA02
+#!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
+#!version=1.1.1
+#!updated=2026-07-26
+#!category=去广告
+
+# GENERATED FILE — 请修改 config/apps.mjs / config/legacy-apps.mjs 后重新构建。
+# source-ref=v1.1.1
+
+[URL Rewrite]
+# 开屏素材
+^https:\/\/pic\.edaijia\.cn\/adsplash(?:\/|$) - reject-img
+
+[MITM]
+hostname = %APPEND% pic.edaijia.cn

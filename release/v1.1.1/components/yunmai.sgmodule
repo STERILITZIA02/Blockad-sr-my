@@ -1,0 +1,17 @@
+#!name=BlockAd · 云麦好轻
+#!desc=ios/ad 专用 API；保留健康与设备数据。
+#!author=STERILITZIA02
+#!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
+#!version=1.1.1
+#!updated=2026-07-26
+#!category=去广告
+
+# GENERATED FILE — 请修改 config/apps.mjs / config/legacy-apps.mjs 后重新构建。
+# source-ref=v1.1.1
+
+[URL Rewrite]
+# 广告接口
+^https:\/\/restapi\.iyunmai\.com\/api\/ios\/ad(?:\/|\?|$) - reject-dict
+
+[MITM]
+hostname = %APPEND% restapi.iyunmai.com

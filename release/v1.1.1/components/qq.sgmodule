@@ -1,0 +1,33 @@
+#!name=BlockAd · QQ / 腾讯系广告
+#!desc=GDT 广告请求、素材与腾讯新闻开屏；不拦截 QQ 登录、消息、文件或语音视频。
+#!author=STERILITZIA02
+#!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
+#!version=1.1.1
+#!updated=2026-07-26
+#!category=去广告
+
+# GENERATED FILE — 请修改 config/apps.mjs / config/legacy-apps.mjs 后重新构建。
+# source-ref=v1.1.1
+
+[Rule]
+DOMAIN,ad.qq.com,REJECT
+DOMAIN,adsfile.qq.com,REJECT
+DOMAIN,mi.gdt.qq.com,REJECT
+DOMAIN,v2mi.gdt.qq.com,REJECT
+DOMAIN,win.gdt.qq.com,REJECT
+DOMAIN,pgdt.gtimg.cn,REJECT
+DOMAIN,pgdt.ugdtimg.com,REJECT
+
+[URL Rewrite]
+# GDT 广告拉取；返回空对象，避免 SDK 因断连高频重试
+^https:\/\/(?:mi|v2mi|win)\.gdt\.qq\.com\/gdt_(?:mview|view)\.fcg(?:\?|$) - reject-dict
+# 腾讯新闻开屏
+^https:\/\/r\.inews\.qq\.com\/getFullScreenPic(?:\?|$) - reject-dict
+# 腾讯新闻当前开屏与横幅广告
+^https:\/\/r\.inews\.qq\.com\/(?:getBannerAds|getSplash)(?:\?|$) - reject-dict
+
+[Script]
+腾讯新闻_开屏与信息流显式广告 = type=http-response,pattern=^https:\/\/(?:news\.ssp\.qq\.com\/app|r\.inews\.qq\.com\/(?:getQQNewsUnreadList|getTagFeedList|news_feed\/hot_module_list|gw\/page\/(?:event_detail|channel_feed)))(?:\?|$),requires-body=1,max-size=1048576,timeout=5,script-path=https://raw.githubusercontent.com/STERILITZIA02/Blockad-sr-my/v1.1.1/release/v1.1.1/scripts/blockad-router.js
+
+[MITM]
+hostname = %APPEND% mi.gdt.qq.com, v2mi.gdt.qq.com, win.gdt.qq.com, r.inews.qq.com, news.ssp.qq.com

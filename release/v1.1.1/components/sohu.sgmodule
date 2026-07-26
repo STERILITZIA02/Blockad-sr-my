@@ -1,0 +1,19 @@
+#!name=BlockAd · 搜狐新闻
+#!desc=adsense 与明确推广素材；不拒绝播放器 bootstrap 或正常控制配置。
+#!author=STERILITZIA02
+#!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
+#!version=1.1.1
+#!updated=2026-07-26
+#!category=去广告
+
+# GENERATED FILE — 请修改 config/apps.mjs / config/legacy-apps.mjs 后重新构建。
+# source-ref=v1.1.1
+
+[URL Rewrite]
+# 广告接口
+^https:\/\/api\.k\.sohu\.com\/api\/news\/adsense(?:\?|$) - reject-dict
+# 推广素材
+^https:\/\/pic\.k\.sohu\.com\/img\d+\/wb\/tj(?:\/|$) - reject-img
+
+[MITM]
+hostname = %APPEND% api.k.sohu.com, pic.k.sohu.com

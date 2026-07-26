@@ -2,7 +2,7 @@
 #!desc=保留原番茄/聚合模块中的精确 PCDN 与广告遥测拦截；不使用 IP/CIDR 或共享业务整域。
 #!author=STERILITZIA02
 #!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
-#!version=1.1.0
+#!version=1.1.1
 #!updated=2026-07-26
 #!category=去广告
 

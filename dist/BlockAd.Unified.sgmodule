@@ -2,7 +2,7 @@
 #!desc=Shadowrocket 优先的去广告统一模块；按精确接口持续过滤，失败时保留原响应。不要与 components 内模块重复启用。
 #!author=STERILITZIA02
 #!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
-#!version=1.1.0
+#!version=1.1.1
 #!updated=2026-07-26
 #!category=去广告
 

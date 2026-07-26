@@ -1,0 +1,19 @@
+#!name=BlockAd · 飞猪
+#!desc=当前开屏/营销屏资源接口；保留搜索、预订、订单和支付。
+#!author=STERILITZIA02
+#!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
+#!version=1.1.1
+#!updated=2026-07-26
+#!category=去广告
+
+# GENERATED FILE — 请修改 config/apps.mjs / config/legacy-apps.mjs 后重新构建。
+# source-ref=v1.1.1
+
+[URL Rewrite]
+# 营销屏资源
+^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.fliggy\.crm\.screen\.(?:allresource|predict)(?:\/|\?|$) - reject-dict
+# 启动活动资源
+^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.trip\.activity\.querytmsresources\/1\.0\?(?=[^#]*\btype=originaljson(?:&|$)) - reject-dict
+
+[MITM]
+hostname = %APPEND% acs.m.taobao.com

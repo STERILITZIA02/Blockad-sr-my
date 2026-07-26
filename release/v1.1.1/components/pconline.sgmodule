@@ -1,0 +1,21 @@
+#!name=BlockAd · 太平洋电脑网 / 汽车网
+#!desc=广告分析和 ad2p 接口；不阻断普通预加载。
+#!author=STERILITZIA02
+#!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
+#!version=1.1.1
+#!updated=2026-07-26
+#!category=去广告
+
+# GENERATED FILE — 请修改 config/apps.mjs / config/legacy-apps.mjs 后重新构建。
+# source-ref=v1.1.1
+
+[URL Rewrite]
+# 广告分析
+^https:\/\/agent-count\.pconline\.com\.cn\/counter\/adAnalyse(?:\/|\?|$) - reject-200
+# 电脑网广告
+^https:\/\/mrobot\.pconline\.com\.cn\/(?:v\d+\/ad2p|s\/onlineinfo\/ad)(?:\/|\?|$) - reject-dict
+# 汽车网广告
+^https:\/\/mrobot\.pcauto\.com\.cn\/v\d+\/ad2p(?:\/|\?|$) - reject-dict
+
+[MITM]
+hostname = %APPEND% agent-count.pconline.com.cn, mrobot.pconline.com.cn, mrobot.pcauto.com.cn

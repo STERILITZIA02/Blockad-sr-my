@@ -2,7 +2,7 @@
 #!desc=开屏、吧内广告配置与 JSON 信息流显式广告；Protobuf 无法解析时原样返回。
 #!author=STERILITZIA02
 #!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
-#!version=1.1.0
+#!version=1.1.1
 #!updated=2026-07-26
 #!category=去广告
 

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "project": "STERILITZIA02/Blockad-sr-my",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "ref": "main",
   "generatedOn": "2026-07-26",
   "unifiedModule": "BlockAd.Unified.sgmodule",
@@ -1203,847 +1203,847 @@
     {
       "path": "BlockAd.Unified.sgmodule",
       "bytes": 45300,
-      "sha256": "9bb81a7b2998a7dfdf6188ea66fc9df12469b248860c24f1045c1e39b1a35c53"
+      "sha256": "0d2002afbd3c4968ceea8a0a40de28ac1c20338e734c1a7f7d0473281010532e"
     },
     {
       "path": "components/21jingji.sgmodule",
       "bytes": 479,
-      "sha256": "74e5b754324e64c70d685024ac3f0ced36c4c071b5abebfc3a3ecb34a914776a"
+      "sha256": "7fd3ea581fd6fbc9fcdcaa6eeb5a499241168870c6d1b54e3beca5daef7783fb"
     },
     {
       "path": "components/4gtv.sgmodule",
       "bytes": 513,
-      "sha256": "df6a96da7c030c2389e32e08165de3b1b9abe95f6aae2fa2f8428f28377dd210"
+      "sha256": "25d8cab1f56e351758c1a34b0ea898efaa614a1c58d45286a3e3ef38a6f81877"
     },
     {
       "path": "components/58.sgmodule",
       "bytes": 742,
-      "sha256": "8f3a1bbb4dedc8613c86976949017e87bedd4cf7d147513c01e829ed842b6204"
+      "sha256": "9a20f38990c706fc3edc162b6eed24d8b3912acfc97b99992eeefe9dcd2be7ff"
     },
     {
       "path": "components/acfun.sgmodule",
       "bytes": 503,
-      "sha256": "b1237877f11fc995dbdd54e22516a013b0400fd5ec1e1535eb7277c2f808cf75"
+      "sha256": "d588353abfc6156cc05250eabc0bf8530ddd96803c85de3c6643245e4aaa0339"
     },
     {
       "path": "components/aimeiju.sgmodule",
       "bytes": 490,
-      "sha256": "c27487e95941a7953c3152548715ec93fa3ce276ba15fddcc161810ad9000d45"
+      "sha256": "55908e0f1036ed8d1d9db13d0ad20c8f1affca121787abede54e0b114be33706"
     },
     {
       "path": "components/amap.sgmodule",
       "bytes": 1553,
-      "sha256": "41a959a719fc128aa9eaadbae15be6a4bc5dba399886ee0f50eaf03f127547d7"
+      "sha256": "089cc15a3840092ca62265bd8e4fc287093ad585d2a31361d46f40dc6695369b"
     },
     {
       "path": "components/baby-health.sgmodule",
       "bytes": 529,
-      "sha256": "ac8064599f0d93e3b1106f96be63b10f833ea18c83fd4606b19d844b07803990"
+      "sha256": "5ebe3f6d2b6dd7c5aa05ea1f12ba34a2a1f62f4e7e5668d002663957a87845cc"
     },
     {
       "path": "components/baidu-input.sgmodule",
       "bytes": 627,
-      "sha256": "063a4b338aaf70102930245fa57b3f7f82bf7ab325899d173b65cc47d61ea4a2"
+      "sha256": "ee0132924c8e426c4cc72f13c46cfec2f0dd2274ff3e6cdff7b51b1efa84f2e0"
     },
     {
       "path": "components/baidu-map.sgmodule",
       "bytes": 543,
-      "sha256": "3b82cf5467b8ac5b2eecb6f51c37de346417d9d7dc2e82d85f2e9692cb873023"
+      "sha256": "5b3af9a2096d83c4cb024005a559f3bd437862e73740061bc6a61e473cdd8d3d"
     },
     {
       "path": "components/baidu-netdisk.sgmodule",
       "bytes": 1028,
-      "sha256": "827191b259db68bffd9380a451bfd9167aeaae0aea1d698d18c59844f29889c7"
+      "sha256": "e33b01a45d8045133f90628f21b3e36aff995630a916b1a7717045942fd1d5b0"
     },
     {
       "path": "components/baidu-tieba.sgmodule",
       "bytes": 1191,
-      "sha256": "df19821a00a1d2eacfcce8867ab4bbd2dcf838a0e9164cee439372ca24c84a79"
+      "sha256": "8ada03deb520bc9bba152cd6b17313c867db8508215286f2cd93c3d3f7e0c6a7"
     },
     {
       "path": "components/beike.sgmodule",
       "bytes": 514,
-      "sha256": "17405cfb4103835c799678a3fb4d8ac32ddbfd96ff0f2dc9df862a092edf1c2c"
+      "sha256": "3cf5af654bdbcf3c9d7bc2b029a2047298c7cd5db521fbd77c294a9dde56917a"
     },
     {
       "path": "components/beitai-kitchen.sgmodule",
       "bytes": 529,
-      "sha256": "fd0c7353356f3ef9103f8fce7031cf9773996ea94b12f32faf2b690bd1b01e0e"
+      "sha256": "717933c00de6670c997f296f07fbf98555cb7bca9549299fb2e72e52c7b9ee4b"
     },
     {
       "path": "components/bishijie.sgmodule",
       "bytes": 499,
-      "sha256": "04bee35b40b616b2b037fbe3db871735b12ef789e74853d4721949590c08ebd1"
+      "sha256": "1ce840b2809e469ef1d3c62fceebba20c6b0ba95f7f66d3db373dab17f2a9a1c"
     },
     {
       "path": "components/bodivis.sgmodule",
       "bytes": 506,
-      "sha256": "2cab1a36291b276f62f0a64d22803b5aee1013c2c7d7860d211e0d47b476b6ea"
+      "sha256": "b25e0764d1f987320f13e1ac2ab4227e1bac0481c1095fed106907d9806be3c6"
     },
     {
       "path": "components/boohee.sgmodule",
       "bytes": 1055,
-      "sha256": "63ad4d59299650050339fddf4a3ad2210b5acecef5ee42e13aa3574738b05b68"
+      "sha256": "beb1cd57e75851fb85626881e51905466e8ec6271934ceb88fd8cd53c10b1995"
     },
     {
       "path": "components/caijing.sgmodule",
       "bytes": 603,
-      "sha256": "b9441b3b7d71f9f31cb06690a6df3e8dc89c013229821cd31468c2d381c8edc2"
+      "sha256": "22a5f5f65e6b8cb9dbe1e05480a6a074dfad37a6a74034f1ce3d5473cc1ce342"
     },
     {
       "path": "components/cainiao.sgmodule",
       "bytes": 718,
-      "sha256": "f85209c1c7dc662fb1abd32143370a0868fd38c2142052d323dd047e7a5c6d15"
+      "sha256": "7f54c5cf688a915aa5a05302231a561594618a571c516a9179aa5a38161acf18"
     },
     {
       "path": "components/camscanner.sgmodule",
       "bytes": 519,
-      "sha256": "683491dc0716aa9c028297924edab1ccd9b4f78b10f2ffbf520ea45700df89c4"
+      "sha256": "8e45d666a3524c279fa748ba7aa20a60afecb3f5dddfebc04d329386a2a81f7c"
     },
     {
       "path": "components/caocao.sgmodule",
       "bytes": 491,
-      "sha256": "26b17ed5a66a77979bfc5cc6bc1bc2baa346a6d664e07c20b76322cbe06864ea"
+      "sha256": "7b8f848d9c6db4fe1eaea2ba3bf7c03e0855a45449f34f4a97ec6f60830413e6"
     },
     {
       "path": "components/chelaile.sgmodule",
       "bytes": 1102,
-      "sha256": "28250926402a62a7fe60e7c5a4c398c0173dc0849e2be5521cba686680f08f37"
+      "sha256": "d4c220ba22ca94e617b8253abb959926730332a490df25b05a66c85954eaf67f"
     },
     {
       "path": "components/china-mobile.sgmodule",
       "bytes": 559,
-      "sha256": "ffcc11acd09c5142367673a0bb81b481b7baa7172a8b45978a356bfd2e69f33c"
+      "sha256": "58739a4a919169bade546ecd001550c4ceed6a4bb9d08eb5fdfad256cd843be1"
     },
     {
       "path": "components/china-unicom.sgmodule",
       "bytes": 500,
-      "sha256": "69332942795d30976ce1467dd721c6e807ed78929a8325ddf4f240271ebce124"
+      "sha256": "4c50389082b580fdffcaf7abe8d3d5e747f8e91083f935dcf7d76666bbe37856"
     },
     {
       "path": "components/cloud189.sgmodule",
       "bytes": 627,
-      "sha256": "896f113f4d5d3928e55b98495c89717298f2cbb6e3c89f4936cd70850d295e52"
+      "sha256": "99bbba8fce5e35af0ef55de528463ca0d5ae7ad7db90238feae6b9449d017e90"
     },
     {
       "path": "components/cntv.sgmodule",
       "bytes": 466,
-      "sha256": "c73074eee82ae0f3bed9940188b7a02516ac031f59eec9ea8598a9ac4632800b"
+      "sha256": "41f1a9c3fab1cd829c547f51a7e3a91485661a33d416f94eb71adf0192e9646e"
     },
     {
       "path": "components/coolapk.sgmodule",
       "bytes": 757,
-      "sha256": "87f8a5c1ea81757b0f3c5ef43cfdd3a5dda9942cf24e3abb124caa587ff41214"
+      "sha256": "89970ef8e7d947486461c9cba5439e99333b1a28a65c41106a0627822f3441e8"
     },
     {
       "path": "components/csdn.sgmodule",
       "bytes": 603,
-      "sha256": "4caf6b4183ae62fff53b71313932a55f71d907dddf929f53b0e4b1f46dd75e79"
+      "sha256": "823e1458e1df6e356fa1f804ec97b671169ed45b165eaa0177a76eae352be2cc"
     },
     {
       "path": "components/ctrip.sgmodule",
       "bytes": 505,
-      "sha256": "50dd6114bf38336f6de488e38d6642e7d83b81fe6e0c5830cb75d662f89808cb"
+      "sha256": "f64f599b620eb7f33f9411f7599c684cb4f10b003fa2961535901c64f0e7b226"
     },
     {
       "path": "components/dangdang.sgmodule",
       "bytes": 515,
-      "sha256": "b311014bae979b8a9f62487915423755ae2dd9c19756a5d888c66d1e55d4c968"
+      "sha256": "7b8e6f13d4a603295c1fea1448638317a3b1cec47438d17746415d181e92c81d"
     },
     {
       "path": "components/daoyu.sgmodule",
       "bytes": 491,
-      "sha256": "3c83d96bb1a9d2298dc8b9cb4b6ce43d28bc0af18a4d3639e87d4deaba8e7089"
+      "sha256": "c837dd4af29a70d9ad1d7f9b9d81585e6b30d9c923d0ca4f3992c3ab05d10035"
     },
     {
       "path": "components/ddpai.sgmodule",
       "bytes": 507,
-      "sha256": "7f1c5f95b7c36d48f12366aa49114eabedcf096a3da6a72ca4181fbbc69c28fb"
+      "sha256": "17971201074bc05abd11524c0149563cdc45642bfea31114db23bbab05a03cc7"
     },
     {
       "path": "components/dewu.sgmodule",
       "bytes": 636,
-      "sha256": "01ffb3b52ed29acc1569b0feb40c02313f5c5999ff9e2656524faeffe5c39cef"
+      "sha256": "de27cbca1e6e063b839c23895745e2352b37524219bb1baa1b65c9ebd9b35f09"
     },
     {
       "path": "components/dianshijia.sgmodule",
       "bytes": 598,
-      "sha256": "11fea29b1cbce1583e2045d364915de23819275a6798a518d89d1a061d7b9b55"
+      "sha256": "75e39b246759ac3ea27699d3ee71ec5eaa294dcc616a182fc9567357b54bd450"
     },
     {
       "path": "components/dida.sgmodule",
       "bytes": 629,
-      "sha256": "8e02a6cccb04d19c3479a6c71f5429f3c234e6e1bca0c051253620a0063688a6"
+      "sha256": "611f33b5a3fda4b06944ca7d7551c650b34044c81c1358a0e130afc1e72ca730"
     },
     {
       "path": "components/didi.sgmodule",
       "bytes": 950,
-      "sha256": "18ea77dc927f07516004efe1c19980776dc7132bd44160d3c04612f35387f969"
+      "sha256": "cdd2d56b3c56e723d3cba026500db39a538d91a8cdaa035dae36f72eb4bac428"
     },
     {
       "path": "components/dingdong-maicai.sgmodule",
       "bytes": 511,
-      "sha256": "d7110cfb48f70ce1f14c54de2901926741e71030247a608e225122d747649623"
+      "sha256": "af1e9cc289079d0ed47236dbff577bcef0c0cfc3776e2152bfd442007475abea"
     },
     {
       "path": "components/douban.sgmodule",
       "bytes": 497,
-      "sha256": "2eaf1d8348b0c430232c5ade159070f9cfed61ecd136e27f589a432b393ead48"
+      "sha256": "95554937c1e0ea8d4114d05a41ee821ff548588bca1ade01ba285b576f010bee"
     },
     {
       "path": "components/douyin.sgmodule",
       "bytes": 2071,
-      "sha256": "cd8cb8a88b269f5a3a89195c4ed8798e87e45a22afdeef687f96afaef8cf6c26"
+      "sha256": "94bc7e580fce6dfa17f205982e8bb7ede844b78147b2d8a6a9e40b9f36537b72"
     },
     {
       "path": "components/douyu.sgmodule",
       "bytes": 514,
-      "sha256": "6f5f8c49f40a64f839a8b97c90d2ab0c01edc8b5b04a9c7b3c69d8724d437399"
+      "sha256": "02bc027110596f47316ab8b02489582ca49907a3be59209f24ad2d03fc8c6383"
     },
     {
       "path": "components/edaijia.sgmodule",
       "bytes": 466,
-      "sha256": "89496ba01f3073fc127cd552bd7db598dcbc92ecc1caa824ad106e119de3f2c5"
+      "sha256": "214980b6651dc009ea272ec9679ad980c47b71a91b7c7d99da0167948d2171f4"
     },
     {
       "path": "components/elong.sgmodule",
       "bytes": 502,
-      "sha256": "b28020be7f380318c244023413b0652e2ac54cb37f406e8fa6417deeb972915d"
+      "sha256": "a16a901bfc67c365387dc51a4a68be7f6b364f5d7464fd22ce0b3e68583df6fa"
     },
     {
       "path": "components/ezviz.sgmodule",
       "bytes": 468,
-      "sha256": "cc9624074396777d87f1ab0805a2c0128c7419ed54da07f8bd16490a86c35938"
+      "sha256": "4c1759a8429915528833de8d78ed8ee935f9d261b421e995efb5be81a05ebb1d"
     },
     {
       "path": "components/facebeauty.sgmodule",
       "bytes": 649,
-      "sha256": "f1bf9ef4908438db25f1d0871e2b33c52013bfeb78b88c15674a4c474da5c081"
+      "sha256": "0f8684adb5bf34b1ee0851d2074984cebca0e73ac33af32e4a13d781e022d531"
     },
     {
       "path": "components/fanqie.sgmodule",
       "bytes": 1718,
-      "sha256": "2573618a8d4c68ceeeb870bbdc1295280e79d5d42c08f940ec579795f8323cdb"
+      "sha256": "8dc4522c9b3117e71e29acf2e051bf6eebd35801a6a591788ccfdf44c60a80fc"
     },
     {
       "path": "components/feng.sgmodule",
       "bytes": 490,
-      "sha256": "65781d8212a67fce24e603c1cb5e002b86d1269070118ec882e1cc50d490d4d5"
+      "sha256": "4f64bedf54d93c34a2a025c625f2958416ee034ebded820567bd89bc935fa23c"
     },
     {
       "path": "components/fengwatch.sgmodule",
       "bytes": 535,
-      "sha256": "defa5ad40b17d3e368b8a8b12c61568a59db0258d779b388f487fe7c7e9fde3f"
+      "sha256": "7b76b67acee1697ad1467b04a2877fbd49d84f4898f7a7e1c38fec916c58a56d"
     },
     {
       "path": "components/fliggy.sgmodule",
       "bytes": 705,
-      "sha256": "6b188ff433849bbf4a3d93fc2105afaf633698cc80993d7f340eaf6ecd169e8b"
+      "sha256": "fcc6c6a97aabef05c60c7a982966a3e60fa29d1065c1fb5ec67628781cc19f08"
     },
     {
       "path": "components/flyertea.sgmodule",
       "bytes": 528,
-      "sha256": "9eb025233b0fb68566b9853f0a3925661b106dc8424c14431b154e30331b820c"
+      "sha256": "89dc1514d709016ed8b067b9040f0d6408d4d4cb61b5ccef29d2715ace62e78c"
     },
     {
       "path": "components/foodie.sgmodule",
       "bytes": 715,
-      "sha256": "f46bb395a09bdc3683630bc582ab0c230e570f2831ca841ffdaace127cf62f69"
+      "sha256": "554f5cf0b415247160368c1c1002ab751a3f2db0e0370e2e47f90d8b6a13bc61"
     },
     {
       "path": "components/fotoable.sgmodule",
       "bytes": 479,
-      "sha256": "680b834853e5fee362262f6ddd97f42a8b78d6dce3cc49119c8da3b5f7116a05"
+      "sha256": "9081aac6f771b861d5b5e6f14634781730d2bf0aae700e853845e7738ad17080"
     },
     {
       "path": "components/futu.sgmodule",
       "bytes": 489,
-      "sha256": "c081e38789988b9e99a372a06fefb64dead76c3bc6e689202850d583656e4cd7"
+      "sha256": "5b74e666430c910afabdcba3e4e7b7d2a409b450011929e2d81c3a57ea5f6bf3"
     },
     {
       "path": "components/general-networks.sgmodule",
       "bytes": 524,
-      "sha256": "fc9ffa3f0a4c60bc1a5250c188dfaeb618e59c3b72ad9577173d26cff7b5211d"
+      "sha256": "1770f0b0db2892b6c650e6eddad5f067fcf6c2bcd4f2651a92be99941853f4fb"
     },
     {
       "path": "components/gofun.sgmodule",
       "bytes": 513,
-      "sha256": "4c571920f795983bd1ff5a98913d1834111bdc0953ab945cbcb10d45b34cbe32"
+      "sha256": "05349722451ad33174b10937941c5048600a2f27c44c5d60fae44787e5ecdc71"
     },
     {
       "path": "components/hangzhou-city-card.sgmodule",
       "bytes": 485,
-      "sha256": "34df445d6246b98c306d22e276bf3797be24a070cf5f8a345eb0eb85b264d4da"
+      "sha256": "97d196dd44cc7a6c9dc3ba6f42ff459612f3fe3e3cba91759716ce9a65a84e15"
     },
     {
       "path": "components/hanju-tv.sgmodule",
       "bytes": 699,
-      "sha256": "71e0243dbab9d696ef47ebe5127e94b72df6071948aa2e84fd175b333bd2cb5c"
+      "sha256": "547c0a272e1e6b1d68e294007a77ee954605c319e32805771670c9637d78f608"
     },
     {
       "path": "components/huazhu.sgmodule",
       "bytes": 865,
-      "sha256": "13a41f3e3965e4186a42d03ef01395bb1bb651fb85a8e869f911f5347cefc060"
+      "sha256": "88c6cd3ab76205c275270a9ca1179f4fb6bbf58d5b0f8b71ae7f1c8168417e86"
     },
     {
       "path": "components/huomao.sgmodule",
       "bytes": 477,
-      "sha256": "0a7420f965faa167b11b41566bce7205c3ab72eab414dde3d2e771d6cd3f8356"
+      "sha256": "d4910ca8819a8f3840575e5d1b0e8800bf2a3b67cb0f6a79ad465d7064679641"
     },
     {
       "path": "components/huya.sgmodule",
       "bytes": 507,
-      "sha256": "80cde0e449400ed368b3117f77aaa4ec8a09df4fda6035ecdbe559e3eb6772ed"
+      "sha256": "366d0b2aa9fce0e28c1d795d88314c82a1584bedefcd8bea727566a11487054b"
     },
     {
       "path": "components/i4.sgmodule",
       "bytes": 508,
-      "sha256": "8542009ff01f36a5450d56a9e52f453c71bb39fb5758b9b0860241ee701df39c"
+      "sha256": "2665d5fc476dc0584eb0755a7836729e7b8f005a9f9cbe98defb29dc27f6a8e1"
     },
     {
       "path": "components/icleaner.sgmodule",
       "bytes": 495,
-      "sha256": "da98bfae2a535a2c1e71ef4566ac432cb6e9fd0d1ba92ccc88894118dc4dc8bb"
+      "sha256": "ee3eb05b8ebe3142d87d31a9bcdf2a0558574645d4e9266b28012ab398406d81"
     },
     {
       "path": "components/ifly-input.sgmodule",
       "bytes": 510,
-      "sha256": "65db9fe3ef4b424c0a895c8277365267765083cbb614b351f0e7cee6ef0766f1"
+      "sha256": "a304b7ce46f0c648ce82d5493b1db700d7968aea95a64c5d33df5abc28420edb"
     },
     {
       "path": "components/ifreetime.sgmodule",
       "bytes": 634,
-      "sha256": "0c0bd82a6d0ba50a4f586e47a38016f07a7cb85bbbcc3944554b91ca0c6b8af8"
+      "sha256": "6b968ea2405613577128be81fa42c239e9918fc755a6399f5ef5486256ee70e5"
     },
     {
       "path": "components/ikos-pro.sgmodule",
       "bytes": 527,
-      "sha256": "d5818b1d3b607c76abe957d8e4fc5ae50931f0f7bb14b9db1f8373272f117a7c"
+      "sha256": "bb6f833c2061d5504c05ec1617eb3d3b7ded80423d30ed23ff5f7f6404f94bb6"
     },
     {
       "path": "components/inanning.sgmodule",
       "bytes": 490,
-      "sha256": "5f91f2232c238ce1bbee062ab0e10f84553b7ea7d60dec2d05d9140ac6ade6b4"
+      "sha256": "62c991b087f2cf42ba2520f6f055e7394c920e502ae16d444a02cf33ba0442db"
     },
     {
       "path": "components/inoreader.sgmodule",
       "bytes": 470,
-      "sha256": "7407dc8aee3d845f093cd3e4a91529e0797d6010c8dc4b5d2b073e7e87405599"
+      "sha256": "c81678070f6f445d04204e006e8f3f66358abeb116d22151d46bea7710a1989f"
     },
     {
       "path": "components/iqiyi.sgmodule",
       "bytes": 754,
-      "sha256": "cef448fa87a6b86b1c5d1d3c6d4ce68852887a8985951785bdceb30e32b4ff07"
+      "sha256": "d2805db28d0c3d38592652fea1e76d5629ff5dc1202f3cbcf6ee91b8a9a7429d"
     },
     {
       "path": "components/ireader.sgmodule",
       "bytes": 703,
-      "sha256": "4d4495c808521d858831b3b2956b9303d4b6a34e911bafe3675a99af91f6c352"
+      "sha256": "aa1dab40ee539c3058405bb870c6a7e4100d3d167814a757475dbbc7e2775376"
     },
     {
       "path": "components/jd.sgmodule",
       "bytes": 1508,
-      "sha256": "052edf18cd407299faa3a79b127d0a282133ba408ef084176f4b4a5ce9e1729b"
+      "sha256": "4e370e89e63f91df0191181b2558c52f53abc1244de64f6a71558faf9c3df647"
     },
     {
       "path": "components/jiakaobaodian.sgmodule",
       "bytes": 499,
-      "sha256": "6d25a60c13e12aeba73da0c6c9af3716984a8f701eb3b4b2a2519cfc7eba57ea"
+      "sha256": "f6d5c883cfa3dd828941a2c379f9c3add2df297994f13a020972c536f9794c57"
     },
     {
       "path": "components/jinse.sgmodule",
       "bytes": 470,
-      "sha256": "f1db2c40a996b7f279f6ecbb429457496d01057478b9d718b47383bb4b142fc1"
+      "sha256": "814e3e63a28c51c40e4848632e35a8dac7bc22d0c6fb415e827ba847cfe3fd4d"
     },
     {
       "path": "components/jxedt.sgmodule",
       "bytes": 474,
-      "sha256": "e3b5673f5d32a01b98de3f00d163223aefb56700cb5dba6f96263d2348673b40"
+      "sha256": "1843d7ff6fd22a958f3d58095475dc69c4e836303ae9866579a28f8b8ad1fd6e"
     },
     {
       "path": "components/keep.sgmodule",
       "bytes": 495,
-      "sha256": "c2615e542dd56b44a7926b968835406fcc7f648be99647a623b8c04ce71c59ce"
+      "sha256": "468a377832c034bf58c5cd09e2fc3a01d5da30775ab95b029aa14bb9e219f58e"
     },
     {
       "path": "components/kingsoft.sgmodule",
       "bytes": 1105,
-      "sha256": "c8b00c6df6845fb1a8db555b1eca4f375c1eecace0af9fc16bb19cf00f4205d7"
+      "sha256": "bebfe46bb83afbfa5252f83d8c22f4c03c77b8a5858f9b41a0a72220cd75819f"
     },
     {
       "path": "components/kuaikan.sgmodule",
       "bytes": 501,
-      "sha256": "5345ef9fd63a325cc8f244a062dabcbbfc0c153ed2510fb3f6f66dfe84b3a401"
+      "sha256": "9219fc45ac7a550f7fed2d5d864d325a1d1258c3a5a1234a0a30a853e6c1918a"
     },
     {
       "path": "components/kuwo.sgmodule",
       "bytes": 910,
-      "sha256": "46ccad5555b21cbeab0ff6f98306df4ad2056cc77c79309660ca8afafcf03955"
+      "sha256": "d9dfd9eaeae30250de01cb0db0702b6444d1aab488354c4f69e11036506e2c64"
     },
     {
       "path": "components/laifeng.sgmodule",
       "bytes": 474,
-      "sha256": "08cd0c0083e243e1624f6a3330b73d8608d2f9d7f4fda8f2a8d42075aae584bb"
+      "sha256": "f161af25b344c290aa364e0f531116531de61e02f7ccca72c05079b5254330ae"
     },
     {
       "path": "components/lechange.sgmodule",
       "bytes": 577,
-      "sha256": "18522e13cf66c7cc2f3db9d96a7499aba0a2b09c2fd23519f377784796241cab"
+      "sha256": "18878b468b45fba7c638c28a8a365903bb32151cefbea73c1321786dbdf30bed"
     },
     {
       "path": "components/lenovo.sgmodule",
       "bytes": 481,
-      "sha256": "a9b6613cc3d576515302fd731cf513b9b47e11577b0c3a56ab7551a043cc4d88"
+      "sha256": "14e57fdb50acc60e1ff6ebf2c96754de570620af0c2c6484385a7a22eb792a1a"
     },
     {
       "path": "components/mafengwo.sgmodule",
       "bytes": 490,
-      "sha256": "6b3a51b7abbb8004f9f58c3aef29d4f431357a494353579d3e5a9c8b56af8dbd"
+      "sha256": "3bfa8953e8e3f56a8a6a2161a9228c16c4ffff01e59538b8d7d9a4ea0a5e5043"
     },
     {
       "path": "components/manhuaren.sgmodule",
       "bytes": 510,
-      "sha256": "7fb4180921faaae7f9683ce2d606acde262b8627eafa6fde42a865384d5b69fd"
+      "sha256": "5c02e070f029851534275213bb5b92f8a8808f338180faa04d1e58791edc3436"
     },
     {
       "path": "components/meituan-dianping.sgmodule",
       "bytes": 1220,
-      "sha256": "33c656f10a8eee1968dd804f605cffb460ad54a1aea0a81a1a05907a7f7c661d"
+      "sha256": "71c60d153d3a803e2f4c6a353e67419e3ebff04b1fc2d2b41d02fa7fd5afba33"
     },
     {
       "path": "components/miaopai.sgmodule",
       "bytes": 465,
-      "sha256": "193648b7fb211e4632c706d24e26efafe4e5a65b0033799399f998f00acff52c"
+      "sha256": "9923735b1f12c1d8c4bee552d3d5e49be62bf38fbb50a6a231bf3cb999c5993d"
     },
     {
       "path": "components/mixc.sgmodule",
       "bytes": 493,
-      "sha256": "f02b1cfc2d159542c36849ff90bb04efda3fe765faa40babf26bd03e61cfff6e"
+      "sha256": "eab9c58d9f557ad51c5f42ef71e3edd081e8b06af2718f7f601c19a3a2ab22fa"
     },
     {
       "path": "components/mogo-renter.sgmodule",
       "bytes": 698,
-      "sha256": "0bb0025210ac1f46e1f150fbbfcf7debbe5a03c50141cbf7f9dae712c1749d02"
+      "sha256": "57bd142dd7a688effcb228cbe41353522f4cf6261dfd6c42cea63e6dffdf4f10"
     },
     {
       "path": "components/moji.sgmodule",
       "bytes": 491,
-      "sha256": "b47db3a669e4fd1baa4f3fe3ee51aafd8fc23037a87e879ac2040d2e4d25db04"
+      "sha256": "f4f1cda5e240587c0cbdc5ae856ef59036e406358b12525589b5c74161a8597d"
     },
     {
       "path": "components/mwee.sgmodule",
       "bytes": 502,
-      "sha256": "074f2f925311f76849b3122d992d7ebb302bb649e8bc5979aafebbba657eed71"
+      "sha256": "eb7fa436af4c7f9fa9f2cc04a6d63cf7f703453f040827231fa966652e1213c1"
     },
     {
       "path": "components/national-geographic.sgmodule",
       "bytes": 578,
-      "sha256": "499c511ab73fe1ac26e580fc801b1130c33d68166a2cc06fb92383f447408fe1"
+      "sha256": "ffa0b2757fb3cc2310304a47b2c032b193f3c91c80f7c18eabe88bc06e8a477b"
     },
     {
       "path": "components/naver-tv.sgmodule",
       "bytes": 469,
-      "sha256": "f3c192cfb409b7581de2e96a4c8f92e838dd35bd8e7be51847862379b788e8a3"
+      "sha256": "7abd70bff9d463fcc37f1050a7d9a585088216774b66007ce758ea6e4c4853e0"
     },
     {
       "path": "components/netease-cloudmusic.sgmodule",
       "bytes": 647,
-      "sha256": "937c3937c7c606805dcea6c18e68d4fb41c0ba4cee5c946b7a81e7b9f9f68af7"
+      "sha256": "b1acc323a63fc6d608622c9097898bc364d244c0d643e245677f689379338bf4"
     },
     {
       "path": "components/netease-kaola.sgmodule",
       "bytes": 475,
-      "sha256": "b523355bdfac7c369c525ec47ed059eb3f1bd54da63f188e795ac436d8b2ee8d"
+      "sha256": "7c99713975bef8374d4ea395a97f62788d1f623279417fa38f4dcc96db8994c7"
     },
     {
       "path": "components/netease-mail.sgmodule",
       "bytes": 676,
-      "sha256": "e0a9250a5ae9bb77f4eb098bc48642cb5cc9d0271a54775da31171401e921542"
+      "sha256": "3f3c1e84eeac03f186f0beb5b7896537236fae7ebdefad7261e1ee8a7ad61736"
     },
     {
       "path": "components/netease-moneykeeper.sgmodule",
       "bytes": 518,
-      "sha256": "f625cfb26237b8d1c22e6a231daea935d178fe3363ffbdd55f6d1caba98f530f"
+      "sha256": "551d9c7305921544b9399c4c0a90d4cd14dfe8d4e96e37c195e36129d7d58d83"
     },
     {
       "path": "components/netease-news.sgmodule",
       "bytes": 483,
-      "sha256": "b7086114e9fa46913ace6d81bd29ee687a35fc9449bb1d2dd01e028020765193"
+      "sha256": "86b980d13f113ca54e50a1409bcdd1ee15f48aafafc88ce618111e9b8607994c"
     },
     {
       "path": "components/netease-snailread.sgmodule",
       "bytes": 472,
-      "sha256": "7f28e4c5eedf0565d3e9e6d24e182a084966f5193577ad51e0a36242c2e06961"
+      "sha256": "f3675a77419985aebb949e69dedc367de3ea55628e1260321e6016e570cf2aa8"
     },
     {
       "path": "components/netease-you.sgmodule",
       "bytes": 511,
-      "sha256": "1be6c33ebf5dd8fa054be2662210dc65307ea86249f9f5a83c0d3892d5545818"
+      "sha256": "16b5b5c539f036ff2dcb25c221baa7c6bed54879db08b4bda5c0c89ba05f13a4"
     },
     {
       "path": "components/niu.sgmodule",
       "bytes": 488,
-      "sha256": "7ce89b381b7e49c875e3333abeca669f1574c115b711080e287edc10da82fefb"
+      "sha256": "3b4fdb9ad24e392a3562ae2a2b9830001356ff7a9cf82857a730632095cb29fb"
     },
     {
       "path": "components/oray.sgmodule",
       "bytes": 710,
-      "sha256": "beba4c3c8133528778b1e3c51d5798c0ce081f8cd0bd3ac5a35dac84fbf91855"
+      "sha256": "d3ba0f203cf2595c5c63e8e0377f09a2bb4250e261305ea7e8eace8a8f8ef999"
     },
     {
       "path": "components/pconline.sgmodule",
       "bytes": 785,
-      "sha256": "5824aa28f150ae5d8b47539fd66d656f2505c3b666f962122c89eabd3c6e2d91"
+      "sha256": "30ee95ae8abb5209a397f04336d0211a0aa7b7a4d0b3191a5e65d7e8f8978058"
     },
     {
       "path": "components/peanut-wifi.sgmodule",
       "bytes": 498,
-      "sha256": "d6e78ac814ac66df6b227865d0dce9d9c0fa236a1147a91f9613d0e865c1b966"
+      "sha256": "6216501df7398f80f2c44bfef75dc626a8cfcbf04743b2bd90b6730546344620"
     },
     {
       "path": "components/piaogen.sgmodule",
       "bytes": 482,
-      "sha256": "eaf56886b06ba745658fc5c6efc75df8edf3e749de5b42a937a002dd08ee6daa"
+      "sha256": "ba723c2f8b02e7f995c9052599d6cfdc6cc3e3524b15c3d6018604075970f60c"
     },
     {
       "path": "components/pinduoduo.sgmodule",
       "bytes": 585,
-      "sha256": "c02838c868a759e2ee390bda6e0a0a08123aee6f67798c49c56a713b7d6bf6e1"
+      "sha256": "c2f71e2644db48e537d7a0c62dee7c4de6f0aab9757ee68a3bf0010044e714de"
     },
     {
       "path": "components/privacy-pcdn.sgmodule",
       "bytes": 601,
-      "sha256": "0efd66aa285224fea1325af2af6a2a02cccfba015b71373091045a9593c6f4d1"
+      "sha256": "461e0863befbd0cfa7c2dffa14fbbfb43ea2d048868a458f6584a608bd259fc3"
     },
     {
       "path": "components/qidian.sgmodule",
       "bytes": 542,
-      "sha256": "57498c1921ec06d8a12499dc4d3735b2568438201f524b82ecf2bc4c687762b4"
+      "sha256": "b08e0282d7645949abc202aa942166ce0077301b8af6a02b5ae0826bcfa79c2a"
     },
     {
       "path": "components/qinbaobao.sgmodule",
       "bytes": 457,
-      "sha256": "45b900d81dd33ea7caa68d724bf3fd7142a7e30f98ca6db7b868cdebba454a65"
+      "sha256": "bc3773cfe6fe0b1a02f3d385cfe94759a44c72d981f6d0797fdec1aef5958683"
     },
     {
       "path": "components/qq.sgmodule",
       "bytes": 1509,
-      "sha256": "fb6ffed8b97e2b2c63a83234b145fbf85ecc2edcfb23e9c875e3fa244e353281"
+      "sha256": "1e8d7aa241751bacacc041e3d3c44ba4a32d449d627bde0a5596a773a610d3a4"
     },
     {
       "path": "components/quark.sgmodule",
       "bytes": 720,
-      "sha256": "6f30ad32509985c2b6608b78cf63130d3523d37e691040bcb347ff854ff4288c"
+      "sha256": "5ee27ba065837e9b9815ff1229b286977e6fe4a2e84d11f7110af2d48bc8fdcf"
     },
     {
       "path": "components/qyer.sgmodule",
       "bytes": 558,
-      "sha256": "b2dc0b61ade48a2227792f6dd9e81c4bd9c36d7ed6a0f6a3e6f1b56ca40d4677"
+      "sha256": "40cf3e2310f26602bb955c287fd790a3a8850dece1be9e2441b5b634cd19a81f"
     },
     {
       "path": "components/railway-12306.sgmodule",
       "bytes": 398,
-      "sha256": "3f04ed84435a0aada3032d26e17da39b7a67620039daca9dfaae07a8e6125ce0"
+      "sha256": "70ec104e13070bb997bb14a224567c107ae6b9e72629ed6ef42522513088f32e"
     },
     {
       "path": "components/relx.sgmodule",
       "bytes": 524,
-      "sha256": "0a5f2b36ab5fd2636173915fa6bdc36ae418ae36cbfff0ecb8949e8bbcb3eada"
+      "sha256": "c9e6800de3a30de0b31d4c772ae7898563b0027e81065e626f414f274e0aee69"
     },
     {
       "path": "components/rrtv.sgmodule",
       "bytes": 695,
-      "sha256": "7616f26dd39761e8b43ac293aac4e455d5f04fa3d617dc194fe1e28268e3281e"
+      "sha256": "270e1fec2a4136442449908c6867bffe50a3502378f5323eac58dab01bb0b002"
     },
     {
       "path": "components/score.sgmodule",
       "bytes": 676,
-      "sha256": "02e72c128e73435ffffce137ba012e861754a7a5d790126d90ba88ea27d19e05"
+      "sha256": "a8758ff77990bdc816e513d667f0ec97f2c58596b2eb3a586974b36abcbcc3d7"
     },
     {
       "path": "components/sf-express.sgmodule",
       "bytes": 678,
-      "sha256": "f14a01917d5c57c7dd802a38aaf242a60e145623570c8fec4b76447dcd7f37c9"
+      "sha256": "ccb181df0ddeb2e17792e21d165ee89e6704197efad20e4a9ab893116637bc70"
     },
     {
       "path": "components/sf-hive.sgmodule",
       "bytes": 475,
-      "sha256": "9018d40ee93d23a18e46dfe8caaa698bb4a94da49fafb9664f36589ada8fefdb"
+      "sha256": "79ff95092f21eaa2852647eb488c7ca3397b97c59c8708d9da0013b5255fe1ee"
     },
     {
       "path": "components/shihuo.sgmodule",
       "bytes": 541,
-      "sha256": "ee7f4b0406af77c1d68ce10cf2e2b687ea90a56eaa0bcbbf825b7273bf14bc9a"
+      "sha256": "765cd29295e126984b11db25f3b62b22a1fdd04ffac39aa9ec202c7eb43897c2"
     },
     {
       "path": "components/shouqi.sgmodule",
       "bytes": 573,
-      "sha256": "a56a44a1d0c24bcb4c6db6d2c63a391b7e3335c41e437f5a4fe2c305ec5d58ec"
+      "sha256": "1b1577633350e9683a6df5a7481093b990651ccd3eee096ba9f291b37fa442a5"
     },
     {
       "path": "components/smzdm.sgmodule",
       "bytes": 1207,
-      "sha256": "ac5affd100453ce60091376111dcd939b4556eeea73c957200802ae37cca8366"
+      "sha256": "1a1e710d92859ed2e98fc54e3216269c7d12f3843ab334b610e5423c44ed71cb"
     },
     {
       "path": "components/snail-sleep.sgmodule",
       "bytes": 578,
-      "sha256": "bf3ec2c23726c3055f32dcb07a0ba22838ca8e57ac5264442d934d1263a2afa8"
+      "sha256": "ecaafb10d6558ea3a2688740c3d3371876598f6390d94f3a05e60acce01813ba"
     },
     {
       "path": "components/sogou-input.sgmodule",
       "bytes": 528,
-      "sha256": "b6f1ddbf8499f2d0f393ae0a83d0aa5d95faac06b2953f0d1a6001d83c22b571"
+      "sha256": "e03e6a9bee1ee9cf5e05e9a134d21129bf16e7a79eeca33e9ef6a10c400551d5"
     },
     {
       "path": "components/sohu.sgmodule",
       "bytes": 614,
-      "sha256": "7a69512e29659474d85eb058d6abc1e4b7502db3ac70c169f7e5794bf4e836d8"
+      "sha256": "4db88545b65c51fa07bcd432e46ecaa2bf97327467c99d7165ec9f5869d657c9"
     },
     {
       "path": "components/suning.sgmodule",
       "bytes": 596,
-      "sha256": "f12ccbce1928257e3a2123e402dfbb0c611cad4e4f9694229a24d46476558bad"
+      "sha256": "6be04d6b458de68dd12e961ba522895a38d9d46be9bd52b16eeb9a10c9ea8469"
     },
     {
       "path": "components/super-friday.sgmodule",
       "bytes": 390,
-      "sha256": "9a662bedbb7b8ba46c8b8761ccc27fd8cf187a9e40295b4adf6b940da50ec71e"
+      "sha256": "95d1723f746fcb354c69ca4c6768cd7a8476a9ad30f0742a5cf7f868b31919e7"
     },
     {
       "path": "components/taobao-tmall.sgmodule",
       "bytes": 1253,
-      "sha256": "d53d8134a036e05509ca604b0816f1c25efc818afc88333b53339cb2f4cad664"
+      "sha256": "44a78ee3d0ec80cced209227067f93e70755f290ba47cfde4a0317b4417eb963"
     },
     {
       "path": "components/taopiaopiao.sgmodule",
       "bytes": 555,
-      "sha256": "c67c66562563e9cc04f1bbf44575c73688ef7e27fea51a416276bb3afe534bad"
+      "sha256": "cb710bd24b0cb292f550d92ae020f96346d4acd4cd9af916142151b1bde2fa94"
     },
     {
       "path": "components/tencent-game.sgmodule",
       "bytes": 520,
-      "sha256": "baf2fe77975b785e9235fcd51038776a89c5aac2ef21a67afb5e9c8832481631"
+      "sha256": "a95813c14d8644ed96f181c6db45431e71e3d5f453d64440c7677b5b02a610c5"
     },
     {
       "path": "components/tencent-map.sgmodule",
       "bytes": 493,
-      "sha256": "408b3f7035a49024f15e8976c8753ac930a130d0583a7a161cf7bd4ac0411367"
+      "sha256": "8bea56b95eed3cb8fe53fd5ee8c6bff4d1e4043e78b1aaa862f31d650cb749dd"
     },
     {
       "path": "components/tencent-music.sgmodule",
       "bytes": 547,
-      "sha256": "ff19b76fa508a899a3b48a770b071131f3e7ede0726503a57028ebff740b70e6"
+      "sha256": "8a2ba741c156401650cfdcb72e22b99b238e8738e78e4dd48fad7f79ffc3520e"
     },
     {
       "path": "components/tencent-sports.sgmodule",
       "bytes": 472,
-      "sha256": "6a5722e8f501d40a4fd6ba73ba31af8ad49a30137d1272da41689c8d98ad6759"
+      "sha256": "c81f1128f0ea9d81931794a6a3a39918227a7e8f5988c20dca7df5c7fc82e148"
     },
     {
       "path": "components/thunder.sgmodule",
       "bytes": 785,
-      "sha256": "721d10943ed20faaf342922042aea484f45b930e201a7f123cf5c5b5bac1e59b"
+      "sha256": "b059fbdb75b5f7f6f546a56d6579e14fe112450f69aa175f0123e65cd36d82d4"
     },
     {
       "path": "components/tianqitong.sgmodule",
       "bytes": 619,
-      "sha256": "cdc101f820ecc82208772ae94c0435c40e38b6d4b872537294639982b4e232c3"
+      "sha256": "ee65bd3bb41b44a69387292330c3982faae50e57295e82d70398fd5dfe90c3e4"
     },
     {
       "path": "components/tuniu.sgmodule",
       "bytes": 500,
-      "sha256": "e6dd6e7f999bcb67ce8f496ed572dc6ec5551b7592dadcbadf27d74e9bb5ebd1"
+      "sha256": "811b78b8a768c1e4e76dba7e86e56efdcbab4e924e1c3d78fc844dedeb492a87"
     },
     {
       "path": "components/tvbc.sgmodule",
       "bytes": 498,
-      "sha256": "6062fbc94474d9417efc2c7f26be1256f5692f72b8b28148ea0e9521d9c3e51b"
+      "sha256": "8f924b00d377e7f9fc8e618f40307fb37487790857c3b6278eb93221a9790540"
     },
     {
       "path": "components/ucar.sgmodule",
       "bytes": 485,
-      "sha256": "8f94c2bc3f2acaa45980ebf641d2c49108ada3282d86019636528db009edbcfc"
+      "sha256": "cc084d543022f1f03d038358e807acb0d70c344281e18154099b96073595f53d"
     },
     {
       "path": "components/umeng-ads.sgmodule",
       "bytes": 479,
-      "sha256": "4e24577bbcfb7831053cf6debab376cb2875c74ef6ad6e3cc7156b0bd59caf55"
+      "sha256": "02f95c8c6594aba1a84c2ef1c375b6ec5674fb7ee5b1e953d42a68210e00182b"
     },
     {
       "path": "components/umetrip.sgmodule",
       "bytes": 479,
-      "sha256": "65ca7abf06f20ed8197f01a0721bc99025d87181aa68358ab0b2f56484cfd54d"
+      "sha256": "3f1e54ecf603d4155df3a8e3c31adeae4cca551b2bb5de74cf668c0107596504"
     },
     {
       "path": "components/variflight.sgmodule",
       "bytes": 577,
-      "sha256": "f09c7e477af9468783b93ed7f950554a3046ddc488cb995f03bf9ee1cc2954a9"
+      "sha256": "2e4d1890902e81a64c12ec9d6db2ef3fe833ff2526402b5830883fb6ec46c69b"
     },
     {
       "path": "components/vistopia.sgmodule",
       "bytes": 518,
-      "sha256": "41a9a48668f83b5a41855ddb3948ea534f66b0f87303ae71a33a28b2a79036a4"
+      "sha256": "4b358b915adf1049695df89654802864682d58f66688ef35c84fa880f9084943"
     },
     {
       "path": "components/vue-video.sgmodule",
       "bytes": 471,
-      "sha256": "700f832d700553d2c2931901e5b95acabaf9bc6f185a2beabaf2e2e57a70a496"
+      "sha256": "77c18930ae4e2331cb9a4d473ab5fe8950c42247a81c46ed42d0f1c9b3814a4f"
     },
     {
       "path": "components/waitwaitpay.sgmodule",
       "bytes": 514,
-      "sha256": "6db74f31de04ab83ad4759a4ed4c628e35ada28843143dedb13920c981e961cb"
+      "sha256": "89726fcc0d582843cef721251753c913d3d7add9bfe9d53e8f621affec1e07ab"
     },
     {
       "path": "components/wallstcn.sgmodule",
       "bytes": 492,
-      "sha256": "d69c7bf680b815b15bc9022f923d32b7c18699438a920b7df548d50ec83c0560"
+      "sha256": "e637bbcec467c0603758af5edb02c2315f48291dc953db0e93acf31843813456"
     },
     {
       "path": "components/wechat.sgmodule",
       "bytes": 972,
-      "sha256": "f6515c2396228edc4110492e2268be345d9b4a08c346d076cc5d4167c6918978"
+      "sha256": "b4a0596566dd8b95276b93f0edefa91666cbe8899124c5d96fe1b81ec6af1873"
     },
     {
       "path": "components/wedoctor.sgmodule",
       "bytes": 505,
-      "sha256": "6319f8a8c4a713f858b4b6253995aa4061e5d10a54aa4be1af0c8c3920bf8fe5"
+      "sha256": "2ac731b0b536ca6de0ffbb6652bddbe4dff88d59eaeeb268919ca57fc3ada377"
     },
     {
       "path": "components/weibo.sgmodule",
       "bytes": 2062,
-      "sha256": "50a4ecc2d87ae4d0a1723f3c2620d6fddfa89dbb7b8dc5c3d138247cd4079b31"
+      "sha256": "78917b9f8342086c233b4c6a9fc2c6bf70afa05537ac7510ae88b91285bbf076"
     },
     {
       "path": "components/weico.sgmodule",
       "bytes": 511,
-      "sha256": "1ab17a4b00182f60f571525806b3273d47d89eefb3ff89dad308c15a34856b97"
+      "sha256": "8d275a93157ddc90e25f0e208f50b67ffc7ec3d0260b07bc9010dc84ce8a03aa"
     },
     {
       "path": "components/weidian.sgmodule",
       "bytes": 492,
-      "sha256": "231a5eaecd09a6ae259ca8e6f20100808c9140ddf2a934bbd9b909d9bee762ed"
+      "sha256": "d45dc176e711027fbb4d46ef8e3ff9fec6478752306fddb47b46b023f727fd5f"
     },
     {
       "path": "components/xiachufang.sgmodule",
       "bytes": 478,
-      "sha256": "bd79150a720d20463cb4753e72e71cbb263c2f08531796ca83c63bdf72b3194e"
+      "sha256": "dea9c6b872823673f398f62327b2d85d19649d3558ba6ed491f4d4289a5bf924"
     },
     {
       "path": "components/xianyu.sgmodule",
       "bytes": 1026,
-      "sha256": "4908cd4c3557769f7a8272965bdf402c4b193f29d69cf672c09a694636e01ff5"
+      "sha256": "ecf42e49a1e5d0577c4cd49c1b806f09fa5a32103506d465e245a6dcf3df44b4"
     },
     {
       "path": "components/xiaochao-brain.sgmodule",
       "bytes": 678,
-      "sha256": "e69279631a9bbc3aaf4437e6e13189f86892e627c5d3626af9896326af89edb8"
+      "sha256": "7bc23e99afa4828286037bde178d9726abf8991f8fee947bd4ff96a2c5605bc4"
     },
     {
       "path": "components/xiaohongshu.sgmodule",
       "bytes": 1308,
-      "sha256": "0b692c6abdc78d5438a2613e226b3fb48b55031bb67810a33c4f5766a74775e2"
+      "sha256": "4cd67b90dcc41bcaa2628130f98ca0cb0c29dca9c2d07ac94e98c383fc14d435"
     },
     {
       "path": "components/xiaomi-services.sgmodule",
       "bytes": 799,
-      "sha256": "45c2374941cebda4ca53f2a3972eddd9c56618a2dc28be6e1d2b0ca9b8bdfb52"
+      "sha256": "fcf76ea37e56363cc48aca9643b8ac8c00a4121529fb3a06414e1249b5e43963"
     },
     {
       "path": "components/ximalaya.sgmodule",
       "bytes": 1161,
-      "sha256": "f9954df541975489d03c6edc8506cc32244e9ab8910d06ae07c3627a471494d5"
+      "sha256": "9b105a67898ae86082f77ecae3452647230b36c004e40ee49564b91317a1fdde"
     },
     {
       "path": "components/xueqiu.sgmodule",
       "bytes": 590,
-      "sha256": "f1a137574c7fab0f618c90a6191ef0a80324d9caceb5734dda62b7e10f3e7af6"
+      "sha256": "2b2f74258f82b9172c199fc3d0e75ab9608fd52d1e9b62f9889fd84f7698e85e"
     },
     {
       "path": "components/xunyou.sgmodule",
       "bytes": 645,
-      "sha256": "f693736abaa64ff6a7821ab805adbce6e64eddd2fff47022bfbe4c144101342b"
+      "sha256": "dc7c7b525c56e4cbd4b1df069dcc7da97c15db853908927d9b0d493b67278bda"
     },
     {
       "path": "components/yinxiang.sgmodule",
       "bytes": 475,
-      "sha256": "5dbcabc1ba1ca95b7bb56a7c72998653604052f5a0eb5efe9c2179c0e50c3d2e"
+      "sha256": "1361231f46d5b11decc36bb183e95a30fad8cb2bca595fa747a99cef9eeb5df8"
     },
     {
       "path": "components/yizhibo.sgmodule",
       "bytes": 681,
-      "sha256": "4ae7caa4d32fac775f4664c370f34fe0288f6be4c99324841a234b8d4f291a15"
+      "sha256": "6631c6e22e821f2c7b2ff10cb866cec1e5df0779b9aca3bafe97846e4e171706"
     },
     {
       "path": "components/youku.sgmodule",
       "bytes": 1172,
-      "sha256": "2254892156f4cf8846117d23e0499740a590daeb4cf22de73b95cf4e1960c3ca"
+      "sha256": "1e8e982d34aede9df9a7d2edfb65d08f55bf4e6dc14277b8a8e06a00d0078953"
     },
     {
       "path": "components/youtube-plus.sgmodule",
       "bytes": 521,
-      "sha256": "76161ecd03ee657d43544e5ead55618fcaa3052202a5dce2110479b077e1521a"
+      "sha256": "3d0550c4105173b8ed02d9e650cbcd6432c1beab411286cd9177121f37915f6e"
     },
     {
       "path": "components/youtube.sgmodule",
       "bytes": 1431,
-      "sha256": "0b716cb2467a7c44ce355c61821202d7eeae49c7e4fabf4e6f234ab3eb2bb31a"
+      "sha256": "98174c1c7349aa44b1ac996a7d81eeb3f9074590f275f32a31421d42b3ff3cc6"
     },
     {
       "path": "components/yueme-tv.sgmodule",
       "bytes": 734,
-      "sha256": "3fc7b09ab0134f16afb2585bf2644e38706fbd422f2b048af5f7731b1ab6bd88"
+      "sha256": "9ca07fb192c26948622c8ece99c348b58590e4e189a96ac3e463ab696e988f9b"
     },
     {
       "path": "components/yunmai.sgmodule",
       "bytes": 488,
-      "sha256": "73167fdeb2df5216b7e3c3337366ed2cea8dc7c606e97f714473e404e12bfc72"
+      "sha256": "9221e741ed664bf7c51073da5dc16647ad0794bf1410969ebcde4e4091318265"
     },
     {
       "path": "components/zhan.sgmodule",
       "bytes": 478,
-      "sha256": "e09a974d99211c188b9c5af9bf183e95b1a3b81880c507e15379aa8d728a0387"
+      "sha256": "4ff115c3120e6046449413e5186b1a1b3af6c9ae2dd44db8175bbfe8cca529a1"
     },
     {
       "path": "components/zhangyue.sgmodule",
       "bytes": 622,
-      "sha256": "a1fbb41e2941b6157e6235c52d308edc1bcc4d760936c19661f37d285690be0d"
+      "sha256": "8920dafa344cdcca983ea4dcf1a1fd92ee246e6655f9cb8f0ab47954bb62e93c"
     },
     {
       "path": "components/zhibo8.sgmodule",
       "bytes": 735,
-      "sha256": "f794795d896622652883afc788e4478e5996818566356826239607be94ce3524"
+      "sha256": "7c02f3099bb0627fe1188cdd7a95d02fbd2ec3898999f0107a14410df00f77b3"
     },
     {
       "path": "components/zhihu.sgmodule",
       "bytes": 2039,
-      "sha256": "98ce7a1271935f0d1807714254933542e8c39da85091bf61787428c701525718"
+      "sha256": "6f969266274a5529363580d01d39cb07eb5c8c8774cc3102613f51718c9e969d"
     },
     {
       "path": "components/zhuishushenqi.sgmodule",
       "bytes": 632,
-      "sha256": "a4dfe432bc15b5b0b1fa1103f57fdee2b98ff9520b0304e4697444a821c73a09"
+      "sha256": "963bf2d803ec5a1b269b7a2c4b47cb5fd0b849fb49188c694e96a06f26783073"
     },
     {
       "path": "components/zuiyou.sgmodule",
       "bytes": 463,
-      "sha256": "042ee7bd986f6b23abc137c4c5fb12f6146f2374ba6a1337e776c8bbbddd903a"
+      "sha256": "c1b7033a14fcaa93f91d7784c242b7376920c56fbb2b071ebf212afe083a38ad"
     },
     {
       "path": "components/zuoyebang.sgmodule",
       "bytes": 468,
-      "sha256": "12245f8ecbff6ee0632d385e7366688ad3560057b337f032c05c7b74b74aeb11"
+      "sha256": "7cb50af29ef07fb25717ee6e0e4e21ec5395b212f573acb69f88628887353f14"
     },
     {
       "path": "extras/xianyu-ui.sgmodule",
       "bytes": 913,
-      "sha256": "44af778a5a41c93c26fc9a7b981f3ad1750537e4b9158b3d3b1de6849f9ae010"
+      "sha256": "961af32fc577e47f49813e924c4e52d6bf0b4ed39be747286c2024da2559d98e"
     },
     {
       "path": "extras/zhihu-link-direct.sgmodule",
       "bytes": 561,
-      "sha256": "99a909ed870b1111fc2632b8e55ee0f2d1be59f11c0b56d4f3a62889af86e407"
+      "sha256": "ac61d97306dc7b44226aa92cc934cf5c4b7bb5fff24dd843d3b9996ae892797a"
     },
     {
       "path": "rules/AWAvenue-Ads-Rule.exclusions.json",
