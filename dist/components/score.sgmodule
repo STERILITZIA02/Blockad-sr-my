@@ -1,0 +1,16 @@
+#!name=BlockAd · 球多多 / SCore
+#!desc=guideimage 响应中只删除强广告标记；保留赛事内容。
+#!author=STERILITZIA02
+#!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
+#!version=1.1.0
+#!updated=2026-07-26
+#!category=去广告
+
+# GENERATED FILE — 请修改 config/apps.mjs / config/legacy-apps.mjs 后重新构建。
+# source-ref=main
+
+[Script]
+SCore_引导页显式广告 = type=http-response,pattern=^https:\/\/api\.qiuduoduo\.cn\/guideimage(?:\?|$),requires-body=1,max-size=2097152,timeout=5,script-path=https://raw.githubusercontent.com/STERILITZIA02/Blockad-sr-my/main/dist/scripts/blockad-router.js
+
+[MITM]
+hostname = %APPEND% api.qiuduoduo.cn

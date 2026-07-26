@@ -1,0 +1,17 @@
+#!name=BlockAd · 网易新闻
+#!desc=当前 nc/gl 启动推广入口；保留新闻、评论和账号。
+#!author=STERILITZIA02
+#!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
+#!version=1.1.0
+#!updated=2026-07-26
+#!category=去广告
+
+# GENERATED FILE — 请修改 config/apps.mjs / config/legacy-apps.mjs 后重新构建。
+# source-ref=v1.1.0
+
+[URL Rewrite]
+# 启动推广
+^https:\/\/c\.m\.163\.com\/nc\/gl(?:\/|\?|$) - reject-200
+
+[MITM]
+hostname = %APPEND% c.m.163.com

@@ -1,0 +1,17 @@
+#!name=BlockAd · 网易蜗牛读书
+#!desc=ad 专用路径；保留阅读、书架和账号。
+#!author=STERILITZIA02
+#!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
+#!version=1.1.0
+#!updated=2026-07-26
+#!category=去广告
+
+# GENERATED FILE — 请修改 config/apps.mjs / config/legacy-apps.mjs 后重新构建。
+# source-ref=v1.1.0
+
+[URL Rewrite]
+# 广告接口
+^https:\/\/p\.du\.163\.com\/ad(?:\/|\?|$) - reject-dict
+
+[MITM]
+hostname = %APPEND% p.du.163.com

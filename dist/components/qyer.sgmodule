@@ -1,0 +1,19 @@
+#!name=BlockAd · 穷游
+#!desc=startpage 与 media/ad；不拒绝混合 config/get。
+#!author=STERILITZIA02
+#!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
+#!version=1.1.0
+#!updated=2026-07-26
+#!category=去广告
+
+# GENERATED FILE — 请修改 config/apps.mjs / config/legacy-apps.mjs 后重新构建。
+# source-ref=main
+
+[URL Rewrite]
+# 启动页
+^https:\/\/open\.qyer\.com\/qyer\/startpage(?:\/|\?|$) - reject-dict
+# 广告素材
+^https:\/\/media\.qyer\.com\/ad(?:\/|$) - reject-img
+
+[MITM]
+hostname = %APPEND% open.qyer.com, media.qyer.com

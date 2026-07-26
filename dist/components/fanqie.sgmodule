@@ -2,11 +2,11 @@
 #!desc=章末/激励广告 SDK、广告素材与预加载；移除旧版整域、共享业务域和静态 IP 封禁。
 #!author=STERILITZIA02
 #!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
-#!version=1.0.0
+#!version=1.1.0
 #!updated=2026-07-26
 #!category=去广告
 
-# GENERATED FILE — 请修改 config/apps.mjs 后重新构建。
+# GENERATED FILE — 请修改 config/apps.mjs / config/legacy-apps.mjs 后重新构建。
 # source-ref=main
 
 [Rule]
@@ -22,7 +22,7 @@ DOMAIN,pglstatp-toutiao.com,REJECT
 
 [URL Rewrite]
 # 番茄使用的穿山甲广告拉取与配置
-^https:\/\/(?:api-access(?:-b)?|api-access\d*)\.pangolin-sdk-toutiao(?:-b)?\.com\/api\/ad\/union\/sdk\/(?:get_ads|settings)\/ - reject-dict
+^https:\/\/api-access(?:[1-5])?\.pangolin-sdk-toutiao(?:-b)?\.com\/api\/ad\/union\/sdk\/(?:get_ads|settings)\/ - reject-dict
 # 章末广告素材；只匹配广告专用目录
 ^https:\/\/[^/]+\.(?:pglstatp-toutiao|pstatp)\.com\/(?:obj|img)\/(?:ad-app-package|ad|web\.business\.image)(?:\/|$) - reject
 # 明确广告渲染素材

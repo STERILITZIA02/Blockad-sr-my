@@ -2,11 +2,11 @@
 #!desc=开屏、商业横幅、回答底部商业卡片与信息流显式推广；不拦截通知、评论、账号或完整内容接口。
 #!author=STERILITZIA02
 #!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
-#!version=1.0.0
+#!version=1.1.0
 #!updated=2026-07-26
 #!category=去广告
 
-# GENERATED FILE — 请修改 config/apps.mjs 后重新构建。
+# GENERATED FILE — 请修改 config/apps.mjs / config/legacy-apps.mjs 后重新构建。
 # source-ref=main
 
 [Rule]

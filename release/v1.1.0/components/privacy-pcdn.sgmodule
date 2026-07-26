@@ -1,0 +1,16 @@
+#!name=BlockAd · 隐私与已识别 PCDN
+#!desc=保留原番茄/聚合模块中的精确 PCDN 与广告遥测拦截；不使用 IP/CIDR 或共享业务整域。
+#!author=STERILITZIA02
+#!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
+#!version=1.1.0
+#!updated=2026-07-26
+#!category=去广告
+
+# GENERATED FILE — 请修改 config/apps.mjs / config/legacy-apps.mjs 后重新构建。
+# source-ref=v1.1.0
+
+[Rule]
+DOMAIN,apd-pcdnwxlogin.teg.tencent-cloud.net,REJECT
+DOMAIN,apd-pcdnwxnat.teg.tencent-cloud.net,REJECT
+DOMAIN,apd-pcdnwxstat.teg.tencent-cloud.net,REJECT
+DOMAIN,pcdn.xmcdn.com,REJECT

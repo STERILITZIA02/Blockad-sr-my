@@ -1,0 +1,33 @@
+#!name=BlockAd · 知乎
+#!desc=开屏、商业横幅、回答底部商业卡片与信息流显式推广；不拦截通知、评论、账号或完整内容接口。
+#!author=STERILITZIA02
+#!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
+#!version=1.1.0
+#!updated=2026-07-26
+#!category=去广告
+
+# GENERATED FILE — 请修改 config/apps.mjs / config/legacy-apps.mjs 后重新构建。
+# source-ref=v1.1.0
+
+[Rule]
+DOMAIN,ad.zhihu.com,REJECT
+DOMAIN,zhihu-web-analytics.zhihu.com,REJECT
+
+[URL Rewrite]
+# 开屏与顶部商业横幅
+^https:\/\/api\.zhihu\.com\/commercial_api\/(?:banners_v3\/(?:app_topstory_banner|mobile_banner)|launch_v2|real_time_launch_v2|app_float_layer)(?:\?|$) - reject-dict
+# 回答/文章底部商业卡片
+^https:\/\/api\.zhihu\.com\/commercial_api\/(?:answer|article)\/\d+\/bottom-v2(?:\?|$) - reject-dict
+# 广告样式与网页商业卡片
+^https:\/\/api\.zhihu\.com\/(?:ad-style-service\/request|distribute\/rhea\/qa_ad_card\/h5\/recommendation)(?:\?|$) - reject-dict
+# 品牌问题卡片
+^https:\/\/(?:api\.zhihu\.com\/brand\/question\/\d+\/card|www\.zhihu\.com\/api\/v\d+\/brand\/question\/\d+\/card)(?:\?|$) - reject-dict
+# 知乎网页品牌广告资源
+^https:\/\/zhstatic\.zhihu\.com\/brand-ad(?:\/|$) - reject
+
+[Script]
+知乎_信息流显式推广 = type=http-response,pattern=^https:\/\/api\.zhihu\.com\/(?:moments_v3|topstory\/(?:recommend|hot-lists\/total)|v2\/topstory\/hot-lists\/everyone-seeing)(?:\?|$),requires-body=1,max-size=2097152,timeout=5,script-path=https://raw.githubusercontent.com/STERILITZIA02/Blockad-sr-my/v1.1.0/release/v1.1.0/scripts/blockad-router.js
+知乎_内容页商业推荐 = type=http-response,pattern=^https:\/\/(?:api\.zhihu\.com\/questions\/\d+\/(?:answers|feeds)|www\.zhihu\.com\/api\/v4\/(?:articles|answers)\/\d+\/recommendations?)(?:\?|$),requires-body=1,max-size=2097152,timeout=5,script-path=https://raw.githubusercontent.com/STERILITZIA02/Blockad-sr-my/v1.1.0/release/v1.1.0/scripts/blockad-router.js
+
+[MITM]
+hostname = %APPEND% api.zhihu.com, www.zhihu.com, zhstatic.zhihu.com

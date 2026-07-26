@@ -1,0 +1,17 @@
+#!name=BlockAd · 华尔街见闻
+#!desc=advertising 专用 API；保留文章和行情。
+#!author=STERILITZIA02
+#!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
+#!version=1.1.0
+#!updated=2026-07-26
+#!category=去广告
+
+# GENERATED FILE — 请修改 config/apps.mjs / config/legacy-apps.mjs 后重新构建。
+# source-ref=v1.1.0
+
+[URL Rewrite]
+# 广告接口
+^https:\/\/api\.wallstcn\.com\/apiv\d+\/advertising(?:\/|\?|$) - reject-dict
+
+[MITM]
+hostname = %APPEND% api.wallstcn.com

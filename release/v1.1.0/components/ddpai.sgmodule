@@ -1,0 +1,17 @@
+#!name=BlockAd · 盯盯拍
+#!desc=bootscreen 配置；保留设备连接、相册和固件功能。
+#!author=STERILITZIA02
+#!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
+#!version=1.1.0
+#!updated=2026-07-26
+#!category=去广告
+
+# GENERATED FILE — 请修改 config/apps.mjs / config/legacy-apps.mjs 后重新构建。
+# source-ref=v1.1.0
+
+[URL Rewrite]
+# 启动屏
+^https:\/\/app\.ddpai\.com\/d\/api\/v\d+\/config\/get\/bootscreen(?:\?|$) - reject-dict
+
+[MITM]
+hostname = %APPEND% app.ddpai.com

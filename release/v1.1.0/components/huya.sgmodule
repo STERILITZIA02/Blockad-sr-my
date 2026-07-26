@@ -1,0 +1,17 @@
+#!name=BlockAd · 虎牙直播
+#!desc=advertiser 专用素材目录；信息流原生广告仍可能存在。
+#!author=STERILITZIA02
+#!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
+#!version=1.1.0
+#!updated=2026-07-26
+#!category=去广告
+
+# GENERATED FILE — 请修改 config/apps.mjs / config/legacy-apps.mjs 后重新构建。
+# source-ref=v1.1.0
+
+[URL Rewrite]
+# 广告素材
+^https:\/\/business\.msstatic\.com\/advertiser(?:\/|$) - reject-img
+
+[MITM]
+hostname = %APPEND% business.msstatic.com

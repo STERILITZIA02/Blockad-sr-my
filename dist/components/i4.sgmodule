@@ -1,0 +1,17 @@
+#!name=BlockAd · 爱思助手
+#!desc=启动广告信息；不阻断 App/设备信息查询。
+#!author=STERILITZIA02
+#!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
+#!version=1.1.0
+#!updated=2026-07-26
+#!category=去广告
+
+# GENERATED FILE — 请修改 config/apps.mjs / config/legacy-apps.mjs 后重新构建。
+# source-ref=main
+
+[URL Rewrite]
+# 启动广告
+^https:\/\/list-app-m\.i4\.cn\/(?:getopfstadinfo|adclickcb)\.xhtml(?:\?|$) - reject-dict
+
+[MITM]
+hostname = %APPEND% list-app-m.i4.cn

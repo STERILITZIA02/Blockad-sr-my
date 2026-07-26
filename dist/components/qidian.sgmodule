@@ -1,0 +1,17 @@
+#!name=BlockAd · 起点读书
+#!desc=getsplashscreen 开屏接口；保留书架、阅读、账号和付费内容。
+#!author=STERILITZIA02
+#!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
+#!version=1.1.0
+#!updated=2026-07-26
+#!category=去广告
+
+# GENERATED FILE — 请修改 config/apps.mjs / config/legacy-apps.mjs 后重新构建。
+# source-ref=main
+
+[URL Rewrite]
+# 开屏广告
+^https:\/\/mage\.if\.qidian\.com\/argus\/api\/v\d+\/client\/getsplashscreen(?:\?|$) - reject-dict
+
+[MITM]
+hostname = %APPEND% mage.if.qidian.com

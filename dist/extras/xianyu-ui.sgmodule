@@ -2,11 +2,11 @@
 #!desc=保留旧模块的搜索建议、消息页推荐和个人页推荐精简；可能隐藏非广告推荐，默认不并入统一模块。
 #!author=STERILITZIA02
 #!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
-#!version=1.0.0
+#!version=1.1.0
 #!updated=2026-07-26
 #!category=去广告
 
-# GENERATED FILE — 请修改 config/apps.mjs 后重新构建。
+# GENERATED FILE — 请修改 config/apps.mjs / config/legacy-apps.mjs 后重新构建。
 # source-ref=main
 
 [URL Rewrite]

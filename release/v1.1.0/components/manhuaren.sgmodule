@@ -1,0 +1,17 @@
+#!name=BlockAd · 漫画人
+#!desc=GetStartPageAds 开屏接口；保留漫画和收藏。
+#!author=STERILITZIA02
+#!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
+#!version=1.1.0
+#!updated=2026-07-26
+#!category=去广告
+
+# GENERATED FILE — 请修改 config/apps.mjs / config/legacy-apps.mjs 后重新构建。
+# source-ref=v1.1.0
+
+[URL Rewrite]
+# 开屏广告
+^https:\/\/mangaapi\.manhuaren\.com\/v\d+\/public\/getStartPageAds(?:\?|$) - reject-dict
+
+[MITM]
+hostname = %APPEND% mangaapi.manhuaren.com

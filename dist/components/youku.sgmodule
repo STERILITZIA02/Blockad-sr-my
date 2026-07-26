@@ -1,0 +1,20 @@
+#!name=BlockAd · 优酷
+#!desc=当前开屏、信息流、搜索和播放页显式广告；保留正片、播放地址、账号和会员状态。
+#!author=STERILITZIA02
+#!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
+#!version=1.1.0
+#!updated=2026-07-26
+#!category=去广告
+
+# GENERATED FILE — 请修改 config/apps.mjs / config/legacy-apps.mjs 后重新构建。
+# source-ref=main
+
+[URL Rewrite]
+# 播放页营销弹层
+^https:\/\/acs\.youku\.com\/gw\/mtop\.youku\.(?:pisp\.scripts\.get|xspace\.(?:play\.position\.preload|poplayer\.position)\.query)(?:\/|\?|$) - reject-dict
+
+[Script]
+优酷_显式广告 = type=http-response,pattern=^https:\/\/(?:(?:acs\.youku\.com\/gw\/mtop\.youku\.(?:columbus\.(?:gateway\.new\.execute|home\.(?:feed|query)|uc\.query|ycp\.query)|soku\.yksearch)|un-acs\.youku\.com\/gw\/mtop\.youku\.play\.ups\.appinfo\.get)(?:\/|\?|$)|push\.m\.youku\.com\/collect-api\/get_push_interval_config_wx(?:\?|$)),requires-body=1,max-size=4194304,timeout=5,script-path=https://raw.githubusercontent.com/STERILITZIA02/Blockad-sr-my/main/dist/scripts/blockad-router.js
+
+[MITM]
+hostname = %APPEND% acs.youku.com, un-acs.youku.com, push.m.youku.com

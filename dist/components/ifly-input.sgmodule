@@ -1,0 +1,17 @@
+#!name=BlockAd · 讯飞输入法
+#!desc=adservice 专用入口；保留语音识别、词库和同步。
+#!author=STERILITZIA02
+#!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
+#!version=1.1.0
+#!updated=2026-07-26
+#!category=去广告
+
+# GENERATED FILE — 请修改 config/apps.mjs / config/legacy-apps.mjs 后重新构建。
+# source-ref=main
+
+[URL Rewrite]
+# 广告服务
+^https:\/\/imeclient\.openspeech\.cn\/adservice(?:\/|\?|$) - reject-dict
+
+[MITM]
+hostname = %APPEND% imeclient.openspeech.cn

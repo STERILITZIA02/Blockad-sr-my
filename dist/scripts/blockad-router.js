@@ -121,6 +121,7 @@
     "goto",
     "card_goto",
     "dataType",
+    "widget_type",
   ];
 
   const AD_TYPE_TOKENS = new Set([
@@ -137,6 +138,7 @@
     "feed_ad",
     "feed_advert",
     "native_ad",
+    "ad_list",
     "promotion",
     "promoted",
     "sponsor",
@@ -145,6 +147,12 @@
 
   const LABEL_KEYS = ["label", "tag", "badge", "mblogtypename", "promotionLabel"];
   const AD_LABELS = new Set(["广告", "推广", "赞助", "商业推广", "推荐广告", "sponsored"]);
+  const YOUKU_AD_TYPE_NAMES = new Set([
+    "phone_feed_card_s_ad",
+    "phone_h_uc_ad",
+    "播放页广告组件",
+  ]);
+  const YOUKU_AD_IDS = new Set([32133, 38466]);
 
   function isObject(value) {
     return value !== null && typeof value === "object";
@@ -284,6 +292,7 @@
     const clearKeys = new Set(options.clearKeys || []);
     const containerKeys = new Set([...CONTAINER_KEYS, ...(options.containerKeys || [])]);
     const branchKeys = new Set([...BRANCH_KEYS, ...(options.branchKeys || [])]);
+    const itemPredicate = options.itemPredicate || isAdItem;
     const queue = [{ value: root, depth: 0 }];
     const visited = new Set();
     let changed = false;
@@ -314,7 +323,7 @@
         }
 
         if (Array.isArray(value) && containerKeys.has(key)) {
-          const kept = value.filter((item) => !isAdItem(item));
+          const kept = value.filter((item) => !itemPredicate(item));
           if (kept.length !== value.length) {
             object[key] = kept;
             changed = true;
@@ -373,6 +382,14 @@
     });
     const zeroed = setNumericFieldDeep(body, "advertisement_num", 0);
     return cleared || zeroed;
+  }
+
+  function handleTencentNews(body) {
+    return pruneKnownContainers(body, {
+      clearKeys: ["adList"],
+      containerKeys: ["widget_list"],
+      branchKeys: ["widget_list"],
+    });
   }
 
   function handleJd(body, url) {
@@ -473,24 +490,78 @@
     });
   }
 
-  function handleBilibili(body) {
+  function isYoukuAdItem(value) {
+    if (isAdItem(value)) {
+      return true;
+    }
+    const typeName = normalizeToken(value?.typeName);
+    if (YOUKU_AD_TYPE_NAMES.has(typeName)) {
+      return true;
+    }
+    return YOUKU_AD_IDS.has(Number(value?.id));
+  }
+
+  function handleYouku(body, url) {
+    const clearKeys = url.includes("/collect-api/get_push_interval_config_wx")
+      ? ["tipContent", "tipContentNew"]
+      : ["ad", "ykad"];
+    return pruneKnownContainers(body, {
+      clearKeys,
+      containerKeys: ["nodes"],
+      branchKeys: ["2019030100", "2019061000", "nodes"],
+      itemPredicate: isYoukuAdItem,
+    });
+  }
+
+  function handleGenericAdResponse(body) {
     return pruneKnownContainers(body, {
       clearKeys: [
         "ad",
         "ads",
         "ad_info",
         "adInfo",
+        "adList",
+        "advert",
+        "advertList",
         "advertisement",
         "advertisements",
-        "commercial",
-        "commercials",
+        "advertisement_info",
+        "advertisementInfo",
+        "launch_ad",
+        "launchAd",
+        "splash_ads",
+        "splashAds",
+        "splashList",
       ],
-      containerKeys: ["items", "item", "modules", "feed", "data"],
-      branchKeys: ["feed", "tab", "module"],
+      containerKeys: [
+        "card_group",
+        "cardGroup",
+        "dataList",
+        "feedList",
+        "homeFeed",
+        "itemList",
+        "moduleList",
+        "resultList",
+      ],
+      branchKeys: [
+        "card_group",
+        "cardGroup",
+        "dataList",
+        "feedList",
+        "homeFeed",
+        "moduleList",
+        "resultList",
+      ],
     });
   }
 
   const ROUTES = [
+    {
+      id: "tencent-news",
+      pattern:
+        /^https:\/\/(?:news\.ssp\.qq\.com\/app|r\.inews\.qq\.com\/(?:getQQNewsUnreadList|getTagFeedList|news_feed\/hot_module_list|gw\/page\/(?:event_detail|channel_feed)))(?:\?|$)/,
+      handle: handleTencentNews,
+    },
     {
       id: "wechat",
       pattern: /^https:\/\/mp\.weixin\.qq\.com\/mp\/getappmsgad(?:\?|$)/,
@@ -527,10 +598,128 @@
       handle: handleAmap,
     },
     {
-      id: "bilibili",
+      id: "youku",
       pattern:
-        /^https:\/\/(?:app\.bilibili\.com\/x\/(?:v2\/feed\/index|resource\/show\/tab\/v2)|api\.bilibili\.com\/(?:x\/web-interface\/index\/top\/feed\/rcmd|pgc\/season\/player\/cards)|api\.live\.bilibili\.com\/xlive\/app-room\/v1\/index\/getInfoByRoom|api\.vc\.bilibili\.com\/dynamic_svr\/v1\/dynamic_svr\/dynamic_(?:history|new))(?:\?|$)/,
-      handle: handleBilibili,
+        /^https:\/\/(?:(?:(?:acs\.youku\.com\/gw\/mtop\.youku\.(?:columbus\.(?:gateway\.new\.execute|home\.(?:feed|query)|uc\.query|ycp\.query)|soku\.yksearch)|un-acs\.youku\.com\/gw\/mtop\.youku\.play\.ups\.appinfo\.get)(?:\/|\?|$))|push\.m\.youku\.com\/collect-api\/get_push_interval_config_wx(?:\?|$))/,
+      handle: handleYouku,
+    },
+    {
+      id: "baidu-tieba",
+      pattern:
+        /^https:\/\/(?:tiebac|c\.tieba)\.baidu\.com\/(?:c\/(?:s\/sync|f\/(?:ad\/getFeedAd|frs\/(?:page|threadlist|generalTabList)|pb\/(?:pic)?page|excellent\/personalized))|tiebaads\/commonbatch)(?:\?|$)/,
+      handle: handleGenericAdResponse,
+    },
+    {
+      id: "meituan-dianping",
+      pattern:
+        /^https:\/\/mapi\.dianping\.com\/mapi\/intelliindex(?:\?|$)/,
+      handle: handleGenericAdResponse,
+    },
+    {
+      id: "smzdm",
+      pattern:
+        /^https:\/\/(?:homepage-api\.smzdm\.com\/v3\/home|haojia-api\.smzdm\.com\/(?:home\/list|ranking_list\/articles)|s-api\.smzdm\.com\/sou\/list_v10)(?:\?|$)/,
+      handle: handleGenericAdResponse,
+    },
+    {
+      id: "ximalaya",
+      pattern:
+        /^https:\/\/(?:mobile|mobilehera|mobwsa)\.ximalaya\.com\/(?:discovery-feed\/v\d+\/mix|football-portal\/diff2\/batch|mobile-playpage\/playpage\/tabs\/v2)(?:\/|\?|$)/,
+      handle: handleGenericAdResponse,
+    },
+    {
+      id: "xiaohongshu",
+      pattern:
+        /^https:\/\/(?:edith|rec|www|so)\.xiaohongshu\.com\/api\/sns\/(?:v\d+\/system_service\/(?:splash_config|config)|v\d+\/(?:homefeed|search\/(?:notes|banner_list|hot_list)|note\/widgets))(?:\?|$)/,
+      handle: handleGenericAdResponse,
+    },
+    {
+      id: "coolapk",
+      pattern:
+        /^https:\/\/api\.coolapk\.com\/v6\/(?:feed\/(?:detail|replyList)|main\/(?:dataList|indexV8|init)|page\/dataList)(?:\?|$)/,
+      handle: handleGenericAdResponse,
+    },
+    {
+      id: "quark",
+      pattern:
+        /^https:\/\/open-cms-api\.(?:uc|quark)\.cn\/open-cms(?:\/|\?|$)/,
+      handle: handleGenericAdResponse,
+    },
+    {
+      id: "didi",
+      pattern:
+        /^https:\/\/(?:ct\.xiaojukeji\.com\/agent\/v3\/feeds|res\.xiaojukeji\.com\/resapi\/activity\/(?:xpget|mget|get(?:Ruled|Preload|PasMultiNotices))|conf\.diditaxi\.com\.cn\/(?:homepage\/v\d+\/other\/fast|dynamic\/conf))(?:\?|$)/,
+      handle: handleGenericAdResponse,
+    },
+    {
+      id: "chelaile-promo",
+      pattern:
+        /^https:\/\/app\.ibuscloud\.com\/v\d+\/notice\/getNoticeWithAdvByCity(?:\?|$)/,
+      handle: handleGenericAdResponse,
+    },
+    {
+      id: "huazhu-promo",
+      pattern:
+        /^https:\/\/hweb-manager\.huazhu\.com\/notice\/getAppPopupNotifyAlert(?:\?|$)/,
+      handle: handleGenericAdResponse,
+    },
+    {
+      id: "kuwo",
+      pattern:
+        /^https:\/\/(?:mgxhtj|nmobi|searchrecterm)\.kuwo\.cn\/(?:mgxh|mobi|recterm)\.s(?:\?|$)/,
+      handle: handleGenericAdResponse,
+    },
+    {
+      id: "boohee",
+      pattern:
+        /^https:\/\/api\.boohee\.com\/meta-interface\/(?:v2\/index|v1\/index\/plaza)(?:\?|$)/,
+      handle: handleGenericAdResponse,
+    },
+    {
+      id: "foodie",
+      pattern:
+        /^https:\/\/foodie-api\.yiruikecorp\.com\/v\d+\/(?:banner|notice)\/overview(?:\?|$)/,
+      handle: handleGenericAdResponse,
+    },
+    {
+      id: "hanju-tv",
+      pattern:
+        /^https:\/\/api\.hanju\.koudaibaobao\.com\/api\/carp\/kp(?:\?|$)/,
+      handle: handleGenericAdResponse,
+    },
+    {
+      id: "mogo-renter",
+      pattern:
+        /^https:\/\/api\.mgzf\.com\/renter-operation\/home\/startHomePage(?:\?|$)/,
+      handle: handleGenericAdResponse,
+    },
+    {
+      id: "score",
+      pattern: /^https:\/\/api\.qiuduoduo\.cn\/guideimage(?:\?|$)/,
+      handle: handleGenericAdResponse,
+    },
+    {
+      id: "xiaochao-brain",
+      pattern: /^https:\/\/api\.psy-1\.com\/cosleep\/startup(?:\?|$)/,
+      handle: handleGenericAdResponse,
+    },
+    {
+      id: "yizhibo",
+      pattern:
+        /^https:\/\/api\.yizhibo\.com\/common\/api\/(?:api_pz|pz)(?:\?|$)/,
+      handle: handleGenericAdResponse,
+    },
+    {
+      id: "yueme-tv",
+      pattern:
+        /^https:\/\/zjh5api\.189smarthome\.com:\d+\/xygj-config-api\/queryData(?:\?|$)/,
+      handle: handleGenericAdResponse,
+    },
+    {
+      id: "zhibo8",
+      pattern:
+        /^https:\/\/a\.qiumibao\.com\/(?:activities\/config\.php|ios\/config\/)(?:\?|$)/,
+      handle: handleGenericAdResponse,
     },
   ];
 

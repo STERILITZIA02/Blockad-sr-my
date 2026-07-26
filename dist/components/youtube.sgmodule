@@ -2,11 +2,11 @@
 #!desc=Protobuf 响应内广告节点与广告统计；不转发播放请求、不封禁 googlevideo、不伪造后台播放或下载权益。
 #!author=STERILITZIA02
 #!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
-#!version=1.0.0
+#!version=1.1.0
 #!updated=2026-07-26
 #!category=去广告
 
-# GENERATED FILE — 请修改 config/apps.mjs 后重新构建。
+# GENERATED FILE — 请修改 config/apps.mjs / config/legacy-apps.mjs 后重新构建。
 # source-ref=main
 
 [Rule]

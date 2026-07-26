@@ -1,0 +1,17 @@
+#!name=BlockAd · 来疯直播
+#!desc=start/ads 接口；保留直播和账号。
+#!author=STERILITZIA02
+#!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
+#!version=1.1.0
+#!updated=2026-07-26
+#!category=去广告
+
+# GENERATED FILE — 请修改 config/apps.mjs / config/legacy-apps.mjs 后重新构建。
+# source-ref=main
+
+[URL Rewrite]
+# 启动广告
+^https:\/\/api\.laifeng\.com\/v\d+\/start\/ads(?:\?|$) - reject-dict
+
+[MITM]
+hostname = %APPEND% api.laifeng.com
