@@ -1,0 +1,13 @@
+{
+  "name": "blockad-sr-my",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Shadowrocket 去广告模块审计、构建与发布工具",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "audit:legacy": "node scripts/audit-legacy.mjs"
+  }
+}
