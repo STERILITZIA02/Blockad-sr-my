@@ -1,0 +1,23 @@
+#!name=BlockAd · 迅雷
+#!desc=明确广告域名、广告图片目录与广告位批量接口；保留更新、下载、直播和会员状态。
+#!author=STERILITZIA02
+#!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
+#!version=1.0.0
+#!updated=2026-07-26
+#!category=去广告
+
+# GENERATED FILE — 请修改 config/apps.mjs 后重新构建。
+# source-ref=v1.0.0
+
+[Rule]
+DOMAIN,adsp.xunlei.com,REJECT
+DOMAIN,cpm.cm.sandai.net,REJECT
+
+[URL Rewrite]
+# 迅雷广告图片
+^https:\/\/images\.client\.vip\.xunlei\.com\/[^?#]+\/advert\/ - reject-img
+# 迅雷广告位批量接口
+^https:\/\/api-shoulei-ssl\.xunlei\.com\/flowhub\/v\d+\/slots:batchGet(?:\?|$) - reject-dict
+
+[MITM]
+hostname = %APPEND% images.client.vip.xunlei.com, api-shoulei-ssl.xunlei.com

@@ -1,0 +1,119 @@
+[
+  {
+    "file": "4in1.module",
+    "targetApps": ["Safari/浏览器", "Google 搜索"],
+    "functions": [
+      "把“模块、插件、重写、sg、覆写”等特定 Google 搜索重定向到 yfamilys.com 的客户端配置索引"
+    ],
+    "specialFeatures": ["第三方模块索引快捷跳转"],
+    "currentValidity": "语法主体可解析，但它不是去广告功能，且会改写用户主动搜索并把查询导航到第三方站点。",
+    "conflictRisk": "中：可能违背用户搜索意图；依赖不受本仓库控制的 yfamilys.com。",
+    "migrationDecision": "保留为明确标注的可选便利模块，不并入默认去广告核心。"
+  },
+  {
+    "file": "AdBlock.module",
+    "targetApps": [
+      "21财经", "4gTV", "58同城", "淘宝", "闲鱼", "飞猪", "淘票票", "高德地图", "优酷", "AcFun",
+      "字节系", "百度网盘", "百度贴吧", "百度地图", "爱奇艺", "哔哩哔哩", "贝壳", "中国移动", "中国联通",
+      "天翼云盘", "CSDN", "携程", "得物", "豆瓣", "斗鱼", "饿了么", "京东", "Keep", "网易云音乐",
+      "拼多多", "微博", "腾讯视频", "微信", "喜马拉雅", "小红书", "YouTube", "知乎", "以及源文件注释列出的其他 App"
+    ],
+    "functions": [
+      "通过 URL Rewrite 拦截开屏、横幅、信息流、推广配置、广告素材和部分遥测接口"
+    ],
+    "specialFeatures": ["部分应用的更新提示、活动入口、推荐位和营销弹窗精简"],
+    "currentValidity": "纯 Rewrite 聚合规则；仍有可用的精确接口，但大量端点来自旧版 App，缺少更新时间和逐条验证证据。",
+    "conflictRisk": "高：同域规则多、拒绝响应类型混杂，部分规则可能命中正常配置、搜索或内容资源。",
+    "migrationDecision": "作为规则语料保留；只把可解释、精确且低误伤的匹配器并入稳定模块，其余进入兼容层或隔离。"
+  },
+  {
+    "file": "adultraplus.module",
+    "targetApps": [
+      "高德地图", "网易云音乐", "滴滴", "LINE", "京东", "淘宝", "闲鱼", "知乎", "微博", "小红书",
+      "百度网盘", "百度贴吧", "Keep", "喜马拉雅", "顺丰", "什么值得买", "酷安", "彩云天气",
+      "番茄/字节广告 SDK", "以及模块中数百个接口覆盖的其他 App"
+    ],
+    "functions": [
+      "大规模启动页、信息流、弹窗、活动页、热词、广告 SDK、素材和遥测拦截",
+      "380 个响应脚本入口对 JSON、HTML 或 Protobuf 响应进行过滤"
+    ],
+    "specialFeatures": [
+      "部分 App UI 精简、搜索词净化、微信外链处理、去更新提示、去活动入口、去推荐和皮肤入口"
+    ],
+    "currentValidity": "混合有效。聚合文件标注自动维护于 2025-07，但包含 118 个不同远程脚本 URL、未固定分支、已删除上游文件和若干疑似拼接错误。",
+    "conflictRisk": "极高：2,098 条 Rewrite、380 个脚本入口和超大 MITM 列表；同接口多处理器、宽泛域名/IP、重复语义和第三方动态依赖并存。",
+    "migrationDecision": "禁止原样作为默认模块；结构化拆分、去重、修正语法并固定或本地化依赖，保留无法安全迁移的原文件用于回溯。"
+  },
+  {
+    "file": "bili-region.module",
+    "targetApps": ["哔哩哔哩"],
+    "functions": ["港澳台番剧自动换区", "显示豆瓣评分"],
+    "specialFeatures": ["地区自动选择", "评分展示"],
+    "currentValidity": "依赖 NobyDa 的远程脚本；上游仓库仍存在，但该特定脚本需按当前接口再次核验。",
+    "conflictRisk": "中：会改写播放/番剧响应，代理不可用时可能影响播放；与纯去广告目标无直接关系。",
+    "migrationDecision": "保留为独立可选功能模块，固定经过审查的上游版本，不和广告核心共享处理入口。"
+  },
+  {
+    "file": "fanqie.module",
+    "targetApps": ["番茄小说", "部分字节系广告 SDK"],
+    "functions": ["广告 SDK、素材、预加载、追踪和 PCDN 请求拦截"],
+    "specialFeatures": ["PCDN 与部分遥测拦截"],
+    "currentValidity": "部分穿山甲广告端点仍有意义，但源文件含 Shadowrocket 不支持或含义不明确的通配 DOMAIN 写法。",
+    "conflictRisk": "极高：整域阻断 bytedance.com、byteorge.com、i.snssdk.com 等会误伤登录、配置、正文、同步或安全接口；静态 IP 已可能漂移。",
+    "migrationDecision": "以精确广告 SDK/素材端点替换；移除共享业务域、宽泛关键词和未经复核的静态 IP 封禁。"
+  },
+  {
+    "file": "gddt.module",
+    "targetApps": ["高德地图"],
+    "functions": ["首页、开屏、消息盒子、DSP 推荐、热词和归因广告处理"],
+    "specialFeatures": ["首页和搜索 UI 精简"],
+    "currentValidity": "五个脚本入口把请求匹配器错误写成了第一个 script-path 参数，原文件不能按预期执行。",
+    "conflictRisk": "高：整站 MITM；直接拒绝天气接口会破坏正常天气功能。",
+    "migrationDecision": "修复为 pattern=，采用当前受维护脚本或本地处理器；不阻断正常天气和导航接口。"
+  },
+  {
+    "file": "wechatad.module",
+    "targetApps": ["微信"],
+    "functions": ["过滤微信公众号文章广告接口"],
+    "specialFeatures": ["公众号阅读页精简"],
+    "currentValidity": "接口和远程脚本均为旧实现，需要针对当前 JSON/HTML 结构做失败开放处理。",
+    "conflictRisk": "低到中：匹配范围较窄，但错误返回结构可能导致公众号文章广告区或页面加载异常。",
+    "migrationDecision": "改为本仓库内的窄接口、幂等、解析失败返回原文处理器。"
+  },
+  {
+    "file": "weibolitead.module",
+    "targetApps": ["微博轻享版/原国际版"],
+    "functions": ["开屏、推荐流、关注流、趋势页和搜索推广处理"],
+    "specialFeatures": ["搜索建议与趋势页精简"],
+    "currentValidity": "包含 ^ttps? 拼写错误；脚本来自第三方仓库旧路径，MITM 通配表达过宽。",
+    "conflictRisk": "高：错误匹配不生效；宽泛 *api.weibo* 可能截获无关微博账号或消息接口。",
+    "migrationDecision": "修正协议匹配，按明确 API 主机拆分，并使用本地响应过滤器。"
+  },
+  {
+    "file": "YouTubeAd.sgmodule",
+    "targetApps": ["YouTube"],
+    "functions": ["响应内广告节点过滤", "广告统计请求拦截"],
+    "specialFeatures": ["画中画", "后台播放", "歌词/字幕翻译选项", "可选 UI 按钮精简"],
+    "currentValidity": "Maasea/sgmodule 在 2026-07 仍有针对广告判断的更新，但本地文件保留了未展开的模板变量，不能直接作为普通 Shadowrocket 模块稳定导入。",
+    "conflictRisk": "高：阻断全部 googlevideo/youtubei UDP 会影响 QUIC 和播放回退；服务端拼接广告无法保证完全移除。",
+    "migrationDecision": "采用近期维护版本并固定提交；去除未展开模板，保留失败开放和明确限制，不宣称 100% 屏蔽。"
+  },
+  {
+    "file": "ZhihuBlock.sgmodule",
+    "targetApps": ["知乎"],
+    "functions": ["开屏、首页信息流、热榜、搜索、回答/文章推荐、商业卡片和部分弹窗过滤"],
+    "specialFeatures": ["首页与回答页 UI 精简", "部分商业通知和运营入口隐藏"],
+    "currentValidity": "主要依赖同一个未固定版本的 zheye.min.js；部分 API 仍存在，但静态 IP、旧版本号和拦截通知计数等规则风险较高。",
+    "conflictRisk": "极高：拦截通知计数、配置、评论或完整问题响应可能误伤正常功能；MITM 包含 IP 和过宽主机。",
+    "migrationDecision": "保留明确广告字段与精确商业接口；移除通知、评论、账号和宽泛内容接口的直接拒绝。"
+  },
+  {
+    "file": "ZhihuOpt.sgmodule",
+    "targetApps": ["知乎网页", "Safari/浏览器"],
+    "functions": ["知乎链接直达", "移动页/桌面页 UA 显示优化"],
+    "specialFeatures": ["去中转链接", "网页布局优化"],
+    "currentValidity": "规则简单且可解释；UA 伪装可能随知乎页面策略变化。",
+    "conflictRisk": "中：修改全站 UA 可能影响登录、验证码或桌面/移动布局选择。",
+    "migrationDecision": "保留为独立可选便利模块；链接直达与 UA 优化分开，便于单独关闭。"
+  }
+]

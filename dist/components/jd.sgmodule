@@ -1,0 +1,22 @@
+#!name=BlockAd · 京东
+#!desc=启动、首页楼层、配送/订单页显式广告容器；保留订单、支付、物流和账号字段。
+#!author=STERILITZIA02
+#!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
+#!version=1.0.0
+#!updated=2026-07-26
+#!category=去广告
+
+# GENERATED FILE — 请修改 config/apps.mjs 后重新构建。
+# source-ref=main
+
+[Rule]
+DOMAIN,addata.jd.com,REJECT
+DOMAIN,ccc-x.jd.com,REJECT
+DOMAIN,dsp-x.jd.com,REJECT
+DOMAIN,skdisplay.jd.com,REJECT
+
+[Script]
+京东_启动首页与订单页广告 = type=http-response,pattern=^https:\/\/api\.m\.jd\.com\/client\.action\?(?:[^#&]+&)*functionId=(?:deliverLayer|getTabHomeInfo|myOrderInfo|orderTrackBusiness|personinfoBusiness|start|welcomeHome)(?:&|$),requires-body=1,max-size=2097152,timeout=5,script-path=https://raw.githubusercontent.com/STERILITZIA02/Blockad-sr-my/main/dist/scripts/blockad-router.js
+
+[MITM]
+hostname = %APPEND% api.m.jd.com

@@ -1,0 +1,262 @@
+{
+  "schemaVersion": 1,
+  "project": "STERILITZIA02/Blockad-sr-my",
+  "version": "1.0.0",
+  "ref": "main",
+  "generatedOn": "2026-07-26",
+  "unifiedModule": "BlockAd.Unified.sgmodule",
+  "awaRuleSnapshot": {
+    "upstreamCommit": "d77f249050b440989cc9a640eabdb18573dc7c90",
+    "upstreamSha256": "7a85b45b3e087d257c7eee2316f34013fadd353d716204444d98a231034236c9",
+    "sourceRuleCount": 903,
+    "excludedCount": 120,
+    "outputRuleCount": 783
+  },
+  "components": [
+    {
+      "id": "general-networks",
+      "name": "通用广告网络",
+      "description": "固定版本的社区广告域名规则；负责原聚合模块中的长尾 App 与第三方广告 SDK。",
+      "enabledByDefault": true,
+      "path": "components/general-networks.sgmodule"
+    },
+    {
+      "id": "qq",
+      "name": "QQ / 腾讯系广告",
+      "description": "GDT 广告请求、素材与腾讯新闻开屏；不拦截 QQ 登录、消息、文件或语音视频。",
+      "enabledByDefault": true,
+      "path": "components/qq.sgmodule"
+    },
+    {
+      "id": "wechat",
+      "name": "微信",
+      "description": "公众号文章广告与朋友圈广告素材；不处理聊天、支付、小程序业务响应。",
+      "enabledByDefault": true,
+      "path": "components/wechat.sgmodule"
+    },
+    {
+      "id": "jd",
+      "name": "京东",
+      "description": "启动、首页楼层、配送/订单页显式广告容器；保留订单、支付、物流和账号字段。",
+      "enabledByDefault": true,
+      "path": "components/jd.sgmodule"
+    },
+    {
+      "id": "taobao-tmall",
+      "name": "淘宝 / 天猫",
+      "description": "开屏与明确广告服务接口；不拦截商品、购物车、订单、支付或物流。",
+      "enabledByDefault": true,
+      "path": "components/taobao-tmall.sgmodule"
+    },
+    {
+      "id": "zhihu",
+      "name": "知乎",
+      "description": "开屏、商业横幅、回答底部商业卡片与信息流显式推广；不拦截通知、评论、账号或完整内容接口。",
+      "enabledByDefault": true,
+      "path": "components/zhihu.sgmodule"
+    },
+    {
+      "id": "weibo",
+      "name": "微博 / 微博轻享版",
+      "description": "开屏、推荐/关注/趋势信息流显式推广；不修改会员图标、账号、私信或支付字段。",
+      "enabledByDefault": true,
+      "path": "components/weibo.sgmodule"
+    },
+    {
+      "id": "xianyu",
+      "name": "闲鱼",
+      "description": "开屏、首页/同城/搜索信息流中的显式商业卡片；保留商品、聊天、交易和用户主动浏览的推荐。",
+      "enabledByDefault": true,
+      "path": "components/xianyu.sgmodule"
+    },
+    {
+      "id": "youtube",
+      "name": "YouTube / YouTube Music",
+      "description": "Protobuf 响应内广告节点与广告统计；不转发播放请求、不封禁 googlevideo、不伪造后台播放或下载权益。",
+      "enabledByDefault": true,
+      "path": "components/youtube.sgmodule"
+    },
+    {
+      "id": "baidu-netdisk",
+      "name": "百度网盘",
+      "description": "广告接口、开屏活动入口与明确广告资源；保留账号认证、会员状态、上传下载和视频播放。",
+      "enabledByDefault": true,
+      "path": "components/baidu-netdisk.sgmodule"
+    },
+    {
+      "id": "douyin",
+      "name": "抖音",
+      "description": "穿山甲/Gromore 广告 SDK 的拉取、配置与明确广告素材；不解密或改写抖音主业务 feed。",
+      "enabledByDefault": true,
+      "path": "components/douyin.sgmodule"
+    },
+    {
+      "id": "fanqie",
+      "name": "番茄小说",
+      "description": "章末/激励广告 SDK、广告素材与预加载；移除旧版整域、共享业务域和静态 IP 封禁。",
+      "enabledByDefault": true,
+      "path": "components/fanqie.sgmodule"
+    },
+    {
+      "id": "thunder",
+      "name": "迅雷",
+      "description": "明确广告域名、广告图片目录与广告位批量接口；保留更新、下载、直播和会员状态。",
+      "enabledByDefault": true,
+      "path": "components/thunder.sgmodule"
+    },
+    {
+      "id": "amap",
+      "name": "高德地图",
+      "description": "开屏、首页/搜索/消息中的显式商业内容；保留天气、导航、路线和定位。",
+      "enabledByDefault": true,
+      "path": "components/amap.sgmodule"
+    },
+    {
+      "id": "bilibili",
+      "name": "哔哩哔哩",
+      "description": "开屏、首页推荐流和标签配置中的显式广告；不修改会员、付费、登录或播放地址。",
+      "enabledByDefault": true,
+      "path": "components/bilibili.sgmodule"
+    },
+    {
+      "id": "privacy-pcdn",
+      "name": "隐私与已识别 PCDN",
+      "description": "保留原番茄/聚合模块中的精确 PCDN 与广告遥测拦截；不使用 IP/CIDR 或共享业务整域。",
+      "enabledByDefault": true,
+      "path": "components/privacy-pcdn.sgmodule"
+    }
+  ],
+  "extras": [
+    {
+      "id": "zhihu-link-direct",
+      "name": "知乎链接直达",
+      "description": "保留 ZhihuOpt 的去中转便利功能；独立启用，不修改 User-Agent。",
+      "enabledByDefault": false,
+      "path": "extras/zhihu-link-direct.sgmodule"
+    },
+    {
+      "id": "xianyu-ui",
+      "name": "闲鱼可选 UI 精简",
+      "description": "保留旧模块的搜索建议、消息页推荐和个人页推荐精简；可能隐藏非广告推荐，默认不并入统一模块。",
+      "enabledByDefault": false,
+      "path": "extras/xianyu-ui.sgmodule"
+    }
+  ],
+  "files": [
+    {
+      "path": "BlockAd.Unified.sgmodule",
+      "bytes": 12448,
+      "sha256": "76b859975cf13e43be23122a83893e83e27de8106a50f14f33204b1f398cf5b3"
+    },
+    {
+      "path": "components/amap.sgmodule",
+      "bytes": 1258,
+      "sha256": "740d2273acf42ed38ec4fef9f69f14b941f711e80051cf7c230dc1963198d35b"
+    },
+    {
+      "path": "components/baidu-netdisk.sgmodule",
+      "bytes": 1003,
+      "sha256": "f32c524becafc7136b6a83e6104c4a94a80347a8c6ac1a9de058e78be4beab92"
+    },
+    {
+      "path": "components/bilibili.sgmodule",
+      "bytes": 1915,
+      "sha256": "58393481dc6cdd5b2583a45c08e083e7fe7882fc18a632ffde33123bfcc16fbc"
+    },
+    {
+      "path": "components/douyin.sgmodule",
+      "bytes": 1758,
+      "sha256": "4c992abf6a02fb6e8263be7fcdecb1b80bca59c0403901bb41a172f66ed598c3"
+    },
+    {
+      "path": "components/fanqie.sgmodule",
+      "bytes": 1708,
+      "sha256": "40bc6a41ba603da668b260a42a5518dfa53a8be76f963b6066d173723c1e22f6"
+    },
+    {
+      "path": "components/general-networks.sgmodule",
+      "bytes": 499,
+      "sha256": "f451738088058a5d04b9db4a5a6b392caeb45c9e2bf0222f4254f6229380ba41"
+    },
+    {
+      "path": "components/jd.sgmodule",
+      "bytes": 932,
+      "sha256": "9ba2b8ca1ed1efdc76d3e4e348134900fc05216fddb7439c8c2e819b24ba51da"
+    },
+    {
+      "path": "components/privacy-pcdn.sgmodule",
+      "bytes": 576,
+      "sha256": "dbd06b59eb351311b182406bbefbc9d5513e53b921d87456561fee943bc86eac"
+    },
+    {
+      "path": "components/qq.sgmodule",
+      "bytes": 938,
+      "sha256": "a1d146d1f457747c2540462edf8143926f6d508d5346f472b140e98b7e7c8658"
+    },
+    {
+      "path": "components/taobao-tmall.sgmodule",
+      "bytes": 943,
+      "sha256": "e61c605dbda0d229d02ba3eaa3693db968fe430226b169d6befb312ff917bf9a"
+    },
+    {
+      "path": "components/thunder.sgmodule",
+      "bytes": 760,
+      "sha256": "8c78fe8792004f7e0a553953967f50b545be7cbeff443a00106ed2cb7a55b709"
+    },
+    {
+      "path": "components/wechat.sgmodule",
+      "bytes": 821,
+      "sha256": "3875ee87eb274be7b62dccb51ca94635b7df526150130075524203b7c581c02c"
+    },
+    {
+      "path": "components/weibo.sgmodule",
+      "bytes": 1391,
+      "sha256": "1692972a707f9afefd15781dc2081dd0d8266030e2870ab69b9026c431e3ec23"
+    },
+    {
+      "path": "components/xianyu.sgmodule",
+      "bytes": 1001,
+      "sha256": "0170284ad23c620948beb2c489c5c8b410cf77c94ce55033badd2021be1bc320"
+    },
+    {
+      "path": "components/youtube.sgmodule",
+      "bytes": 1406,
+      "sha256": "43a13590dc0357e9405a99b9d7f0e65c4bd7bae15e688630459a193d6780b86e"
+    },
+    {
+      "path": "components/zhihu.sgmodule",
+      "bytes": 2014,
+      "sha256": "81f48109ed4168b08f72c39304114162ef21f2b96c28edcbe92a809e55aaf930"
+    },
+    {
+      "path": "extras/xianyu-ui.sgmodule",
+      "bytes": 888,
+      "sha256": "51ceb2c851d45f9e444a6aa6a24728774dcb0c1acf87284a2949403167e1ff01"
+    },
+    {
+      "path": "extras/zhihu-link-direct.sgmodule",
+      "bytes": 536,
+      "sha256": "3d94930ea17810f961f0ef29d30b2e0542526496f6bf494df3b5c156d38e776f"
+    },
+    {
+      "path": "rules/AWAvenue-Ads-Rule.exclusions.json",
+      "bytes": 12578,
+      "sha256": "80a9baba59204b55f4012b40792ebb4c74c92bfb9cc1423b055fc626469e3062"
+    },
+    {
+      "path": "rules/AWAvenue-Ads-Rule.list",
+      "bytes": 22035,
+      "sha256": "bf3361bfa74908a1f19a104c752df2ae2a2d374e0dcd384edac9d6b5fe95424a"
+    },
+    {
+      "path": "scripts/blockad-router.js",
+      "bytes": 15102,
+      "sha256": "864127754eb9d744724428cefd6dfb8bbd93e2428c834b112cdbdff1130b6210"
+    },
+    {
+      "path": "scripts/youtube-response.js",
+      "bytes": 131913,
+      "sha256": "59773f5eb4300c31cc806c1be8531200884c600b0c25ffb921a2f641c884424d"
+    }
+  ]
+}

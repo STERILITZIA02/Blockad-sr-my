@@ -1,0 +1,21 @@
+#!name=BlockAd · 闲鱼可选 UI 精简
+#!desc=保留旧模块的搜索建议、消息页推荐和个人页推荐精简；可能隐藏非广告推荐，默认不并入统一模块。
+#!author=STERILITZIA02
+#!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
+#!version=1.0.0
+#!updated=2026-07-26
+#!category=去广告
+
+# GENERATED FILE — 请修改 config/apps.mjs 后重新构建。
+# source-ref=main
+
+[URL Rewrite]
+# 消息页兴趣推荐
+^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.playboy\.recommend\/(?:1|2)\.0 - reject-dict
+# 搜索页发现/激活推荐
+^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlemtopsearch\.(?:item\.search\.activate|search\.discover)\/ - reject-dict
+# 我的页面商品推荐
+^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.item\.(?:buy\.feeds|recommend\.list) - reject-dict
+
+[MITM]
+hostname = %APPEND% acs.m.goofish.com

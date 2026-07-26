@@ -1,0 +1,25 @@
+#!name=BlockAd · 淘宝 / 天猫
+#!desc=开屏与明确广告服务接口；不拦截商品、购物车、订单、支付或物流。
+#!author=STERILITZIA02
+#!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
+#!version=1.0.0
+#!updated=2026-07-26
+#!category=去广告
+
+# GENERATED FILE — 请修改 config/apps.mjs 后重新构建。
+# source-ref=v1.0.0
+
+[Rule]
+DOMAIN,adashbc.ut.taobao.com,REJECT
+DOMAIN,adashx.m.taobao.com,REJECT
+DOMAIN,adashxgc.ut.taobao.com,REJECT
+DOMAIN,h-adashx.ut.taobao.com,REJECT
+
+[URL Rewrite]
+# 淘宝/天猫开屏配置
+^https:\/\/(?:guide-acs|acs)\.m\.(?:taobao|tmall)\.com\/gw\/mtop\.taobao\.wireless\.home\.(?:splash|newface)\.awesome\.get\/ - reject-dict
+# 阿里广告服务
+^https:\/\/(?:guide-acs|acs)\.m\.(?:taobao|tmall)\.com\/gw\/mtop\.alibaba\.advertisementservice\.getadv\/ - reject-dict
+
+[MITM]
+hostname = %APPEND% guide-acs.m.taobao.com, acs.m.taobao.com, guide-acs.m.tmall.com, acs.m.tmall.com
