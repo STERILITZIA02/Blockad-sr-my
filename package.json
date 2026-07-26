@@ -12,6 +12,11 @@
     "build": "node scripts/build.mjs",
     "check": "node scripts/check.mjs",
     "test": "node --experimental-test-isolation=none --test test/router.test.mjs",
-    "verify": "npm run audit:legacy && npm run build && npm run check && npm test"
+    "verify": "npm run audit:legacy && npm run build && npm run check && npm test",
+    "release:generate": "node scripts/build.mjs --ref v1.0.0 --out release/v1.0.0 --stable",
+    "release:package": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/package-release.ps1 -Version v1.0.0",
+    "release:check": "node scripts/check-release.mjs",
+    "release:build": "npm run verify && npm run release:generate && npm run release:package && npm run release:check",
+    "release:links": "node scripts/check-links.mjs"
   }
 }

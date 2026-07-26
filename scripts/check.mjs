@@ -133,6 +133,14 @@ function validateModule(source, relativePath) {
     );
     const localPath = path.join(DIST, scriptPath[1].slice(RAW_PREFIX.length));
     assert.equal(existsSync(localPath), true, `${relativePath}: 脚本文件不存在`);
+    if (script.includes(",argument=")) {
+      const argument = script.match(/,argument="(\{.*\})"$/);
+      assert.ok(argument, `${relativePath}: Script argument 格式无效`);
+      assert.doesNotThrow(
+        () => JSON.parse(argument[1]),
+        `${relativePath}: Script argument 不是有效 JSON`,
+      );
+    }
   }
 
   for (const mitm of sections.get("MITM") || []) {
@@ -204,6 +212,26 @@ async function validateAwa() {
     "utf8",
   );
   const lines = new Set(source.split(/\r?\n/).map((line) => line.trim()));
+  const rules = [...lines].filter((line) => line && !line.startsWith("#"));
+  assert.equal(
+    rules.length,
+    source
+      .split(/\r?\n/)
+      .filter((line) => line.trim() && !line.trim().startsWith("#")).length,
+    "AWAvenue 发布列表存在重复规则",
+  );
+  for (const rule of rules) {
+    assert.match(
+      rule,
+      /^(?:DOMAIN|DOMAIN-SUFFIX|DOMAIN-KEYWORD),[^,\s]+$/,
+      `AWAvenue 发布列表含不支持或无效规则: ${rule}`,
+    );
+  }
+  assert.equal(
+    rules.some((rule) => rule.startsWith("IP-")),
+    false,
+    "AWAvenue 发布列表不应包含 IP/CIDR",
+  );
   for (const [rule] of awaExclusions) {
     assert.equal(lines.has(rule), false, `高误伤规则仍在发布列表: ${rule}`);
   }

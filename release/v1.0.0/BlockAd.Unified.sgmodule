@@ -1,0 +1,205 @@
+#!name=BlockAd · 统一稳定版
+#!desc=Shadowrocket 优先的去广告统一模块；按精确接口持续过滤，失败时保留原响应。不要与 components 内模块重复启用。
+#!author=STERILITZIA02
+#!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
+#!version=1.0.0
+#!updated=2026-07-26
+#!category=去广告
+
+# GENERATED FILE — 请修改 config/apps.mjs 后重新构建。
+# source-ref=v1.0.0
+
+[Rule]
+
+# --- 通用广告网络 ---
+RULE-SET,https://raw.githubusercontent.com/STERILITZIA02/Blockad-sr-my/v1.0.0/release/v1.0.0/rules/AWAvenue-Ads-Rule.list,REJECT
+
+# --- QQ / 腾讯系广告 ---
+DOMAIN,ad.qq.com,REJECT
+DOMAIN,adsfile.qq.com,REJECT
+DOMAIN,mi.gdt.qq.com,REJECT
+DOMAIN,v2mi.gdt.qq.com,REJECT
+DOMAIN,win.gdt.qq.com,REJECT
+DOMAIN,pgdt.gtimg.cn,REJECT
+DOMAIN,pgdt.ugdtimg.com,REJECT
+
+# --- 微信 ---
+DOMAIN,wxsnsad.tc.qq.com,REJECT
+DOMAIN,wxsnsdy.tc.qq.com,REJECT
+DOMAIN,wxsnsdy.wxs.qq.com,REJECT
+DOMAIN,wxsnsdythumb.wxs.qq.com,REJECT
+
+# --- 京东 ---
+DOMAIN,addata.jd.com,REJECT
+DOMAIN,ccc-x.jd.com,REJECT
+DOMAIN,dsp-x.jd.com,REJECT
+DOMAIN,skdisplay.jd.com,REJECT
+
+# --- 淘宝 / 天猫 ---
+DOMAIN,adashbc.ut.taobao.com,REJECT
+DOMAIN,adashx.m.taobao.com,REJECT
+DOMAIN,adashxgc.ut.taobao.com,REJECT
+DOMAIN,h-adashx.ut.taobao.com,REJECT
+
+# --- 知乎 ---
+DOMAIN,ad.zhihu.com,REJECT
+DOMAIN,zhihu-web-analytics.zhihu.com,REJECT
+
+# --- 微博 / 微博轻享版 ---
+DOMAIN,ad.weibo.com,REJECT
+DOMAIN,adimg.uve.weibo.com,REJECT
+DOMAIN,adstrategy.biz.weibo.com,REJECT
+DOMAIN,bootpreload.uve.weibo.com,REJECT
+
+# --- YouTube / YouTube Music ---
+DOMAIN,ads.youtube.com,REJECT
+DOMAIN-SUFFIX,doubleclick.net,REJECT
+DOMAIN-SUFFIX,googleadservices.com,REJECT
+DOMAIN-SUFFIX,googlesyndication.com,REJECT
+
+# --- 抖音 ---
+DOMAIN,ad.zijieapi.com,REJECT
+DOMAIN,ads3-normal.zijieapi.com,REJECT
+DOMAIN,ads5-normal.zijieapi.com,REJECT
+DOMAIN,api-access.pangolin-sdk-toutiao.com,REJECT
+DOMAIN,api-access.pangolin-sdk-toutiao-b.com,REJECT
+DOMAIN,api.iegadp.qq.com,REJECT
+DOMAIN,activity-ag.awemeughun.com,REJECT
+DOMAIN,gromore.pangolin-sdk-toutiao.com,REJECT
+DOMAIN,p6-ad-sign.byteimg.com,REJECT
+DOMAIN,p9-ad-sign.byteimg.com,REJECT
+DOMAIN,pglstatp-toutiao.com,REJECT
+
+# --- 迅雷 ---
+DOMAIN,adsp.xunlei.com,REJECT
+DOMAIN,cpm.cm.sandai.net,REJECT
+
+# --- 高德地图 ---
+DOMAIN,optimus-ads.amap.com,REJECT
+
+# --- 隐私与已识别 PCDN ---
+DOMAIN,apd-pcdnwxlogin.teg.tencent-cloud.net,REJECT
+DOMAIN,apd-pcdnwxnat.teg.tencent-cloud.net,REJECT
+DOMAIN,apd-pcdnwxstat.teg.tencent-cloud.net,REJECT
+DOMAIN,pcdn.xmcdn.com,REJECT
+
+[URL Rewrite]
+
+# --- QQ / 腾讯系广告 ---
+# GDT 广告拉取；返回空对象，避免 SDK 因断连高频重试
+^https:\/\/(?:mi|v2mi|win)\.gdt\.qq\.com\/gdt_(?:mview|view)\.fcg(?:\?|$) - reject-dict
+# 腾讯新闻开屏
+^https:\/\/r\.inews\.qq\.com\/getFullScreenPic(?:\?|$) - reject-dict
+
+# --- 淘宝 / 天猫 ---
+# 淘宝/天猫开屏配置
+^https:\/\/(?:guide-acs|acs)\.m\.(?:taobao|tmall)\.com\/gw\/mtop\.taobao\.wireless\.home\.(?:splash|newface)\.awesome\.get\/ - reject-dict
+# 阿里广告服务
+^https:\/\/(?:guide-acs|acs)\.m\.(?:taobao|tmall)\.com\/gw\/mtop\.alibaba\.advertisementservice\.getadv\/ - reject-dict
+
+# --- 知乎 ---
+# 开屏与顶部商业横幅
+^https:\/\/api\.zhihu\.com\/commercial_api\/(?:banners_v3\/(?:app_topstory_banner|mobile_banner)|launch_v2|real_time_launch_v2|app_float_layer)(?:\?|$) - reject-dict
+# 回答/文章底部商业卡片
+^https:\/\/api\.zhihu\.com\/commercial_api\/(?:answer|article)\/\d+\/bottom-v2(?:\?|$) - reject-dict
+# 广告样式与网页商业卡片
+^https:\/\/api\.zhihu\.com\/(?:ad-style-service\/request|distribute\/rhea\/qa_ad_card\/h5\/recommendation)(?:\?|$) - reject-dict
+# 品牌问题卡片
+^https:\/\/(?:api\.zhihu\.com\/brand\/question\/\d+\/card|www\.zhihu\.com\/api\/v\d+\/brand\/question\/\d+\/card)(?:\?|$) - reject-dict
+# 知乎网页品牌广告资源
+^https:\/\/zhstatic\.zhihu\.com\/brand-ad(?:\/|$) - reject
+
+# --- 微博 / 微博轻享版 ---
+# 微博开屏
+^https:\/\/wbapp\.mobile\.sina\.cn\/wbapplua\/wbpullad\.lua(?:\?|$) - reject-dict
+
+# --- 闲鱼 ---
+# 闲鱼开屏
+^https:\/\/(?:g-)?acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idlecommerce\.splash\.ads(?:\/|$) - reject-dict
+
+# --- YouTube / YouTube Music ---
+# YouTube 广告曝光与点击统计
+^https:\/\/(?:www|s)\.youtube\.com\/(?:api\/stats\/ads|pagead|ptracking)(?:\?|\/|$) - reject-200
+# 仅拒绝带 adcontext 的 QoE 广告统计
+^https:\/\/s\.youtube\.com\/api\/stats\/qoe\?(?=[^#]*\badcontext\b) - reject-200
+
+# --- 百度网盘 ---
+# 网盘广告接口
+^https:\/\/pan\.baidu\.com\/rest\/(?:\d+\.\d+|[^/]+)\/pcs\/adx(?:\?|$) - reject-dict
+# 网盘广告接口
+^https:\/\/pan\.baidu\.com\/rest\/2\.0\/pcs\/ad(?:\?|$) - reject-dict
+# 启动活动入口
+^https:\/\/pan\.baidu\.com\/act\/api\/activityentry(?:\?|$) - reject-dict
+# 明确命名的广告资源
+^https:\/\/issuecdn\.baidupcs\.com\/issue\/netdisk\/guanggao(?:\/|$) - reject
+# 仅阻断更新统计，不阻断 App 更新
+^https:\/\/update\.pan\.baidu\.com\/statistics(?:\?|$) - reject-200
+
+# --- 抖音 ---
+# 穿山甲广告拉取与配置
+^https:\/\/(?:api-access(?:-b)?|api-access\d*)\.pangolin-sdk-toutiao(?:-b)?\.com\/api\/ad\/union\/sdk\/(?:get_ads|settings)\/ - reject-dict
+# Gromore 广告配置与竞价
+^https:\/\/gromore\.pangolin-sdk-toutiao\.com\/api\/ad\/union\/mediation\/(?:config|exchange)(?:\/|$) - reject-dict
+# 明确广告渲染素材
+^https:\/\/[^/]+\.pglstatp-toutiao\.com\/obj\/ad-pattern\/renderer(?:\/|$) - reject
+# 只匹配带 from=ad 的旧广告马赛克素材
+^https:\/\/[^/]+\.pstatp\.com\/obj\/mosaic-legacy\/[^?]+\?(?=[^#]*\bfrom=ad(?:&|$)) - reject
+
+# --- 番茄小说 ---
+# 章末广告素材；只匹配广告专用目录
+^https:\/\/[^/]+\.(?:pglstatp-toutiao|pstatp)\.com\/(?:obj|img)\/(?:ad-app-package|ad|web\.business\.image)(?:\/|$) - reject
+
+# --- 迅雷 ---
+# 迅雷广告图片
+^https:\/\/images\.client\.vip\.xunlei\.com\/[^?#]+\/advert\/ - reject-img
+# 迅雷广告位批量接口
+^https:\/\/api-shoulei-ssl\.xunlei\.com\/flowhub\/v\d+\/slots:batchGet(?:\?|$) - reject-dict
+
+# --- 高德地图 ---
+# 高德开屏
+^https:\/\/m\d+\.amap\.com\/ws\/valueadded\/alimama\/splash_screen(?:\?|$) - reject-dict
+# 广告归因上报
+^https:\/\/m\d+\.amap\.com\/ws\/asa\/ads_attribution(?:\?|$) - reject-200
+# 场景商业推荐
+^https:\/\/m\d+\.amap\.com\/ws\/shield\/scene\/recommend(?:\?|$) - reject-dict
+
+# --- 哔哩哔哩 ---
+# 开屏配置
+^https:\/\/app\.bilibili\.com\/x\/v2\/splash\/(?:list|show)(?:\?|$) - reject-dict
+# 会员页广告素材上报（不修改会员状态）
+^https:\/\/api\.bilibili\.com\/x\/vip\/ads\/material\/report(?:\?|$) - reject-dict
+# 漫画闪屏广告
+^https:\/\/manga\.bilibili\.com\/twirp\/comic\.v\d+\.Comic\/(?:Flash|ListFlash)(?:\?|$) - reject-dict
+
+[Script]
+
+# --- 微信 ---
+微信_公众号文章广告 = type=http-response,pattern=^https:\/\/mp\.weixin\.qq\.com\/mp\/getappmsgad(?:\?|$),requires-body=1,max-size=1048576,timeout=5,script-path=https://raw.githubusercontent.com/STERILITZIA02/Blockad-sr-my/v1.0.0/release/v1.0.0/scripts/blockad-router.js
+
+# --- 京东 ---
+京东_启动首页与订单页广告 = type=http-response,pattern=^https:\/\/api\.m\.jd\.com\/client\.action\?(?:[^#&]+&)*functionId=(?:deliverLayer|getTabHomeInfo|myOrderInfo|orderTrackBusiness|personinfoBusiness|start|welcomeHome)(?:&|$),requires-body=1,max-size=2097152,timeout=5,script-path=https://raw.githubusercontent.com/STERILITZIA02/Blockad-sr-my/v1.0.0/release/v1.0.0/scripts/blockad-router.js
+
+# --- 知乎 ---
+知乎_信息流显式推广 = type=http-response,pattern=^https:\/\/api\.zhihu\.com\/(?:moments_v3|topstory\/(?:recommend|hot-lists\/total)|v2\/topstory\/hot-lists\/everyone-seeing)(?:\?|$),requires-body=1,max-size=2097152,timeout=5,script-path=https://raw.githubusercontent.com/STERILITZIA02/Blockad-sr-my/v1.0.0/release/v1.0.0/scripts/blockad-router.js
+知乎_内容页商业推荐 = type=http-response,pattern=^https:\/\/(?:api\.zhihu\.com\/questions\/\d+\/(?:answers|feeds)|www\.zhihu\.com\/api\/v4\/(?:articles|answers)\/\d+\/recommendations?)(?:\?|$),requires-body=1,max-size=2097152,timeout=5,script-path=https://raw.githubusercontent.com/STERILITZIA02/Blockad-sr-my/v1.0.0/release/v1.0.0/scripts/blockad-router.js
+
+# --- 微博 / 微博轻享版 ---
+微博_推荐关注趋势推广 = type=http-response,pattern=^https:\/\/(?:m?api\.weibo\.(?:cn|com)\/\d+\/(?:cardlist|searchall|page|groups\/timeline|statuses\/(?:(?:unread_)?friends(?:\/|_)timeline|unread_hot_timeline|video_mixtimeline)|video\/(?:community_tab|tiny_stream_video_list)|search\/(?:finder|container_timeline|container_discover)|comments\/build_comments)|weibointl\.api\.weibo\.(?:cn|com)\/portal\.php)(?:\?|$),requires-body=1,max-size=2097152,timeout=5,script-path=https://raw.githubusercontent.com/STERILITZIA02/Blockad-sr-my/v1.0.0/release/v1.0.0/scripts/blockad-router.js
+
+# --- 闲鱼 ---
+闲鱼_首页同城搜索广告 = type=http-response,pattern=^https:\/\/(?:g-)?acs\.m\.goofish\.com\/gw\/(?:mtop\.taobao\.idlehome\.home\.nextfresh|mtop\.taobao\.idle\.local\.(?:home|flow\.plat\.section)|mtop\.taobao\.idlemtopsearch\.search)(?:\/|$),requires-body=1,max-size=2097152,timeout=5,script-path=https://raw.githubusercontent.com/STERILITZIA02/Blockad-sr-my/v1.0.0/release/v1.0.0/scripts/blockad-router.js
+
+# --- YouTube / YouTube Music ---
+YouTube_广告响应过滤 = type=http-response,pattern=^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(?:browse|next|player|search|reel\/reel_watch_sequence|guide|get_watch)(?:\?|$),requires-body=1,max-size=-1,binary-body-mode=1,timeout=10,script-path=https://raw.githubusercontent.com/STERILITZIA02/Blockad-sr-my/v1.0.0/release/v1.0.0/scripts/youtube-response.js,argument="{"captionLang":"off","blockUpload":true,"blockImmersive":true,"blockShorts":false,"debug":false}"
+
+# --- 高德地图 ---
+高德_首页搜索消息显式广告 = type=http-response,pattern=^https:\/\/m\d+\.amap\.com\/ws\/(?:faas\/amap-navigation\/main-page|msgbox\/pull|shield\/(?:dsp\/profile\/index\/nodefaas|search\/new_hotword))(?:\?|$),requires-body=1,max-size=2097152,timeout=5,script-path=https://raw.githubusercontent.com/STERILITZIA02/Blockad-sr-my/v1.0.0/release/v1.0.0/scripts/blockad-router.js
+
+# --- 哔哩哔哩 ---
+哔哩哔哩_推荐流显式广告 = type=http-response,pattern=^https:\/\/app\.bilibili\.com\/x\/(?:v2\/feed\/index|resource\/show\/tab\/v2)(?:\?|$),requires-body=1,max-size=2097152,timeout=5,script-path=https://raw.githubusercontent.com/STERILITZIA02/Blockad-sr-my/v1.0.0/release/v1.0.0/scripts/blockad-router.js
+哔哩哔哩_网页推荐流显式广告 = type=http-response,pattern=^https:\/\/api\.bilibili\.com\/(?:x\/web-interface\/index\/top\/feed\/rcmd|pgc\/season\/player\/cards)(?:\?|$),requires-body=1,max-size=2097152,timeout=5,script-path=https://raw.githubusercontent.com/STERILITZIA02/Blockad-sr-my/v1.0.0/release/v1.0.0/scripts/blockad-router.js
+哔哩哔哩_直播与动态显式广告 = type=http-response,pattern=^https:\/\/(?:api\.live\.bilibili\.com\/xlive\/app-room\/v1\/index\/getInfoByRoom|api\.vc\.bilibili\.com\/dynamic_svr\/v1\/dynamic_svr\/dynamic_(?:history|new))(?:\?|$),requires-body=1,max-size=2097152,timeout=5,script-path=https://raw.githubusercontent.com/STERILITZIA02/Blockad-sr-my/v1.0.0/release/v1.0.0/scripts/blockad-router.js
+
+[MITM]
+# 仅列出实际脚本或 HTTPS Rewrite 所需主机；不使用 IP、共享网段或全业务通配域。
+hostname = %APPEND% mi.gdt.qq.com, v2mi.gdt.qq.com, win.gdt.qq.com, r.inews.qq.com, mp.weixin.qq.com, api.m.jd.com, guide-acs.m.taobao.com, acs.m.taobao.com, guide-acs.m.tmall.com, acs.m.tmall.com, api.zhihu.com, www.zhihu.com, zhstatic.zhihu.com, api.weibo.cn, mapi.weibo.cn, api.weibo.com, mapi.weibo.com, weibointl.api.weibo.cn, weibointl.api.weibo.com, wbapp.mobile.sina.cn, acs.m.goofish.com, g-acs.m.goofish.com, youtubei.googleapis.com, www.youtube.com, s.youtube.com, pan.baidu.com, issuecdn.baidupcs.com, update.pan.baidu.com, api-access.pangolin-sdk-toutiao.com, api-access.pangolin-sdk-toutiao-b.com, api-access1.pangolin-sdk-toutiao.com, api-access2.pangolin-sdk-toutiao.com, api-access3.pangolin-sdk-toutiao.com, api-access4.pangolin-sdk-toutiao.com, api-access5.pangolin-sdk-toutiao.com, gromore.pangolin-sdk-toutiao.com, *.pglstatp-toutiao.com, *.pstatp.com, images.client.vip.xunlei.com, api-shoulei-ssl.xunlei.com, m1.amap.com, m2.amap.com, m3.amap.com, m4.amap.com, m5.amap.com, m6.amap.com, m7.amap.com, m8.amap.com, m9.amap.com, m10.amap.com, app.bilibili.com, api.bilibili.com, api.live.bilibili.com, api.vc.bilibili.com, manga.bilibili.com

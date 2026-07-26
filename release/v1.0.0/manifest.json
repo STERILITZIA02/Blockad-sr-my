@@ -1,0 +1,362 @@
+{
+  "schemaVersion": 1,
+  "project": "STERILITZIA02/Blockad-sr-my",
+  "version": "1.0.0",
+  "ref": "v1.0.0",
+  "generatedOn": "2026-07-26",
+  "unifiedModule": "BlockAd.Unified.sgmodule",
+  "awaRuleSnapshot": {
+    "upstreamCommit": "d77f249050b440989cc9a640eabdb18573dc7c90",
+    "upstreamSha256": "7a85b45b3e087d257c7eee2316f34013fadd353d716204444d98a231034236c9",
+    "sourceRuleCount": 903,
+    "excludedCount": 120,
+    "outputRuleCount": 783
+  },
+  "components": [
+    {
+      "id": "general-networks",
+      "name": "通用广告网络",
+      "description": "固定版本的社区广告域名规则；负责原聚合模块中的长尾 App 与第三方广告 SDK。",
+      "enabledByDefault": true,
+      "path": "components/general-networks.sgmodule"
+    },
+    {
+      "id": "qq",
+      "name": "QQ / 腾讯系广告",
+      "description": "GDT 广告请求、素材与腾讯新闻开屏；不拦截 QQ 登录、消息、文件或语音视频。",
+      "enabledByDefault": true,
+      "path": "components/qq.sgmodule"
+    },
+    {
+      "id": "wechat",
+      "name": "微信",
+      "description": "公众号文章广告与朋友圈广告素材；不处理聊天、支付、小程序业务响应。",
+      "enabledByDefault": true,
+      "path": "components/wechat.sgmodule"
+    },
+    {
+      "id": "jd",
+      "name": "京东",
+      "description": "启动、首页楼层、配送/订单页显式广告容器；保留订单、支付、物流和账号字段。",
+      "enabledByDefault": true,
+      "path": "components/jd.sgmodule"
+    },
+    {
+      "id": "taobao-tmall",
+      "name": "淘宝 / 天猫",
+      "description": "开屏与明确广告服务接口；不拦截商品、购物车、订单、支付或物流。",
+      "enabledByDefault": true,
+      "path": "components/taobao-tmall.sgmodule"
+    },
+    {
+      "id": "zhihu",
+      "name": "知乎",
+      "description": "开屏、商业横幅、回答底部商业卡片与信息流显式推广；不拦截通知、评论、账号或完整内容接口。",
+      "enabledByDefault": true,
+      "path": "components/zhihu.sgmodule"
+    },
+    {
+      "id": "weibo",
+      "name": "微博 / 微博轻享版",
+      "description": "开屏、推荐/关注/趋势信息流显式推广；不修改会员图标、账号、私信或支付字段。",
+      "enabledByDefault": true,
+      "path": "components/weibo.sgmodule"
+    },
+    {
+      "id": "xianyu",
+      "name": "闲鱼",
+      "description": "开屏、首页/同城/搜索信息流中的显式商业卡片；保留商品、聊天、交易和用户主动浏览的推荐。",
+      "enabledByDefault": true,
+      "path": "components/xianyu.sgmodule"
+    },
+    {
+      "id": "youtube",
+      "name": "YouTube / YouTube Music",
+      "description": "Protobuf 响应内广告节点与广告统计；不转发播放请求、不封禁 googlevideo、不伪造后台播放或下载权益。",
+      "enabledByDefault": true,
+      "path": "components/youtube.sgmodule"
+    },
+    {
+      "id": "baidu-netdisk",
+      "name": "百度网盘",
+      "description": "广告接口、开屏活动入口与明确广告资源；保留账号认证、会员状态、上传下载和视频播放。",
+      "enabledByDefault": true,
+      "path": "components/baidu-netdisk.sgmodule"
+    },
+    {
+      "id": "douyin",
+      "name": "抖音",
+      "description": "穿山甲/Gromore 广告 SDK 的拉取、配置与明确广告素材；不解密或改写抖音主业务 feed。",
+      "enabledByDefault": true,
+      "path": "components/douyin.sgmodule"
+    },
+    {
+      "id": "fanqie",
+      "name": "番茄小说",
+      "description": "章末/激励广告 SDK、广告素材与预加载；移除旧版整域、共享业务域和静态 IP 封禁。",
+      "enabledByDefault": true,
+      "path": "components/fanqie.sgmodule"
+    },
+    {
+      "id": "thunder",
+      "name": "迅雷",
+      "description": "明确广告域名、广告图片目录与广告位批量接口；保留更新、下载、直播和会员状态。",
+      "enabledByDefault": true,
+      "path": "components/thunder.sgmodule"
+    },
+    {
+      "id": "amap",
+      "name": "高德地图",
+      "description": "开屏、首页/搜索/消息中的显式商业内容；保留天气、导航、路线和定位。",
+      "enabledByDefault": true,
+      "path": "components/amap.sgmodule"
+    },
+    {
+      "id": "bilibili",
+      "name": "哔哩哔哩",
+      "description": "开屏、首页推荐流和标签配置中的显式广告；不修改会员、付费、登录或播放地址。",
+      "enabledByDefault": true,
+      "path": "components/bilibili.sgmodule"
+    },
+    {
+      "id": "privacy-pcdn",
+      "name": "隐私与已识别 PCDN",
+      "description": "保留原番茄/聚合模块中的精确 PCDN 与广告遥测拦截；不使用 IP/CIDR 或共享业务整域。",
+      "enabledByDefault": true,
+      "path": "components/privacy-pcdn.sgmodule"
+    }
+  ],
+  "extras": [
+    {
+      "id": "zhihu-link-direct",
+      "name": "知乎链接直达",
+      "description": "保留 ZhihuOpt 的去中转便利功能；独立启用，不修改 User-Agent。",
+      "enabledByDefault": false,
+      "path": "extras/zhihu-link-direct.sgmodule"
+    },
+    {
+      "id": "xianyu-ui",
+      "name": "闲鱼可选 UI 精简",
+      "description": "保留旧模块的搜索建议、消息页推荐和个人页推荐精简；可能隐藏非广告推荐，默认不并入统一模块。",
+      "enabledByDefault": false,
+      "path": "extras/xianyu-ui.sgmodule"
+    }
+  ],
+  "files": [
+    {
+      "path": "BlockAd.Unified.sgmodule",
+      "bytes": 12594,
+      "sha256": "ee7b196e954014e8f8583c6ff86b18ccf7ae54867e0e2f11cb780658003b03a7"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "bytes": 1654,
+      "sha256": "2ce8a8da5baa3e5963457fe8e5ee2a95680ccf21e3632f5666161422af0b2b38"
+    },
+    {
+      "path": "components/amap.sgmodule",
+      "bytes": 1272,
+      "sha256": "8993ac77fae94288a8444166657c9ce7891b0339705bbf3d06cc96324438abb3"
+    },
+    {
+      "path": "components/baidu-netdisk.sgmodule",
+      "bytes": 1005,
+      "sha256": "57f18db5de71a59da20995c7d9535b70506ab4332cd2386b4608b8ccb054d78e"
+    },
+    {
+      "path": "components/bilibili.sgmodule",
+      "bytes": 1953,
+      "sha256": "a7ac35ba34b89dfa38c99fe8a905772c4b62b1b58906910be639efda8bb80006"
+    },
+    {
+      "path": "components/douyin.sgmodule",
+      "bytes": 1760,
+      "sha256": "c65ffd1d326d4377f7ba9ac0ac142c8a0d9817cca6bc71ff7db74eedba35c0c5"
+    },
+    {
+      "path": "components/fanqie.sgmodule",
+      "bytes": 1710,
+      "sha256": "77dda8866794cda944ba42bcd54018f4bc42893d7c24c19d7b569df71fb9c1b7"
+    },
+    {
+      "path": "components/general-networks.sgmodule",
+      "bytes": 513,
+      "sha256": "0199d23ecdc0cafefd2dd11db5581773c84ff92c7497b8c2420d267eab003402"
+    },
+    {
+      "path": "components/jd.sgmodule",
+      "bytes": 946,
+      "sha256": "5fdc6c4ce85b8e5bcf4287c49d84bf047da3edb495f5490800da78592606283c"
+    },
+    {
+      "path": "components/privacy-pcdn.sgmodule",
+      "bytes": 578,
+      "sha256": "96629b3d17d778fdcf1451f97f1b1a7e6c42ac5b651f78474c64ed216d0dc7a7"
+    },
+    {
+      "path": "components/qq.sgmodule",
+      "bytes": 940,
+      "sha256": "e7bb15ec5b05de89aafb7e7d81db09e5e6997cd8cd7cc66aefdea4f2746dd5ff"
+    },
+    {
+      "path": "components/taobao-tmall.sgmodule",
+      "bytes": 945,
+      "sha256": "43ec1d915b057432babb29d33bf45aecb2f92d7602e53cf32f549a0c52de1706"
+    },
+    {
+      "path": "components/thunder.sgmodule",
+      "bytes": 762,
+      "sha256": "4334bedeb1448ccaefd281ace99a12962e5343805cb4e432075e3e190f1caa66"
+    },
+    {
+      "path": "components/wechat.sgmodule",
+      "bytes": 835,
+      "sha256": "d727de649a468f8735f3f5cfe04cc501362097f9ce0c930af4f782cad1a6f467"
+    },
+    {
+      "path": "components/weibo.sgmodule",
+      "bytes": 1405,
+      "sha256": "9e76f8f519f515423d5d6fb90fcc5bf5f2a9d52c5b67a281b2b94bb42838d44f"
+    },
+    {
+      "path": "components/xianyu.sgmodule",
+      "bytes": 1015,
+      "sha256": "926fa4d77701fcfcf38364e5f9e6492fed7b493c1706255498f9e309efd6c453"
+    },
+    {
+      "path": "components/youtube.sgmodule",
+      "bytes": 1420,
+      "sha256": "3ffbfd18966db9ca16f855d5aa2a6fe1847f1320d8af72cb51b808ec385d6abf"
+    },
+    {
+      "path": "components/zhihu.sgmodule",
+      "bytes": 2040,
+      "sha256": "1f78829b4d13fe7c83acc3d8d532d4f7730e9e14a9254235cabc75b97916c938"
+    },
+    {
+      "path": "docs/COVERAGE.md",
+      "bytes": 6355,
+      "sha256": "67d4a0b42c2bbba3b9b8aa805e69ff469dc05ec9059aa4ea9b3dba96e2845082"
+    },
+    {
+      "path": "docs/FINAL_AUDIT.md",
+      "bytes": 6718,
+      "sha256": "3149f41ea3358e23f976248c89485cccb9aafeecc17fa321ae74ac6a9ec0c8f8"
+    },
+    {
+      "path": "docs/INSTALL.md",
+      "bytes": 5199,
+      "sha256": "c1acd7a0dc08c4b38c9546c3bd39bd4dede6dd52c8699ee60f0a2a13a6cb4c91"
+    },
+    {
+      "path": "docs/LEGACY_AUDIT.md",
+      "bytes": 7342,
+      "sha256": "2224e5b2479b65b34422cdd2ec3924a32b7b14aa12299ba40443f47ef48575cf"
+    },
+    {
+      "path": "docs/RELEASE_NOTES_v1.0.0.md",
+      "bytes": 2352,
+      "sha256": "65497b378e264c7a98e86883926f3da339d023f9053983cd19c94af309bb7d5b"
+    },
+    {
+      "path": "docs/ROLLBACK.md",
+      "bytes": 1496,
+      "sha256": "c9d07e0c1992393254124a614b8a00e63aa1da3dd4eded9690131350f04d3938"
+    },
+    {
+      "path": "extras/xianyu-ui.sgmodule",
+      "bytes": 890,
+      "sha256": "081c6ef631f7dcf960cfa729a053b97849201c0a526d6e34e4036e185db07bf6"
+    },
+    {
+      "path": "extras/zhihu-link-direct.sgmodule",
+      "bytes": 538,
+      "sha256": "9a936ac83ac4132800478b394dc9fa424b0ed820e730df8586c880a00bd5ccb4"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 1070,
+      "sha256": "a3992845502dfa1ce61a9dd5251cb9ad63f7e75837a2a66491006f1c1863c31e"
+    },
+    {
+      "path": "licenses/AWAvenue-GPL-3.0.txt",
+      "bytes": 35141,
+      "sha256": "589ed823e9a84c56feb95ac58e7cf384626b9cbf4fda2a907bc36e103de1bad2"
+    },
+    {
+      "path": "licenses/Maasea-Apache-2.0.txt",
+      "bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "path": "README.md",
+      "bytes": 3639,
+      "sha256": "fda96a00e95fc32a758ba9475694759a21b11b81e8f4de3924a0f0f7dee1782c"
+    },
+    {
+      "path": "rules/AWAvenue-Ads-Rule.exclusions.json",
+      "bytes": 12578,
+      "sha256": "80a9baba59204b55f4012b40792ebb4c74c92bfb9cc1423b055fc626469e3062"
+    },
+    {
+      "path": "rules/AWAvenue-Ads-Rule.list",
+      "bytes": 22035,
+      "sha256": "bf3361bfa74908a1f19a104c752df2ae2a2d374e0dcd384edac9d6b5fe95424a"
+    },
+    {
+      "path": "scripts/blockad-router.js",
+      "bytes": 15102,
+      "sha256": "864127754eb9d744724428cefd6dfb8bbd93e2428c834b112cdbdff1130b6210"
+    },
+    {
+      "path": "scripts/youtube-response.js",
+      "bytes": 131913,
+      "sha256": "59773f5eb4300c31cc806c1be8531200884c600b0c25ffb921a2f641c884424d"
+    },
+    {
+      "path": "source/config/apps.mjs",
+      "bytes": 21796,
+      "sha256": "31b58f91a9f6d0c06a844667749349d462d8f9c3bf48784547ce67ea45c17e62"
+    },
+    {
+      "path": "source/config/awa-exclusions.mjs",
+      "bytes": 8009,
+      "sha256": "167df7747bc7e1f29852c6d52e8f4bd49ee4b1140a3af3e4acc386f086f49ca3"
+    },
+    {
+      "path": "source/scripts/build.mjs",
+      "bytes": 20021,
+      "sha256": "3450af68cbe8da51c65eb2a1be89eb6a590e6ff281d18f891ac7974e76ef7026"
+    },
+    {
+      "path": "source/src/blockad-router.cjs",
+      "bytes": 15102,
+      "sha256": "864127754eb9d744724428cefd6dfb8bbd93e2428c834b112cdbdff1130b6210"
+    },
+    {
+      "path": "source/third_party/awa/AWAvenue-Ads-Rule-Surge-RULE-SET.list",
+      "bytes": 25427,
+      "sha256": "7a85b45b3e087d257c7eee2316f34013fadd353d716204444d98a231034236c9"
+    },
+    {
+      "path": "source/third_party/awa/LICENSE",
+      "bytes": 35141,
+      "sha256": "589ed823e9a84c56feb95ac58e7cf384626b9cbf4fda2a907bc36e103de1bad2"
+    },
+    {
+      "path": "source/third_party/maasea/LICENSE",
+      "bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "path": "source/third_party/maasea/youtube.response.js",
+      "bytes": 132973,
+      "sha256": "f98483d5f5017514f82502253c0db5ce2d4ffb7839887aa2cadc22666f5a7f12"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.md",
+      "bytes": 3800,
+      "sha256": "d16da8f1684d0701ffb03b25d7103c498bc4e3cd1709ff9623d8ce8317735dec"
+    }
+  ]
+}
