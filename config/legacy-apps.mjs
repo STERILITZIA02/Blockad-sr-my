@@ -21,6 +21,7 @@ function defineApp({
   legacyGroups = [],
   auditNote = "仅迁移广告专用路径；未采用静态 IP、共享 CDN 或正常功能接口。",
   auditDisposition = "migrated",
+  unified = true,
   rules = [],
   rewrites = [],
   scripts = [],
@@ -33,7 +34,7 @@ function defineApp({
     legacyGroups,
     auditNote,
     auditDisposition,
-    unified: true,
+    unified,
     rules,
     rewrites,
     scripts,
@@ -73,10 +74,10 @@ export const legacyApps = [
   defineApp({
     id: "58",
     name: "58同城 / 安居客",
-    description: "首页广告与品牌广告目录；不采用图片尺寸猜测，也不阻断通用日志。",
+    description: "首页与邀请弹窗广告接口；不解密共享图片 CDN，不采用图片尺寸猜测或通用日志拦截。",
     legacyGroups: ["58"],
     auditDisposition: "partial",
-    auditNote: "迁移 3 条广告专用路径；移除通用日志和共享图片尺寸规则。",
+    auditNote: "迁移 2 条第一方广告专用 API；移除通用日志、共享图片尺寸和 58cdn 通配 MITM。",
     rewrites: [
       rewrite(
         "首页广告",
@@ -86,13 +87,8 @@ export const legacyApps = [
         "邀请弹窗广告",
         re`^https:\/\/app\.58\.com\/api\/home\/invite\/popupAdv(?:\/|\?|$)`,
       ),
-      rewrite(
-        "品牌广告素材",
-        re`^https:\/\/[^/]+\.58cdn\.com\.cn\/brandads(?:\/|$)`,
-        "reject-img",
-      ),
     ],
-    mitm: ["app.58.com", "*.58cdn.com.cn"],
+    mitm: ["app.58.com"],
   }),
   defineApp({
     id: "taopiaopiao",
@@ -195,10 +191,10 @@ export const legacyApps = [
   defineApp({
     id: "iqiyi",
     name: "爱奇艺",
-    description: "广告信息、国际版广告接口与 oad 素材；不阻断播放、登录或会员状态。",
+    description: "广告信息与国际版广告接口；不解密共享图片 CDN，不阻断播放、登录或会员状态。",
     legacyGroups: ["iQIYI"],
     auditDisposition: "partial",
-    auditNote: "迁移广告命名明确的 4 类入口；旧 VIP interact/show 活动接口不迁移。",
+    auditNote: "迁移广告命名明确的 API；旧 VIP 活动接口和共享 iqiyipic 素材通配 MITM 不迁移。",
     rewrites: [
       rewrite(
         "新广告信息",
@@ -208,13 +204,8 @@ export const legacyApps = [
         "国际版广告",
         re`^https:\/\/intl\.iqiyi\.com\/(?:ad_external|video\/advertise)(?:\/|\?|$)`,
       ),
-      rewrite(
-        "oad 广告素材",
-        re`^https:\/\/u\d+\.iqiyipic\.com\/image\/[^?#]+\/oad_[^?#]+`,
-        "reject-img",
-      ),
     ],
-    mitm: ["iface.iqiyi.com", "intl.iqiyi.com", "*.iqiyipic.com"],
+    mitm: ["iface.iqiyi.com", "intl.iqiyi.com"],
   }),
   defineApp({
     id: "beitai-kitchen",
@@ -271,15 +262,26 @@ export const legacyApps = [
   defineApp({
     id: "baby-health",
     name: "育学园 / 宝宝健康",
-    description: "advert 专用路径；不匹配健康与成长数据。",
+    description: "已知 yxyapi0–9 主机上的 advert 专用路径；不解密其他健康与成长数据域。",
     legacyGroups: ["BabyHealth"],
     rewrites: [
       rewrite(
         "广告接口",
-        re`^https:\/\/yxyapi\d+\.drcuiyutao\.com\/yxy-api-gateway\/api\/json\/advert(?:\/|\?|$)`,
+        re`^https:\/\/yxyapi[0-9]\.drcuiyutao\.com\/yxy-api-gateway\/api\/json\/advert(?:\/|\?|$)`,
       ),
     ],
-    mitm: ["*.drcuiyutao.com"],
+    mitm: [
+      "yxyapi0.drcuiyutao.com",
+      "yxyapi1.drcuiyutao.com",
+      "yxyapi2.drcuiyutao.com",
+      "yxyapi3.drcuiyutao.com",
+      "yxyapi4.drcuiyutao.com",
+      "yxyapi5.drcuiyutao.com",
+      "yxyapi6.drcuiyutao.com",
+      "yxyapi7.drcuiyutao.com",
+      "yxyapi8.drcuiyutao.com",
+      "yxyapi9.drcuiyutao.com",
+    ],
   }),
   defineApp({
     id: "china-mobile",
@@ -871,15 +873,17 @@ export const legacyApps = [
   defineApp({
     id: "jiakaobaodian",
     name: "驾考宝典",
-    description: "advert-sdk 专用入口；保留题库与学习记录。",
+    description: "已知广告 SDK 主机上的 advert-sdk 专用入口；保留题库、评论与学习记录。",
     legacyGroups: ["JiaKaoBaoDian"],
+    auditDisposition: "partial",
+    auditNote: "将旧 *.kakamobi.cn 通配 MITM 收窄到有公开请求样本的 smart.789.kakamobi.cn。",
     rewrites: [
       rewrite(
         "广告 SDK",
-        re`^https:\/\/[^/]+\.kakamobi\.cn\/api\/open\/v\d+\/advert-sdk(?:\/|\?|$)`,
+        re`^https:\/\/smart\.789\.kakamobi\.cn\/api\/open\/v\d+\/advert-sdk(?:\/|\?|$)`,
       ),
     ],
-    mitm: ["*.kakamobi.cn"],
+    mitm: ["smart.789.kakamobi.cn"],
   }),
   defineApp({
     id: "jinse",
@@ -897,8 +901,10 @@ export const legacyApps = [
   defineApp({
     id: "kingsoft",
     name: "WPS / 金山词霸",
-    description: "广告统计、广告服务、开屏和 feeds_ad 素材；不修改会员或文档功能。",
+    description: "精确广告主机、广告统计、开屏和 feeds_ad 素材；不解密金山共享服务域，不修改会员或文档功能。",
     legacyGroups: ["Kingsoft"],
+    auditDisposition: "partial",
+    auditNote: "旧 *.kingsoft-office-service.com 改为公开验证的 abroad-ad 精确广告主机。",
     rewrites: [
       rewrite(
         "WPS 广告统计",
@@ -907,7 +913,7 @@ export const legacyApps = [
       ),
       rewrite(
         "金山广告服务",
-        re`^https:\/\/[^/]+\.kingsoft-office-service\.com\/ad(?:\/|\?|$)`,
+        re`^https:\/\/abroad-ad\.kingsoft-office-service\.com\/ad(?:\/|\?|$)`,
       ),
       rewrite(
         "词霸广告请求",
@@ -925,7 +931,7 @@ export const legacyApps = [
     ],
     mitm: [
       "ios.wps.cn",
-      "*.kingsoft-office-service.com",
+      "abroad-ad.kingsoft-office-service.com",
       "dict-mobile.iciba.com",
       "service.iciba.com",
       "mobile-pic.cache.iciba.com",
@@ -983,7 +989,7 @@ export const legacyApps = [
   defineApp({
     id: "xiaomi-services",
     name: "小米服务 / 米家 / 小米金融",
-    description: "adv、playScreen 与明确 _ad 接口；不拒绝 App 启动初始化或设备控制。",
+    description: "adv、playScreen 与两个已知运动广告接口；不解密其他华米域，不拒绝 App 初始化或设备控制。",
     legacyGroups: ["MI"],
     auditDisposition: "partial",
     auditNote: "移除 api.m.mi.com/v*/app/start 和普通 recommendation/banner；只保留明确广告路径。",
@@ -998,10 +1004,14 @@ export const legacyApps = [
       ),
       rewrite(
         "小米运动明确广告",
-        re`^https:\/\/api-mifit(?:-[^/.]+)?\.huami\.com\/discovery\/mi\/discovery\/[^/?#]+_ad(?:\?|$)`,
+        re`^https:\/\/api-mifit\.huami\.com\/discovery\/mi\/discovery\/[^/?#]+_ad(?:\?|$)`,
+      ),
+      rewrite(
+        "Zepp 国内版开屏与首页广告",
+        re`^https:\/\/api-mifit-cn2\.zepp\.com\/discovery\/mi\/cards\/(?:startpage_ad|homepage_ad)(?:\?|$)`,
       ),
     ],
-    mitm: ["api.jr.mi.com", "api-mifit.huami.com", "*.huami.com"],
+    mitm: ["api.jr.mi.com", "api-mifit.huami.com", "api-mifit-cn2.zepp.com"],
   }),
   defineApp({
     id: "moji",
@@ -1149,19 +1159,16 @@ export const legacyApps = [
   defineApp({
     id: "netease-cloudmusic",
     name: "网易云音乐",
-    description: "第一方 ad API 与明确广告域；保留音乐播放、歌单、评论和账号。",
+    description: "仅拦截两个明确广告素材域；不解密 music.163.com 业务 API，保护播放、歌单、评论和账号。",
     legacyGroups: ["NetEase CloudMusic"],
+    auditDisposition: "partial",
+    auditNote: "撤下 interface*.music.163.com 第一方通配 MITM；保留专用广告素材域。",
     rules: [
       "DOMAIN,iadmat.nosdn.127.net,REJECT",
       "DOMAIN,iadmusicmat.music.126.net,REJECT",
     ],
-    rewrites: [
-      rewrite(
-        "广告 API",
-        re`^https:\/\/(?:ipv4\.|interface\d*\.)?music\.163\.com\/(?:w?e?api|eapi)\/ad(?:\/|\?|$)`,
-      ),
-    ],
-    mitm: ["music.163.com", "*.music.163.com"],
+    rewrites: [],
+    mitm: [],
   }),
   defineApp({
     id: "netease-kaola",
@@ -1445,9 +1452,9 @@ export const legacyApps = [
   defineApp({
     id: "smzdm",
     name: "什么值得买",
-    description: "启动广告、thirdAd 与混合页面中的强标记广告；不修改会员或优惠权益。",
+    description: "启动广告与混合页面中的强标记广告；不解密共享 zdmimg CDN，不修改会员或优惠权益。",
     legacyGroups: ["SMZDM"],
-    auditNote: "结合 2026 fmz200 固定提交；只处理广告强信号，不采用 vip/creator 等权益改写。",
+    auditNote: "保留 2026 启动与混合响应方案；撤下共享 zdmimg 通配 MITM，不采用 vip/creator 等权益改写。",
     rules: [
       "DOMAIN,aaid.uyunad.com,REJECT",
       "DOMAIN-SUFFIX,res-ga.smzdm.com,REJECT",
@@ -1456,10 +1463,6 @@ export const legacyApps = [
       rewrite(
         "启动广告",
         re`^https:\/\/(?:api|app-api)\.smzdm\.com\/(?:v\d+\/)?util\/loading(?:\?|$)`,
-      ),
-      rewrite(
-        "第三方广告",
-        re`^https:\/\/s\d+\.zdmimg\.com\/www\/api\/v\d+\/api\/thirdAd\.php(?:\?|$)`,
       ),
     ],
     scripts: [
@@ -1472,7 +1475,6 @@ export const legacyApps = [
     mitm: [
       "api.smzdm.com",
       "app-api.smzdm.com",
-      "*.zdmimg.com",
       "homepage-api.smzdm.com",
       "haojia-api.smzdm.com",
       "s-api.smzdm.com",
@@ -1559,15 +1561,18 @@ export const legacyApps = [
   defineApp({
     id: "futu",
     name: "富途",
-    description: "ad 专用 API；保留行情、交易和账号。",
+    description: "仅处理 api.futunn.com 的 ad 专用路径；不解密编号交易 API，保留行情、交易和账号。",
     legacyGroups: ["FUTU"],
+    auditDisposition: "partial",
+    auditNote: "金融应用采用最小解密面：撤下 *.futunn.com，只保留 api.futunn.com 的 ad 路径。",
+    unified: false,
     rewrites: [
       rewrite(
         "广告接口",
-        re`^https:\/\/api\d*\.futunn\.com\/(?:v\d+\/)?ad(?:\/|\?|$)`,
+        re`^https:\/\/api\.futunn\.com\/(?:v\d+\/)?ad(?:\/|\?|$)`,
       ),
     ],
-    mitm: ["api.futunn.com", "*.futunn.com"],
+    mitm: ["api.futunn.com"],
   }),
   defineApp({
     id: "tencent-game",
@@ -1654,16 +1659,18 @@ export const legacyApps = [
   defineApp({
     id: "ucar",
     name: "神州专车",
-    description: "adpos 素材目录；保留叫车、行程和支付。",
+    description: "已知 img01 主机的 adpos/share 素材目录；不解密其他 CDN，保留叫车、行程和支付。",
     legacyGroups: ["UCar"],
+    auditDisposition: "partial",
+    auditNote: "旧 img*.10101111cdn.com 收窄为原模块明确出现的 img01 广告素材路径。",
     rewrites: [
       rewrite(
         "广告位素材",
-        re`^https:\/\/img\d+\.10101111cdn\.com\/adpos(?:\/|$)`,
+        re`^https:\/\/img01\.10101111cdn\.com\/adpos\/share(?:\/|$)`,
         "reject-img",
       ),
     ],
-    mitm: ["*.10101111cdn.com"],
+    mitm: ["img01.10101111cdn.com"],
   }),
   defineApp({
     id: "umeng-ads",
@@ -1997,19 +2004,19 @@ export const legacyApps = [
   defineApp({
     id: "cainiao",
     name: "菜鸟",
-    description: "ads.mshow/flyad 广告专用 MTop 接口；保留物流、取件、寄件和账号。",
-    auditNote: "采用 2026 fmz200 固定提交中的广告专用入口，不启用调研弹窗和非广告 UI 删除。",
+    description: "两个精确 MTop 主机上的 ads.mshow/flyad 广告接口；不解密整个菜鸟域，保留物流、取件、寄件和账号。",
+    auditNote: "保留广告专用入口；将旧 *.cainiao.com 收窄到 cn-acs.m.cainiao.com，不启用调研弹窗或非广告 UI 删除。",
     rewrites: [
       rewrite(
         "广告展示",
-        re`^https:\/\/(?:guide-acs\.m\.taobao|[^/]+\.cainiao)\.com\/gw\/mtop\.cainiao\.guoguo\.nbnetflow\.ads\.mshow(?:\.cn)?(?:\/|\?|$)`,
+        re`^https:\/\/(?:guide-acs\.m\.taobao\.com|cn-acs\.m\.cainiao\.com)\/gw\/mtop\.cainiao\.guoguo\.nbnetflow\.ads\.mshow(?:\.cn)?(?:\/|\?|$)`,
       ),
       rewrite(
         "飞行广告",
         re`^https:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.cainiao\.adx\.flyad\.getad(?:\/|\?|$)`,
       ),
     ],
-    mitm: ["guide-acs.m.taobao.com", "*.cainiao.com"],
+    mitm: ["guide-acs.m.taobao.com", "cn-acs.m.cainiao.com"],
   }),
   defineApp({
     id: "railway-12306",

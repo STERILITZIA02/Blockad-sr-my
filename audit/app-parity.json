@@ -325,11 +325,11 @@
             "legacyGroups": [
               "58"
             ],
-            "auditNote": "迁移 3 条广告专用路径；移除通用日志和共享图片尺寸规则。",
+            "auditNote": "迁移 2 条第一方广告专用 API；移除通用日志、共享图片尺寸和 58cdn 通配 MITM。",
             "auditDisposition": "partial"
           }
         ],
-        "note": "迁移 3 条广告专用路径；移除通用日志和共享图片尺寸规则。",
+        "note": "迁移 2 条第一方广告专用 API；移除通用日志、共享图片尺寸和 58cdn 通配 MITM。",
         "rules": [
           {
             "sourceLine": 32,
@@ -796,11 +796,11 @@
             "legacyGroups": [
               "iQIYI"
             ],
-            "auditNote": "迁移广告命名明确的 4 类入口；旧 VIP interact/show 活动接口不迁移。",
+            "auditNote": "迁移广告命名明确的 API；旧 VIP 活动接口和共享 iqiyipic 素材通配 MITM 不迁移。",
             "auditDisposition": "partial"
           }
         ],
-        "note": "迁移广告命名明确的 4 类入口；旧 VIP interact/show 活动接口不迁移。",
+        "note": "迁移广告命名明确的 API；旧 VIP 活动接口和共享 iqiyipic 素材通配 MITM 不迁移。",
         "rules": [
           {
             "sourceLine": 136,
@@ -2446,8 +2446,8 @@
         "name": "JiaKaoBaoDian",
         "sourceLine": 456,
         "ruleCount": 1,
-        "disposition": "migrated",
-        "label": "已精确迁移",
+        "disposition": "partial",
+        "label": "部分安全迁移",
         "components": [
           {
             "id": "jiakaobaodian",
@@ -2457,11 +2457,11 @@
             "legacyGroups": [
               "JiaKaoBaoDian"
             ],
-            "auditNote": "仅迁移广告专用路径；未采用静态 IP、共享 CDN 或正常功能接口。",
-            "auditDisposition": "migrated"
+            "auditNote": "将旧 *.kakamobi.cn 通配 MITM 收窄到有公开请求样本的 smart.789.kakamobi.cn。",
+            "auditDisposition": "partial"
           }
         ],
-        "note": "仅迁移广告专用路径；未采用静态 IP、共享 CDN 或正常功能接口。",
+        "note": "将旧 *.kakamobi.cn 通配 MITM 收窄到有公开请求样本的 smart.789.kakamobi.cn。",
         "rules": [
           {
             "sourceLine": 458,
@@ -2502,8 +2502,8 @@
         "name": "Kingsoft",
         "sourceLine": 468,
         "ruleCount": 5,
-        "disposition": "migrated",
-        "label": "已精确迁移",
+        "disposition": "partial",
+        "label": "部分安全迁移",
         "components": [
           {
             "id": "kingsoft",
@@ -2513,11 +2513,11 @@
             "legacyGroups": [
               "Kingsoft"
             ],
-            "auditNote": "仅迁移广告专用路径；未采用静态 IP、共享 CDN 或正常功能接口。",
-            "auditDisposition": "migrated"
+            "auditNote": "旧 *.kingsoft-office-service.com 改为公开验证的 abroad-ad 精确广告主机。",
+            "auditDisposition": "partial"
           }
         ],
-        "note": "仅迁移广告专用路径；未采用静态 IP、共享 CDN 或正常功能接口。",
+        "note": "旧 *.kingsoft-office-service.com 改为公开验证的 abroad-ad 精确广告主机。",
         "rules": [
           {
             "sourceLine": 470,
@@ -3081,8 +3081,8 @@
         "name": "NetEase CloudMusic",
         "sourceLine": 584,
         "ruleCount": 2,
-        "disposition": "migrated",
-        "label": "已精确迁移",
+        "disposition": "partial",
+        "label": "部分安全迁移",
         "components": [
           {
             "id": "netease-cloudmusic",
@@ -3092,11 +3092,11 @@
             "legacyGroups": [
               "NetEase CloudMusic"
             ],
-            "auditNote": "仅迁移广告专用路径；未采用静态 IP、共享 CDN 或正常功能接口。",
-            "auditDisposition": "migrated"
+            "auditNote": "撤下 interface*.music.163.com 第一方通配 MITM；保留专用广告素材域。",
+            "auditDisposition": "partial"
           }
         ],
-        "note": "仅迁移广告专用路径；未采用静态 IP、共享 CDN 或正常功能接口。",
+        "note": "撤下 interface*.music.163.com 第一方通配 MITM；保留专用广告素材域。",
         "rules": [
           {
             "sourceLine": 586,
@@ -3763,11 +3763,11 @@
             "legacyGroups": [
               "SMZDM"
             ],
-            "auditNote": "结合 2026 fmz200 固定提交；只处理广告强信号，不采用 vip/creator 等权益改写。",
+            "auditNote": "保留 2026 启动与混合响应方案；撤下共享 zdmimg 通配 MITM，不采用 vip/creator 等权益改写。",
             "auditDisposition": "migrated"
           }
         ],
-        "note": "结合 2026 fmz200 固定提交；只处理广告强信号，不采用 vip/creator 等权益改写。",
+        "note": "保留 2026 启动与混合响应方案；撤下共享 zdmimg 通配 MITM，不采用 vip/creator 等权益改写。",
         "rules": [
           {
             "sourceLine": 730,
@@ -4046,22 +4046,22 @@
         "name": "FUTU",
         "sourceLine": 782,
         "ruleCount": 2,
-        "disposition": "migrated",
-        "label": "已精确迁移",
+        "disposition": "partial",
+        "label": "部分安全迁移",
         "components": [
           {
             "id": "futu",
             "name": "富途",
             "path": "components/futu.sgmodule",
-            "enabledByDefault": true,
+            "enabledByDefault": false,
             "legacyGroups": [
               "FUTU"
             ],
-            "auditNote": "仅迁移广告专用路径；未采用静态 IP、共享 CDN 或正常功能接口。",
-            "auditDisposition": "migrated"
+            "auditNote": "金融应用采用最小解密面：撤下 *.futunn.com，只保留 api.futunn.com 的 ad 路径。",
+            "auditDisposition": "partial"
           }
         ],
-        "note": "仅迁移广告专用路径；未采用静态 IP、共享 CDN 或正常功能接口。",
+        "note": "金融应用采用最小解密面：撤下 *.futunn.com，只保留 api.futunn.com 的 ad 路径。",
         "rules": [
           {
             "sourceLine": 784,
@@ -4335,8 +4335,8 @@
         "name": "UCar",
         "sourceLine": 842,
         "ruleCount": 1,
-        "disposition": "migrated",
-        "label": "已精确迁移",
+        "disposition": "partial",
+        "label": "部分安全迁移",
         "components": [
           {
             "id": "ucar",
@@ -4346,11 +4346,11 @@
             "legacyGroups": [
               "UCar"
             ],
-            "auditNote": "仅迁移广告专用路径；未采用静态 IP、共享 CDN 或正常功能接口。",
-            "auditDisposition": "migrated"
+            "auditNote": "旧 img*.10101111cdn.com 收窄为原模块明确出现的 img01 广告素材路径。",
+            "auditDisposition": "partial"
           }
         ],
-        "note": "仅迁移广告专用路径；未采用静态 IP、共享 CDN 或正常功能接口。",
+        "note": "旧 img*.10101111cdn.com 收窄为原模块明确出现的 img01 广告素材路径。",
         "rules": [
           {
             "sourceLine": 844,

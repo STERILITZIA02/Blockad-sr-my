@@ -5,9 +5,13 @@
     "sha256": "7a85b45b3e087d257c7eee2316f34013fadd353d716204444d98a231034236c9",
     "ruleCount": 903
   },
-  "excludedCount": 133,
-  "outputRuleCount": 770,
+  "excludedCount": 148,
+  "outputRuleCount": 755,
   "exclusions": [
+    {
+      "rule": "DOMAIN,aaid.umeng.com",
+      "reason": "友盟设备标识 SDK 基础接口；避免整域断连重试"
+    },
     {
       "rule": "DOMAIN,abtest-ch.snssdk.com",
       "reason": "AB 配置并非广告请求，阻断可能破坏功能开关"
@@ -19,6 +23,14 @@
     {
       "rule": "DOMAIN,ali-p2p-v2.pull.yximgs.com",
       "reason": "视频 P2P 拉流，默认不牺牲播放稳定性"
+    },
+    {
+      "rule": "DOMAIN,alog.umeng.com",
+      "reason": "友盟 SDK 日志接口；避免整域断连重试"
+    },
+    {
+      "rule": "DOMAIN,alogus.umeng.com",
+      "reason": "友盟 SDK 日志接口；避免整域断连重试"
     },
     {
       "rule": "DOMAIN,amdcopen.m.taobao.com",
@@ -73,6 +85,10 @@
       "reason": "推送服务，必须保护通知"
     },
     {
+      "rule": "DOMAIN,audid.umeng.com",
+      "reason": "友盟 SDK 设备标识接口；避免整域断连重试"
+    },
+    {
       "rule": "DOMAIN,baichuan-sdk.alicdn.com",
       "reason": "阿里百川通用 SDK"
     },
@@ -95,6 +111,18 @@
     {
       "rule": "DOMAIN,chiq-cloud.com",
       "reason": "设备云服务"
+    },
+    {
+      "rule": "DOMAIN,ccs.umeng.com",
+      "reason": "友盟 SDK 配置接口；避免整域断连重试"
+    },
+    {
+      "rule": "DOMAIN,cnlogs.umeng.com",
+      "reason": "友盟 SDK 日志接口；避免整域断连重试"
+    },
+    {
+      "rule": "DOMAIN,cnlogs.umengcloud.com",
+      "reason": "友盟 SDK 日志接口；避免整域断连重试"
     },
     {
       "rule": "DOMAIN,config.chsmarttv.com",
@@ -167,6 +195,10 @@
     {
       "rule": "DOMAIN,img2.360buyimg.com",
       "reason": "京东正常商品图片"
+    },
+    {
+      "rule": "DOMAIN,ios.bugly.qq.com",
+      "reason": "Bugly 崩溃上报 SDK；已知整域断开可能阻塞 App 初始化"
     },
     {
       "rule": "DOMAIN,ixav-cse.avlyun.com",
@@ -325,12 +357,20 @@
       "reason": "视频播放策略"
     },
     {
+      "rule": "DOMAIN,plbslog.umeng.com",
+      "reason": "友盟 SDK 日志接口；避免整域断连重试"
+    },
+    {
       "rule": "DOMAIN,qn-cdnfile1pcdn.msstatic.com",
       "reason": "直播 PCDN，默认保护播放"
     },
     {
       "rule": "DOMAIN,safebrowsing.urlsec.gg.com",
       "reason": "安全浏览服务"
+    },
+    {
+      "rule": "DOMAIN,resolve.umeng.com",
+      "reason": "友盟 SDK 服务发现；避免初始化重试"
     },
     {
       "rule": "DOMAIN,sdkauth.hpplay.cn",
@@ -457,6 +497,22 @@
       "reason": "视频 P2P 拉流"
     },
     {
+      "rule": "DOMAIN,ulogs.umeng.com",
+      "reason": "友盟 SDK 日志接口；避免整域断连重试"
+    },
+    {
+      "rule": "DOMAIN,ulogs.umengcloud.com",
+      "reason": "友盟 SDK 日志接口；避免整域断连重试"
+    },
+    {
+      "rule": "DOMAIN,umengacs.m.taobao.com",
+      "reason": "友盟 SDK 阿里调度接口；避免初始化重试"
+    },
+    {
+      "rule": "DOMAIN,umengjmacs.m.taobao.com",
+      "reason": "友盟 SDK 阿里调度接口；避免初始化重试"
+    },
+    {
       "rule": "DOMAIN,tz.sec.xiaomi.com",
       "reason": "小米安全服务"
     },
@@ -471,6 +527,10 @@
     {
       "rule": "DOMAIN,upgrade-update.hismarttv.com",
       "reason": "设备更新服务"
+    },
+    {
+      "rule": "DOMAIN,utoken.umeng.com",
+      "reason": "友盟 SDK 令牌接口；避免初始化重试"
     },
     {
       "rule": "DOMAIN,video.dispatch.tc.qq.com",

@@ -9,15 +9,15 @@
     "upstreamCommit": "d77f249050b440989cc9a640eabdb18573dc7c90",
     "upstreamSha256": "7a85b45b3e087d257c7eee2316f34013fadd353d716204444d98a231034236c9",
     "sourceRuleCount": 903,
-    "excludedCount": 133,
-    "outputRuleCount": 770
+    "excludedCount": 148,
+    "outputRuleCount": 755
   },
   "unifiedSummary": {
     "rules": 23,
     "rulesDeduplicatedByAwa": 40,
-    "rewrites": 227,
+    "rewrites": 223,
     "scripts": 30,
-    "mitmHosts": 272
+    "mitmHosts": 274
   },
   "components": [
     {
@@ -142,7 +142,7 @@
     {
       "id": "58",
       "name": "58同城 / 安居客",
-      "description": "首页广告与品牌广告目录；不采用图片尺寸猜测，也不阻断通用日志。",
+      "description": "首页与邀请弹窗广告接口；不解密共享图片 CDN，不采用图片尺寸猜测或通用日志拦截。",
       "enabledByDefault": true,
       "path": "components/58.sgmodule"
     },
@@ -191,7 +191,7 @@
     {
       "id": "iqiyi",
       "name": "爱奇艺",
-      "description": "广告信息、国际版广告接口与 oad 素材；不阻断播放、登录或会员状态。",
+      "description": "广告信息与国际版广告接口；不解密共享图片 CDN，不阻断播放、登录或会员状态。",
       "enabledByDefault": true,
       "path": "components/iqiyi.sgmodule"
     },
@@ -226,7 +226,7 @@
     {
       "id": "baby-health",
       "name": "育学园 / 宝宝健康",
-      "description": "advert 专用路径；不匹配健康与成长数据。",
+      "description": "已知 yxyapi0–9 主机上的 advert 专用路径；不解密其他健康与成长数据域。",
       "enabledByDefault": true,
       "path": "components/baby-health.sgmodule"
     },
@@ -513,7 +513,7 @@
     {
       "id": "jiakaobaodian",
       "name": "驾考宝典",
-      "description": "advert-sdk 专用入口；保留题库与学习记录。",
+      "description": "已知广告 SDK 主机上的 advert-sdk 专用入口；保留题库、评论与学习记录。",
       "enabledByDefault": true,
       "path": "components/jiakaobaodian.sgmodule"
     },
@@ -527,7 +527,7 @@
     {
       "id": "kingsoft",
       "name": "WPS / 金山词霸",
-      "description": "广告统计、广告服务、开屏和 feeds_ad 素材；不修改会员或文档功能。",
+      "description": "精确广告主机、广告统计、开屏和 feeds_ad 素材；不解密金山共享服务域，不修改会员或文档功能。",
       "enabledByDefault": true,
       "path": "components/kingsoft.sgmodule"
     },
@@ -562,7 +562,7 @@
     {
       "id": "xiaomi-services",
       "name": "小米服务 / 米家 / 小米金融",
-      "description": "adv、playScreen 与明确 _ad 接口；不拒绝 App 启动初始化或设备控制。",
+      "description": "adv、playScreen 与两个已知运动广告接口；不解密其他华米域，不拒绝 App 初始化或设备控制。",
       "enabledByDefault": true,
       "path": "components/xiaomi-services.sgmodule"
     },
@@ -632,7 +632,7 @@
     {
       "id": "netease-cloudmusic",
       "name": "网易云音乐",
-      "description": "第一方 ad API 与明确广告域；保留音乐播放、歌单、评论和账号。",
+      "description": "仅拦截两个明确广告素材域；不解密 music.163.com 业务 API，保护播放、歌单、评论和账号。",
       "enabledByDefault": true,
       "path": "components/netease-cloudmusic.sgmodule"
     },
@@ -765,7 +765,7 @@
     {
       "id": "smzdm",
       "name": "什么值得买",
-      "description": "启动广告、thirdAd 与混合页面中的强标记广告；不修改会员或优惠权益。",
+      "description": "启动广告与混合页面中的强标记广告；不解密共享 zdmimg CDN，不修改会员或优惠权益。",
       "enabledByDefault": true,
       "path": "components/smzdm.sgmodule"
     },
@@ -807,8 +807,8 @@
     {
       "id": "futu",
       "name": "富途",
-      "description": "ad 专用 API；保留行情、交易和账号。",
-      "enabledByDefault": true,
+      "description": "仅处理 api.futunn.com 的 ad 专用路径；不解密编号交易 API，保留行情、交易和账号。",
+      "enabledByDefault": false,
       "path": "components/futu.sgmodule"
     },
     {
@@ -856,7 +856,7 @@
     {
       "id": "ucar",
       "name": "神州专车",
-      "description": "adpos 素材目录；保留叫车、行程和支付。",
+      "description": "已知 img01 主机的 adpos/share 素材目录；不解密其他 CDN，保留叫车、行程和支付。",
       "enabledByDefault": true,
       "path": "components/ucar.sgmodule"
     },
@@ -1010,7 +1010,7 @@
     {
       "id": "cainiao",
       "name": "菜鸟",
-      "description": "ads.mshow/flyad 广告专用 MTop 接口；保留物流、取件、寄件和账号。",
+      "description": "两个精确 MTop 主机上的 ads.mshow/flyad 广告接口；不解密整个菜鸟域，保留物流、取件、寄件和账号。",
       "enabledByDefault": true,
       "path": "components/cainiao.sgmodule"
     },
@@ -1202,8 +1202,8 @@
   "files": [
     {
       "path": "BlockAd.Unified.sgmodule",
-      "bytes": 45437,
-      "sha256": "ff2dbfa2d0fb98e50c4f0bfa03e18ade0b65c4265d297ebced26cabefdc9c7cb"
+      "bytes": 45228,
+      "sha256": "2efd904436e8316de5b9cfbf5fbd84d520632c82b7b171b3f9b0d9ffd073c3ea"
     },
     {
       "path": "components/21jingji.sgmodule",
@@ -1217,8 +1217,8 @@
     },
     {
       "path": "components/58.sgmodule",
-      "bytes": 742,
-      "sha256": "9a20f38990c706fc3edc162b6eed24d8b3912acfc97b99992eeefe9dcd2be7ff"
+      "bytes": 663,
+      "sha256": "07409359b9541b85421dbd2ca4445a74fb51a3a2693abafc0c95e33f802da98c"
     },
     {
       "path": "components/acfun.sgmodule",
@@ -1237,8 +1237,8 @@
     },
     {
       "path": "components/baby-health.sgmodule",
-      "bytes": 529,
-      "sha256": "5ebe3f6d2b6dd7c5aa05ea1f12ba34a2a1f62f4e7e5668d002663957a87845cc"
+      "bytes": 794,
+      "sha256": "ac0781676bb3cc093b3185fcb356aea85e0426437fd22f602be31532756fc678"
     },
     {
       "path": "components/baidu-input.sgmodule",
@@ -1292,8 +1292,8 @@
     },
     {
       "path": "components/cainiao.sgmodule",
-      "bytes": 718,
-      "sha256": "7f54c5cf688a915aa5a05302231a561594618a571c516a9179aa5a38161acf18"
+      "bytes": 780,
+      "sha256": "d79d32397227a3350269989f97fd8b0b7f1521f67cfa075aca298a050d76f58e"
     },
     {
       "path": "components/camscanner.sgmodule",
@@ -1457,8 +1457,8 @@
     },
     {
       "path": "components/futu.sgmodule",
-      "bytes": 489,
-      "sha256": "5b74e666430c910afabdcba3e4e7b7d2a409b450011929e2d81c3a57ea5f6bf3"
+      "bytes": 531,
+      "sha256": "6557f615ab4305953fb96f3ffff161dc98b7b37399cd9dc81db6a3ab2856204b"
     },
     {
       "path": "components/general-networks.sgmodule",
@@ -1532,8 +1532,8 @@
     },
     {
       "path": "components/iqiyi.sgmodule",
-      "bytes": 754,
-      "sha256": "d2805db28d0c3d38592652fea1e76d5629ff5dc1202f3cbcf6ee91b8a9a7429d"
+      "bytes": 662,
+      "sha256": "00cd68d6b3b4f2088fa62fff0fbeb838630fb9b8e5cfbbc9625a4721c100f6ac"
     },
     {
       "path": "components/ireader.sgmodule",
@@ -1547,8 +1547,8 @@
     },
     {
       "path": "components/jiakaobaodian.sgmodule",
-      "bytes": 499,
-      "sha256": "f6d5c883cfa3dd828941a2c379f9c3add2df297994f13a020972c536f9794c57"
+      "bytes": 551,
+      "sha256": "59178255c70b23b21404ab4b7dd31ff558bf5530994af80338beaeb22d792165"
     },
     {
       "path": "components/jinse.sgmodule",
@@ -1567,8 +1567,8 @@
     },
     {
       "path": "components/kingsoft.sgmodule",
-      "bytes": 1105,
-      "sha256": "bebfe46bb83afbfa5252f83d8c22f4c03c77b8a5858f9b41a0a72220cd75819f"
+      "bytes": 1156,
+      "sha256": "56fc8d3e41eb3eee58d394eeafa2f2f660040d2743eba479674f35789b0bdfbe"
     },
     {
       "path": "components/kuaikan.sgmodule",
@@ -1647,8 +1647,8 @@
     },
     {
       "path": "components/netease-cloudmusic.sgmodule",
-      "bytes": 647,
-      "sha256": "b1acc323a63fc6d608622c9097898bc364d244c0d643e245677f689379338bf4"
+      "bytes": 492,
+      "sha256": "f9fc8cc07cd343ff851e655886cfa18a123d48d0ddf4d265a77dc126856590f2"
     },
     {
       "path": "components/netease-kaola.sgmodule",
@@ -1782,8 +1782,8 @@
     },
     {
       "path": "components/smzdm.sgmodule",
-      "bytes": 1207,
-      "sha256": "1a1e710d92859ed2e98fc54e3216269c7d12f3843ab334b610e5423c44ed71cb"
+      "bytes": 1107,
+      "sha256": "d59ffc2395829357d1a2c7866cc1f892edf66a43ef138180bbf6b4929c4d555e"
     },
     {
       "path": "components/snail-sleep.sgmodule",
@@ -1862,8 +1862,8 @@
     },
     {
       "path": "components/ucar.sgmodule",
-      "bytes": 485,
-      "sha256": "cc084d543022f1f03d038358e807acb0d70c344281e18154099b96073595f53d"
+      "bytes": 546,
+      "sha256": "e8e5a0612c15d39ef0ff52605f0d228d7c740a149744ce736d8ca9a3fdd36158"
     },
     {
       "path": "components/umeng-ads.sgmodule",
@@ -1947,8 +1947,8 @@
     },
     {
       "path": "components/xiaomi-services.sgmodule",
-      "bytes": 799,
-      "sha256": "fcf76ea37e56363cc48aca9643b8ac8c00a4121529fb3a06414e1249b5e43963"
+      "bytes": 980,
+      "sha256": "b7a04d2ce69adfce5dcd049a88ad1221c1ba5e0fcfe419eb7cb759895633b33a"
     },
     {
       "path": "components/ximalaya.sgmodule",
@@ -2047,13 +2047,13 @@
     },
     {
       "path": "rules/AWAvenue-Ads-Rule.exclusions.json",
-      "bytes": 14568,
-      "sha256": "971f15ef063ea69ca0b05cd42b36bee228caa62f9662932dfc22cedc6b5554e6"
+      "bytes": 16464,
+      "sha256": "0a86dd135eaf5ef0668d3dd6d20df227e44b47be0ae79707d9b4f15d2b1f0780"
     },
     {
       "path": "rules/AWAvenue-Ads-Rule.list",
-      "bytes": 21539,
-      "sha256": "5248b622e3ff23b87faa9d67de940e448a3357ee297bb83914c5b1ffce3a3118"
+      "bytes": 21165,
+      "sha256": "310ad7547d9470cc00493190aad405e5c9f9ee7605722b3d9368d94e2033dab3"
     },
     {
       "path": "scripts/blockad-router.js",

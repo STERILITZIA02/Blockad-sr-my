@@ -1,5 +1,5 @@
 # BlockAd safety-filtered AWAvenue snapshot
-# Excluded entries: 133
+# Excluded entries: 148
 # Details: AWAvenue-Ads-Rule.exclusions.json
 # Source is pinned and preserved verbatim under third_party/awa/.
 
@@ -20,7 +20,6 @@ DOMAIN,1500026601.vodplayer.wxamedia.com
 DOMAIN,8le8le.com
 DOMAIN,8rn1y79f02-1.algolianet.com
 DOMAIN,a0.app.xiaomi.com
-DOMAIN,aaid.umeng.com
 DOMAIN,ad-cdn.qingting.fm
 DOMAIN,ad-scope.com
 DOMAIN,ad-scope.com.cn
@@ -183,8 +182,6 @@ DOMAIN,aiseet.aa.atianqi.com
 DOMAIN,ali-ad.a.yximgs.com
 DOMAIN,alicoccdncnc-xn.inter.71edge.com
 DOMAIN,alicoccdnct-xn.inter.71edge.com
-DOMAIN,alog.umeng.com
-DOMAIN,alogus.umeng.com
 DOMAIN,als.baidu.com
 DOMAIN,an.facebook.com
 DOMAIN,analysis.chatglm.cn
@@ -236,7 +233,6 @@ DOMAIN,applovin.com
 DOMAIN,aqyad.com
 DOMAIN,auction.unityads.unity3d.com
 DOMAIN,audid-api.taobao.com
-DOMAIN,audid.umeng.com
 DOMAIN,b1-data.ads.heytapmobi.com
 DOMAIN,badjs.weixinbridge.com
 DOMAIN,bdad.123pan.cn
@@ -273,7 +269,6 @@ DOMAIN,canvas-cdn.gdt.qq.com
 DOMAIN,catalog.fjwhcbsh.com
 DOMAIN,cbjs.baidu.com
 DOMAIN,ccc-x.jd.com
-DOMAIN,ccs.umeng.com
 DOMAIN,cdn-ad.wtzw.com
 DOMAIN,cdn-ads.oss-cn-shanghai.aliyuncs.com
 DOMAIN,cdn-f.adsmoloco.com
@@ -293,8 +288,6 @@ DOMAIN,click4.chinaliftoff.io
 DOMAIN,clog.miguvideo.com
 DOMAIN,cloooud.com
 DOMAIN,cn-api.anythinktech.com
-DOMAIN,cnlogs.umeng.com
-DOMAIN,cnlogs.umengcloud.com
 DOMAIN,cnzz.com
 DOMAIN,collect.kugou.com
 DOMAIN,commdata.v.qq.com
@@ -410,7 +403,6 @@ DOMAIN,impression-asia.chinaliftoff.io
 DOMAIN,impression-asia.liftoff.io
 DOMAIN,impression.appsflyer.com
 DOMAIN,in.treasuredata.com
-DOMAIN,ios.bugly.qq.com
 DOMAIN,iot-eu-logser.realme.com
 DOMAIN,iot-logser.realme.com
 DOMAIN,ipv4.kkmh.com
@@ -556,7 +548,6 @@ DOMAIN,pin.hpplay.cn
 DOMAIN,pixon.ads-pixiv.net
 DOMAIN,pkoplink.com
 DOMAIN,pl.cp31.ott.cibntv.net
-DOMAIN,plbslog.umeng.com
 DOMAIN,pos.baidu.com
 DOMAIN,prod-mediate-events.applovin.com
 DOMAIN,promotion-partner.kuaishou.com
@@ -574,7 +565,6 @@ DOMAIN,res1.applovin.com
 DOMAIN,res1.hubcloud.com.cn
 DOMAIN,res2.hubcloud.com.cn
 DOMAIN,res3.hubcloud.com.cn
-DOMAIN,resolve.umeng.com
 DOMAIN,review.gdtimg.com
 DOMAIN,rlog.popin.cc
 DOMAIN,rms-drcn.platform.dbankcloud.cn
@@ -704,10 +694,6 @@ DOMAIN,uedas.qidian.com
 DOMAIN,uhabo.com
 DOMAIN,ulog-sdk.gifshow.com
 DOMAIN,ulogjs.gifshow.com
-DOMAIN,ulogs.umeng.com
-DOMAIN,ulogs.umengcloud.com
-DOMAIN,umengacs.m.taobao.com
-DOMAIN,umengjmacs.m.taobao.com
 DOMAIN,umini.shujupie.com
 DOMAIN,union-mlog.bigda.com
 DOMAIN,union.baidu.cn
@@ -716,7 +702,6 @@ DOMAIN,update0.aiclk.com
 DOMAIN,uranus.jd.com
 DOMAIN,us.l.qq.com
 DOMAIN,usr-api.aiclk.com
-DOMAIN,utoken.umeng.com
 DOMAIN,v.110route.cn
 DOMAIN,v.adintl.cn
 DOMAIN,v.adx.hubcloud.com.cn

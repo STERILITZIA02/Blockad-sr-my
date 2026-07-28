@@ -1,5 +1,5 @@
 #!name=BlockAd · 网易云音乐
-#!desc=第一方 ad API 与明确广告域；保留音乐播放、歌单、评论和账号。
+#!desc=仅拦截两个明确广告素材域；不解密 music.163.com 业务 API，保护播放、歌单、评论和账号。
 #!author=STERILITZIA02
 #!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
 #!version=1.1.1
@@ -12,10 +12,3 @@
 [Rule]
 DOMAIN,iadmat.nosdn.127.net,REJECT
 DOMAIN,iadmusicmat.music.126.net,REJECT
-
-[URL Rewrite]
-# 广告 API
-^https:\/\/(?:ipv4\.|interface\d*\.)?music\.163\.com\/(?:w?e?api|eapi)\/ad(?:\/|\?|$) - reject-dict
-
-[MITM]
-hostname = %APPEND% music.163.com, *.music.163.com

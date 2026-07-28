@@ -36,7 +36,7 @@
 | --- | ---: | --- | --- | --- |
 | 21st Century Business Herald | 1 | 已精确迁移 | [21财经](../dist/components/21jingji.sgmodule) | 仅迁移广告专用路径；未采用静态 IP、共享 CDN 或正常功能接口。 |
 | 4gTV | 1 | 已精确迁移 | [4gTV](../dist/components/4gtv.sgmodule) | 仅迁移广告专用路径；未采用静态 IP、共享 CDN 或正常功能接口。 |
-| 58 | 5 | 部分安全迁移 | [58同城 / 安居客](../dist/components/58.sgmodule) | 迁移 3 条广告专用路径；移除通用日志和共享图片尺寸规则。 |
+| 58 | 5 | 部分安全迁移 | [58同城 / 安居客](../dist/components/58.sgmodule) | 迁移 2 条第一方广告专用 API；移除通用日志、共享图片尺寸和 58cdn 通配 MITM。 |
 | Taobao | 2 | 部分安全迁移 | [淘宝 / 天猫](../dist/components/taobao-tmall.sgmodule) | 保留精确开屏/广告服务；不采用共享 CDN 图片尺寸猜测。 |
 | Xianyu | 1 | 已本地化替代 | [闲鱼](../dist/components/xianyu.sgmodule)<br>[闲鱼可选 UI 精简](../dist/extras/xianyu-ui.sgmodule) | 开屏和显式商业卡默认处理；非广告 UI 精简单独可选。 |
 | Fliggy | 1 | 已精确迁移 | [飞猪](../dist/components/fliggy.sgmodule) | 与 2026 fmz200 固定提交交叉确认；不采用共享 alicdn 图片尺寸规则。 |
@@ -50,7 +50,7 @@
 | Baidu Tieba | 5 | 已精确迁移 | [百度贴吧](../dist/components/baidu-tieba.sgmodule) | 采用 2026 app2smile/fmz200 仍使用的广告入口；移除静态 IP，并对混合响应只删强广告标记。 |
 | Baidu Map | 1 | 已精确迁移 | [百度地图](../dist/components/baidu-map.sgmodule) | 仅迁移广告专用路径；未采用静态 IP、共享 CDN 或正常功能接口。 |
 | Baidu InputMethod | 2 | 已精确迁移 | [百度输入法](../dist/components/baidu-input.sgmodule) | 仅迁移广告专用路径；未采用静态 IP、共享 CDN 或正常功能接口。 |
-| iQIYI | 6 | 部分安全迁移 | [爱奇艺](../dist/components/iqiyi.sgmodule) | 迁移广告命名明确的 4 类入口；旧 VIP interact/show 活动接口不迁移。 |
+| iQIYI | 6 | 部分安全迁移 | [爱奇艺](../dist/components/iqiyi.sgmodule) | 迁移广告命名明确的 API；旧 VIP 活动接口和共享 iqiyipic 素材通配 MITM 不迁移。 |
 | bilibili | 2 | 不纳入：由专用规则接管 | — | 用户已有专用规则；本仓库不发行任何 Bilibili Rewrite、脚本、规则或 MITM 主机。 |
 | BeiTaiKitchen | 1 | 已精确迁移 | [贝太厨房](../dist/components/beitai-kitchen.sgmodule) | 仅迁移广告专用路径；未采用静态 IP、共享 CDN 或正常功能接口。 |
 | BiShiJie | 1 | 已精确迁移 | [币世界](../dist/components/bishijie.sgmodule) | 仅迁移广告专用路径；未采用静态 IP、共享 CDN 或正常功能接口。 |
@@ -106,9 +106,9 @@
 | IKOSPro | 2 | 已精确迁移 | [IKOS Pro](../dist/components/ikos-pro.sgmodule) | 仅迁移广告专用路径；未采用静态 IP、共享 CDN 或正常功能接口。 |
 | JD | 4 | 部分安全迁移 | [京东](../dist/components/jd.sgmodule) | 启动与显式广告字段由本地处理器持续过滤；保留订单、支付和物流。 |
 | JiaXiaoeDianTong | 1 | 已精确迁移 | [驾校一点通](../dist/components/jxedt.sgmodule) | 仅迁移广告专用路径；未采用静态 IP、共享 CDN 或正常功能接口。 |
-| JiaKaoBaoDian | 1 | 已精确迁移 | [驾考宝典](../dist/components/jiakaobaodian.sgmodule) | 仅迁移广告专用路径；未采用静态 IP、共享 CDN 或正常功能接口。 |
+| JiaKaoBaoDian | 1 | 部分安全迁移 | [驾考宝典](../dist/components/jiakaobaodian.sgmodule) | 将旧 *.kakamobi.cn 通配 MITM 收窄到有公开请求样本的 smart.789.kakamobi.cn。 |
 | Jinse | 1 | 已精确迁移 | [金色财经](../dist/components/jinse.sgmodule) | 仅迁移广告专用路径；未采用静态 IP、共享 CDN 或正常功能接口。 |
-| Kingsoft | 5 | 已精确迁移 | [WPS / 金山词霸](../dist/components/kingsoft.sgmodule) | 仅迁移广告专用路径；未采用静态 IP、共享 CDN 或正常功能接口。 |
+| Kingsoft | 5 | 部分安全迁移 | [WPS / 金山词霸](../dist/components/kingsoft.sgmodule) | 旧 *.kingsoft-office-service.com 改为公开验证的 abroad-ad 精确广告主机。 |
 | Keep | 1 | 已精确迁移 | [Keep](../dist/components/keep.sgmodule) | 仅迁移广告专用路径；未采用静态 IP、共享 CDN 或正常功能接口。 |
 | Kuaikan Comics | 1 | 已精确迁移 | [快看漫画](../dist/components/kuaikan.sgmodule) | 仅迁移广告专用路径；未采用静态 IP、共享 CDN 或正常功能接口。 |
 | KOOWO | 3 | 已本地化替代 | [酷我音乐](../dist/components/kuwo.sgmodule) | 用 2026 fmz200 的域名和入口替代原静态 IP；明确排除会员处理器。 |
@@ -126,7 +126,7 @@
 | NetEase MailMaster | 1 | 已精确迁移 | [网易邮箱大师](../dist/components/netease-mail.sgmodule) | 仅迁移广告专用路径；未采用静态 IP、共享 CDN 或正常功能接口。 |
 | NetEase News | 1 | 已精确迁移 | [网易新闻](../dist/components/netease-news.sgmodule) | 旧含义不明路径已与 2026 fmz200 独立模块交叉确认。 |
 | NetEase MoneyKeeper | 1 | 已精确迁移 | [网易有钱](../dist/components/netease-moneykeeper.sgmodule) | 仅迁移广告专用路径；未采用静态 IP、共享 CDN 或正常功能接口。 |
-| NetEase CloudMusic | 2 | 已精确迁移 | [网易云音乐](../dist/components/netease-cloudmusic.sgmodule) | 仅迁移广告专用路径；未采用静态 IP、共享 CDN 或正常功能接口。 |
+| NetEase CloudMusic | 2 | 部分安全迁移 | [网易云音乐](../dist/components/netease-cloudmusic.sgmodule) | 撤下 interface*.music.163.com 第一方通配 MITM；保留专用广告素材域。 |
 | NetEase Kaola | 1 | 已精确迁移 | [网易考拉](../dist/components/netease-kaola.sgmodule) | 仅迁移广告专用路径；未采用静态 IP、共享 CDN 或正常功能接口。 |
 | NetEase You | 1 | 已精确迁移 | [网易严选](../dist/components/netease-you.sgmodule) | 仅迁移广告专用路径；未采用静态 IP、共享 CDN 或正常功能接口。 |
 | NetEase SnailRead | 1 | 已精确迁移 | [网易蜗牛读书](../dist/components/netease-snailread.sgmodule) | 仅迁移广告专用路径；未采用静态 IP、共享 CDN 或正常功能接口。 |
@@ -147,7 +147,7 @@
 | Weibo | 3 | 已本地化替代 | [微博 / 微博轻享版](../dist/components/weibo.sgmodule) | 修复旧协议拼写并改用本地、窄主机、失败开放的 JSON 过滤。 |
 | tianqitong | 3 | 已精确迁移 | [天气通](../dist/components/tianqitong.sgmodule) | 仅迁移广告专用路径；未采用静态 IP、共享 CDN 或正常功能接口。 |
 | SOHU | 4 | 部分安全迁移 | [搜狐新闻](../dist/components/sohu.sgmodule) | 迁移 adsense 和 tj 广告素材；旧播放器 switch/bootstrap 配置保留。 |
-| SMZDM | 3 | 已精确迁移 | [什么值得买](../dist/components/smzdm.sgmodule) | 结合 2026 fmz200 固定提交；只处理广告强信号，不采用 vip/creator 等权益改写。 |
+| SMZDM | 3 | 已精确迁移 | [什么值得买](../dist/components/smzdm.sgmodule) | 保留 2026 启动与混合响应方案；撤下共享 zdmimg 通配 MITM，不采用 vip/creator 等权益改写。 |
 | SCore | 1 | 已精确迁移 | [球多多 / SCore](../dist/components/score.sgmodule) | guideimage 可能兼有正常引导，改为本地失败开放过滤。 |
 | Shihuo | 1 | 已精确迁移 | [识货](../dist/components/shihuo.sgmodule) | 用 2026 fmz200 的广告专用 API 替代原 saveAppInfo 通用接口。 |
 | Shouqiyueche | 1 | 已精确迁移 | [首汽约车](../dist/components/shouqi.sgmodule) | 仅迁移广告专用路径；未采用静态 IP、共享 CDN 或正常功能接口。 |
@@ -157,7 +157,7 @@
 | SF HiveConsumer | 1 | 已精确迁移 | [丰巢](../dist/components/sf-hive.sgmodule) | 仅迁移广告专用路径；未采用静态 IP、共享 CDN 或正常功能接口。 |
 | SuperFriday | 1 | 已本地化替代 | [超级课程表 / SuperFriday](../dist/components/super-friday.sgmodule) | 用 2026 fmz200 固定提交仍在使用的 ad.myfriday.cn 替代原 IP。 |
 | Snail Sleep | 2 | 已精确迁移 | [蜗牛睡眠](../dist/components/snail-sleep.sgmodule) | 仅迁移广告专用路径；未采用静态 IP、共享 CDN 或正常功能接口。 |
-| FUTU | 2 | 已精确迁移 | [富途](../dist/components/futu.sgmodule) | 仅迁移广告专用路径；未采用静态 IP、共享 CDN 或正常功能接口。 |
+| FUTU | 2 | 部分安全迁移 | [富途](../dist/components/futu.sgmodule) | 金融应用采用最小解密面：撤下 *.futunn.com，只保留 api.futunn.com 的 ad 路径。 |
 | Tencent Game | 2 | 部分安全迁移 | [腾讯游戏启动广告](../dist/components/tencent-game.sgmodule) | 只迁移明确 splash 接口；旧 game/buttons 可能是正常功能。 |
 | Tencent Map | 1 | 已精确迁移 | [腾讯地图](../dist/components/tencent-map.sgmodule) | 仅迁移广告专用路径；未采用静态 IP、共享 CDN 或正常功能接口。 |
 | Tencent Video | 5 | 不直接迁移：误伤风险 | — | 旧规则按视频 CDN 文件名/IP 猜测广告，可能破坏播放。 |
@@ -167,7 +167,7 @@
 | Tencent WeChat | 0 | 已本地化替代 | [微信](../dist/components/wechat.sgmodule) | 原分组没有启用规则；微信去广告由独立 wechatad 迁移路径持续处理。 |
 | TuNiu | 1 | 已精确迁移 | [途牛](../dist/components/tuniu.sgmodule) | 仅迁移广告专用路径；未采用静态 IP、共享 CDN 或正常功能接口。 |
 | TVBCLive | 1 | 已精确迁移 | [TVB / 埋堆堆直播](../dist/components/tvbc.sgmodule) | 仅迁移广告专用路径；未采用静态 IP、共享 CDN 或正常功能接口。 |
-| UCar | 1 | 已精确迁移 | [神州专车](../dist/components/ucar.sgmodule) | 仅迁移广告专用路径；未采用静态 IP、共享 CDN 或正常功能接口。 |
+| UCar | 1 | 部分安全迁移 | [神州专车](../dist/components/ucar.sgmodule) | 旧 img*.10101111cdn.com 收窄为原模块明确出现的 img01 广告素材路径。 |
 | Umeng | 1 | 已精确迁移 | [友盟广告消息](../dist/components/umeng-ads.sgmodule) | 仅迁移广告专用路径；未采用静态 IP、共享 CDN 或正常功能接口。 |
 | Umetrip | 1 | 已精确迁移 | [航旅纵横](../dist/components/umetrip.sgmodule) | 仅迁移广告专用路径；未采用静态 IP、共享 CDN 或正常功能接口。 |
 | VUE | 1 | 已精确迁移 | [VUE 视频](../dist/components/vue-video.sgmodule) | 仅迁移广告专用路径；未采用静态 IP、共享 CDN 或正常功能接口。 |

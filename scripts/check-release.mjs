@@ -118,6 +118,23 @@ function validateModule(source, relativePath) {
       );
     }
   }
+  for (const line of sections.get("MITM") ?? []) {
+    assert.match(
+      line,
+      /^hostname\s*=\s*%APPEND%\s+/,
+      `${relativePath}: MITM 语法无效`,
+    );
+    assert.equal(
+      line.includes("*."),
+      false,
+      `${relativePath}: MITM 必须使用精确主机，禁止通配`,
+    );
+    assert.equal(
+      /(?:^|,\s*)(?:\d{1,3}\.){3}\d{1,3}(?:,|$)/.test(line),
+      false,
+      `${relativePath}: MITM 不应包含 IP`,
+    );
+  }
 
   const rawUrls =
     source.match(

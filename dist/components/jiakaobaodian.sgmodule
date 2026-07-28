@@ -1,5 +1,5 @@
 #!name=BlockAd · 驾考宝典
-#!desc=advert-sdk 专用入口；保留题库与学习记录。
+#!desc=已知广告 SDK 主机上的 advert-sdk 专用入口；保留题库、评论与学习记录。
 #!author=STERILITZIA02
 #!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
 #!version=1.1.1
@@ -11,7 +11,7 @@
 
 [URL Rewrite]
 # 广告 SDK
-^https:\/\/[^/]+\.kakamobi\.cn\/api\/open\/v\d+\/advert-sdk(?:\/|\?|$) - reject-dict
+^https:\/\/smart\.789\.kakamobi\.cn\/api\/open\/v\d+\/advert-sdk(?:\/|\?|$) - reject-dict
 
 [MITM]
-hostname = %APPEND% *.kakamobi.cn
+hostname = %APPEND% smart.789.kakamobi.cn

@@ -38,6 +38,19 @@ function appMitmCoversUrl(appId, url) {
   });
 }
 
+function ruleBlocksHost(rule, hostname) {
+  const [kind, value] = rule.split(",");
+  const host = hostname.toLowerCase();
+  const needle = value?.toLowerCase();
+  if (!needle) return false;
+  if (kind === "DOMAIN") return host === needle;
+  if (kind === "DOMAIN-SUFFIX") {
+    return host === needle || host.endsWith(`.${needle}`);
+  }
+  if (kind === "DOMAIN-KEYWORD") return host.includes(needle);
+  return false;
+}
+
 test("路由清单只包含本地 JSON 处理器覆盖的接口族", () => {
   assert.deepEqual(routeIds, [
     "tencent-news",
@@ -299,6 +312,132 @@ test("抖音与番茄不再包含共享字节业务域或共享素材域的通�
     ]) {
       assert.equal(app.mitm.includes(forbidden), false, `${appId}: ${forbidden}`);
     }
+  }
+});
+
+test("所有默认模块只使用精确 MITM 主机，金融高风险组件默认关闭", () => {
+  for (const app of apps.filter((candidate) => candidate.unified)) {
+    for (const hostname of app.mitm) {
+      assert.match(
+        hostname,
+        /^(?:[a-z0-9-]+\.)+[a-z]{2,}$/i,
+        `${app.id}: ${hostname}`,
+      );
+    }
+  }
+  const futu = apps.find((candidate) => candidate.id === "futu");
+  assert.ok(futu);
+  assert.equal(futu.unified, false);
+  assert.deepEqual(futu.mitm, ["api.futunn.com"]);
+});
+
+test("微信、QQ、京东、淘宝、抖音和菜鸟核心业务不被 Rewrite 或域名规则拦截", async () => {
+  const cases = [
+    {
+      app: "wechat",
+      urls: [
+        "https://szlong.weixin.qq.com/cgi-bin/micromsg-bin/newgetdns",
+        "https://mp.weixin.qq.com/mp/profile_ext?action=home",
+        "https://wxa.wxs.qq.com/wxa-resource/example.js",
+      ],
+    },
+    {
+      app: "qq",
+      urls: [
+        "https://msfwifi.3g.qq.com/config",
+        "https://tmfsdk.m.qq.com/config",
+        "https://r.inews.qq.com/getUserInfo?uin=1",
+      ],
+    },
+    {
+      app: "jd",
+      urls: [
+        "https://mapi.m.jd.com/client.action?functionId=orderList",
+        "https://chat1.jd.com/api/message/list",
+        "https://kepler.jd.com/api/open",
+      ],
+    },
+    {
+      app: "taobao-tmall",
+      urls: [
+        "https://acs.m.taobao.com/gw/mtop.trade.order.list/1.0/",
+        "https://amdcopen.m.taobao.com/amdc/mobileDispatch",
+        "https://hybrid.miniapp.taobao.com/app/index.html",
+      ],
+    },
+    {
+      app: "douyin",
+      urls: [
+        "https://aweme.snssdk.com/aweme/v1/feed/?type=0",
+        "https://aweme.snssdk.com/aweme/v2/comment/list/?aweme_id=1",
+        "https://api.amemv.com/aweme/v1/comment/publish/",
+      ],
+    },
+    {
+      app: "cainiao",
+      urls: [
+        "https://cn-acs.m.cainiao.com/gw/mtop.cainiao.logistics.detail/1.0/",
+        "https://guide-acs.m.taobao.com/gw/mtop.cainiao.pickup.code/1.0/",
+      ],
+    },
+  ];
+  const awaRules = (
+    await readFile(
+      new URL("../dist/rules/AWAvenue-Ads-Rule.list", import.meta.url),
+      "utf8",
+    )
+  )
+    .split(/\r?\n/)
+    .filter((line) => /^(?:DOMAIN|DOMAIN-SUFFIX|DOMAIN-KEYWORD),/.test(line));
+
+  for (const fixture of cases) {
+    const app = apps.find((candidate) => candidate.id === fixture.app);
+    assert.ok(app, `missing app config: ${fixture.app}`);
+    for (const url of fixture.urls) {
+      const hostname = new URL(url).hostname;
+      assert.equal(appMatchesUrl(fixture.app, url), false, `不应改写核心接口: ${url}`);
+      assert.equal(
+        app.rules.some((rule) => ruleBlocksHost(rule, hostname)),
+        false,
+        `组件域名规则不应阻断核心接口: ${url}`,
+      );
+      assert.equal(
+        awaRules.some((rule) => ruleBlocksHost(rule, hostname)),
+        false,
+        `通用规则不应阻断核心接口: ${url}`,
+      );
+    }
+  }
+});
+
+test("推送、广告 SDK 握手与崩溃恢复依赖不被通用规则整域拒绝", async () => {
+  const awaRules = (
+    await readFile(
+      new URL("../dist/rules/AWAvenue-Ads-Rule.list", import.meta.url),
+      "utf8",
+    )
+  )
+    .split(/\r?\n/)
+    .filter((line) => /^(?:DOMAIN|DOMAIN-SUFFIX|DOMAIN-KEYWORD),/.test(line));
+  for (const hostname of [
+    "aspect-upush.umeng.com",
+    "getui.cn",
+    "jpush.cn",
+    "jpush.io",
+    "aaid.umeng.com",
+    "ccs.umeng.com",
+    "resolve.umeng.com",
+    "utoken.umeng.com",
+    "ios.bugly.qq.com",
+    "api-access.pangolin-sdk-toutiao.com",
+    "gromore.pangolin-sdk-toutiao.com",
+    "mi.gdt.qq.com",
+  ]) {
+    assert.equal(
+      awaRules.some((rule) => ruleBlocksHost(rule, hostname)),
+      false,
+      `基础 SDK/推送域不应整域拒绝: ${hostname}`,
+    );
   }
 });
 

@@ -178,6 +178,11 @@ function validateModule(source, relativePath) {
   for (const mitm of sections.get("MITM") || []) {
     assert.match(mitm, /^hostname\s*=\s*%APPEND%\s+/, `${relativePath}: MITM 语法无效`);
     assert.equal(
+      mitm.includes("*."),
+      false,
+      `${relativePath}: MITM 必须使用精确主机，禁止通配`,
+    );
+    assert.equal(
       /(?:^|,\s*)(?:\d{1,3}\.){3}\d{1,3}(?:,|$)/.test(mitm),
       false,
       `${relativePath}: MITM 不应包含 IP`,
@@ -199,6 +204,13 @@ function validateConfigPatterns() {
       app.mitm.length,
       `${app.id}: MITM 主机重复`,
     );
+    for (const hostname of app.mitm) {
+      assert.match(
+        hostname,
+        /^(?:[a-z0-9-]+\.)+[a-z]{2,}$/i,
+        `${app.id}: MITM 必须使用精确主机，禁止通配或端口: ${hostname}`,
+      );
+    }
     assert.equal(
       app.rules.length + app.rewrites.length + app.scripts.length > 0,
       true,
@@ -255,7 +267,11 @@ function validateConfigPatterns() {
   }
 
   for (const app of apps) {
-    assert.equal(app.unified, true, `${app.id}: 默认组件必须显式并入统一模块`);
+    assert.equal(
+      typeof app.unified,
+      "boolean",
+      `${app.id}: 组件必须显式声明是否并入统一模块`,
+    );
   }
 }
 
