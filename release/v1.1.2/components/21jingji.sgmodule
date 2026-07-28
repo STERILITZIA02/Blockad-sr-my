@@ -1,0 +1,17 @@
+#!name=BlockAd · 21财经
+#!desc=广告专用 API；不触碰新闻正文、登录或评论。
+#!author=STERILITZIA02
+#!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
+#!version=1.1.2
+#!updated=2026-07-28
+#!category=去广告
+
+# GENERATED FILE — 请修改 config/apps.mjs / config/legacy-apps.mjs 后重新构建。
+# source-ref=v1.1.2
+
+[URL Rewrite]
+# 广告接口
+^https:\/\/api\.21jingji\.com\/ad(?:\/|\?|$) - reject-dict
+
+[MITM]
+hostname = %APPEND% api.21jingji.com

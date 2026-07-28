@@ -2,8 +2,8 @@
 #!desc=章末/激励广告 SDK 的精确载荷和专用素材；不整域断开 SDK，不解密共享字节业务域。
 #!author=STERILITZIA02
 #!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
-#!version=1.1.1
-#!updated=2026-07-26
+#!version=1.1.2
+#!updated=2026-07-28
 #!category=去广告
 
 # GENERATED FILE — 请修改 config/apps.mjs / config/legacy-apps.mjs 后重新构建。

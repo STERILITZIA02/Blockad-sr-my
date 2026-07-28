@@ -2,8 +2,8 @@
 #!desc=已知 img01 主机的 adpos/share 素材目录；不解密其他 CDN，保留叫车、行程和支付。
 #!author=STERILITZIA02
 #!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
-#!version=1.1.1
-#!updated=2026-07-26
+#!version=1.1.2
+#!updated=2026-07-28
 #!category=去广告
 
 # GENERATED FILE — 请修改 config/apps.mjs / config/legacy-apps.mjs 后重新构建。

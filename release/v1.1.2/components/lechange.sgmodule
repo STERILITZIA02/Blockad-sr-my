@@ -1,0 +1,17 @@
+#!name=BlockAd · 乐橙 / Lechange
+#!desc=只拒绝明确命名的 advertisementPush 营销推送接口；保留设备告警、实时预览和账号通知。
+#!author=STERILITZIA02
+#!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
+#!version=1.1.2
+#!updated=2026-07-28
+#!category=去广告
+
+# GENERATED FILE — 请修改 config/apps.mjs / config/legacy-apps.mjs 后重新构建。
+# source-ref=v1.1.2
+
+[URL Rewrite]
+# 营销推送
+^https:\/\/dl-cu-hz\.lechange\.cn\/oms-online\/advertisementPush(?:\/|\?|$) - reject-dict
+
+[MITM]
+hostname = %APPEND% dl-cu-hz.lechange.cn

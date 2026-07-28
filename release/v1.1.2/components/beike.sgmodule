@@ -1,0 +1,17 @@
+#!name=BlockAd · 贝壳找房
+#!desc=启动 bootpage；保留房源、搜索、地图与账号。
+#!author=STERILITZIA02
+#!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
+#!version=1.1.2
+#!updated=2026-07-28
+#!category=去广告
+
+# GENERATED FILE — 请修改 config/apps.mjs / config/legacy-apps.mjs 后重新构建。
+# source-ref=v1.1.2
+
+[URL Rewrite]
+# 启动页
+^https:\/\/apps?\.api\.ke\.com\/config\/config\/bootpage(?:\?|$) - reject-dict
+
+[MITM]
+hostname = %APPEND% app.api.ke.com, apps.api.ke.com

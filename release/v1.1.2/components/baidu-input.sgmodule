@@ -1,0 +1,19 @@
+#!name=BlockAd · 百度输入法
+#!desc=启动广告和明确 advertisement 接口；保留词库、同步与输入服务。
+#!author=STERILITZIA02
+#!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
+#!version=1.1.2
+#!updated=2026-07-28
+#!category=去广告
+
+# GENERATED FILE — 请修改 config/apps.mjs / config/legacy-apps.mjs 后重新构建。
+# source-ref=v1.1.2
+
+[URL Rewrite]
+# 启动广告
+^https:\/\/mime\.baidu\.com\/v\d+\/IosStart\/getStartInfo(?:\?|$) - reject-dict
+# 活动广告
+^https:\/\/mime\.baidu\.com\/v\d+\/activity\/advertisement(?:\/|\?|$) - reject-dict
+
+[MITM]
+hostname = %APPEND% mime.baidu.com

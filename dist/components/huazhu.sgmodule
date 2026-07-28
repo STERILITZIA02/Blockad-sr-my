@@ -2,8 +2,8 @@
 #!desc=酒店广告接口与弹窗通知中的显式广告；保留预订、订单、会员、更新和正常服务通知。
 #!author=STERILITZIA02
 #!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
-#!version=1.1.1
-#!updated=2026-07-26
+#!version=1.1.2
+#!updated=2026-07-28
 #!category=去广告
 
 # GENERATED FILE — 请修改 config/apps.mjs / config/legacy-apps.mjs 后重新构建。

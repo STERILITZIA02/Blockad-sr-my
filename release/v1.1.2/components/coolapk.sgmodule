@@ -1,0 +1,16 @@
+#!name=BlockAd · 酷安
+#!desc=首页、详情与回复列表中仅删除带强广告标记的对象；解析失败原样返回。
+#!author=STERILITZIA02
+#!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
+#!version=1.1.2
+#!updated=2026-07-28
+#!category=去广告
+
+# GENERATED FILE — 请修改 config/apps.mjs / config/legacy-apps.mjs 后重新构建。
+# source-ref=v1.1.2
+
+[Script]
+酷安_显式广告 = type=http-response,pattern=^https:\/\/api\.coolapk\.com\/v6\/(?:feed\/(?:detail|replyList)|main\/(?:dataList|indexV8|init)|page\/dataList)(?:\?|$),requires-body=1,max-size=2097152,timeout=5,script-path=https://raw.githubusercontent.com/STERILITZIA02/Blockad-sr-my/v1.1.2/release/v1.1.2/scripts/blockad-router.js
+
+[MITM]
+hostname = %APPEND% api.coolapk.com

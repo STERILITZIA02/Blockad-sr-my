@@ -1,0 +1,26 @@
+#!name=BlockAd · 微信
+#!desc=公众号文章广告与朋友圈广告素材；不处理聊天、支付、小程序业务响应。
+#!author=STERILITZIA02
+#!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
+#!version=1.1.2
+#!updated=2026-07-28
+#!category=去广告
+
+# GENERATED FILE — 请修改 config/apps.mjs / config/legacy-apps.mjs 后重新构建。
+# source-ref=v1.1.2
+
+[Rule]
+DOMAIN,wxsnsad.tc.qq.com,REJECT
+DOMAIN,wxsnsdy.tc.qq.com,REJECT
+DOMAIN,wxsnsdy.wxs.qq.com,REJECT
+DOMAIN,wxsnsdythumb.wxs.qq.com,REJECT
+
+[URL Rewrite]
+# 公众号文章联盟商品广告
+^https:\/\/mp\.weixin\.qq\.com\/mp\/cps_product_info(?:\?|$) - reject-dict
+
+[Script]
+微信_公众号文章广告 = type=http-response,pattern=^https:\/\/mp\.weixin\.qq\.com\/mp\/getappmsgad(?:\?|$),requires-body=1,max-size=1048576,timeout=5,script-path=https://raw.githubusercontent.com/STERILITZIA02/Blockad-sr-my/v1.1.2/release/v1.1.2/scripts/blockad-router.js
+
+[MITM]
+hostname = %APPEND% mp.weixin.qq.com

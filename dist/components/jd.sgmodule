@@ -2,8 +2,8 @@
 #!desc=启动、首页楼层、配送/订单页显式广告容器和明确营销推荐配置；保留订单、支付、物流、通知和账号字段。
 #!author=STERILITZIA02
 #!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
-#!version=1.1.1
-#!updated=2026-07-26
+#!version=1.1.2
+#!updated=2026-07-28
 #!category=去广告
 
 # GENERATED FILE — 请修改 config/apps.mjs / config/legacy-apps.mjs 后重新构建。

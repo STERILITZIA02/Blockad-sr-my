@@ -1,0 +1,17 @@
+#!name=BlockAd · 识货
+#!desc=当前 sh-adapi 开屏/广告接口；不阻断普通设备信息上报。
+#!author=STERILITZIA02
+#!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
+#!version=1.1.2
+#!updated=2026-07-28
+#!category=去广告
+
+# GENERATED FILE — 请修改 config/apps.mjs / config/legacy-apps.mjs 后重新构建。
+# source-ref=v1.1.2
+
+[URL Rewrite]
+# 开屏与广告
+^https:\/\/sh-gateway\.shihuo\.cn\/v\d+\/services\/sh-adapi\/home\/(?:screen|ad)(?:\?|$) - reject-dict
+
+[MITM]
+hostname = %APPEND% sh-gateway.shihuo.cn

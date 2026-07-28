@@ -1,0 +1,17 @@
+#!name=BlockAd · 马蜂窝
+#!desc=ad 专用路径；保留攻略、搜索和订单。
+#!author=STERILITZIA02
+#!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
+#!version=1.1.2
+#!updated=2026-07-28
+#!category=去广告
+
+# GENERATED FILE — 请修改 config/apps.mjs / config/legacy-apps.mjs 后重新构建。
+# source-ref=v1.1.2
+
+[URL Rewrite]
+# 广告接口
+^https:\/\/mapi\.mafengwo\.cn\/(?:ad|travelguide\/ad)(?:\/|\?|$) - reject-dict
+
+[MITM]
+hostname = %APPEND% mapi.mafengwo.cn

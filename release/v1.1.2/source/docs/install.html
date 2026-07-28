@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; img-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>一键导入 BlockAd 到 Shadowrocket</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    body {
+      display: grid;
+      min-height: 100vh;
+      margin: 0;
+      place-items: center;
+      background: #f5f7fb;
+      color: #172033;
+    }
+    main {
+      width: min(88vw, 34rem);
+      padding: 2rem;
+      border: 1px solid #dce2ee;
+      border-radius: 1.25rem;
+      background: #fff;
+      box-shadow: 0 1rem 3rem rgb(31 52 92 / 12%);
+      text-align: center;
+    }
+    h1 { margin-top: 0; font-size: 1.55rem; }
+    p { line-height: 1.65; }
+    .button {
+      display: block;
+      margin: 1rem 0;
+      padding: 0.9rem 1rem;
+      border-radius: 0.75rem;
+      background: #1677ff;
+      color: #fff;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .secondary {
+      background: transparent;
+      color: #245baf;
+      border: 1px solid #9db9e7;
+    }
+    small { color: #647086; }
+    @media (prefers-color-scheme: dark) {
+      body { background: #0c111d; color: #e8edf7; }
+      main { background: #141c2b; border-color: #2b3850; }
+      .secondary { color: #9bc1ff; border-color: #49658e; }
+      small { color: #aebbd0; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>正在打开 Shadowrocket…</h1>
+    <p>请允许 Safari 打开 Shadowrocket，然后在模块安装界面确认使用。</p>
+    <a class="button" id="open-shadowrocket" href="#">再次打开 Shadowrocket</a>
+    <a class="button secondary" id="raw-module" href="#">查看原始稳定订阅</a>
+    <small>目标固定为本仓库 main/stable，不接收或转发其他网址。</small>
+  </main>
+  <script>
+    (() => {
+      "use strict";
+      const moduleUrl =
+        "https://raw.githubusercontent.com/STERILITZIA02/Blockad-sr-my/main/stable/BlockAd.Unified.sgmodule";
+      const installUrl = `shadowrocket://install?module=${moduleUrl}`;
+      document.getElementById("open-shadowrocket").href = installUrl;
+      document.getElementById("raw-module").href = moduleUrl;
+      window.setTimeout(() => window.location.assign(installUrl), 80);
+    })();
+  </script>
+</body>
+</html>
