@@ -1,0 +1,14 @@
+#!name=BlockAd · 网易云音乐
+#!desc=仅拦截两个明确广告素材域；不解密 music.163.com 业务 API，保护播放、歌单、评论和账号。
+#!author=STERILITZIA02
+#!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
+#!version=1.1.2
+#!updated=2026-07-28
+#!category=去广告
+
+# GENERATED FILE — 请修改 config/apps.mjs / config/legacy-apps.mjs 后重新构建。
+# source-ref=v1.1.2
+
+[Rule]
+DOMAIN,iadmat.nosdn.127.net,REJECT
+DOMAIN,iadmusicmat.music.126.net,REJECT

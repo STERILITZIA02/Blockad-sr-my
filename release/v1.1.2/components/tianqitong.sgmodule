@@ -1,0 +1,19 @@
+#!name=BlockAd · 天气通
+#!desc=tqtad/tqt_sdkad 与 advert API；保留天气和预警。
+#!author=STERILITZIA02
+#!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
+#!version=1.1.2
+#!updated=2026-07-28
+#!category=去广告
+
+# GENERATED FILE — 请修改 config/apps.mjs / config/legacy-apps.mjs 后重新构建。
+# source-ref=v1.1.2
+
+[URL Rewrite]
+# SDK 广告
+^https:\/\/tqt\.weibo\.cn\/overall\/redirect\.php\?(?=[^#]*\br=(?:tqt_sdkad|tqtad)(?:&|$)) - reject-dict
+# 广告接口
+^https:\/\/tqt\.weibo\.cn\/(?:[^?#]*advert\.index|api\/advert)(?:\/|\?|$) - reject-dict
+
+[MITM]
+hostname = %APPEND% tqt.weibo.cn

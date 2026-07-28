@@ -1,9 +1,9 @@
 #!name=BlockAd · 58同城 / 安居客
-#!desc=首页广告与品牌广告目录；不采用图片尺寸猜测，也不阻断通用日志。
+#!desc=首页与邀请弹窗广告接口；不解密共享图片 CDN，不采用图片尺寸猜测或通用日志拦截。
 #!author=STERILITZIA02
 #!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
-#!version=1.1.1
-#!updated=2026-07-26
+#!version=1.1.2
+#!updated=2026-07-28
 #!category=去广告
 
 # GENERATED FILE — 请修改 config/apps.mjs / config/legacy-apps.mjs 后重新构建。
@@ -14,8 +14,6 @@
 ^https:\/\/app\.58\.com\/api\/home\/(?:advertising|appadv)(?:\/|\?|$) - reject-dict
 # 邀请弹窗广告
 ^https:\/\/app\.58\.com\/api\/home\/invite\/popupAdv(?:\/|\?|$) - reject-dict
-# 品牌广告素材
-^https:\/\/[^/]+\.58cdn\.com\.cn\/brandads(?:\/|$) - reject-img
 
 [MITM]
-hostname = %APPEND% app.58.com, *.58cdn.com.cn
+hostname = %APPEND% app.58.com

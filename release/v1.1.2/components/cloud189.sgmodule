@@ -1,0 +1,19 @@
+#!name=BlockAd · 天翼云盘
+#!desc=旧开屏目录与当前 openscreen banner；保留登录、上传下载和文件列表。
+#!author=STERILITZIA02
+#!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
+#!version=1.1.2
+#!updated=2026-07-28
+#!category=去广告
+
+# GENERATED FILE — 请修改 config/apps.mjs / config/legacy-apps.mjs 后重新构建。
+# source-ref=v1.1.2
+
+[URL Rewrite]
+# 开屏目录
+^https:\/\/cloud\.189\.cn\/include\/splash(?:\/|$) - reject-img
+# 开屏广告
+^https:\/\/api\.cloud\.189\.cn\/guns\/getOpenscreenBanners(?:\?|$) - reject-dict
+
+[MITM]
+hostname = %APPEND% cloud.189.cn, api.cloud.189.cn

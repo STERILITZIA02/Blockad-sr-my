@@ -1,0 +1,17 @@
+#!name=BlockAd · 驾校一点通
+#!desc=ad 专用 API；保留题库、学习记录和账号。
+#!author=STERILITZIA02
+#!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
+#!version=1.1.2
+#!updated=2026-07-28
+#!category=去广告
+
+# GENERATED FILE — 请修改 config/apps.mjs / config/legacy-apps.mjs 后重新构建。
+# source-ref=v1.1.2
+
+[URL Rewrite]
+# 广告接口
+^https:\/\/api\.jxedt\.com\/ad(?:\/|\?|$) - reject-dict
+
+[MITM]
+hostname = %APPEND% api.jxedt.com

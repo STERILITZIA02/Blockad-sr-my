@@ -1,9 +1,9 @@
 #!name=BlockAd · 育学园 / 宝宝健康
-#!desc=advert 专用路径；不匹配健康与成长数据。
+#!desc=已知 yxyapi0–9 主机上的 advert 专用路径；不解密其他健康与成长数据域。
 #!author=STERILITZIA02
 #!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
-#!version=1.1.1
-#!updated=2026-07-26
+#!version=1.1.2
+#!updated=2026-07-28
 #!category=去广告
 
 # GENERATED FILE — 请修改 config/apps.mjs / config/legacy-apps.mjs 后重新构建。
@@ -11,7 +11,7 @@
 
 [URL Rewrite]
 # 广告接口
-^https:\/\/yxyapi\d+\.drcuiyutao\.com\/yxy-api-gateway\/api\/json\/advert(?:\/|\?|$) - reject-dict
+^https:\/\/yxyapi[0-9]\.drcuiyutao\.com\/yxy-api-gateway\/api\/json\/advert(?:\/|\?|$) - reject-dict
 
 [MITM]
-hostname = %APPEND% *.drcuiyutao.com
+hostname = %APPEND% yxyapi0.drcuiyutao.com, yxyapi1.drcuiyutao.com, yxyapi2.drcuiyutao.com, yxyapi3.drcuiyutao.com, yxyapi4.drcuiyutao.com, yxyapi5.drcuiyutao.com, yxyapi6.drcuiyutao.com, yxyapi7.drcuiyutao.com, yxyapi8.drcuiyutao.com, yxyapi9.drcuiyutao.com

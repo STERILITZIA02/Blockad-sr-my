@@ -1,0 +1,17 @@
+#!name=BlockAd · 豆瓣
+#!desc=开屏 app_ads；不宣称处理与正常内容混排的信息流广告。
+#!author=STERILITZIA02
+#!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
+#!version=1.1.2
+#!updated=2026-07-28
+#!category=去广告
+
+# GENERATED FILE — 请修改 config/apps.mjs / config/legacy-apps.mjs 后重新构建。
+# source-ref=v1.1.2
+
+[URL Rewrite]
+# 开屏广告
+^https:\/\/api\.douban\.com\/v\d+\/app_ads(?:\/|\?|$) - reject-dict
+
+[MITM]
+hostname = %APPEND% api.douban.com

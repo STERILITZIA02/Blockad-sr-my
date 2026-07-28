@@ -1,0 +1,17 @@
+#!name=BlockAd · 贝太厨房
+#!desc=iOS 启动推广接口；不匹配菜谱正文。
+#!author=STERILITZIA02
+#!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
+#!version=1.1.2
+#!updated=2026-07-28
+#!category=去广告
+
+# GENERATED FILE — 请修改 config/apps.mjs / config/legacy-apps.mjs 后重新构建。
+# source-ref=v1.1.2
+
+[URL Rewrite]
+# 启动推广
+^https:\/\/channel\.beitaichufang\.com\/channel\/api\/v\d+\/promote\/ios\/start\/page(?:\?|$) - reject-dict
+
+[MITM]
+hostname = %APPEND% channel.beitaichufang.com

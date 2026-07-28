@@ -1,0 +1,17 @@
+#!name=BlockAd · 中国移动
+#!desc=营销内容接口；不拒绝启动初始化、账户或话费查询。
+#!author=STERILITZIA02
+#!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
+#!version=1.1.2
+#!updated=2026-07-28
+#!category=去广告
+
+# GENERATED FILE — 请修改 config/apps.mjs / config/legacy-apps.mjs 后重新构建。
+# source-ref=v1.1.2
+
+[URL Rewrite]
+# 营销内容
+^https:\/\/wap\.js\.10086\.cn\/jsmccClient\/cd\/market_content\/api\/v\d+\/market_content\.page\.query(?:\?|$) - reject-dict
+
+[MITM]
+hostname = %APPEND% wap.js.10086.cn

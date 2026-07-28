@@ -1,0 +1,17 @@
+#!name=BlockAd · Inoreader
+#!desc=adv 专用目录；保留订阅、文章和同步。
+#!author=STERILITZIA02
+#!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
+#!version=1.1.2
+#!updated=2026-07-28
+#!category=去广告
+
+# GENERATED FILE — 请修改 config/apps.mjs / config/legacy-apps.mjs 后重新构建。
+# source-ref=v1.1.2
+
+[URL Rewrite]
+# 广告目录
+^https:\/\/www\.inoreader\.com\/adv(?:\/|$) - reject-200
+
+[MITM]
+hostname = %APPEND% www.inoreader.com

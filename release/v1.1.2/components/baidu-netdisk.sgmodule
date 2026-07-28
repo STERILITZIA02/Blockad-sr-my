@@ -1,0 +1,25 @@
+#!name=BlockAd · 百度网盘
+#!desc=广告接口、开屏活动入口与明确广告资源；保留账号认证、会员状态、上传下载和视频播放。
+#!author=STERILITZIA02
+#!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
+#!version=1.1.2
+#!updated=2026-07-28
+#!category=去广告
+
+# GENERATED FILE — 请修改 config/apps.mjs / config/legacy-apps.mjs 后重新构建。
+# source-ref=v1.1.2
+
+[URL Rewrite]
+# 网盘广告接口
+^https:\/\/pan\.baidu\.com\/rest\/(?:\d+\.\d+|[^/]+)\/pcs\/adx(?:\?|$) - reject-dict
+# 网盘广告接口
+^https:\/\/pan\.baidu\.com\/rest\/2\.0\/pcs\/ad(?:\?|$) - reject-dict
+# 启动活动入口
+^https:\/\/pan\.baidu\.com\/act\/api\/activityentry(?:\?|$) - reject-dict
+# 明确命名的广告资源
+^https:\/\/issuecdn\.baidupcs\.com\/issue\/netdisk\/guanggao(?:\/|$) - reject
+# 仅阻断更新统计，不阻断 App 更新
+^https:\/\/update\.pan\.baidu\.com\/statistics(?:\?|$) - reject-200
+
+[MITM]
+hostname = %APPEND% pan.baidu.com, issuecdn.baidupcs.com, update.pan.baidu.com

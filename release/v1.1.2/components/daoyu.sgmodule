@@ -1,0 +1,17 @@
+#!name=BlockAd · 叨鱼
+#!desc=AppStartAd 专用接口；保留账号与游戏服务。
+#!author=STERILITZIA02
+#!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
+#!version=1.1.2
+#!updated=2026-07-28
+#!category=去广告
+
+# GENERATED FILE — 请修改 config/apps.mjs / config/legacy-apps.mjs 后重新构建。
+# source-ref=v1.1.2
+
+[URL Rewrite]
+# 启动广告
+^https:\/\/daoyu\.sdo\.com\/api\/userCommon\/getAppStartAd(?:\?|$) - reject-dict
+
+[MITM]
+hostname = %APPEND% daoyu.sdo.com

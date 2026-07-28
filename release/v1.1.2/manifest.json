@@ -1,0 +1,2369 @@
+{
+  "schemaVersion": 1,
+  "project": "STERILITZIA02/Blockad-sr-my",
+  "version": "1.1.2",
+  "ref": "v1.1.2",
+  "generatedOn": "2026-07-28",
+  "unifiedModule": "BlockAd.Unified.sgmodule",
+  "awaRuleSnapshot": {
+    "upstreamCommit": "d77f249050b440989cc9a640eabdb18573dc7c90",
+    "upstreamSha256": "7a85b45b3e087d257c7eee2316f34013fadd353d716204444d98a231034236c9",
+    "sourceRuleCount": 903,
+    "excludedCount": 148,
+    "outputRuleCount": 755
+  },
+  "unifiedSummary": {
+    "rules": 23,
+    "rulesDeduplicatedByAwa": 40,
+    "rewrites": 223,
+    "scripts": 30,
+    "mitmHosts": 274
+  },
+  "components": [
+    {
+      "id": "general-networks",
+      "name": "通用广告网络",
+      "description": "固定版本的社区广告域名规则；负责原聚合模块中的长尾 App 与第三方广告 SDK。",
+      "enabledByDefault": true,
+      "path": "components/general-networks.sgmodule"
+    },
+    {
+      "id": "qq",
+      "name": "QQ / 腾讯系广告",
+      "description": "GDT 广告请求、素材与腾讯新闻开屏；不拦截 QQ 登录、消息、文件或语音视频。",
+      "enabledByDefault": true,
+      "path": "components/qq.sgmodule"
+    },
+    {
+      "id": "wechat",
+      "name": "微信",
+      "description": "公众号文章广告与朋友圈广告素材；不处理聊天、支付、小程序业务响应。",
+      "enabledByDefault": true,
+      "path": "components/wechat.sgmodule"
+    },
+    {
+      "id": "jd",
+      "name": "京东",
+      "description": "启动、首页楼层、配送/订单页显式广告容器和明确营销推荐配置；保留订单、支付、物流、通知和账号字段。",
+      "enabledByDefault": true,
+      "path": "components/jd.sgmodule"
+    },
+    {
+      "id": "taobao-tmall",
+      "name": "淘宝 / 天猫",
+      "description": "开屏与明确广告服务接口；不拦截商品、购物车、订单、支付或物流。",
+      "enabledByDefault": true,
+      "path": "components/taobao-tmall.sgmodule"
+    },
+    {
+      "id": "zhihu",
+      "name": "知乎",
+      "description": "开屏、商业横幅、回答底部商业卡片与信息流显式推广；不拦截通知、评论、账号或完整内容接口。",
+      "enabledByDefault": true,
+      "path": "components/zhihu.sgmodule"
+    },
+    {
+      "id": "weibo",
+      "name": "微博 / 微博轻享版",
+      "description": "开屏、推荐/关注/趋势信息流显式推广；不修改会员图标、账号、私信或支付字段。",
+      "enabledByDefault": true,
+      "path": "components/weibo.sgmodule"
+    },
+    {
+      "id": "xianyu",
+      "name": "闲鱼",
+      "description": "开屏、首页/同城/搜索信息流中的显式商业卡片；保留商品、聊天、交易和用户主动浏览的推荐。",
+      "enabledByDefault": true,
+      "path": "components/xianyu.sgmodule"
+    },
+    {
+      "id": "youtube",
+      "name": "YouTube / YouTube Music",
+      "description": "Protobuf 响应内广告节点与广告统计；不转发播放请求、不封禁 googlevideo、不伪造后台播放或下载权益。",
+      "enabledByDefault": true,
+      "path": "components/youtube.sgmodule"
+    },
+    {
+      "id": "baidu-netdisk",
+      "name": "百度网盘",
+      "description": "广告接口、开屏活动入口与明确广告资源；保留账号认证、会员状态、上传下载和视频播放。",
+      "enabledByDefault": true,
+      "path": "components/baidu-netdisk.sgmodule"
+    },
+    {
+      "id": "douyin",
+      "name": "抖音",
+      "description": "仅处理穿山甲/Gromore 精确广告载荷与专用素材；不解密抖音主业务 feed、评论、发布、搜索或直播域名。",
+      "enabledByDefault": true,
+      "path": "components/douyin.sgmodule"
+    },
+    {
+      "id": "fanqie",
+      "name": "番茄小说",
+      "description": "章末/激励广告 SDK 的精确载荷和专用素材；不整域断开 SDK，不解密共享字节业务域。",
+      "enabledByDefault": true,
+      "path": "components/fanqie.sgmodule"
+    },
+    {
+      "id": "thunder",
+      "name": "迅雷",
+      "description": "明确广告域名、广告图片目录与广告位批量接口；保留更新、下载、直播和会员状态。",
+      "enabledByDefault": true,
+      "path": "components/thunder.sgmodule"
+    },
+    {
+      "id": "amap",
+      "name": "高德地图",
+      "description": "开屏、首页/搜索/消息中的显式商业内容；保留天气、导航、路线和定位。",
+      "enabledByDefault": true,
+      "path": "components/amap.sgmodule"
+    },
+    {
+      "id": "privacy-pcdn",
+      "name": "隐私与已识别 PCDN",
+      "description": "保留原番茄/聚合模块中的精确 PCDN 与广告遥测拦截；不使用 IP/CIDR 或共享业务整域。",
+      "enabledByDefault": true,
+      "path": "components/privacy-pcdn.sgmodule"
+    },
+    {
+      "id": "21jingji",
+      "name": "21财经",
+      "description": "广告专用 API；不触碰新闻正文、登录或评论。",
+      "enabledByDefault": true,
+      "path": "components/21jingji.sgmodule"
+    },
+    {
+      "id": "4gtv",
+      "name": "4gTV",
+      "description": "广告拉取与广告日志；不匹配播放清单或媒体地址。",
+      "enabledByDefault": true,
+      "path": "components/4gtv.sgmodule"
+    },
+    {
+      "id": "58",
+      "name": "58同城 / 安居客",
+      "description": "首页与邀请弹窗广告接口；不解密共享图片 CDN，不采用图片尺寸猜测或通用日志拦截。",
+      "enabledByDefault": true,
+      "path": "components/58.sgmodule"
+    },
+    {
+      "id": "taopiaopiao",
+      "name": "淘票票",
+      "description": "广告专用 MTop 接口；保留电影、影院、订单和支付。",
+      "enabledByDefault": true,
+      "path": "components/taopiaopiao.sgmodule"
+    },
+    {
+      "id": "acfun",
+      "name": "AcFun",
+      "description": "启动闪屏接口；不拦截视频、弹幕或账号。",
+      "enabledByDefault": true,
+      "path": "components/acfun.sgmodule"
+    },
+    {
+      "id": "aimeiju",
+      "name": "爱美剧",
+      "description": "iOS 广告接口；不匹配剧集与播放线路。",
+      "enabledByDefault": true,
+      "path": "components/aimeiju.sgmodule"
+    },
+    {
+      "id": "baidu-tieba",
+      "name": "百度贴吧",
+      "description": "开屏、吧内广告配置与 JSON 信息流显式广告；Protobuf 无法解析时原样返回。",
+      "enabledByDefault": true,
+      "path": "components/baidu-tieba.sgmodule"
+    },
+    {
+      "id": "baidu-map",
+      "name": "百度地图",
+      "description": "只匹配 qt=ads 的广告查询；保留地图、路线、定位和导航。",
+      "enabledByDefault": true,
+      "path": "components/baidu-map.sgmodule"
+    },
+    {
+      "id": "baidu-input",
+      "name": "百度输入法",
+      "description": "启动广告和明确 advertisement 接口；保留词库、同步与输入服务。",
+      "enabledByDefault": true,
+      "path": "components/baidu-input.sgmodule"
+    },
+    {
+      "id": "iqiyi",
+      "name": "爱奇艺",
+      "description": "广告信息与国际版广告接口；不解密共享图片 CDN，不阻断播放、登录或会员状态。",
+      "enabledByDefault": true,
+      "path": "components/iqiyi.sgmodule"
+    },
+    {
+      "id": "beitai-kitchen",
+      "name": "贝太厨房",
+      "description": "iOS 启动推广接口；不匹配菜谱正文。",
+      "enabledByDefault": true,
+      "path": "components/beitai-kitchen.sgmodule"
+    },
+    {
+      "id": "bishijie",
+      "name": "币世界",
+      "description": "advertising 专用入口；不匹配行情或账户。",
+      "enabledByDefault": true,
+      "path": "components/bishijie.sgmodule"
+    },
+    {
+      "id": "beike",
+      "name": "贝壳找房",
+      "description": "启动 bootpage；保留房源、搜索、地图与账号。",
+      "enabledByDefault": true,
+      "path": "components/beike.sgmodule"
+    },
+    {
+      "id": "bodivis",
+      "name": "好轻 / Bodivis",
+      "description": "开屏广告接口；不匹配健康记录与设备数据。",
+      "enabledByDefault": true,
+      "path": "components/bodivis.sgmodule"
+    },
+    {
+      "id": "baby-health",
+      "name": "育学园 / 宝宝健康",
+      "description": "已知 yxyapi0–9 主机上的 advert 专用路径；不解密其他健康与成长数据域。",
+      "enabledByDefault": true,
+      "path": "components/baby-health.sgmodule"
+    },
+    {
+      "id": "china-mobile",
+      "name": "中国移动",
+      "description": "营销内容接口；不拒绝启动初始化、账户或话费查询。",
+      "enabledByDefault": true,
+      "path": "components/china-mobile.sgmodule"
+    },
+    {
+      "id": "china-unicom",
+      "name": "中国联通",
+      "description": "欢迎广告；不阻断账户列表或登录。",
+      "enabledByDefault": true,
+      "path": "components/china-unicom.sgmodule"
+    },
+    {
+      "id": "cloud189",
+      "name": "天翼云盘",
+      "description": "旧开屏目录与当前 openscreen banner；保留登录、上传下载和文件列表。",
+      "enabledByDefault": true,
+      "path": "components/cloud189.sgmodule"
+    },
+    {
+      "id": "cntv",
+      "name": "央视网 / CNTV",
+      "description": "广告投放目录；不匹配节目视频。",
+      "enabledByDefault": true,
+      "path": "components/cntv.sgmodule"
+    },
+    {
+      "id": "chelaile",
+      "name": "车来了",
+      "description": "adpub/advert、启动推广和城市通知中的显式广告；保留公交到站、定位和正常通知。",
+      "enabledByDefault": true,
+      "path": "components/chelaile.sgmodule"
+    },
+    {
+      "id": "caocao",
+      "name": "曹操出行",
+      "description": "advert-bss 专用服务；保留叫车、行程和支付。",
+      "enabledByDefault": true,
+      "path": "components/caocao.sgmodule"
+    },
+    {
+      "id": "caijing",
+      "name": "财经网",
+      "description": "ad/advert 与启动广告页；保留新闻正文。",
+      "enabledByDefault": true,
+      "path": "components/caijing.sgmodule"
+    },
+    {
+      "id": "csdn",
+      "name": "CSDN",
+      "description": "开屏广告接口；保留文章、搜索和账号。",
+      "enabledByDefault": true,
+      "path": "components/csdn.sgmodule"
+    },
+    {
+      "id": "ctrip",
+      "name": "携程",
+      "description": "getAdsList 广告接口；保留搜索、预订、订单和支付。",
+      "enabledByDefault": true,
+      "path": "components/ctrip.sgmodule"
+    },
+    {
+      "id": "dewu",
+      "name": "得物",
+      "description": "advertisement 专用路径；保留商品、鉴别、订单和支付。",
+      "enabledByDefault": true,
+      "path": "components/dewu.sgmodule"
+    },
+    {
+      "id": "douban",
+      "name": "豆瓣",
+      "description": "开屏 app_ads；不宣称处理与正常内容混排的信息流广告。",
+      "enabledByDefault": true,
+      "path": "components/douban.sgmodule"
+    },
+    {
+      "id": "douyu",
+      "name": "斗鱼直播",
+      "description": "RTB 启动广告信息；不按直播素材 URL 猜测广告。",
+      "enabledByDefault": true,
+      "path": "components/douyu.sgmodule"
+    },
+    {
+      "id": "dangdang",
+      "name": "当当",
+      "description": "设备启动页；不拒绝混合初始化接口。",
+      "enabledByDefault": true,
+      "path": "components/dangdang.sgmodule"
+    },
+    {
+      "id": "daoyu",
+      "name": "叨鱼",
+      "description": "AppStartAd 专用接口；保留账号与游戏服务。",
+      "enabledByDefault": true,
+      "path": "components/daoyu.sgmodule"
+    },
+    {
+      "id": "dida",
+      "name": "嘀嗒出行",
+      "description": "ad 服务与广告统计；保留叫车、行程和支付。",
+      "enabledByDefault": true,
+      "path": "components/dida.sgmodule"
+    },
+    {
+      "id": "dianshijia",
+      "name": "电视家",
+      "description": "广告 API 与广告静态目录；不匹配直播流。",
+      "enabledByDefault": true,
+      "path": "components/dianshijia.sgmodule"
+    },
+    {
+      "id": "ddpai",
+      "name": "盯盯拍",
+      "description": "bootscreen 配置；保留设备连接、相册和固件功能。",
+      "enabledByDefault": true,
+      "path": "components/ddpai.sgmodule"
+    },
+    {
+      "id": "dingdong-maicai",
+      "name": "叮咚买菜",
+      "description": "advert 专用服务；保留商品、购物车、订单、配送和支付。",
+      "enabledByDefault": true,
+      "path": "components/dingdong-maicai.sgmodule"
+    },
+    {
+      "id": "elong",
+      "name": "艺龙",
+      "description": "adgateway 专用入口；保留搜索、预订、订单和支付。",
+      "enabledByDefault": true,
+      "path": "components/elong.sgmodule"
+    },
+    {
+      "id": "edaijia",
+      "name": "e代驾",
+      "description": "adsplash 素材；保留叫车、行程和支付。",
+      "enabledByDefault": true,
+      "path": "components/edaijia.sgmodule"
+    },
+    {
+      "id": "ezviz",
+      "name": "萤石云视频",
+      "description": "ads 专用 API；保留摄像头、直播和回放。",
+      "enabledByDefault": true,
+      "path": "components/ezviz.sgmodule"
+    },
+    {
+      "id": "fotoable",
+      "name": "FOTOABLE",
+      "description": "Advertise 静态目录；不匹配用户作品。",
+      "enabledByDefault": true,
+      "path": "components/fotoable.sgmodule"
+    },
+    {
+      "id": "flyertea",
+      "name": "飞客茶馆",
+      "description": "module=advis 广告入口；保留帖子和账号。",
+      "enabledByDefault": true,
+      "path": "components/flyertea.sgmodule"
+    },
+    {
+      "id": "fengwatch",
+      "name": "凤凰秀 / 凤观",
+      "description": "带 adunitid 的广告投放请求；保留新闻和视频。",
+      "enabledByDefault": true,
+      "path": "components/fengwatch.sgmodule"
+    },
+    {
+      "id": "feng",
+      "name": "威锋",
+      "description": "advertisement 启动入口；保留文章和论坛。",
+      "enabledByDefault": true,
+      "path": "components/feng.sgmodule"
+    },
+    {
+      "id": "facebeauty",
+      "name": "无他相机",
+      "description": "广告树与广告组件缓存；保留相机、素材和导出。",
+      "enabledByDefault": true,
+      "path": "components/facebeauty.sgmodule"
+    },
+    {
+      "id": "gofun",
+      "name": "GoFun 出行",
+      "description": "bootImage 启动图；保留租车、订单和支付。",
+      "enabledByDefault": true,
+      "path": "components/gofun.sgmodule"
+    },
+    {
+      "id": "hangzhou-city-card",
+      "name": "杭州市民卡",
+      "description": "ad 专用路径；保留卡片、乘车和支付。",
+      "enabledByDefault": true,
+      "path": "components/hangzhou-city-card.sgmodule"
+    },
+    {
+      "id": "huomao",
+      "name": "火猫直播",
+      "description": "loginAd 专用入口；保留登录和直播。",
+      "enabledByDefault": true,
+      "path": "components/huomao.sgmodule"
+    },
+    {
+      "id": "huya",
+      "name": "虎牙直播",
+      "description": "advertiser 专用素材目录；信息流原生广告仍可能存在。",
+      "enabledByDefault": true,
+      "path": "components/huya.sgmodule"
+    },
+    {
+      "id": "ifly-input",
+      "name": "讯飞输入法",
+      "description": "adservice 专用入口；保留语音识别、词库和同步。",
+      "enabledByDefault": true,
+      "path": "components/ifly-input.sgmodule"
+    },
+    {
+      "id": "camscanner",
+      "name": "扫描全能王",
+      "description": "get_startpic 开屏接口；不修改会员、OCR 或导出。",
+      "enabledByDefault": true,
+      "path": "components/camscanner.sgmodule"
+    },
+    {
+      "id": "ireader",
+      "name": "掌阅 / iReader",
+      "description": "bookstore/self/zycl 广告入口；保留书架、阅读、同步和付费内容。",
+      "enabledByDefault": true,
+      "path": "components/ireader.sgmodule"
+    },
+    {
+      "id": "inanning",
+      "name": "爱南宁",
+      "description": "advert 专用路径；保留政务和城市服务。",
+      "enabledByDefault": true,
+      "path": "components/inanning.sgmodule"
+    },
+    {
+      "id": "ifreetime",
+      "name": "iFreeTime",
+      "description": "splash 与爱阅书香固定广告入口；不匹配媒体、书库或用户数据。",
+      "enabledByDefault": true,
+      "path": "components/ifreetime.sgmodule"
+    },
+    {
+      "id": "icleaner",
+      "name": "iCleaner",
+      "description": "广告优先级配置文件；不修改清理功能。",
+      "enabledByDefault": true,
+      "path": "components/icleaner.sgmodule"
+    },
+    {
+      "id": "inoreader",
+      "name": "Inoreader",
+      "description": "adv 专用目录；保留订阅、文章和同步。",
+      "enabledByDefault": true,
+      "path": "components/inoreader.sgmodule"
+    },
+    {
+      "id": "i4",
+      "name": "爱思助手",
+      "description": "启动广告信息；不阻断 App/设备信息查询。",
+      "enabledByDefault": true,
+      "path": "components/i4.sgmodule"
+    },
+    {
+      "id": "ikos-pro",
+      "name": "IKOS Pro",
+      "description": "广告命名目录；不匹配正常资源。",
+      "enabledByDefault": true,
+      "path": "components/ikos-pro.sgmodule"
+    },
+    {
+      "id": "jxedt",
+      "name": "驾校一点通",
+      "description": "ad 专用 API；保留题库、学习记录和账号。",
+      "enabledByDefault": true,
+      "path": "components/jxedt.sgmodule"
+    },
+    {
+      "id": "jiakaobaodian",
+      "name": "驾考宝典",
+      "description": "已知广告 SDK 主机上的 advert-sdk 专用入口；保留题库、评论与学习记录。",
+      "enabledByDefault": true,
+      "path": "components/jiakaobaodian.sgmodule"
+    },
+    {
+      "id": "jinse",
+      "name": "金色财经",
+      "description": "ad 专用 API；保留行情和文章。",
+      "enabledByDefault": true,
+      "path": "components/jinse.sgmodule"
+    },
+    {
+      "id": "kingsoft",
+      "name": "WPS / 金山词霸",
+      "description": "精确广告主机、广告统计、开屏和 feeds_ad 素材；不解密金山共享服务域，不修改会员或文档功能。",
+      "enabledByDefault": true,
+      "path": "components/kingsoft.sgmodule"
+    },
+    {
+      "id": "keep",
+      "name": "Keep",
+      "description": "ads 专用 API；保留训练、健康数据和账号，不删除正常课程。",
+      "enabledByDefault": true,
+      "path": "components/keep.sgmodule"
+    },
+    {
+      "id": "kuaikan",
+      "name": "快看漫画",
+      "description": "ad/advertisement 专用 API；保留漫画、评论与购买。",
+      "enabledByDefault": true,
+      "path": "components/kuaikan.sgmodule"
+    },
+    {
+      "id": "laifeng",
+      "name": "来疯直播",
+      "description": "start/ads 接口；保留直播和账号。",
+      "enabledByDefault": true,
+      "path": "components/laifeng.sgmodule"
+    },
+    {
+      "id": "lenovo",
+      "name": "联想社区",
+      "description": "open_ad 专用入口；保留社区内容。",
+      "enabledByDefault": true,
+      "path": "components/lenovo.sgmodule"
+    },
+    {
+      "id": "xiaomi-services",
+      "name": "小米服务 / 米家 / 小米金融",
+      "description": "adv、playScreen 与两个已知运动广告接口；不解密其他华米域，不拒绝 App 初始化或设备控制。",
+      "enabledByDefault": true,
+      "path": "components/xiaomi-services.sgmodule"
+    },
+    {
+      "id": "moji",
+      "name": "墨迹天气",
+      "description": "adoss/adlink 专用素材目录；保留天气、预警和定位。",
+      "enabledByDefault": true,
+      "path": "components/moji.sgmodule"
+    },
+    {
+      "id": "manhuaren",
+      "name": "漫画人",
+      "description": "GetStartPageAds 开屏接口；保留漫画和收藏。",
+      "enabledByDefault": true,
+      "path": "components/manhuaren.sgmodule"
+    },
+    {
+      "id": "meituan-dianping",
+      "name": "美团 / 大众点评",
+      "description": "精确开屏与 advertisement 接口；不采用共享 CDN 尺寸/文件名猜测。",
+      "enabledByDefault": true,
+      "path": "components/meituan-dianping.sgmodule"
+    },
+    {
+      "id": "mwee",
+      "name": "美味不用等",
+      "description": "ad/getstartad 专用接口；保留排队和订座。",
+      "enabledByDefault": true,
+      "path": "components/mwee.sgmodule"
+    },
+    {
+      "id": "miaopai",
+      "name": "秒拍",
+      "description": "ad 专用路径；保留视频。",
+      "enabledByDefault": true,
+      "path": "components/miaopai.sgmodule"
+    },
+    {
+      "id": "mafengwo",
+      "name": "马蜂窝",
+      "description": "ad 专用路径；保留攻略、搜索和订单。",
+      "enabledByDefault": true,
+      "path": "components/mafengwo.sgmodule"
+    },
+    {
+      "id": "mixc",
+      "name": "一点万象 / MixC",
+      "description": "ad 专用 API；保留会员卡和商场服务。",
+      "enabledByDefault": true,
+      "path": "components/mixc.sgmodule"
+    },
+    {
+      "id": "netease-mail",
+      "name": "网易邮箱大师",
+      "description": "mmad 与 searchMultiAds/showAds；保留邮件收发、登录和附件。",
+      "enabledByDefault": true,
+      "path": "components/netease-mail.sgmodule"
+    },
+    {
+      "id": "netease-moneykeeper",
+      "name": "网易有钱",
+      "description": "searchMultiAds 专用配置；保留账本数据。",
+      "enabledByDefault": true,
+      "path": "components/netease-moneykeeper.sgmodule"
+    },
+    {
+      "id": "netease-cloudmusic",
+      "name": "网易云音乐",
+      "description": "仅拦截两个明确广告素材域；不解密 music.163.com 业务 API，保护播放、歌单、评论和账号。",
+      "enabledByDefault": true,
+      "path": "components/netease-cloudmusic.sgmodule"
+    },
+    {
+      "id": "netease-kaola",
+      "name": "网易考拉",
+      "description": "openad 开屏接口；保留商品、订单和支付。",
+      "enabledByDefault": true,
+      "path": "components/netease-kaola.sgmodule"
+    },
+    {
+      "id": "netease-you",
+      "name": "网易严选",
+      "description": "BootMedia 启动媒体；保留商品、订单和支付。",
+      "enabledByDefault": true,
+      "path": "components/netease-you.sgmodule"
+    },
+    {
+      "id": "netease-snailread",
+      "name": "网易蜗牛读书",
+      "description": "ad 专用路径；保留阅读、书架和账号。",
+      "enabledByDefault": true,
+      "path": "components/netease-snailread.sgmodule"
+    },
+    {
+      "id": "national-geographic",
+      "name": "国家地理",
+      "description": "ad/adverts 专用路径；保留文章与图片。",
+      "enabledByDefault": true,
+      "path": "components/national-geographic.sgmodule"
+    },
+    {
+      "id": "niu",
+      "name": "小牛电动",
+      "description": "advertisement 专用 API；保留车辆和账号。",
+      "enabledByDefault": true,
+      "path": "components/niu.sgmodule"
+    },
+    {
+      "id": "naver-tv",
+      "name": "Naver TV",
+      "description": "广告调用接口；不匹配视频地址。",
+      "enabledByDefault": true,
+      "path": "components/naver-tv.sgmodule"
+    },
+    {
+      "id": "oray",
+      "name": "向日葵 / Oray",
+      "description": "ad/adver、iOS 启动和推广素材专用 API；保留远程控制、设备、更新和账号。",
+      "enabledByDefault": true,
+      "path": "components/oray.sgmodule"
+    },
+    {
+      "id": "piaogen",
+      "name": "票根",
+      "description": "launchScreen 素材目录；保留票据业务。",
+      "enabledByDefault": true,
+      "path": "components/piaogen.sgmodule"
+    },
+    {
+      "id": "pinduoduo",
+      "name": "拼多多",
+      "description": "cappuccino/splash 与专用 DSP 域；保留商品、订单和支付。",
+      "enabledByDefault": true,
+      "path": "components/pinduoduo.sgmodule"
+    },
+    {
+      "id": "peanut-wifi",
+      "name": "花生地铁 WiFi",
+      "description": "emptyAd/adNew 专用接口；保留联网认证。",
+      "enabledByDefault": true,
+      "path": "components/peanut-wifi.sgmodule"
+    },
+    {
+      "id": "pconline",
+      "name": "太平洋电脑网 / 汽车网",
+      "description": "广告分析和 ad2p 接口；不阻断普通预加载。",
+      "enabledByDefault": true,
+      "path": "components/pconline.sgmodule"
+    },
+    {
+      "id": "qyer",
+      "name": "穷游",
+      "description": "startpage 与 media/ad；不拒绝混合 config/get。",
+      "enabledByDefault": true,
+      "path": "components/qyer.sgmodule"
+    },
+    {
+      "id": "qinbaobao",
+      "name": "亲宝宝",
+      "description": "ad 专用 API；保留相册和成长记录。",
+      "enabledByDefault": true,
+      "path": "components/qinbaobao.sgmodule"
+    },
+    {
+      "id": "qidian",
+      "name": "起点读书",
+      "description": "getsplashscreen 开屏接口；保留书架、阅读、账号和付费内容。",
+      "enabledByDefault": true,
+      "path": "components/qidian.sgmodule"
+    },
+    {
+      "id": "rrtv",
+      "name": "人人视频",
+      "description": "广告配置/Advertising/ad 专用入口；保留视频播放和账号。",
+      "enabledByDefault": true,
+      "path": "components/rrtv.sgmodule"
+    },
+    {
+      "id": "relx",
+      "name": "RELX 悦刻",
+      "description": "screen/advert/random 专用入口；保留设备与账户功能。",
+      "enabledByDefault": true,
+      "path": "components/relx.sgmodule"
+    },
+    {
+      "id": "tianqitong",
+      "name": "天气通",
+      "description": "tqtad/tqt_sdkad 与 advert API；保留天气和预警。",
+      "enabledByDefault": true,
+      "path": "components/tianqitong.sgmodule"
+    },
+    {
+      "id": "sohu",
+      "name": "搜狐新闻",
+      "description": "adsense 与明确推广素材；不拒绝播放器 bootstrap 或正常控制配置。",
+      "enabledByDefault": true,
+      "path": "components/sohu.sgmodule"
+    },
+    {
+      "id": "smzdm",
+      "name": "什么值得买",
+      "description": "启动广告与混合页面中的强标记广告；不解密共享 zdmimg CDN，不修改会员或优惠权益。",
+      "enabledByDefault": true,
+      "path": "components/smzdm.sgmodule"
+    },
+    {
+      "id": "shouqi",
+      "name": "首汽约车",
+      "description": "recommendADs 专用接口；保留叫车、行程和支付。",
+      "enabledByDefault": true,
+      "path": "components/shouqi.sgmodule"
+    },
+    {
+      "id": "suning",
+      "name": "苏宁易购",
+      "description": "ad 素材目录与广告位接口；保留商品、订单和支付。",
+      "enabledByDefault": true,
+      "path": "components/suning.sgmodule"
+    },
+    {
+      "id": "sf-express",
+      "name": "顺丰速运",
+      "description": "app/ad 与 info-flow-adver；保留查件、寄件、支付和地址。",
+      "enabledByDefault": true,
+      "path": "components/sf-express.sgmodule"
+    },
+    {
+      "id": "sf-hive",
+      "name": "丰巢",
+      "description": "ad 专用 API；保留取件、寄件和账号。",
+      "enabledByDefault": true,
+      "path": "components/sf-hive.sgmodule"
+    },
+    {
+      "id": "snail-sleep",
+      "name": "蜗牛睡眠",
+      "description": "screen 与 adTask；保留睡眠记录和音频。",
+      "enabledByDefault": true,
+      "path": "components/snail-sleep.sgmodule"
+    },
+    {
+      "id": "futu",
+      "name": "富途",
+      "description": "仅处理 api.futunn.com 的 ad 专用路径；不解密编号交易 API，保留行情、交易和账号。",
+      "enabledByDefault": false,
+      "path": "components/futu.sgmodule"
+    },
+    {
+      "id": "tencent-game",
+      "name": "腾讯游戏启动广告",
+      "description": "splash_screen_info；不拦截游戏按钮、登录或对局接口。",
+      "enabledByDefault": true,
+      "path": "components/tencent-game.sgmodule"
+    },
+    {
+      "id": "tencent-map",
+      "name": "腾讯地图",
+      "description": "mwaSplash 开屏素材；保留地图、路线、定位和导航。",
+      "enabledByDefault": true,
+      "path": "components/tencent-map.sgmodule"
+    },
+    {
+      "id": "tencent-sports",
+      "name": "腾讯体育",
+      "description": "SSP 广告入口；保留赛事、比分和视频。",
+      "enabledByDefault": true,
+      "path": "components/tencent-sports.sgmodule"
+    },
+    {
+      "id": "tencent-music",
+      "name": "QQ 音乐启动广告",
+      "description": "t_splash_info/targeted_ads 素材；保留音乐播放、歌单和账号。",
+      "enabledByDefault": true,
+      "path": "components/tencent-music.sgmodule"
+    },
+    {
+      "id": "tuniu",
+      "name": "途牛",
+      "description": "operation/splash 专用接口；保留搜索、预订、订单和支付。",
+      "enabledByDefault": true,
+      "path": "components/tuniu.sgmodule"
+    },
+    {
+      "id": "tvbc",
+      "name": "TVB / 埋堆堆直播",
+      "description": "ad/advert 专用 API；不匹配视频流。",
+      "enabledByDefault": true,
+      "path": "components/tvbc.sgmodule"
+    },
+    {
+      "id": "ucar",
+      "name": "神州专车",
+      "description": "已知 img01 主机的 adpos/share 素材目录；不解密其他 CDN，保留叫车、行程和支付。",
+      "enabledByDefault": true,
+      "path": "components/ucar.sgmodule"
+    },
+    {
+      "id": "umeng-ads",
+      "name": "友盟广告消息",
+      "description": "admsg 专用入口；不阻断普通推送。",
+      "enabledByDefault": true,
+      "path": "components/umeng-ads.sgmodule"
+    },
+    {
+      "id": "umetrip",
+      "name": "航旅纵横",
+      "description": "advert 素材目录；保留航班、值机和行程。",
+      "enabledByDefault": true,
+      "path": "components/umetrip.sgmodule"
+    },
+    {
+      "id": "vue-video",
+      "name": "VUE 视频",
+      "description": "ad 专用 API；保留编辑和导出。",
+      "enabledByDefault": true,
+      "path": "components/vue-video.sgmodule"
+    },
+    {
+      "id": "variflight",
+      "name": "飞常准",
+      "description": "ad/advert 专用 API；保留航班和行程。",
+      "enabledByDefault": true,
+      "path": "components/variflight.sgmodule"
+    },
+    {
+      "id": "vistopia",
+      "name": "看理想",
+      "description": "home/advertisement 专用接口；保留音频、购买和账号。",
+      "enabledByDefault": true,
+      "path": "components/vistopia.sgmodule"
+    },
+    {
+      "id": "wedoctor",
+      "name": "微医",
+      "description": "getpopad 专用弹窗；保留挂号、问诊和账号。",
+      "enabledByDefault": true,
+      "path": "components/wedoctor.sgmodule"
+    },
+    {
+      "id": "weico",
+      "name": "Weico",
+      "description": "get_coopen_ads 专用接口；保留微博正文与账号。",
+      "enabledByDefault": true,
+      "path": "components/weico.sgmodule"
+    },
+    {
+      "id": "weidian",
+      "name": "微店",
+      "description": "home.splash 开屏接口；保留商品、订单和支付。",
+      "enabledByDefault": true,
+      "path": "components/weidian.sgmodule"
+    },
+    {
+      "id": "wallstcn",
+      "name": "华尔街见闻",
+      "description": "advertising 专用 API；保留文章和行情。",
+      "enabledByDefault": true,
+      "path": "components/wallstcn.sgmodule"
+    },
+    {
+      "id": "xiachufang",
+      "name": "下厨房",
+      "description": "ad 专用 API；保留菜谱、收藏和账号。",
+      "enabledByDefault": true,
+      "path": "components/xiachufang.sgmodule"
+    },
+    {
+      "id": "xunyou",
+      "name": "迅游加速器",
+      "description": "splash_ad/ad_urls/ads 专用入口；保留加速和账号。",
+      "enabledByDefault": true,
+      "path": "components/xunyou.sgmodule"
+    },
+    {
+      "id": "ximalaya",
+      "name": "喜马拉雅",
+      "description": "固定的广告专用域与混合响应中的强标记广告；不删除正常推荐、直播或会员入口。",
+      "enabledByDefault": true,
+      "path": "components/ximalaya.sgmodule"
+    },
+    {
+      "id": "xueqiu",
+      "name": "雪球",
+      "description": "promotion 中的展示/信息流/搜索广告；保留行情、交易和普通品牌搜索。",
+      "enabledByDefault": true,
+      "path": "components/xueqiu.sgmodule"
+    },
+    {
+      "id": "xiaohongshu",
+      "name": "小红书",
+      "description": "开屏、广告资源、广告素材域与混合信息流中的强标记广告；保留笔记、评论和账号。",
+      "enabledByDefault": true,
+      "path": "components/xiaohongshu.sgmodule"
+    },
+    {
+      "id": "yinxiang",
+      "name": "印象笔记",
+      "description": "ads 专用路径；保留笔记、同步和账号。",
+      "enabledByDefault": true,
+      "path": "components/yinxiang.sgmodule"
+    },
+    {
+      "id": "yunmai",
+      "name": "云麦好轻",
+      "description": "ios/ad 专用 API；保留健康与设备数据。",
+      "enabledByDefault": true,
+      "path": "components/yunmai.sgmodule"
+    },
+    {
+      "id": "zhuishushenqi",
+      "name": "追书神器",
+      "description": "advert 与 iOS 开屏；保留通知、书架同步、更新检查和付费内容。",
+      "enabledByDefault": true,
+      "path": "components/zhuishushenqi.sgmodule"
+    },
+    {
+      "id": "zuoyebang",
+      "name": "作业帮",
+      "description": "adx 专用入口；保留题目、课程和账号。",
+      "enabledByDefault": true,
+      "path": "components/zuoyebang.sgmodule"
+    },
+    {
+      "id": "zuiyou",
+      "name": "最右",
+      "description": "ad 专用 API；保留帖子、评论和账号。",
+      "enabledByDefault": true,
+      "path": "components/zuiyou.sgmodule"
+    },
+    {
+      "id": "zhan",
+      "name": "小站教育",
+      "description": "newAd 专用接口；保留课程和学习记录。",
+      "enabledByDefault": true,
+      "path": "components/zhan.sgmodule"
+    },
+    {
+      "id": "zhangyue",
+      "name": "掌阅广告服务",
+      "description": "zycl/api/ad 与 saad/ad；保留书架、阅读、账号和付费内容。",
+      "enabledByDefault": true,
+      "path": "components/zhangyue.sgmodule"
+    },
+    {
+      "id": "cainiao",
+      "name": "菜鸟",
+      "description": "两个精确 MTop 主机上的 ads.mshow/flyad 广告接口；不解密整个菜鸟域，保留物流、取件、寄件和账号。",
+      "enabledByDefault": true,
+      "path": "components/cainiao.sgmodule"
+    },
+    {
+      "id": "railway-12306",
+      "name": "铁路 12306",
+      "description": "官方 ad.12306.cn 广告服务；保留登录、购票、订单和支付。",
+      "enabledByDefault": true,
+      "path": "components/railway-12306.sgmodule"
+    },
+    {
+      "id": "coolapk",
+      "name": "酷安",
+      "description": "首页、详情与回复列表中仅删除带强广告标记的对象；解析失败原样返回。",
+      "enabledByDefault": true,
+      "path": "components/coolapk.sgmodule"
+    },
+    {
+      "id": "quark",
+      "name": "夸克",
+      "description": "open-cms 混合响应中只删除强广告标记对象；保留搜索、网盘和账号。",
+      "enabledByDefault": true,
+      "path": "components/quark.sgmodule"
+    },
+    {
+      "id": "didi",
+      "name": "滴滴出行",
+      "description": "首页/feed/activity/营销通知混合响应中只删除强广告标记对象；保留叫车、行程、安全通知、支付和账号。",
+      "enabledByDefault": true,
+      "path": "components/didi.sgmodule"
+    },
+    {
+      "id": "fliggy",
+      "name": "飞猪",
+      "description": "当前开屏/营销屏资源接口；保留搜索、预订、订单和支付。",
+      "enabledByDefault": true,
+      "path": "components/fliggy.sgmodule"
+    },
+    {
+      "id": "netease-news",
+      "name": "网易新闻",
+      "description": "当前 nc/gl 启动推广入口；保留新闻、评论和账号。",
+      "enabledByDefault": true,
+      "path": "components/netease-news.sgmodule"
+    },
+    {
+      "id": "shihuo",
+      "name": "识货",
+      "description": "当前 sh-adapi 开屏/广告接口；不阻断普通设备信息上报。",
+      "enabledByDefault": true,
+      "path": "components/shihuo.sgmodule"
+    },
+    {
+      "id": "kuwo",
+      "name": "酷我音乐",
+      "description": "广告专用域和混合推荐响应中的强广告标记；不修改会员、付费或音乐地址。",
+      "enabledByDefault": true,
+      "path": "components/kuwo.sgmodule"
+    },
+    {
+      "id": "boohee",
+      "name": "薄荷健康",
+      "description": "当前弹窗/推广横幅与混合首页中的强广告标记；保留健康记录、设备和账号。",
+      "enabledByDefault": true,
+      "path": "components/boohee.sgmodule"
+    },
+    {
+      "id": "foodie",
+      "name": "Foodie",
+      "description": "banner/notice 混合响应中只删除强广告标记；普通公告原样保留。",
+      "enabledByDefault": true,
+      "path": "components/foodie.sgmodule"
+    },
+    {
+      "id": "hanju-tv",
+      "name": "韩剧 TV",
+      "description": "旧启动响应中只删除强广告标记；无法识别时原样返回。",
+      "enabledByDefault": true,
+      "path": "components/hanju-tv.sgmodule"
+    },
+    {
+      "id": "mogo-renter",
+      "name": "蘑菇租房",
+      "description": "首页启动响应中只删除强广告标记；保留房源和账号。",
+      "enabledByDefault": true,
+      "path": "components/mogo-renter.sgmodule"
+    },
+    {
+      "id": "score",
+      "name": "球多多 / SCore",
+      "description": "guideimage 响应中只删除强广告标记；保留赛事内容。",
+      "enabledByDefault": true,
+      "path": "components/score.sgmodule"
+    },
+    {
+      "id": "xiaochao-brain",
+      "name": "小潮脑 / 小睡眠",
+      "description": "startup 响应中只删除强广告标记；保留睡眠内容。",
+      "enabledByDefault": true,
+      "path": "components/xiaochao-brain.sgmodule"
+    },
+    {
+      "id": "yizhibo",
+      "name": "一直播",
+      "description": "配置响应中只删除强广告标记；保留直播和账号。",
+      "enabledByDefault": true,
+      "path": "components/yizhibo.sgmodule"
+    },
+    {
+      "id": "youku",
+      "name": "优酷",
+      "description": "当前开屏、信息流、搜索和播放页显式广告；保留正片、播放地址、账号和会员状态。",
+      "enabledByDefault": true,
+      "path": "components/youku.sgmodule"
+    },
+    {
+      "id": "yueme-tv",
+      "name": "悦Me TV",
+      "description": "当前域名上的启动配置只删除强广告标记；不再匹配漂移 IP 或整响应拒绝。",
+      "enabledByDefault": true,
+      "path": "components/yueme-tv.sgmodule"
+    },
+    {
+      "id": "sogou-input",
+      "name": "搜狗输入法",
+      "description": "iOS 启动推广页；保留输入、词库、账号和更新。",
+      "enabledByDefault": true,
+      "path": "components/sogou-input.sgmodule"
+    },
+    {
+      "id": "super-friday",
+      "name": "超级课程表 / SuperFriday",
+      "description": "专用广告子域；不再使用旧漂移 IP。",
+      "enabledByDefault": true,
+      "path": "components/super-friday.sgmodule"
+    },
+    {
+      "id": "waitwaitpay",
+      "name": "等等付 / WaitWaitPay",
+      "description": "启动 splash 精确接口；保留商户、支付和账户接口。",
+      "enabledByDefault": true,
+      "path": "components/waitwaitpay.sgmodule"
+    },
+    {
+      "id": "zhibo8",
+      "name": "直播吧 / 球迷报",
+      "description": "活动和 iOS 配置响应中只删除强广告标记；保留赛事、比分和普通配置。",
+      "enabledByDefault": true,
+      "path": "components/zhibo8.sgmodule"
+    },
+    {
+      "id": "lechange",
+      "name": "乐橙 / Lechange",
+      "description": "只拒绝明确命名的 advertisementPush 营销推送接口；保留设备告警、实时预览和账号通知。",
+      "enabledByDefault": true,
+      "path": "components/lechange.sgmodule"
+    },
+    {
+      "id": "huazhu",
+      "name": "华住会",
+      "description": "酒店广告接口与弹窗通知中的显式广告；保留预订、订单、会员、更新和正常服务通知。",
+      "enabledByDefault": true,
+      "path": "components/huazhu.sgmodule"
+    },
+    {
+      "id": "youtube-plus",
+      "name": "YouTube++ 第三方客户端",
+      "description": "第三方客户端 pagead 专用 API；不影响官方 YouTube 组件。",
+      "enabledByDefault": true,
+      "path": "components/youtube-plus.sgmodule"
+    }
+  ],
+  "extras": [
+    {
+      "id": "zhihu-link-direct",
+      "name": "知乎链接直达",
+      "description": "保留 ZhihuOpt 的去中转便利功能；独立启用，不修改 User-Agent。",
+      "enabledByDefault": false,
+      "path": "extras/zhihu-link-direct.sgmodule"
+    },
+    {
+      "id": "xianyu-ui",
+      "name": "闲鱼可选 UI 精简",
+      "description": "保留旧模块的搜索建议、消息页推荐和个人页推荐精简；可能隐藏非广告推荐，默认不并入统一模块。",
+      "enabledByDefault": false,
+      "path": "extras/xianyu-ui.sgmodule"
+    }
+  ],
+  "files": [
+    {
+      "path": "audit/app-parity.json",
+      "bytes": 219205,
+      "sha256": "445f38af5f56edd861bef44c75b59cc8673ccdc9d647b06c3a79c4709c1da4f1"
+    },
+    {
+      "path": "audit/legacy-inventory.json",
+      "bytes": 613495,
+      "sha256": "588d3baceded378e655e3103999eba056421460fd70d27a685c0c37416cc492e"
+    },
+    {
+      "path": "BlockAd.Unified.sgmodule",
+      "bytes": 45602,
+      "sha256": "5ebba4093ee1f4317350c0e802e22144d13dfd8809025e31b938ca3be5a565be"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "bytes": 5751,
+      "sha256": "a14fe3808d6a02a45242966bc5db8a8baadc7e334d1633d6be56681275d5cc09"
+    },
+    {
+      "path": "components/21jingji.sgmodule",
+      "bytes": 481,
+      "sha256": "a5931d40589f61aa23332461264273557d5fb986a270bac3f579108abf3e1e88"
+    },
+    {
+      "path": "components/4gtv.sgmodule",
+      "bytes": 515,
+      "sha256": "f287c58b05adad4c2c8be453d0dba470ff9f5760e2abe695bc53435421736f6b"
+    },
+    {
+      "path": "components/58.sgmodule",
+      "bytes": 665,
+      "sha256": "20936288a9d033cf07010f0f536630b50c9151aa04abb839045d53c15f7590ef"
+    },
+    {
+      "path": "components/acfun.sgmodule",
+      "bytes": 505,
+      "sha256": "7338b5f14d03843f201b4056689799a0af801c20752a8c20f92c395d6f74a738"
+    },
+    {
+      "path": "components/aimeiju.sgmodule",
+      "bytes": 492,
+      "sha256": "96d2b13e63585d6ea06c63fd37d56187c1acd8c36855a66765d21df9c222eac8"
+    },
+    {
+      "path": "components/amap.sgmodule",
+      "bytes": 1567,
+      "sha256": "ae27a65d7453d60fb6ff9b94c511d98ebb17d025032e90b127eab8b45f9a908d"
+    },
+    {
+      "path": "components/baby-health.sgmodule",
+      "bytes": 796,
+      "sha256": "fd61a4bd049a55ceef192bcfc31552effebd695ff1410d7e514b02e1a9dc3faf"
+    },
+    {
+      "path": "components/baidu-input.sgmodule",
+      "bytes": 629,
+      "sha256": "d7686641262481ce65140e5180bf21b7de898a55e2ad272c1d3113039bbf2ce3"
+    },
+    {
+      "path": "components/baidu-map.sgmodule",
+      "bytes": 545,
+      "sha256": "2dfd57b63f69d55669e9089399cd32ab83c6ca7bf4f7a4cf7c6a8c5f77d8f69b"
+    },
+    {
+      "path": "components/baidu-netdisk.sgmodule",
+      "bytes": 1030,
+      "sha256": "7be640b3ec7c23c5a843d064f21ccf13386d094f547bb295ddea5a46bf32a191"
+    },
+    {
+      "path": "components/baidu-tieba.sgmodule",
+      "bytes": 1205,
+      "sha256": "f5a3659a123836ef50a18887c04f06f395ac7842580688196f6c45d912390400"
+    },
+    {
+      "path": "components/beike.sgmodule",
+      "bytes": 516,
+      "sha256": "0a5516cdd44fee8a47b5bec950154425ebde3f8dd3cf63531e83c629ccab4918"
+    },
+    {
+      "path": "components/beitai-kitchen.sgmodule",
+      "bytes": 531,
+      "sha256": "a8985648f0e7ff5ebd1076a7bbd4f8cc84c78462b4763341030db395ccbb3c7f"
+    },
+    {
+      "path": "components/bishijie.sgmodule",
+      "bytes": 501,
+      "sha256": "737ddf2ddea4eea19578b5e5d69a48bec4af787000c28682ab25d5fa9db5f313"
+    },
+    {
+      "path": "components/bodivis.sgmodule",
+      "bytes": 508,
+      "sha256": "9809ac33c492b7cf4c11219f85777215f20a932d7a6f52351e3e7341d3139fa3"
+    },
+    {
+      "path": "components/boohee.sgmodule",
+      "bytes": 1069,
+      "sha256": "9dfc19961c03641392bf191a29f4ba8bf73ee685d5eb8c58f66624ee0096c465"
+    },
+    {
+      "path": "components/caijing.sgmodule",
+      "bytes": 605,
+      "sha256": "56ee2c700ac11910639d4c2a362fe0078c983c36cc438b77833771e5bdd151f5"
+    },
+    {
+      "path": "components/cainiao.sgmodule",
+      "bytes": 782,
+      "sha256": "f1f1b8af37d2cbd4382d6b54a3f87e1aa2d98612fee0fb98d35cc705c4b5678b"
+    },
+    {
+      "path": "components/camscanner.sgmodule",
+      "bytes": 521,
+      "sha256": "7fc45a1cc22df539bf60a9e232c44d1603e686bc2ba862262e74f6774775a9cd"
+    },
+    {
+      "path": "components/caocao.sgmodule",
+      "bytes": 493,
+      "sha256": "dfe83333e9db97563c9c93b9ba03326217a47ecdc9501030e05ce494062f7144"
+    },
+    {
+      "path": "components/chelaile.sgmodule",
+      "bytes": 1116,
+      "sha256": "5dfdd36813744c59a46e5b929c24f600ce8b1f6a112a2f761ee72ba7e0663f4f"
+    },
+    {
+      "path": "components/china-mobile.sgmodule",
+      "bytes": 561,
+      "sha256": "669b7842bf5a0c50e6b7def1750669c40b2b44f435d9f2f435a35a933449b1e7"
+    },
+    {
+      "path": "components/china-unicom.sgmodule",
+      "bytes": 502,
+      "sha256": "95697f253bd46c06dcb5de6901a03dde35d1f011bfe1106bcd8d1dd965d25690"
+    },
+    {
+      "path": "components/cloud189.sgmodule",
+      "bytes": 629,
+      "sha256": "5fefcc7e9cc8013c396e1d64c16c7b266371733ba47f429db380c37035cc0aa8"
+    },
+    {
+      "path": "components/cntv.sgmodule",
+      "bytes": 468,
+      "sha256": "b739cfb562c62f306a316a050a014e8624f4919f9ab4ec930cef1655f8ce165b"
+    },
+    {
+      "path": "components/coolapk.sgmodule",
+      "bytes": 771,
+      "sha256": "0e1a35ec8360190a7e94ccf94ff1689ed6a630de6a7605ab475a12be4f62a6f5"
+    },
+    {
+      "path": "components/csdn.sgmodule",
+      "bytes": 605,
+      "sha256": "09c63ccb14dad66e3edfa9ebd9e3fbfe4bc3928f633edaf57438e3b6e760507a"
+    },
+    {
+      "path": "components/ctrip.sgmodule",
+      "bytes": 507,
+      "sha256": "f22338b024c371d172ca6a4c995ee339fb5ae41bf1b4e51563a252971d21ebe0"
+    },
+    {
+      "path": "components/dangdang.sgmodule",
+      "bytes": 517,
+      "sha256": "5964cfedc18aeb194e44adf12e23b36d2079edfa352ac15021dfd52644498fad"
+    },
+    {
+      "path": "components/daoyu.sgmodule",
+      "bytes": 493,
+      "sha256": "70aa6d9d20d4308caa65a9b328ed3a80def2d905d04d4f57b30e20bdd5234bd6"
+    },
+    {
+      "path": "components/ddpai.sgmodule",
+      "bytes": 509,
+      "sha256": "2036195feaa06fff1a55e3bd9b5b5f1aa63f52193dc5b7ffb79cf2ff721f0435"
+    },
+    {
+      "path": "components/dewu.sgmodule",
+      "bytes": 638,
+      "sha256": "607774e830fb7dbfaee2243691826902bdb110174e9d20d49c1f122b844ca31d"
+    },
+    {
+      "path": "components/dianshijia.sgmodule",
+      "bytes": 600,
+      "sha256": "607f916a80a9b28378b9ada71592afc4d8c870225280e6e17cc9b312271f155b"
+    },
+    {
+      "path": "components/dida.sgmodule",
+      "bytes": 631,
+      "sha256": "f513b7233a5e2bfd84302feee4700e641d0f371d69ab35eb453ccfc273737a9e"
+    },
+    {
+      "path": "components/didi.sgmodule",
+      "bytes": 964,
+      "sha256": "0fdfe345f435ee3ae36590ef8746bcbc554bec6dee18b3cbe03ff1b48912f3f1"
+    },
+    {
+      "path": "components/dingdong-maicai.sgmodule",
+      "bytes": 513,
+      "sha256": "89a4cce7bcd8e5f99e039f5b8c3a7583313161049210be1a7b9ea0e5aba3b148"
+    },
+    {
+      "path": "components/douban.sgmodule",
+      "bytes": 499,
+      "sha256": "96cd52cce488ed9d08e201e579614af0afa99f01092ade4d90e3a36704ad4739"
+    },
+    {
+      "path": "components/douyin.sgmodule",
+      "bytes": 2280,
+      "sha256": "e38c1d35cb1c43367c58224de5f243e11de1fe3fd46ef90140b6a6c7ef2ff3d3"
+    },
+    {
+      "path": "components/douyu.sgmodule",
+      "bytes": 516,
+      "sha256": "9a0da0b16f8e32327596186df4c1515c5ed990a47cc9cd307938672b9eaed1de"
+    },
+    {
+      "path": "components/edaijia.sgmodule",
+      "bytes": 468,
+      "sha256": "0609cdecaaf68ba8b61f2fa030da186d2451136dfc04db9e663445217f48af9c"
+    },
+    {
+      "path": "components/elong.sgmodule",
+      "bytes": 504,
+      "sha256": "d733c070fa6f26f3f9b5fd41b4489c034cd4d611934152c80c547159c49519fc"
+    },
+    {
+      "path": "components/ezviz.sgmodule",
+      "bytes": 470,
+      "sha256": "911ee5c49ca03b0a6eb97ccc6d2b98d10f46967cfa511c2608f2b8191ca62b7e"
+    },
+    {
+      "path": "components/facebeauty.sgmodule",
+      "bytes": 651,
+      "sha256": "98cb57cd878176091a6edb38aed5ad37703763ff4bde8eca45bb380b76af7f61"
+    },
+    {
+      "path": "components/fanqie.sgmodule",
+      "bytes": 2017,
+      "sha256": "046964500b7dca3a46d0f692cff637404b062213384436f739eaa9ba94a4b00d"
+    },
+    {
+      "path": "components/feng.sgmodule",
+      "bytes": 492,
+      "sha256": "aaf669b67a08de187d3da91f885044c632f2c3696f8d5697dd2e5092dcc704f6"
+    },
+    {
+      "path": "components/fengwatch.sgmodule",
+      "bytes": 537,
+      "sha256": "f426fd235b4a29ed74160fde791ceab6b0c4f8d312ce09ce7b6087425e1b3629"
+    },
+    {
+      "path": "components/fliggy.sgmodule",
+      "bytes": 707,
+      "sha256": "c97df30d7912b8fba13197cdca71fbb5fa4364e802dcd363254478c978a9e409"
+    },
+    {
+      "path": "components/flyertea.sgmodule",
+      "bytes": 530,
+      "sha256": "114fe829d6ff04d59814bd7f6d1adb2cd77a209d24c73cb81ea4e610be77eb36"
+    },
+    {
+      "path": "components/foodie.sgmodule",
+      "bytes": 729,
+      "sha256": "9c847b3b3db5904fd0ea6fcfc1705d7bc604b088097c7f2817c55768ff51bd1e"
+    },
+    {
+      "path": "components/fotoable.sgmodule",
+      "bytes": 481,
+      "sha256": "d31567dd603ac6907de085b7af714001edff4659a321f8f8b8a1941e11b72698"
+    },
+    {
+      "path": "components/futu.sgmodule",
+      "bytes": 533,
+      "sha256": "1422e8bc62a321f144f5e731f16d25b0468112f89ab0e51db5b00b0fcd612f8d"
+    },
+    {
+      "path": "components/general-networks.sgmodule",
+      "bytes": 538,
+      "sha256": "1d4c9ce4bac889ef8fa8a6456a736dd7c1b2865ba8602850a32a463555ed7ee3"
+    },
+    {
+      "path": "components/gofun.sgmodule",
+      "bytes": 515,
+      "sha256": "3f1a9a34f50a9e5bd25e4c3b522b96e7066f6500821e8a09825ab2ca9e2bd463"
+    },
+    {
+      "path": "components/hangzhou-city-card.sgmodule",
+      "bytes": 487,
+      "sha256": "3536f16d491b52deddbf9057515f86c6556db7c240adb42aa3ae1b229bccca12"
+    },
+    {
+      "path": "components/hanju-tv.sgmodule",
+      "bytes": 713,
+      "sha256": "e24387b7c821ffc97c936a4217ff784b39cd74f994d558f76285faa4399523f1"
+    },
+    {
+      "path": "components/huazhu.sgmodule",
+      "bytes": 879,
+      "sha256": "fa17fc1bf1b36ab1bbf4330952bff07b579be629fbe304b361fb7cfa440e24bf"
+    },
+    {
+      "path": "components/huomao.sgmodule",
+      "bytes": 479,
+      "sha256": "74a5d876453eda5f0c7c14b9981141d13b45dc69e5e0cf3b57f57f88ea6bb618"
+    },
+    {
+      "path": "components/huya.sgmodule",
+      "bytes": 509,
+      "sha256": "040d5650e7f24ab819e3d5069ae5028baa39713a085ad6112648861ef6a0195c"
+    },
+    {
+      "path": "components/i4.sgmodule",
+      "bytes": 510,
+      "sha256": "ad588d0882ddba19a3b72083bdf882f26054d6d0d2202c5611651ac8e32956d3"
+    },
+    {
+      "path": "components/icleaner.sgmodule",
+      "bytes": 497,
+      "sha256": "980bfd58fa5c92ae1366048a323425e27af211e6b9da06b324fe3d9d9ce20930"
+    },
+    {
+      "path": "components/ifly-input.sgmodule",
+      "bytes": 512,
+      "sha256": "66caf9a038284836495db65643347a8aa30d30c5a1177613b5c78db36c9fed3c"
+    },
+    {
+      "path": "components/ifreetime.sgmodule",
+      "bytes": 636,
+      "sha256": "50dea3df4714d1d61e60e85a958bb1c3d2e992c1deb14ae18bc32856a1fd32c0"
+    },
+    {
+      "path": "components/ikos-pro.sgmodule",
+      "bytes": 529,
+      "sha256": "5fff1caf8cac9c47acc50a810a6e1b31fedf9a0b71fd08b929dda3080a9e5882"
+    },
+    {
+      "path": "components/inanning.sgmodule",
+      "bytes": 492,
+      "sha256": "ac9ec2a8a35d52f6abed336cdbed5ae2c5160995b7b1cb8ae9f5b4ea16f4a6a7"
+    },
+    {
+      "path": "components/inoreader.sgmodule",
+      "bytes": 472,
+      "sha256": "7cee7d23d5a61f3dfd2e365106d201894cad561274419363eaa42c0785deb80f"
+    },
+    {
+      "path": "components/iqiyi.sgmodule",
+      "bytes": 664,
+      "sha256": "fc2d74cd3d894236095ba4de08600799505227c2c4a4c5fe57fa2a22a66df8c8"
+    },
+    {
+      "path": "components/ireader.sgmodule",
+      "bytes": 705,
+      "sha256": "34c8ce02627ea43f419b41c6e0389d0492c3770634342bfee2ac0a8dc9820d15"
+    },
+    {
+      "path": "components/jd.sgmodule",
+      "bytes": 1522,
+      "sha256": "657fc593994f84aabf5bbb4a02ab6ab2d133fa3d4d7132a305828e5048c5270a"
+    },
+    {
+      "path": "components/jiakaobaodian.sgmodule",
+      "bytes": 553,
+      "sha256": "5649a4ad3c946a89ecb53862ac4bd853bae9ad87583656a34c7d31aaba3a316f"
+    },
+    {
+      "path": "components/jinse.sgmodule",
+      "bytes": 472,
+      "sha256": "493421a839d4f3c07a85e820dd7d43bcc3940dbf5e5b0b1f66f89205b977273c"
+    },
+    {
+      "path": "components/jxedt.sgmodule",
+      "bytes": 476,
+      "sha256": "d340327f48a1346a2735bf8bda78f5b053411f656d50274167a721f688c98ae3"
+    },
+    {
+      "path": "components/keep.sgmodule",
+      "bytes": 497,
+      "sha256": "a6ac21a1f47c8283304ab224d4f59478f6c8a2fd12757727145c37b769ae1cea"
+    },
+    {
+      "path": "components/kingsoft.sgmodule",
+      "bytes": 1158,
+      "sha256": "9076c6636c3399c489ff6a42b72faa6000fab3a503820dc2ac25ceb55d671eb3"
+    },
+    {
+      "path": "components/kuaikan.sgmodule",
+      "bytes": 503,
+      "sha256": "11147432a8cd5e4db1ec6d5358f4c18ba0efb3da892804a0e7571e8c4d4205d3"
+    },
+    {
+      "path": "components/kuwo.sgmodule",
+      "bytes": 924,
+      "sha256": "2776263b89b06e5936aa2f1f6be7d8c1116f80f6518410cac5753aa4539587ed"
+    },
+    {
+      "path": "components/laifeng.sgmodule",
+      "bytes": 476,
+      "sha256": "fa33e112c36fde32da040b25e7f66ad7d8edda4bf898621f73c99da2efbda8c3"
+    },
+    {
+      "path": "components/lechange.sgmodule",
+      "bytes": 579,
+      "sha256": "47bd1191c9d68d716b5cda9b6acd56f695ef295873a2803f2a3cf87780881149"
+    },
+    {
+      "path": "components/lenovo.sgmodule",
+      "bytes": 483,
+      "sha256": "ba7dc82aea52aa0c3f4d4011e73ea556260a5795b6eb97d755cd2e021998a08c"
+    },
+    {
+      "path": "components/mafengwo.sgmodule",
+      "bytes": 492,
+      "sha256": "f8d047005d2335da3050148eabd63a2994560efb59e3cdc894338fe41dbc323c"
+    },
+    {
+      "path": "components/manhuaren.sgmodule",
+      "bytes": 512,
+      "sha256": "92dbe324fd071fc2891b506c50f619a6724b843b9265ff86e8f13b7efc2535ad"
+    },
+    {
+      "path": "components/meituan-dianping.sgmodule",
+      "bytes": 1234,
+      "sha256": "7c1effcb6212dd0c467d2131168ff92944d8c64921980452cf95b2104b690ef5"
+    },
+    {
+      "path": "components/miaopai.sgmodule",
+      "bytes": 467,
+      "sha256": "76233a420d9111c13940892ac786ad3f303a52b090ad74f149d21d1f956d3029"
+    },
+    {
+      "path": "components/mixc.sgmodule",
+      "bytes": 495,
+      "sha256": "12fbec1d76d95198d66ab3d776725a30e0c2ee9c70e1e7d0c385befe6be675a6"
+    },
+    {
+      "path": "components/mogo-renter.sgmodule",
+      "bytes": 712,
+      "sha256": "ef3b50974cfdefa8e399a0ca89cbaf97acdf5722b23fb09d6fd35de47687fd08"
+    },
+    {
+      "path": "components/moji.sgmodule",
+      "bytes": 493,
+      "sha256": "3acc75df1d88cd916b2ba91afdbb2fe60b2fb44971ea09275872ad4045b51fe2"
+    },
+    {
+      "path": "components/mwee.sgmodule",
+      "bytes": 504,
+      "sha256": "51874c0cd26e7539d58568d3825c0ca11a1b960a3897fae2373cc7b8b61b69f0"
+    },
+    {
+      "path": "components/national-geographic.sgmodule",
+      "bytes": 580,
+      "sha256": "b7a581b9b508639269e6a3690eb966f21483852c0d5874cd2636120ff1753b9d"
+    },
+    {
+      "path": "components/naver-tv.sgmodule",
+      "bytes": 471,
+      "sha256": "8c591ed664fa048f998623dc44ea5da3f164bc8b88763486d15f8044cf2710af"
+    },
+    {
+      "path": "components/netease-cloudmusic.sgmodule",
+      "bytes": 494,
+      "sha256": "fdab0baff9d8997d2828cb3fa99d566bc4e2161f8070bf3dd64861750d459c3c"
+    },
+    {
+      "path": "components/netease-kaola.sgmodule",
+      "bytes": 477,
+      "sha256": "80333f3711b66f3619c3ffd453c3054abdf0e06c70a014bc08d13aa2effe53e9"
+    },
+    {
+      "path": "components/netease-mail.sgmodule",
+      "bytes": 678,
+      "sha256": "39b22d0f7afc5d34595892dcd1fb82400d9f1c47ac59524063b526d0a5ed7af9"
+    },
+    {
+      "path": "components/netease-moneykeeper.sgmodule",
+      "bytes": 520,
+      "sha256": "3b48e9fb4733a47fe0e4e306bb59ee5fa279a9f097454044ad0c45ee7bd15e36"
+    },
+    {
+      "path": "components/netease-news.sgmodule",
+      "bytes": 485,
+      "sha256": "882effd91abe29a1c795a6e016391deb404d5505cd654794359b12da569bf28f"
+    },
+    {
+      "path": "components/netease-snailread.sgmodule",
+      "bytes": 474,
+      "sha256": "8cea406a9f8ee1ca6ee8cc86b5efeea72efe487bd42b5d69c0a46ba9cc4a9073"
+    },
+    {
+      "path": "components/netease-you.sgmodule",
+      "bytes": 513,
+      "sha256": "880cdff3718e88c7c7bd2eccbaf5ca7e431b0657825f95af5a3ce297a1c7ba86"
+    },
+    {
+      "path": "components/niu.sgmodule",
+      "bytes": 490,
+      "sha256": "52a60b61276ae515a52c2831f2778592d4429c8d6da10ef772e121c616fa0410"
+    },
+    {
+      "path": "components/oray.sgmodule",
+      "bytes": 712,
+      "sha256": "11d4ac8cb2d31690d1d0ea713331a4a727ace410ec9a0df25d687d6a81579567"
+    },
+    {
+      "path": "components/pconline.sgmodule",
+      "bytes": 787,
+      "sha256": "ac945f207af20bc5ab5607214dfc1637646b92fc7c3a3c169afa34160f4a0024"
+    },
+    {
+      "path": "components/peanut-wifi.sgmodule",
+      "bytes": 500,
+      "sha256": "c4174a8fbb620be7afd0319b6d7ecf6b29a913eeb7d55d38d0d8fcba0ee01847"
+    },
+    {
+      "path": "components/piaogen.sgmodule",
+      "bytes": 484,
+      "sha256": "f1fec877dc546bafb19423fb468fc78e4587694466306721455fdda68e287205"
+    },
+    {
+      "path": "components/pinduoduo.sgmodule",
+      "bytes": 587,
+      "sha256": "9cec52bc38a204f197dc26f3066253e80e06bcdd15a80acb361e030223e32bf5"
+    },
+    {
+      "path": "components/privacy-pcdn.sgmodule",
+      "bytes": 603,
+      "sha256": "e02a4c5bd01cf09ee5aab9537e35cf234e9fcbd80770544df3c06f252acfc455"
+    },
+    {
+      "path": "components/qidian.sgmodule",
+      "bytes": 544,
+      "sha256": "40d123aefc2e34893499b9c38012107dedae7420a4f58be6ad5ebfa4f0c4a6a3"
+    },
+    {
+      "path": "components/qinbaobao.sgmodule",
+      "bytes": 459,
+      "sha256": "0311e15c5082199f6dd51995440a6a6da34b906ab43befe0282589f5f6022889"
+    },
+    {
+      "path": "components/qq.sgmodule",
+      "bytes": 1442,
+      "sha256": "bf15943c81bcada906e472febcaeb0f00acf899bdb803544f9126e3ebe845164"
+    },
+    {
+      "path": "components/quark.sgmodule",
+      "bytes": 734,
+      "sha256": "436634c36f139e6c314e4e48ec34c16c96a185f5ad48e093f3fd6a95f13b2197"
+    },
+    {
+      "path": "components/qyer.sgmodule",
+      "bytes": 560,
+      "sha256": "44242803887ee6e29a979c8aaa8465fb4f0f72f2ed0721bd4609c88fb1ba8466"
+    },
+    {
+      "path": "components/railway-12306.sgmodule",
+      "bytes": 400,
+      "sha256": "d82e8fa09f850a3f450f8cb5a30926f1dd6f8187548f8815cd5f4fe9e812aef6"
+    },
+    {
+      "path": "components/relx.sgmodule",
+      "bytes": 526,
+      "sha256": "e292b7ec3fa3d9f1b73236a89fa872dc86f54524b639047ba85fdef5d333502b"
+    },
+    {
+      "path": "components/rrtv.sgmodule",
+      "bytes": 697,
+      "sha256": "e10b353575311c4eaa17ae0e5f0b224ea70a378924c020b93aeb0155e56d9579"
+    },
+    {
+      "path": "components/score.sgmodule",
+      "bytes": 690,
+      "sha256": "bd2e341d47311b9d6709f4d73a98b290c39da91cdf171e1676cc3cbb08238b7c"
+    },
+    {
+      "path": "components/sf-express.sgmodule",
+      "bytes": 680,
+      "sha256": "233c27667d670c633a30909acf158cbad33b402506cd5dd862b6c358283c5255"
+    },
+    {
+      "path": "components/sf-hive.sgmodule",
+      "bytes": 477,
+      "sha256": "00971556aa0e0168eb1bb62a42d90aaf379c9f366a5fa724fe90386ce6588486"
+    },
+    {
+      "path": "components/shihuo.sgmodule",
+      "bytes": 543,
+      "sha256": "2b3c4e9ac30f5fb530e8de46acc9bfb495111db8e202cb627f4cdd64fdb346f7"
+    },
+    {
+      "path": "components/shouqi.sgmodule",
+      "bytes": 575,
+      "sha256": "6ce00fc2d7b5e148afccbe2f02f9a233ae01bcb856ff91e307b83d998234c727"
+    },
+    {
+      "path": "components/smzdm.sgmodule",
+      "bytes": 1121,
+      "sha256": "7db6f8b818ec1f181477c7a60cc69431f5f64102e8713f856b400edea4d896dd"
+    },
+    {
+      "path": "components/snail-sleep.sgmodule",
+      "bytes": 580,
+      "sha256": "e884e9c001d33188119aa179f694ea600528caedf48c5a9097036b53937b5e12"
+    },
+    {
+      "path": "components/sogou-input.sgmodule",
+      "bytes": 530,
+      "sha256": "5bf2945ed3bcfa56880d59a8c7c260fa9b4d9a87173182d2bdc24aa33a7c9cce"
+    },
+    {
+      "path": "components/sohu.sgmodule",
+      "bytes": 616,
+      "sha256": "00179f65991ccded47390aab419c36286cc4d0f365755cad08fdb2e50d99a5b5"
+    },
+    {
+      "path": "components/suning.sgmodule",
+      "bytes": 598,
+      "sha256": "44100a227f562e3a162c544da4fcadc5ce6dbe4c9f934040d8c8573b0534aade"
+    },
+    {
+      "path": "components/super-friday.sgmodule",
+      "bytes": 392,
+      "sha256": "31f6c919c2cd829431fccc442376c604c79ff4fd4e425e6149a05b7027bd688a"
+    },
+    {
+      "path": "components/taobao-tmall.sgmodule",
+      "bytes": 1255,
+      "sha256": "5bddbbc649ce8d30a3bd33826dbc1b741311021fe287f77628955ff449a7ec3c"
+    },
+    {
+      "path": "components/taopiaopiao.sgmodule",
+      "bytes": 557,
+      "sha256": "5307916cffbf50339c0551c98654853c8f1f556b49022ba6f55c3c06cda081a5"
+    },
+    {
+      "path": "components/tencent-game.sgmodule",
+      "bytes": 522,
+      "sha256": "c0fbbd5b3b300664ea2b2aaec47fc30303476e7bfdc63f7ff4a41509312409e0"
+    },
+    {
+      "path": "components/tencent-map.sgmodule",
+      "bytes": 495,
+      "sha256": "1cba9db529eac6601775031841f47cd795ff253363033ad593bd8e414aedb1ec"
+    },
+    {
+      "path": "components/tencent-music.sgmodule",
+      "bytes": 549,
+      "sha256": "fff580a4102978dba63e0835ea1cecf354d1cd11747333f45ec906b01b7d390b"
+    },
+    {
+      "path": "components/tencent-sports.sgmodule",
+      "bytes": 474,
+      "sha256": "04f9981a62c84e23f0793b4380bbdae74896202d737443354d6095aa0d3e5f1a"
+    },
+    {
+      "path": "components/thunder.sgmodule",
+      "bytes": 787,
+      "sha256": "e3c941607a223eef22e3b873572bc5fd9d157581b5c7f9f401a4db67c29a1195"
+    },
+    {
+      "path": "components/tianqitong.sgmodule",
+      "bytes": 621,
+      "sha256": "fede3cc4a0913389bad115338d8b0a0453ee49e62d7fa6c5ecc762e6e306dab2"
+    },
+    {
+      "path": "components/tuniu.sgmodule",
+      "bytes": 502,
+      "sha256": "1b3e6ea5cf06838782a943af8217a70cb33e271b5994288ed58f13e895d9531f"
+    },
+    {
+      "path": "components/tvbc.sgmodule",
+      "bytes": 500,
+      "sha256": "960f8724ea8ac7ea331c07ee5d552ee7bd7c9de5cf75126996c84b52fdc1b276"
+    },
+    {
+      "path": "components/ucar.sgmodule",
+      "bytes": 548,
+      "sha256": "d15022b50d68d3877525ea615d43b82d6ac13548ac469137c9db3e50051bd8db"
+    },
+    {
+      "path": "components/umeng-ads.sgmodule",
+      "bytes": 481,
+      "sha256": "9e95466f702459f00f70ffc08b56807216bf82060841c977cfcaf33467666c50"
+    },
+    {
+      "path": "components/umetrip.sgmodule",
+      "bytes": 481,
+      "sha256": "b5db1479eabfc911efdde5d73f727f46a73c0d73458483ced65054a03929b15e"
+    },
+    {
+      "path": "components/variflight.sgmodule",
+      "bytes": 579,
+      "sha256": "6fbdaf05bf808a90647204ef11207b25fb9699b85d138f289772510360abdd8b"
+    },
+    {
+      "path": "components/vistopia.sgmodule",
+      "bytes": 520,
+      "sha256": "0ba656a8284553077a9c277352f80fc970137c3415797760e1b84ef5b3af2ea7"
+    },
+    {
+      "path": "components/vue-video.sgmodule",
+      "bytes": 473,
+      "sha256": "eed5dd5d10c168cd27a01932c54ecb10fa323d61e6840b52397dc2bd0e913871"
+    },
+    {
+      "path": "components/waitwaitpay.sgmodule",
+      "bytes": 516,
+      "sha256": "074c1ae7c8277d0d537113072d27b168d308ff1bcad78dfb85f14df1a84363f9"
+    },
+    {
+      "path": "components/wallstcn.sgmodule",
+      "bytes": 494,
+      "sha256": "afe288e42872682401f383d252dc93587ab662ab7f1e90581cd1309c62781a45"
+    },
+    {
+      "path": "components/wechat.sgmodule",
+      "bytes": 986,
+      "sha256": "db37b3d93f077f4646377b5f9e243f2494d0a6df4e741b6e5d4d5231b31961cd"
+    },
+    {
+      "path": "components/wedoctor.sgmodule",
+      "bytes": 507,
+      "sha256": "db315c43b44cf444ec47a872645561ddb719d31e8b56c449ae6f5a03c4e69149"
+    },
+    {
+      "path": "components/weibo.sgmodule",
+      "bytes": 2076,
+      "sha256": "2a263babbe27b66bdc095c4f58c9b59316b6a5f1dfec156cdaf116d1e904f6c2"
+    },
+    {
+      "path": "components/weico.sgmodule",
+      "bytes": 513,
+      "sha256": "d4775a59f21bd430478b212f8ab7351b6a7455af2f65b9567a150aefe2c1c173"
+    },
+    {
+      "path": "components/weidian.sgmodule",
+      "bytes": 494,
+      "sha256": "fddcb385505e40164d443e3a300fcaeb81e2fe8785b3f9c723d2330e56966105"
+    },
+    {
+      "path": "components/xiachufang.sgmodule",
+      "bytes": 480,
+      "sha256": "4012175630b1f4e70993100669d7b28a17fc7498329b5ab4856db9f0e7c9f582"
+    },
+    {
+      "path": "components/xianyu.sgmodule",
+      "bytes": 1040,
+      "sha256": "f5ea80af045c67659c9000676ee6a0a74419624d17def734cd35787ed79c0bcb"
+    },
+    {
+      "path": "components/xiaochao-brain.sgmodule",
+      "bytes": 692,
+      "sha256": "60ac58702a6129660dca2c7e3b7198857856ee3af76f9144ee963e75d7e629ca"
+    },
+    {
+      "path": "components/xiaohongshu.sgmodule",
+      "bytes": 1322,
+      "sha256": "823d9b794f2ac969be25d52b9bebc28b88f6787bea890294d128823ed582e019"
+    },
+    {
+      "path": "components/xiaomi-services.sgmodule",
+      "bytes": 982,
+      "sha256": "d934a9ffe3620da7fea5e5e775ed30d4278d888aee37206709c750df627a84eb"
+    },
+    {
+      "path": "components/ximalaya.sgmodule",
+      "bytes": 1175,
+      "sha256": "b5cd7bcdbec2c7cc10724be786bf0876a27eae646f4bb5df732f73e57937bb63"
+    },
+    {
+      "path": "components/xueqiu.sgmodule",
+      "bytes": 592,
+      "sha256": "4859e12b1b139c2cf210de44ae0367b38573f031d56e27d4b52bda220651f688"
+    },
+    {
+      "path": "components/xunyou.sgmodule",
+      "bytes": 647,
+      "sha256": "6368e602b47b8ba344d0ba785a98a09c2bf664eb1fb8ee88bc5116737f0f67f2"
+    },
+    {
+      "path": "components/yinxiang.sgmodule",
+      "bytes": 477,
+      "sha256": "af714951a6e25dae08e8ee4962eb91573a332490c9d936463b52254b266044e0"
+    },
+    {
+      "path": "components/yizhibo.sgmodule",
+      "bytes": 695,
+      "sha256": "3a93fad705027d5474bd87f01a0fab5fb5d41fff229e7715796bd7a72fbbb76c"
+    },
+    {
+      "path": "components/youku.sgmodule",
+      "bytes": 1186,
+      "sha256": "0b0a84771cfa9e08aeb1c989ae915062dd111e41fa60c6f34674dcefc2bfe3c1"
+    },
+    {
+      "path": "components/youtube-plus.sgmodule",
+      "bytes": 523,
+      "sha256": "bd4e46c8addd138fd6d23e958c65781f1410c4eac961a3fe163d658f6f97cac4"
+    },
+    {
+      "path": "components/youtube.sgmodule",
+      "bytes": 1445,
+      "sha256": "0cab2cdb4ce5f23a54d2d52de7d1b45309b038e14581f6c2a1fbc56ac43d4ff7"
+    },
+    {
+      "path": "components/yueme-tv.sgmodule",
+      "bytes": 748,
+      "sha256": "64d21a4e28bb3a238f766ddaf3228b02327c5ecadab581214334ab7b6867311d"
+    },
+    {
+      "path": "components/yunmai.sgmodule",
+      "bytes": 490,
+      "sha256": "d906de1e14ac796b11bd443ae367d439958547a4be4406c01b307d2c53bd9173"
+    },
+    {
+      "path": "components/zhan.sgmodule",
+      "bytes": 480,
+      "sha256": "351b75829bf0e7af0864e9284ae174b656289661b37165c40b5e9a4a85251d59"
+    },
+    {
+      "path": "components/zhangyue.sgmodule",
+      "bytes": 624,
+      "sha256": "fe77fa1dfa6adf8379646d5b9116cdcae2667d02df719865034a79ee0773c709"
+    },
+    {
+      "path": "components/zhibo8.sgmodule",
+      "bytes": 749,
+      "sha256": "f0c6b6f9eda7175156a0232ab708dec617963dc4abd5a31e5ac89bd834908c40"
+    },
+    {
+      "path": "components/zhihu.sgmodule",
+      "bytes": 2065,
+      "sha256": "056acdd174eadd750e9b8b16a60ad9dc15ce5a8214f1ae3a3ae1648587dcfcc7"
+    },
+    {
+      "path": "components/zhuishushenqi.sgmodule",
+      "bytes": 634,
+      "sha256": "69580b44f09a3f8905a427ff998f046e695eeb856e062bd5c47d21ad21894382"
+    },
+    {
+      "path": "components/zuiyou.sgmodule",
+      "bytes": 465,
+      "sha256": "c43eaafc227bdfe4ecb2cfe7e68854c76b76c8e8d025e6281cfb76b3c78a0009"
+    },
+    {
+      "path": "components/zuoyebang.sgmodule",
+      "bytes": 470,
+      "sha256": "515d41efd42400bd5288548df591738cf923ffe59d6e5497edfc1dc784da757c"
+    },
+    {
+      "path": "docs/.nojekyll",
+      "bytes": 52,
+      "sha256": "1d28db956384fdae2a28a8133c15d76c919cae693a865702d38ddc9fac7238be"
+    },
+    {
+      "path": "docs/APP_PARITY.md",
+      "bytes": 64755,
+      "sha256": "24db63d4efe51d9b59a92b2ff04e81de0026a831135000ee1710eba20089a526"
+    },
+    {
+      "path": "docs/COVERAGE.md",
+      "bytes": 7202,
+      "sha256": "18e37e5dd220049ffcfe58864ce62fb179039059f8bf48a89c15d0ab0ab8fb58"
+    },
+    {
+      "path": "docs/FINAL_AUDIT.md",
+      "bytes": 10821,
+      "sha256": "9873c9992d71c77afe509674a73dfcdd33af73f3893da6bc2d6148f77ca88007"
+    },
+    {
+      "path": "docs/index.html",
+      "bytes": 1302,
+      "sha256": "3e0439b52b69e0603855748b7cba194283129172a5c7a4168b031445c4b2cf8b"
+    },
+    {
+      "path": "docs/install.html",
+      "bytes": 2596,
+      "sha256": "2b6c1962b4e9e9a40f3f4e0d70c5da3a24ee911fc18dda67f0f043d7ff6c5475"
+    },
+    {
+      "path": "docs/INSTALL.md",
+      "bytes": 6999,
+      "sha256": "aea4c2d79c543da9f4838bd53e0dfcc95922cb73b4305944941a12ad721ca9c0"
+    },
+    {
+      "path": "docs/LEGACY_AUDIT.md",
+      "bytes": 7385,
+      "sha256": "a30143362cdc2a8d3d4692047f5c4ae8bdd0a2800f30f3a4430e4c7a58be62f8"
+    },
+    {
+      "path": "docs/ORIGINAL_MODULE_PARITY.md",
+      "bytes": 8998,
+      "sha256": "68be4c002e7848fbfafc222e35f815201a87e007578828664cc93b92a45b1648"
+    },
+    {
+      "path": "docs/RELEASE_NOTES_v1.1.2.md",
+      "bytes": 2869,
+      "sha256": "a2a05e6599548012a00776eae9bcf33d1b871ed9b33acd1b9ac4afc06331bb0e"
+    },
+    {
+      "path": "docs/REPRODUCIBILITY.md",
+      "bytes": 1679,
+      "sha256": "f4f943fcdb36346027d9e1495d7b6f3371434314b2dbd7ffb2d41d73c38e33dd"
+    },
+    {
+      "path": "docs/ROLLBACK.md",
+      "bytes": 1998,
+      "sha256": "b579fb060493f00c2249ca8c67c1407c317376900f31b1c36774b661ba58117a"
+    },
+    {
+      "path": "docs/UPSTREAM_RESEARCH.md",
+      "bytes": 11485,
+      "sha256": "5854ec9b60bb9933fa6b13acdb56549c1cd37cd3e65f2cbc7d738692082bbe54"
+    },
+    {
+      "path": "extras/xianyu-ui.sgmodule",
+      "bytes": 915,
+      "sha256": "179cecf9dd633bbc39a78a7d5c448e64c708f917868cfbc0da134010e63d5067"
+    },
+    {
+      "path": "extras/zhihu-link-direct.sgmodule",
+      "bytes": 563,
+      "sha256": "47e00178400470262f40861869a025c8f4e14afcf34ed9f9fd12bb4b15393d02"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 1070,
+      "sha256": "a3992845502dfa1ce61a9dd5251cb9ad63f7e75837a2a66491006f1c1863c31e"
+    },
+    {
+      "path": "licenses/AWAvenue-GPL-3.0.txt",
+      "bytes": 35141,
+      "sha256": "589ed823e9a84c56feb95ac58e7cf384626b9cbf4fda2a907bc36e103de1bad2"
+    },
+    {
+      "path": "licenses/Maasea-Apache-2.0.txt",
+      "bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "path": "README.md",
+      "bytes": 5029,
+      "sha256": "8df9b44d6e697f0a2e4b485518dd8ee79bff2768d665c1750cd9c71f698e8ce5"
+    },
+    {
+      "path": "rules/AWAvenue-Ads-Rule.exclusions.json",
+      "bytes": 16464,
+      "sha256": "0a86dd135eaf5ef0668d3dd6d20df227e44b47be0ae79707d9b4f15d2b1f0780"
+    },
+    {
+      "path": "rules/AWAvenue-Ads-Rule.list",
+      "bytes": 21165,
+      "sha256": "310ad7547d9470cc00493190aad405e5c9f9ee7605722b3d9368d94e2033dab3"
+    },
+    {
+      "path": "scripts/blockad-router.js",
+      "bytes": 20915,
+      "sha256": "33e739a017eab18a41532898d42b8372f5ebf2e676b09994fcafd9e9893f9166"
+    },
+    {
+      "path": "scripts/youtube-response.js",
+      "bytes": 131913,
+      "sha256": "59773f5eb4300c31cc806c1be8531200884c600b0c25ffb921a2f641c884424d"
+    },
+    {
+      "path": "source/audit/app-parity.json",
+      "bytes": 219205,
+      "sha256": "445f38af5f56edd861bef44c75b59cc8673ccdc9d647b06c3a79c4709c1da4f1"
+    },
+    {
+      "path": "source/audit/legacy-catalog.manual.json",
+      "bytes": 8649,
+      "sha256": "04f9af98a1d698b47690ecbff1402aa1a8624ffb7b12bff6ca1afe8797ffdc70"
+    },
+    {
+      "path": "source/audit/legacy-inventory.json",
+      "bytes": 613495,
+      "sha256": "588d3baceded378e655e3103999eba056421460fd70d27a685c0c37416cc492e"
+    },
+    {
+      "path": "source/CHANGELOG.md",
+      "bytes": 5751,
+      "sha256": "a14fe3808d6a02a45242966bc5db8a8baadc7e334d1633d6be56681275d5cc09"
+    },
+    {
+      "path": "source/config/apps.mjs",
+      "bytes": 24169,
+      "sha256": "895870d8a98c83435aaa6ae0cc3a648426ece10ef49f6ef0d820fe2846adef71"
+    },
+    {
+      "path": "source/config/awa-exclusions.mjs",
+      "bytes": 10831,
+      "sha256": "7c10a9ca7be3b9a651eb62f14a769f05eb841a5f92ef5c8664ea941a2600ac84"
+    },
+    {
+      "path": "source/config/legacy-apps.mjs",
+      "bytes": 76180,
+      "sha256": "9d4b2a6b40c15b1c2b644431dc6e333d9cd616e89ef454b3516d2cddb44a26cf"
+    },
+    {
+      "path": "source/config/parity-decisions.mjs",
+      "bytes": 4113,
+      "sha256": "75c4ff6f291cc5097e22b0e753a1ab93d976a5cc93eac060bf935cc3d07d511d"
+    },
+    {
+      "path": "source/docs/.nojekyll",
+      "bytes": 52,
+      "sha256": "1d28db956384fdae2a28a8133c15d76c919cae693a865702d38ddc9fac7238be"
+    },
+    {
+      "path": "source/docs/APP_PARITY.md",
+      "bytes": 64755,
+      "sha256": "24db63d4efe51d9b59a92b2ff04e81de0026a831135000ee1710eba20089a526"
+    },
+    {
+      "path": "source/docs/COVERAGE.md",
+      "bytes": 7202,
+      "sha256": "18e37e5dd220049ffcfe58864ce62fb179039059f8bf48a89c15d0ab0ab8fb58"
+    },
+    {
+      "path": "source/docs/FINAL_AUDIT.md",
+      "bytes": 10821,
+      "sha256": "9873c9992d71c77afe509674a73dfcdd33af73f3893da6bc2d6148f77ca88007"
+    },
+    {
+      "path": "source/docs/index.html",
+      "bytes": 1302,
+      "sha256": "3e0439b52b69e0603855748b7cba194283129172a5c7a4168b031445c4b2cf8b"
+    },
+    {
+      "path": "source/docs/install.html",
+      "bytes": 2596,
+      "sha256": "2b6c1962b4e9e9a40f3f4e0d70c5da3a24ee911fc18dda67f0f043d7ff6c5475"
+    },
+    {
+      "path": "source/docs/INSTALL.md",
+      "bytes": 6999,
+      "sha256": "aea4c2d79c543da9f4838bd53e0dfcc95922cb73b4305944941a12ad721ca9c0"
+    },
+    {
+      "path": "source/docs/LEGACY_AUDIT.md",
+      "bytes": 7385,
+      "sha256": "a30143362cdc2a8d3d4692047f5c4ae8bdd0a2800f30f3a4430e4c7a58be62f8"
+    },
+    {
+      "path": "source/docs/ORIGINAL_MODULE_PARITY.md",
+      "bytes": 8998,
+      "sha256": "68be4c002e7848fbfafc222e35f815201a87e007578828664cc93b92a45b1648"
+    },
+    {
+      "path": "source/docs/RELEASE_NOTES_v1.1.2.md",
+      "bytes": 2869,
+      "sha256": "a2a05e6599548012a00776eae9bcf33d1b871ed9b33acd1b9ac4afc06331bb0e"
+    },
+    {
+      "path": "source/docs/REPRODUCIBILITY.md",
+      "bytes": 1679,
+      "sha256": "f4f943fcdb36346027d9e1495d7b6f3371434314b2dbd7ffb2d41d73c38e33dd"
+    },
+    {
+      "path": "source/docs/ROLLBACK.md",
+      "bytes": 1998,
+      "sha256": "b579fb060493f00c2249ca8c67c1407c317376900f31b1c36774b661ba58117a"
+    },
+    {
+      "path": "source/docs/UPSTREAM_RESEARCH.md",
+      "bytes": 11485,
+      "sha256": "5854ec9b60bb9933fa6b13acdb56549c1cd37cd3e65f2cbc7d738692082bbe54"
+    },
+    {
+      "path": "source/LICENSE",
+      "bytes": 1070,
+      "sha256": "a3992845502dfa1ce61a9dd5251cb9ad63f7e75837a2a66491006f1c1863c31e"
+    },
+    {
+      "path": "source/package-lock.json",
+      "bytes": 240,
+      "sha256": "8231cf50afe2051606316983900cc57f6155cbb1fedac78076a71c74ea23481e"
+    },
+    {
+      "path": "source/package.json",
+      "bytes": 1045,
+      "sha256": "9f7881960a0122252f52595eab039493459a1a3085127a6d5274be4b2174ebbd"
+    },
+    {
+      "path": "source/README.md",
+      "bytes": 5029,
+      "sha256": "8df9b44d6e697f0a2e4b485518dd8ee79bff2768d665c1750cd9c71f698e8ce5"
+    },
+    {
+      "path": "source/scripts/audit-legacy.mjs",
+      "bytes": 10856,
+      "sha256": "feedd7b88e1441d175e08653bc9343ffd31e54e284c217442f9ae82e26668dde"
+    },
+    {
+      "path": "source/scripts/audit-parity.mjs",
+      "bytes": 15938,
+      "sha256": "b06e610fd1dfd56916f0c1a07373be21845b72ca565014c8bd7728ac0b871c7d"
+    },
+    {
+      "path": "source/scripts/build.mjs",
+      "bytes": 23512,
+      "sha256": "8672bb565cf1f53d4fc3b249971fb60ac8b92e6bf9bebb1acd0857bf9a358d1a"
+    },
+    {
+      "path": "source/scripts/check-links.mjs",
+      "bytes": 3721,
+      "sha256": "affedd6532c46b5144e14112121c304eaa22e3bb53f7551103902a23c8544e51"
+    },
+    {
+      "path": "source/scripts/check-release.mjs",
+      "bytes": 14809,
+      "sha256": "be4f8dc578b7d49186e674123e4cf2220119bb21792437a6d32c64178b6b1a16"
+    },
+    {
+      "path": "source/scripts/check.mjs",
+      "bytes": 17972,
+      "sha256": "5930144b060688abba7e8d60aee3e0ac016419e9721d8d4190f9465a058fb4d7"
+    },
+    {
+      "path": "source/scripts/package-release.ps1",
+      "bytes": 4892,
+      "sha256": "c13d045a02e2f4d96e3ea2e0433a6ab36a320c4715e4b7078d7075ee9eaf66ae"
+    },
+    {
+      "path": "source/src/blockad-router.cjs",
+      "bytes": 20915,
+      "sha256": "33e739a017eab18a41532898d42b8372f5ebf2e676b09994fcafd9e9893f9166"
+    },
+    {
+      "path": "source/test/router.test.mjs",
+      "bytes": 23925,
+      "sha256": "a428244069a02b911fa17b7321d6479d9da90a8b001ab53862e867264fab8e52"
+    },
+    {
+      "path": "source/THIRD_PARTY_NOTICES.md",
+      "bytes": 5952,
+      "sha256": "c50005ff828972b67161f558410e4380c7ce3d4164838b0db304ddbfb1bc2b68"
+    },
+    {
+      "path": "source/third_party/awa/AWAvenue-Ads-Rule-Surge-RULE-SET.list",
+      "bytes": 25427,
+      "sha256": "7a85b45b3e087d257c7eee2316f34013fadd353d716204444d98a231034236c9"
+    },
+    {
+      "path": "source/third_party/awa/LICENSE",
+      "bytes": 35141,
+      "sha256": "589ed823e9a84c56feb95ac58e7cf384626b9cbf4fda2a907bc36e103de1bad2"
+    },
+    {
+      "path": "source/third_party/maasea/LICENSE",
+      "bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "path": "source/third_party/maasea/youtube.response.js",
+      "bytes": 132973,
+      "sha256": "f98483d5f5017514f82502253c0db5ce2d4ffb7839887aa2cadc22666f5a7f12"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.md",
+      "bytes": 5952,
+      "sha256": "c50005ff828972b67161f558410e4380c7ce3d4164838b0db304ddbfb1bc2b68"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+#!name=BlockAd · QQ 音乐启动广告
+#!desc=t_splash_info/targeted_ads 素材；保留音乐播放、歌单和账号。
+#!author=STERILITZIA02
+#!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
+#!version=1.1.2
+#!updated=2026-07-28
+#!category=去广告
+
+# GENERATED FILE — 请修改 config/apps.mjs / config/legacy-apps.mjs 后重新构建。
+# source-ref=v1.1.2
+
+[URL Rewrite]
+# 启动广告素材
+^https:\/\/y\.gtimg\.cn\/music\/common\/upload\/(?:t_splash_info|targeted_ads)(?:\/|$) - reject-img
+
+[MITM]
+hostname = %APPEND% y.gtimg.cn

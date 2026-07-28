@@ -1,0 +1,17 @@
+#!name=BlockAd · 腾讯地图
+#!desc=mwaSplash 开屏素材；保留地图、路线、定位和导航。
+#!author=STERILITZIA02
+#!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
+#!version=1.1.2
+#!updated=2026-07-28
+#!category=去广告
+
+# GENERATED FILE — 请修改 config/apps.mjs / config/legacy-apps.mjs 后重新构建。
+# source-ref=v1.1.2
+
+[URL Rewrite]
+# 开屏素材
+^https:\/\/4gimg\.map\.qq\.com\/mwaSplash(?:\/|$) - reject-img
+
+[MITM]
+hostname = %APPEND% 4gimg.map.qq.com

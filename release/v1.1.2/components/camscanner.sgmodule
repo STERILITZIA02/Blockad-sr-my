@@ -1,0 +1,17 @@
+#!name=BlockAd · 扫描全能王
+#!desc=get_startpic 开屏接口；不修改会员、OCR 或导出。
+#!author=STERILITZIA02
+#!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
+#!version=1.1.2
+#!updated=2026-07-28
+#!category=去广告
+
+# GENERATED FILE — 请修改 config/apps.mjs / config/legacy-apps.mjs 后重新构建。
+# source-ref=v1.1.2
+
+[URL Rewrite]
+# 开屏图片
+^https:\/\/api\.intsig\.net\/user\/cs\/operating\/app\/get_startpic(?:\/|\?|$) - reject-dict
+
+[MITM]
+hostname = %APPEND% api.intsig.net
