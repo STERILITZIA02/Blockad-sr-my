@@ -1,5 +1,5 @@
 #!name=BlockAd · 番茄小说
-#!desc=章末/激励广告 SDK、广告素材与预加载；移除旧版整域、共享业务域和静态 IP 封禁。
+#!desc=章末/激励广告 SDK 的精确载荷和专用素材；不整域断开 SDK，不解密共享字节业务域。
 #!author=STERILITZIA02
 #!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
 #!version=1.1.1
@@ -11,24 +11,22 @@
 
 [Rule]
 DOMAIN,ad.zijieapi.com,REJECT
-DOMAIN,api-access.pangolin-sdk-toutiao.com,REJECT
-DOMAIN,api-access.pangolin-sdk-toutiao-b.com,REJECT
 DOMAIN,api.iegadp.qq.com,REJECT
-DOMAIN,activity-ag.awemeughun.com,REJECT
-DOMAIN,gromore.pangolin-sdk-toutiao.com,REJECT
 DOMAIN,p6-ad-sign.byteimg.com,REJECT
 DOMAIN,p9-ad-sign.byteimg.com,REJECT
 DOMAIN,pglstatp-toutiao.com,REJECT
 
 [URL Rewrite]
-# 番茄使用的穿山甲广告拉取与配置
-^https:\/\/api-access(?:[1-5])?\.pangolin-sdk-toutiao(?:-b)?\.com\/api\/ad\/union\/sdk\/(?:get_ads|settings)\/ - reject-dict
-# 章末广告素材；只匹配广告专用目录
-^https:\/\/[^/]+\.(?:pglstatp-toutiao|pstatp)\.com\/(?:obj|img)\/(?:ad-app-package|ad|web\.business\.image)(?:\/|$) - reject
-# 明确广告渲染素材
-^https:\/\/[^/]+\.pglstatp-toutiao\.com\/obj\/ad-pattern\/renderer(?:\/|$) - reject
-# 只匹配带 from=ad 的旧广告马赛克素材
-^https:\/\/[^/]+\.pstatp\.com\/obj\/mosaic-legacy\/[^?]+\?(?=[^#]*\bfrom=ad(?:&|$)) - reject
+# 番茄使用的穿山甲广告拉取与配置；不整域断开 SDK
+^https:\/\/api-access\.pangolin-sdk-toutiao(?:[1-5]|-b)?\.com\/api\/ad\/union\/sdk\/(?:get_ads|settings)\/ - reject-dict
+# 穿山甲备用广告拉取与配置；仅匹配广告载荷路径
+^https:\/\/api\.pangolin-sdk-toutiao(?:[1-5]|-b)?\.com\/api\/ad\/union\/sdk\/(?:get_ads|settings)\/ - reject-dict
+# 穿山甲广告落地页包
+^https:\/\/ether-pack\.pangolin-sdk-toutiao\.com\/union\/endcard(?:\/|$) - reject-200
+# 穿山甲 sf3 明确广告渲染素材；不解密共享 pstatp 业务域
+^https:\/\/sf3-fe-tos\.pglstatp-toutiao\.com\/obj\/ad-pattern(?:\/|$) - reject-200
+# 穿山甲 sf6 明确广告渲染素材；不解密共享 pstatp 业务域
+^https:\/\/sf6-fe-tos\.pglstatp-toutiao\.com\/obj\/ad-pattern(?:\/|$) - reject-200
 
 [MITM]
-hostname = %APPEND% api-access.pangolin-sdk-toutiao.com, api-access.pangolin-sdk-toutiao-b.com, api-access1.pangolin-sdk-toutiao.com, api-access2.pangolin-sdk-toutiao.com, api-access3.pangolin-sdk-toutiao.com, api-access4.pangolin-sdk-toutiao.com, api-access5.pangolin-sdk-toutiao.com, *.pglstatp-toutiao.com, *.pstatp.com
+hostname = %APPEND% api-access.pangolin-sdk-toutiao.com, api-access.pangolin-sdk-toutiao-b.com, api-access.pangolin-sdk-toutiao1.com, api-access.pangolin-sdk-toutiao2.com, api-access.pangolin-sdk-toutiao3.com, api-access.pangolin-sdk-toutiao4.com, api-access.pangolin-sdk-toutiao5.com, api.pangolin-sdk-toutiao.com, api.pangolin-sdk-toutiao-b.com, api.pangolin-sdk-toutiao1.com, api.pangolin-sdk-toutiao2.com, api.pangolin-sdk-toutiao3.com, api.pangolin-sdk-toutiao4.com, api.pangolin-sdk-toutiao5.com, ether-pack.pangolin-sdk-toutiao.com, sf3-fe-tos.pglstatp-toutiao.com, sf6-fe-tos.pglstatp-toutiao.com

@@ -9,15 +9,15 @@
     "upstreamCommit": "d77f249050b440989cc9a640eabdb18573dc7c90",
     "upstreamSha256": "7a85b45b3e087d257c7eee2316f34013fadd353d716204444d98a231034236c9",
     "sourceRuleCount": 903,
-    "excludedCount": 120,
-    "outputRuleCount": 783
+    "excludedCount": 133,
+    "outputRuleCount": 770
   },
   "unifiedSummary": {
-    "rules": 24,
-    "rulesDeduplicatedByAwa": 46,
-    "rewrites": 228,
+    "rules": 23,
+    "rulesDeduplicatedByAwa": 40,
+    "rewrites": 227,
     "scripts": 30,
-    "mitmHosts": 266
+    "mitmHosts": 272
   },
   "components": [
     {
@@ -93,14 +93,14 @@
     {
       "id": "douyin",
       "name": "抖音",
-      "description": "穿山甲/Gromore 广告 SDK 的拉取、配置与明确广告素材；不解密或改写抖音主业务 feed。",
+      "description": "仅处理穿山甲/Gromore 精确广告载荷与专用素材；不解密抖音主业务 feed、评论、发布、搜索或直播域名。",
       "enabledByDefault": true,
       "path": "components/douyin.sgmodule"
     },
     {
       "id": "fanqie",
       "name": "番茄小说",
-      "description": "章末/激励广告 SDK、广告素材与预加载；移除旧版整域、共享业务域和静态 IP 封禁。",
+      "description": "章末/激励广告 SDK 的精确载荷和专用素材；不整域断开 SDK，不解密共享字节业务域。",
       "enabledByDefault": true,
       "path": "components/fanqie.sgmodule"
     },
@@ -1202,8 +1202,8 @@
   "files": [
     {
       "path": "BlockAd.Unified.sgmodule",
-      "bytes": 45300,
-      "sha256": "0d2002afbd3c4968ceea8a0a40de28ac1c20338e734c1a7f7d0473281010532e"
+      "bytes": 45437,
+      "sha256": "ff2dbfa2d0fb98e50c4f0bfa03e18ade0b65c4265d297ebced26cabefdc9c7cb"
     },
     {
       "path": "components/21jingji.sgmodule",
@@ -1392,8 +1392,8 @@
     },
     {
       "path": "components/douyin.sgmodule",
-      "bytes": 2071,
-      "sha256": "94bc7e580fce6dfa17f205982e8bb7ede844b78147b2d8a6a9e40b9f36537b72"
+      "bytes": 2278,
+      "sha256": "28a8ca27b174dae1e33a766b269c1be3b81fc3df76f4db74f4aa1b95c9999b5a"
     },
     {
       "path": "components/douyu.sgmodule",
@@ -1422,8 +1422,8 @@
     },
     {
       "path": "components/fanqie.sgmodule",
-      "bytes": 1718,
-      "sha256": "8dc4522c9b3117e71e29acf2e051bf6eebd35801a6a591788ccfdf44c60a80fc"
+      "bytes": 2015,
+      "sha256": "5d5c78522e4e0e33798aba30ac9b76376c078ff39569b1aea66fabf1d41fd139"
     },
     {
       "path": "components/feng.sgmodule",
@@ -1727,8 +1727,8 @@
     },
     {
       "path": "components/qq.sgmodule",
-      "bytes": 1509,
-      "sha256": "1e8d7aa241751bacacc041e3d3c44ba4a32d449d627bde0a5596a773a610d3a4"
+      "bytes": 1428,
+      "sha256": "fd00608e458e8b3e1befda53672d1297497dbc3f0dbacc2325f592f708a1e2eb"
     },
     {
       "path": "components/quark.sgmodule",
@@ -2047,13 +2047,13 @@
     },
     {
       "path": "rules/AWAvenue-Ads-Rule.exclusions.json",
-      "bytes": 12578,
-      "sha256": "80a9baba59204b55f4012b40792ebb4c74c92bfb9cc1423b055fc626469e3062"
+      "bytes": 14568,
+      "sha256": "971f15ef063ea69ca0b05cd42b36bee228caa62f9662932dfc22cedc6b5554e6"
     },
     {
       "path": "rules/AWAvenue-Ads-Rule.list",
-      "bytes": 22035,
-      "sha256": "bf3361bfa74908a1f19a104c752df2ae2a2d374e0dcd384edac9d6b5fe95424a"
+      "bytes": 21539,
+      "sha256": "5248b622e3ff23b87faa9d67de940e448a3357ee297bb83914c5b1ffce3a3118"
     },
     {
       "path": "scripts/blockad-router.js",

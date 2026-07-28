@@ -1,5 +1,5 @@
 # BlockAd safety-filtered AWAvenue snapshot
-# Excluded entries: 120
+# Excluded entries: 133
 # Details: AWAvenue-Ads-Rule.exclusions.json
 # Source is pinned and preserved verbatim under third_party/awa/.
 
@@ -207,13 +207,6 @@ DOMAIN,ap.dongqiudi.com
 DOMAIN,apd-pcdnwxlogin.teg.tencent-cloud.net
 DOMAIN,apd-pcdnwxnat.teg.tencent-cloud.net
 DOMAIN,apd-pcdnwxstat.teg.tencent-cloud.net
-DOMAIN,api-access.pangolin-sdk-toutiao-b.com
-DOMAIN,api-access.pangolin-sdk-toutiao.com
-DOMAIN,api-access.pangolin-sdk-toutiao1.com
-DOMAIN,api-access.pangolin-sdk-toutiao2.com
-DOMAIN,api-access.pangolin-sdk-toutiao3.com
-DOMAIN,api-access.pangolin-sdk-toutiao4.com
-DOMAIN,api-access.pangolin-sdk-toutiao5.com
 DOMAIN,api-ad-data.kajicam.com
 DOMAIN,api-ad-product.huxiu.com
 DOMAIN,api-ad.kajicam.com
@@ -373,7 +366,6 @@ DOMAIN,googleadservices-cn.com
 DOMAIN,googleadservices.com
 DOMAIN,googletagservices-cn.com
 DOMAIN,gorgon.youdao.com
-DOMAIN,gromore.pangolin-sdk-toutiao.com
 DOMAIN,gslb.hpplay.cn
 DOMAIN,h-adashx.ut.taobao.com
 DOMAIN,h.trace.qq.com
@@ -443,8 +435,6 @@ DOMAIN,livemonitor.huan.tv
 DOMAIN,lm10111.jtrincc.cn
 DOMAIN,log-api-mn.huxiu.com
 DOMAIN,log-api.huxiu.com
-DOMAIN,log-api.pangolin-sdk-toutiao-b.com
-DOMAIN,log-api.pangolin-sdk-toutiao.com
 DOMAIN,log-report.com
 DOMAIN,log-sdk.gifshow.com
 DOMAIN,log-sdk.ksapisrv.com
@@ -490,7 +480,6 @@ DOMAIN,metrics.data.hicloud.com
 DOMAIN,metrics.mzstatic.com
 DOMAIN,metrics2.data.hicloud.com
 DOMAIN,metrika.yandex.ru
-DOMAIN,mi.gdt.qq.com
 DOMAIN,micro-xdb.com
 DOMAIN,mission-pub.smart-tv.cn
 DOMAIN,mlog.bigda.com
@@ -735,7 +724,6 @@ DOMAIN,v1-ad.video.yximgs.com
 DOMAIN,v2-ad.video.yximgs.com
 DOMAIN,v2-api-channel-launcher.hismarttv.com
 DOMAIN,v2.gdt.qq.com
-DOMAIN,v2mi.gdt.qq.com
 DOMAIN,v3-ad.video.yximgs.com
 DOMAIN,v3.gdt.qq.com
 DOMAIN,vd6.l.qq.com
@@ -757,7 +745,6 @@ DOMAIN,webview.unityads.unity3d.com
 DOMAIN,widgets.outbrain.com
 DOMAIN,widgets.pinterest.com
 DOMAIN,wildcard.moatads.com.edgekey.net
-DOMAIN,win.gdt.qq.com
 DOMAIN,wn.x.jd.com
 DOMAIN,ws-keyboard.shouji.sogou.com
 DOMAIN,wv.inner-active.mobi

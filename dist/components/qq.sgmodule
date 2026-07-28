@@ -12,15 +12,12 @@
 [Rule]
 DOMAIN,ad.qq.com,REJECT
 DOMAIN,adsfile.qq.com,REJECT
-DOMAIN,mi.gdt.qq.com,REJECT
-DOMAIN,v2mi.gdt.qq.com,REJECT
-DOMAIN,win.gdt.qq.com,REJECT
 DOMAIN,pgdt.gtimg.cn,REJECT
 DOMAIN,pgdt.ugdtimg.com,REJECT
 
 [URL Rewrite]
-# GDT 广告拉取；返回空对象，避免 SDK 因断连高频重试
-^https:\/\/(?:mi|v2mi|win)\.gdt\.qq\.com\/gdt_(?:mview|view)\.fcg(?:\?|$) - reject-dict
+# GDT 广告拉取/点击；只清空广告载荷，不整域断开 SDK
+^https:\/\/(?:mi|v2mi|win)\.gdt\.qq\.com\/gdt_(?:mview|view|click)\.fcg(?:\?|$) - reject-dict
 # 腾讯新闻开屏
 ^https:\/\/r\.inews\.qq\.com\/getFullScreenPic(?:\?|$) - reject-dict
 # 腾讯新闻当前开屏与横幅广告

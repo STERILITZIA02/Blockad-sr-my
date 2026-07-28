@@ -5,8 +5,8 @@
     "sha256": "7a85b45b3e087d257c7eee2316f34013fadd353d716204444d98a231034236c9",
     "ruleCount": 903
   },
-  "excludedCount": 120,
-  "outputRuleCount": 783,
+  "excludedCount": 133,
+  "outputRuleCount": 770,
   "exclusions": [
     {
       "rule": "DOMAIN,abtest-ch.snssdk.com",
@@ -35,6 +35,34 @@
     {
       "rule": "DOMAIN,api5-normal-quic-lf.ixigua.com",
       "reason": "西瓜视频正常业务 API"
+    },
+    {
+      "rule": "DOMAIN,api-access.pangolin-sdk-toutiao-b.com",
+      "reason": "穿山甲 SDK 握手域；广告载荷改由精确 URL Rewrite 处理"
+    },
+    {
+      "rule": "DOMAIN,api-access.pangolin-sdk-toutiao.com",
+      "reason": "穿山甲 SDK 握手域；广告载荷改由精确 URL Rewrite 处理"
+    },
+    {
+      "rule": "DOMAIN,api-access.pangolin-sdk-toutiao1.com",
+      "reason": "穿山甲 SDK 握手域；广告载荷改由精确 URL Rewrite 处理"
+    },
+    {
+      "rule": "DOMAIN,api-access.pangolin-sdk-toutiao2.com",
+      "reason": "穿山甲 SDK 握手域；广告载荷改由精确 URL Rewrite 处理"
+    },
+    {
+      "rule": "DOMAIN,api-access.pangolin-sdk-toutiao3.com",
+      "reason": "穿山甲 SDK 握手域；广告载荷改由精确 URL Rewrite 处理"
+    },
+    {
+      "rule": "DOMAIN,api-access.pangolin-sdk-toutiao4.com",
+      "reason": "穿山甲 SDK 握手域；广告载荷改由精确 URL Rewrite 处理"
+    },
+    {
+      "rule": "DOMAIN,api-access.pangolin-sdk-toutiao5.com",
+      "reason": "穿山甲 SDK 握手域；广告载荷改由精确 URL Rewrite 处理"
     },
     {
       "rule": "DOMAIN,appcfg.v.qq.com",
@@ -103,6 +131,10 @@
     {
       "rule": "DOMAIN,gvideo.qpic.cn",
       "reason": "腾讯通用视频资源"
+    },
+    {
+      "rule": "DOMAIN,gromore.pangolin-sdk-toutiao.com",
+      "reason": "Gromore SDK 握手域；广告配置改由精确 URL Rewrite 处理"
     },
     {
       "rule": "DOMAIN,httpdns.bcelive.com",
@@ -197,6 +229,14 @@
       "reason": "直播 PCDN，默认保护播放"
     },
     {
+      "rule": "DOMAIN,log-api.pangolin-sdk-toutiao-b.com",
+      "reason": "穿山甲 SDK 日志接口；避免断连后的高频重试"
+    },
+    {
+      "rule": "DOMAIN,log-api.pangolin-sdk-toutiao.com",
+      "reason": "穿山甲 SDK 日志接口；避免断连后的高频重试"
+    },
+    {
       "rule": "DOMAIN,logupdate.avlyun.sec.miui.com",
       "reason": "安全更新日志"
     },
@@ -215,6 +255,10 @@
     {
       "rule": "DOMAIN,metrics.icloud.com",
       "reason": "Apple 核心域名，默认不做整域拦截"
+    },
+    {
+      "rule": "DOMAIN,mi.gdt.qq.com",
+      "reason": "GDT SDK 握手域；广告载荷改由精确 URL Rewrite 处理"
     },
     {
       "rule": "DOMAIN,mini-prog-drm.vodplayvideo.net",
@@ -445,6 +489,10 @@
       "reason": "会员服务调度"
     },
     {
+      "rule": "DOMAIN,v2mi.gdt.qq.com",
+      "reason": "GDT SDK 握手域；广告载荷改由精确 URL Rewrite 处理"
+    },
+    {
       "rule": "DOMAIN,virusinfo-cloudscan-cn.heytapmobi.com",
       "reason": "云安全扫描"
     },
@@ -455,6 +503,10 @@
     {
       "rule": "DOMAIN,weather-community-drcn.weather.dbankcloud.cn",
       "reason": "正常天气内容"
+    },
+    {
+      "rule": "DOMAIN,win.gdt.qq.com",
+      "reason": "GDT SDK 握手域；广告载荷改由精确 URL Rewrite 处理"
     },
     {
       "rule": "DOMAIN,ws.sj.qq.com",

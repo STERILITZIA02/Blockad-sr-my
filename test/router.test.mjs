@@ -24,6 +24,20 @@ function appMatchesUrl(appId, url) {
   );
 }
 
+function appMitmCoversUrl(appId, url) {
+  const app = apps.find((candidate) => candidate.id === appId);
+  assert.ok(app, `missing app config: ${appId}`);
+  const hostname = new URL(url).hostname.toLowerCase();
+  return app.mitm.some((rawPattern) => {
+    const pattern = rawPattern.toLowerCase();
+    if (pattern.startsWith("*.")) {
+      const suffix = pattern.slice(1);
+      return hostname.endsWith(suffix) && hostname.length > suffix.length;
+    }
+    return hostname === pattern;
+  });
+}
+
 test("路由清单只包含本地 JSON 处理器覆盖的接口族", () => {
   assert.deepEqual(routeIds, [
     "tencent-news",
@@ -210,6 +224,80 @@ test("微信、QQ、京东和淘宝广告入口精确匹配且不覆盖核心业
     }
     for (const url of fixture.protected) {
       assert.equal(appMatchesUrl(fixture.app, url), false, `不应匹配核心业务: ${url}`);
+    }
+  }
+});
+
+test("抖音广告 SDK 精确过滤且主视频流、刷新、评论和发布不进入 MITM", async () => {
+  const adPayloads = [
+    "https://api-access.pangolin-sdk-toutiao.com/api/ad/union/sdk/get_ads/?aid=1",
+    "https://api-access.pangolin-sdk-toutiao1.com/api/ad/union/sdk/settings/?aid=1",
+    "https://api.pangolin-sdk-toutiao-b.com/api/ad/union/sdk/get_ads/?aid=1",
+    "https://gromore.pangolin-sdk-toutiao.com/api/ad/union/mediation/config/",
+    "https://ether-pack.pangolin-sdk-toutiao.com/union/endcard/index.html",
+    "https://sf3-fe-tos.pglstatp-toutiao.com/obj/ad-pattern/renderer/package.js",
+  ];
+  const protectedBusinessUrls = [
+    "https://aweme.snssdk.com/aweme/v1/feed/?type=0",
+    "https://aweme.snssdk.com/aweme/v2/comment/list/?aweme_id=1",
+    "https://aweme.snssdk.com/aweme/v1/comment/publish/",
+    "https://aweme.snssdk.com/aweme/v1/comment/digg/",
+    "https://aweme.snssdk.com/aweme/v1/search/item/",
+    "https://aweme.snssdk.com/aweme/v1/user/profile/other/",
+    "https://aweme.snssdk.com/aweme/v1/live/room/enter/",
+    "https://aweme.snssdk.com/aweme/v1/aweme/post/",
+    "https://api.amemv.com/aweme/v1/feed/?pull_type=1",
+    "https://api.amemv.com/aweme/v2/comment/list/?aweme_id=1",
+    "https://api.amemv.com/aweme/v1/comment/publish/",
+    "https://api.amemv.com/aweme/v1/upload/video/",
+  ];
+
+  for (const url of adPayloads) {
+    assert.equal(appMatchesUrl("douyin", url), true, `应匹配广告载荷: ${url}`);
+    assert.equal(appMitmCoversUrl("douyin", url), true, `广告载荷缺少精确 MITM: ${url}`);
+  }
+  for (const url of protectedBusinessUrls) {
+    assert.equal(appMatchesUrl("douyin", url), false, `不应改写抖音业务接口: ${url}`);
+    assert.equal(appMitmCoversUrl("douyin", url), false, `不应解密抖音业务接口: ${url}`);
+  }
+
+  const blockedDomains = new Set(
+    (await readFile(
+      new URL("../dist/rules/AWAvenue-Ads-Rule.list", import.meta.url),
+      "utf8",
+    ))
+      .split(/\r?\n/)
+      .filter((line) => line.startsWith("DOMAIN,"))
+      .map((line) => line.split(",")[1]),
+  );
+  for (const hostname of [
+    "api-access.pangolin-sdk-toutiao.com",
+    "api-access.pangolin-sdk-toutiao1.com",
+    "gromore.pangolin-sdk-toutiao.com",
+    "log-api.pangolin-sdk-toutiao.com",
+    "mi.gdt.qq.com",
+    "v2mi.gdt.qq.com",
+    "win.gdt.qq.com",
+  ]) {
+    assert.equal(
+      blockedDomains.has(hostname),
+      false,
+      `SDK 握手/日志域不应被通用规则整域拒绝: ${hostname}`,
+    );
+  }
+});
+
+test("抖音与番茄不再包含共享字节业务域或共享素材域的通配 MITM", () => {
+  for (const appId of ["douyin", "fanqie"]) {
+    const app = apps.find((candidate) => candidate.id === appId);
+    assert.ok(app, `missing app config: ${appId}`);
+    for (const forbidden of [
+      "*.amemv.com",
+      "*.snssdk.com",
+      "*.pstatp.com",
+      "*.pglstatp-toutiao.com",
+    ]) {
+      assert.equal(app.mitm.includes(forbidden), false, `${appId}: ${forbidden}`);
     }
   }
 });

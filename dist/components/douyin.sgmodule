@@ -1,5 +1,5 @@
 #!name=BlockAd · 抖音
-#!desc=穿山甲/Gromore 广告 SDK 的拉取、配置与明确广告素材；不解密或改写抖音主业务 feed。
+#!desc=仅处理穿山甲/Gromore 精确广告载荷与专用素材；不解密抖音主业务 feed、评论、发布、搜索或直播域名。
 #!author=STERILITZIA02
 #!homepage=https://github.com/STERILITZIA02/Blockad-sr-my
 #!version=1.1.1
@@ -13,28 +13,24 @@
 DOMAIN,ad.zijieapi.com,REJECT
 DOMAIN,ads3-normal.zijieapi.com,REJECT
 DOMAIN,ads5-normal.zijieapi.com,REJECT
-DOMAIN,api-access.pangolin-sdk-toutiao.com,REJECT
-DOMAIN,api-access.pangolin-sdk-toutiao-b.com,REJECT
 DOMAIN,api.iegadp.qq.com,REJECT
-DOMAIN,activity-ag.awemeughun.com,REJECT
-DOMAIN,gromore.pangolin-sdk-toutiao.com,REJECT
 DOMAIN,p6-ad-sign.byteimg.com,REJECT
 DOMAIN,p9-ad-sign.byteimg.com,REJECT
 DOMAIN,pglstatp-toutiao.com,REJECT
 
 [URL Rewrite]
-# 穿山甲广告拉取与配置
-^https:\/\/api-access(?:[1-5])?\.pangolin-sdk-toutiao(?:-b)?\.com\/api\/ad\/union\/sdk\/(?:get_ads|settings)\/ - reject-dict
+# 穿山甲广告拉取与配置；保持 SDK 握手域可连接，避免断连重试
+^https:\/\/api-access\.pangolin-sdk-toutiao(?:[1-5]|-b)?\.com\/api\/ad\/union\/sdk\/(?:get_ads|settings)\/ - reject-dict
+# 穿山甲备用广告拉取与配置；仅匹配广告载荷路径
+^https:\/\/api\.pangolin-sdk-toutiao(?:[1-5]|-b)?\.com\/api\/ad\/union\/sdk\/(?:get_ads|settings)\/ - reject-dict
 # Gromore 广告配置与竞价
 ^https:\/\/gromore\.pangolin-sdk-toutiao\.com\/api\/ad\/union\/mediation\/(?:config|exchange)(?:\/|$) - reject-dict
-# 明确广告渲染素材
-^https:\/\/[^/]+\.pglstatp-toutiao\.com\/obj\/ad-pattern\/renderer(?:\/|$) - reject
-# 只匹配带 from=ad 的旧广告马赛克素材
-^https:\/\/[^/]+\.pstatp\.com\/obj\/mosaic-legacy\/[^?]+\?(?=[^#]*\bfrom=ad(?:&|$)) - reject
-# 抖音第一方明确广告接口；不匹配普通 feed 或播放接口
-^https:\/\/[^/]+\.amemv\.com\/aweme\/v\d+\/ad\/ - reject-dict
-# 字节系明确命名的 API/Motor 广告接口
-^https:\/\/[^/]+\.(?:amemv|snssdk)\.com\/(?:api|motor)\/ad\/ - reject-dict
+# 穿山甲广告落地页包；不阻断 SDK 配置或遥测连接
+^https:\/\/ether-pack\.pangolin-sdk-toutiao\.com\/union\/endcard(?:\/|$) - reject-200
+# 穿山甲 sf3 明确广告渲染素材
+^https:\/\/sf3-fe-tos\.pglstatp-toutiao\.com\/obj\/ad-pattern(?:\/|$) - reject-200
+# 穿山甲 sf6 明确广告渲染素材
+^https:\/\/sf6-fe-tos\.pglstatp-toutiao\.com\/obj\/ad-pattern(?:\/|$) - reject-200
 
 [MITM]
-hostname = %APPEND% api-access.pangolin-sdk-toutiao.com, api-access.pangolin-sdk-toutiao-b.com, api-access1.pangolin-sdk-toutiao.com, api-access2.pangolin-sdk-toutiao.com, api-access3.pangolin-sdk-toutiao.com, api-access4.pangolin-sdk-toutiao.com, api-access5.pangolin-sdk-toutiao.com, gromore.pangolin-sdk-toutiao.com, *.pglstatp-toutiao.com, *.pstatp.com, *.amemv.com, *.snssdk.com
+hostname = %APPEND% api-access.pangolin-sdk-toutiao.com, api-access.pangolin-sdk-toutiao-b.com, api-access.pangolin-sdk-toutiao1.com, api-access.pangolin-sdk-toutiao2.com, api-access.pangolin-sdk-toutiao3.com, api-access.pangolin-sdk-toutiao4.com, api-access.pangolin-sdk-toutiao5.com, api.pangolin-sdk-toutiao.com, api.pangolin-sdk-toutiao-b.com, api.pangolin-sdk-toutiao1.com, api.pangolin-sdk-toutiao2.com, api.pangolin-sdk-toutiao3.com, api.pangolin-sdk-toutiao4.com, api.pangolin-sdk-toutiao5.com, gromore.pangolin-sdk-toutiao.com, ether-pack.pangolin-sdk-toutiao.com, sf3-fe-tos.pglstatp-toutiao.com, sf6-fe-tos.pglstatp-toutiao.com
